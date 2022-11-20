@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>api &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/api/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 19 Mar 2015 17:07:14 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>api &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Ansible &#8211; automazione IT e Configuration Management (II parte)</title>
+		<link>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/</link>
+					<comments>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Thu, 19 Mar 2015 17:07:14 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[ansible]]></category>
+		<category><![CDATA[ansible galaxy]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[automazione it]]></category>
+		<category><![CDATA[configuration management]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[drupal]]></category>
+		<category><![CDATA[forwarded port]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[mongodb]]></category>
+		<category><![CDATA[nginx]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[playbook]]></category>
+		<category><![CDATA[provisioning]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[tomcat]]></category>
+		<category><![CDATA[vagrant]]></category>
+		<category><![CDATA[versioning]]></category>
+		<category><![CDATA[virtual environment]]></category>
+		<category><![CDATA[web dashboard]]></category>
+		<category><![CDATA[webserver]]></category>
+		<category><![CDATA[yml]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1073</guid>
+
+					<description><![CDATA[&#160; &#160; &#160; &#160; &#160; &#160; Nel primo articolo &#8220;Ansible per l’automazione IT ed il Configuration Management&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible. Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso &#8230; <a href="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1078" style="width: 433px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1078" data-attachment-id="1078" data-permalink="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/multistage-ansible/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg" data-orig-size="750,280" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Ansible + Vagrant Environment" data-image-description="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=600" class=" wp-image-1078" src="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&#038;h=158" alt="Ansible + Vagrant Environment" width="423" height="158" srcset="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&amp;h=158 423w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=150&amp;h=56 150w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300&amp;h=112 300w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg 750w" sizes="(max-width: 423px) 100vw, 423px" /><p id="caption-attachment-1078" class="wp-caption-text">Ansible + Vagrant Environment</p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Nel primo articolo &#8220;<a title="Ansible per l’automazione IT ed il Configuration Management" href="http://tuttiperlinux.com/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/">Ansible per l’automazione IT ed il Configuration Management</a>&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible.</p>
+<p>Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso una delle grandi novita&#8217; del Web degli ultimi mesi come <a href="https://www.vagrantup.com/">Vagrant</a>, di cui abbiamo parlato nell&#8217;articolo &#8220;<a title="Virtualizzazione e provisioning senza sforzo" href="http://tuttiperlinux.com/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">Virtualizzazione e provisioning senza sforzo</a>&#8220;.</p>
+<p>configuriamoci l&#8217;ambiente Vagrant:</p>
+<pre>$ vagrant box add pre http://files.vagrantup.com/precise32.box
+$ vagrant init precise32
+$ vagrant up</pre>
+<p>a seguito dell’ultimo comando, vedremo dei messaggi come questi:</p>
+<pre>Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- <strong>22 =&gt; 2222</strong> (adapter 1)
+[default] Booting VM...
+[default] Waiting for machine to boot. This may take a few minutes...
+[default] Machine booted and ready!
+Guest Additions Version: 4.2.0
+VirtualBox Version: 4.3
+[default] Mounting shared folders...
+[default] -- /vagrant
+
+</pre>
+<p>Vagrant ha quindi scaricato e creato per noi una macchina virtuale Ubuntu Precise (32bit). Scorrendo i messaggi ci sono due cose importanti da notare: la prima è che il traffico sulla porta 2222 del nostro pc locale sarà inoltrato alla porta 22 della macchina virtuale; la seconda è che l’utente “vagrant” sulla macchina remota può connettersi con la password “vagrant” ed ha già i privilegi per diventare root con sudo. Aggiorniamo quindi l&#8217;inventario delle macchine che decidete di coinvolgere modificando il file /etc/ansible/hosts</p>
+<p>Dopo aver preso confidenza con Vagrant iniziamo la configurazione dell’ambiente per <a href="https://www.ansible.com/">Ansible</a>, iniziando ad usarlo per automatizzare i compiti di ogni giorno.</p>
+<p>Configuriamo il file /etc/ansible/hosts tramite comando:</p>
+<pre># sudo bash -c 'echo [web] &gt;&gt; /etc/ansible/hosts'
+# sudo bash -c 'echo 127.0.0.1:2222 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant &gt;&gt; /etc/ansible/hosts'</pre>
+<p>Verifichiamo che ansible sia in grado di leggere correttamente i parametri inseriti nel file hosts usando il seguente comando:</p>
+<pre># ansible -m ping all
+127.0.0.1 | success &gt;&gt; {
+"changed": false,
+"ping": "pong"
+}</pre>
+<p><strong>Ansible facts</strong><br />
+come possiamo essere sicuri che la macchina a cui ci stiamo connettendo sia quella giusta ? Diamo un’occhiata ai “facts”, ovvero a tutte le informazioni che Ansible raccoglie…</p>
+<pre># ansible web -m setup | less</pre>
+<p>otteniamo cosi&#8217; una serie di dati in formato JSON tra cui notiamo che il nostro nuovo server ha come hostname ‘localhost’.<br />
+A titolo didattico scriveremo un playbook per installare un webserver nginx sul nuovo server.</p>
+<p>Ora apriamo un editor per iniziare a scrivere il nostro playbook che si chiamera&#8217; <strong>nginx.yml</strong> :</p>
+<pre>--- <strong>PLAYBOOK ottimizzato su Centos Linux</strong>
+- name: installa NGINX e avvia il servizio
+   remote_user: root
+   sudo: yes
+   hosts: web
+   tasks:
+   - name: installazione Nginx
+     apt: pkg=nginx state=installed update_cache=true
+     notify:
+     - start nginx
+   handlers:
+     - name: start nginx
+     service: name=nginx state=started
+</pre>
+<p>Come possiamo notare nel playbook abbiamo editato una lista di task, uno per ogni “step” del nostro compito.<br />
+Se stiamo usando virtualbox come hypervisor, dobbiamo aggiungere una riga al file (bastera&#8217; solo decommentarla) di configurazione di vagrant perché attivi il forwarding della porta 80 della guest sulla porta 8080 del nostro pc.</p>
+<p>(vedi <a href="https://docs.vagrantup.com/v2/networking/forwarded_ports.html">https://docs.vagrantup.com/v2/networking/forwarded_ports.html</a>)</p>
+<pre>config.vm.network "forwarded_port", guest: 80, host: 8080</pre>
+<p>e dare il comando per ricaricare la virtual machine con la nuova configurazione:</p>
+<pre>vagrant reload
+[default] Attempting graceful shutdown of VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 =&gt; 2222 (adapter 1)
+[default] -- <strong>80 =&gt; 8080</strong> (adapter 1)
+[default] Booting VM...
+[default] Machine booted and ready!</pre>
+<p>Ora possiamo lanciare il playbook</p>
+<pre># ansible-playbook nginx.yml
+
+PLAY [installa NGINX e avvia il servizio] *****************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [installazione Nginx] ***************************************************
+changed: [127.0.0.1]
+
+NOTIFIED: [start nginx] *******************************************************
+changed: [127.0.0.1]
+
+PLAY RECAP ********************************************************************
+127.0.0.1 : ok=3 changed=2 unreachable=0 failed=0
+</pre>
+<p>sulla macchina virtuale potrete visualizzare, dal syslog, quello che sta accadendo:</p>
+<p>ansible-apt: Invoked with dpkg_options=force-confdef,force-confold upgrade=None force=False package=[&#8216;nginx&#8217;] purge=False state=installed update_cache=True pkg=nginx default_release=None install_recommends=True deb=None cache_valid_time=None<br />
+Mar 19 15:59:33 precise32 ansible-service: Invoked with name=nginx pattern=None enabled=None state=started sleep=None arguments= runlevel=default</p>
+<p>ora sulla macchina virtuale mi ritrovo con l&#8217;nginx attivo e rispondente all&#8217;indirizzo 127.0.0.1:8080</p>
+<h1>Welcome to nginx!</h1>
+<p>Come gia accennato nel primo articolo la curva di apprendimento di questo ottimo strumento di Management dei server e&#8217; davvero bassa e funzionale, ed in poco tempo si e&#8217; in grado di gestire un ambiente ad alto volume di macchine.</p>
+<p>Questa è solo una semplice introduzione al mondo di Ansible, e prima di concludere vi faccio inoltre presente che Ansible non è solo usufruibile da linea di comando ma presso <a href="http://www.ansible.com/tower">il sito ufficiale</a> è disponibile una <strong>web dashboard</strong> che permette di controllare i job, avere report, statistiche e così via.</p>
+<p>Esiste anche <a href="https://galaxy.ansible.com/">Ansible Galaxy</a> , che è invece un repository comunitario di “ricette”, playbooks, task moduli e tutto quello che si può immaginare … Quindi se doveste installare e configurare software come tomcat, oracle, mongodb, jenkins, drupal, rabbitmq e tanti altri, troverete già tutto pronto.<br />
+Di sicuro una base di partenza molto comoda per le vostre personalizzazioni!</p>
+<p>Se tutto ciò non bastasse ancora, Ansible ha una API estremamente chiara e flessibile per scrivere moduli custom in Python o qualsiasi altro linguaggio, un esempio concreto</p>
+<p>#AnsibleConfigurationManagement</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" medium="image">
+			<media:title type="html">Ansible + Vagrant Environment</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Nginx HTTP 2.0 supportato entro fine 2015</title>
+		<link>https://tuttiperlinux.blog/2015/03/02/nginx-http-2-0-supportato-entro-fine-2015/</link>
+					<comments>https://tuttiperlinux.blog/2015/03/02/nginx-http-2-0-supportato-entro-fine-2015/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 02 Mar 2015 22:09:19 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[google spdy]]></category>
+		<category><![CDATA[http 2.0]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[multiplexing]]></category>
+		<category><![CDATA[nginx]]></category>
+		<category><![CDATA[protocollo tls]]></category>
+		<category><![CDATA[rfc]]></category>
+		<category><![CDATA[web server]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1054</guid>
+
+					<description><![CDATA[Nginx supporta da sempre l’attuale protocollo HTTP 1.1 ed il protocollo di Google SPDY. Con l’annuncio di HTTP 2.0, Nginx è pronta a convertire il supporto SPDY verso il neonato HTTP 2.0 entro la fine di quest’anno. Il protocollo HTTP 2.0 è la nuova generazione del protocollo attuale e su cui si basa l’intera Internet, &#8230; <a href="https://tuttiperlinux.blog/2015/03/02/nginx-http-2-0-supportato-entro-fine-2015/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1055" style="width: 277px" class="wp-caption alignleft"><img aria-describedby="caption-attachment-1055" data-attachment-id="1055" data-permalink="https://tuttiperlinux.blog/2015/03/02/nginx-http-2-0-supportato-entro-fine-2015/http_2-0/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg" data-orig-size="267,189" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Nginx e supporto HTTP 2.0" data-image-description="&lt;p&gt;Nginx e supporto HTTP 2.0&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Nginx e supporto HTTP 2.0&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg?w=267" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg?w=267" class="size-full wp-image-1055" src="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg?w=600" alt="Nginx e supporto HTTP 2.0" srcset="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg 267w, https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg?w=150 150w" sizes="(max-width: 267px) 100vw, 267px"   /><p id="caption-attachment-1055" class="wp-caption-text">Nginx e supporto HTTP 2.0</p></div>
+<p>Nginx supporta da sempre l’attuale protocollo HTTP 1.1 ed il protocollo di Google <strong>SPDY</strong>. Con l’annuncio di HTTP 2.0, Nginx è pronta a convertire il supporto SPDY verso il neonato HTTP 2.0 entro la fine di quest’anno.</p>
+<p>Il protocollo <strong>HTTP 2.0</strong> è la nuova generazione del protocollo attuale e su cui si basa l’intera Internet, che viene adesso rinnovato dopo circa 16 anni.</p>
+<p>Questo non significa certo che lo standard è stato finalizzato ed è appropriato all’operatività, ma indica che tutte le sue specifiche sono state definite in modo conclusivo e la documentazione può passare al gruppo RFC per l’approvazione finale come standard definitivo.</p>
+<p id="TWP17" class="twUnmatched">Comunque, anche dopo la dichiarazione a standard, il protocollo non entrera&#8217; subito in attività, anche perché dovrà, prima di tutto, essere implementato e supportato nei browser e nei Web server.</p>
+<p>Fra i Web server, Nginx si dice comunque pronto a supportare questa nuova tecnologia e il motivo di questa sicurezza sta nel pieno supporto alla versione draft 3.1 di SPDY, di cui Google ha deciso l’interruzione dello sviluppo e l’esclusione da Chrome.</p>
+<p>Il fatto che il protocollo HTTP 2.0 sia gran parte basato su SPDY permette a Nginx di avere già una solida base di codice pronto per essere riutilizzato ai fini di ospitare il nuovo HTTP quando questo diventerà lo standard. Secondo Owen Garrett, responsabile di prodotto per Nginx : &#8221; l’implementazione nel Web browser sarà facile e snella, in quanto la maggior parte dei siti Web SPDY già viene eseguita correttamente in Nginx &#8220;.</p>
+<p id="TWP17" class="twUnmatched"><strong>HTTP/2</strong> si baserà, inoltre, sulle stesse API che già conoscono e usano gli sviluppatori del web, ma in più offrirà feature esclusive a cui questi possono attingere. Fino ad oggi, ad esempio, bisognava adottare alcune tecniche di ottimizzazione per impedire alla pagina di effettuare troppe richieste HTTP. Il nuovo protocollo permetterà invece l&#8217;esecuzione di un numero superiore di richieste contemporanee, attraverso una tecnica chiamata <strong>multiplexing </strong>, senza che queste blocchino il caricamento degli elementi della pagina.</p>
+<p id="TWP18" class="twUnmatched"><strong>HTTP/2 effettua un numero di connessioni inferiore</strong> rispetto alle tecnologie attuali, fattore che si traduce con un carico minore richiesto ai server e alle reti per il caricamento dei dati. Il nuovo protocollo supporta TLS ma non obbligherà all&#8217;implementazione del layer di crittografia.</p>
+<p class="twUnmatched">Uno dei più <strong>importanti cambiamenti</strong> di HTTP 2.0 infatti sara&#8217; la <strong>crittografia </strong>basata<strong> su protocollo TLS</strong>, a cui Nginx dice di voler dare un approccio implementativo persistente. Inoltre, il nuovo protocollo Internet introduce alcune differenze nella gestione delle priorità, in modo da fornire un maggiore controllo sui flussi di traffico. Sempre secondo Garrett, la maggiore sfida non sarà tanto nell’implementazione nei browser e nei Web server, quanto nell’adeguamento dei siti Web, che dovranno essere ottimizzati per il protocollo HTTP 2.0.</p>
+<p>&#8220;Ci potrebbe essere molto lavoro di ottimizzazione e re-ingegnerizzazione dei siti Web, soprattutto per mantenere la compatibilità con i client più anziani&#8221; ha detto Garrett.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/03/02/nginx-http-2-0-supportato-entro-fine-2015/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/03/http_2-0.jpg" medium="image">
+			<media:title type="html">Nginx e supporto HTTP 2.0</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Introduzione a CouchDB</title>
+		<link>https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sat, 26 Jul 2014 13:46:49 +0000</pubDate>
+				<category><![CDATA[DB]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[couchdb]]></category>
+		<category><![CDATA[crud]]></category>
+		<category><![CDATA[database]]></category>
+		<category><![CDATA[futon]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[localhost]]></category>
+		<category><![CDATA[nosql]]></category>
+		<category><![CDATA[peer-to-peer]]></category>
+		<category><![CDATA[postgresql]]></category>
+		<category><![CDATA[restful]]></category>
+		<category><![CDATA[tuple]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=213</guid>
+
+					<description><![CDATA[CouchDB e&#8217; un database documentale NoSQL disponibile con l&#8217;ampia licenza Apache. Apache CouchDB e&#8217; un moderno documentale richiamabile semplicemente con l&#8217;HTTP e che al tempo stesso offre le piu&#8217; avanzate funzionalita&#8217; di replicazione dati e di ricerca in parallelo (Map/Reduce). CouchDB (acronimo di Cluster Of Unreliable Commodity Hardware) e&#8217; uno dei piu&#8217; diffusi DB documentali &#8230; <a href="https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><b><a href="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png"><img data-attachment-id="214" data-permalink="https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/couch/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" data-orig-size="160,112" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="couchDB" data-image-description="&lt;p&gt;Performing Web DB&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" class="alignleft size-full wp-image-214" src="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=600" alt="couchDB" srcset="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png 160w, https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=150 150w" sizes="(max-width: 160px) 100vw, 160px"   /></a>CouchDB</b> e&#8217; un database documentale NoSQL disponibile con l&#8217;ampia licenza Apache.<br />
+Apache CouchDB e&#8217; un moderno documentale richiamabile semplicemente con l&#8217;HTTP e che al tempo stesso offre le piu&#8217; avanzate funzionalita&#8217; di replicazione dati e di ricerca in parallelo (Map/Reduce).</p>
+<p>CouchDB (acronimo di Cluster Of Unreliable Commodity Hardware) e&#8217; uno dei piu&#8217; diffusi DB documentali Web grazie alla sua velocita&#8217;, alla flessibilita, alla semplicita&#8217; di utilizzo ed al&#8230; prezzo!</p>
+<h2>Installazione</h2>
+<p>Installare CouchDB e cURL (che serve per accedere) e&#8217; facile su Linux (eg. RedHat, Fedora, CentOS, Scientific Linux, &#8230;):</p>
+<div class="video"><b>yum install couchdb curl -y</b></div>
+<div class="video">oppure</div>
+<div class="video"><strong>sudo aptitude install couchdb curl</strong></div>
+<div class="video"></div>
+<div class="video">Ora bisogna far partire il server CouchDB con il comando <b>couchdb</b>. Per verificare se funziona tutto basta un comando:</div>
+<div class="video"># <b>curl <a href="http://127.0.0.1:5984" rel="nofollow">http://127.0.0.1:5984</a><br />
+</b>{&#8220;couchdb&#8221;:&#8221;Welcome&#8221;,&#8221;uuid&#8221;:&#8221;fd91d8b7b77c7f6d75d5937326a95ad2&#8243;,&#8221;version&#8221;:&#8221;1.5.0&#8243;,&#8221;vendor&#8221;:{&#8220;version&#8221;:&#8221;14.04&#8243;,&#8221;name&#8221;:&#8221;Ubuntu&#8221;}}<b><br />
+</b></div>
+<p>CouchDB e&#8217; disponibile per tutti i sistemi UNIX-based ed anche sulle piattaforme MS-Windows e Mac OS X. Installare le versioni precedenti di CouchDB non era cosi&#8217; semplice: bisognava partire dall&#8217;installazione del linguaggio di programmazione Erlang e ricompilare&#8230;</p>
+<h2>Utilizzo</h2>
+<p>CouchDB e&#8217; accessibile esclusivamente attraverso un HTTP-based RESTful API, cio&#8217; significa che, anziche&#8217; collegarsi al DB server utilizzando un&#8217;applicazione client per interagire con il sistema, basta utilizzare un software in grado di interagire con un HTTP server web per fare richieste. CouchDB che a sua volta eseguira&#8217; le azioni nel database, restituendo una risposta appropriata quando finito.<br />
+Quindi e&#8217; possibile gestire il database semplicemente visitando gli URL nel browser web oppure utilizzando gli strumenti da riga di comando come curl o, cosa piu&#8217; importante, attraverso qualsiasi linguaggio di programmazione che supporta richieste HTTP.<br />
+L&#8217;implementazione dell&#8217;interfaccia REST (Representational Transfer State) su CouchDB e&#8217; molto completa poiche&#8217; non si limita al CRUD (CREATE, READ, UPDATE, DELETE) ma ogni operazione svolta su CouchDB e&#8217; richiamabile con l&#8217;HTTP.</p>
+<h3>Futon</h3>
+<p>CouchDB possiede una sua interfaccia web molto user friendly, Futon, dalla quale e&#8217; possibile eseguire qualsiasi operazione per la gestione di un database, come l&#8217;inserimento, la visualizzazione, la modifica e la cancellazione dei dati. Inoltre <strong>Futon</strong> contiene anche le principali funzionalita&#8217; di amministrazione di un database, come le impostazioni di configurazione, la replicazione dei dati, definizione dei ruoli e privilegi e uno strumento di testing.<br />
+Per accedere all&#8217;interfaccia web basta collegarsi da browser a <b>localhost:5984/_utils</b></p>
+<h3>cURL</h3>
+<p>Per i piu&#8217; affezionati alla linea di comando (come me per esempio), si puo&#8217; usare curl, un ottimo tool utile per trasferire dati da/a un server utilizzando vari protocolli, tra cui HTTP, HTTPS, FTP. Il modo per farlo e&#8217; digitando:</p>
+<pre><i>curl &lt;opzioni&gt; &lt;ip_host&gt;:5984/&lt;database&gt;/&lt;record&gt;</i>.</pre>
+<p>Da notare che nel URL viene specificata la porta 5984, e&#8217; quella usata dal processo di couchdb.<br />
+Tra le opzioni piu&#8217; importanti: <b>-X</b> per specificare il tipo di richiesta http: <b>GET</b> per richiedere dati, <b>PUT</b> e <b>POST</b> per modificare dati o <b>DELETE</b> per cancellare. Inoltre <b>-d</b> permette di specificare i dati da includere nella richiesta, ad esempio per modificare documenti nel database.<br />
+Esempi:</p>
+<pre># Crea il database "libri"
+curl -X PUT http://127.0.0.1:5984/libri
+
+# Visualizza il contenuto di "libri" (all'inizio e' vuoto)
+curl -X GET http://127.0.0.1:5984/libri
+
+# Crea il documento con _id "lafineeilmioinizio" dentro il database "libri"
+curl -X PUT http://127.0.0.1:5984/libri/lafineeilmioinizio \
+ -d '{"titolo":"La fine e il mio inizio", "autore":"Tiziano Terzani", 
+      "casa_editrice":"Longanesi", "prezzo":"18.60"}'
+
+# NB: Tutte le volte che un documento viene modificato riceve un revision number
+# Modifica un documento aggiungendo come allegato un'immagine
+curl -X PUT http://127.0.0.1:5984/libri/lafineeilmioinizio/cover.jpg?rev=1-XXX \
+ --data-binary @images/budda.jpg -H "Content-Type: image/jpg"
+
+# Crea un documento hungergames copiando il contenuto da un altro documento
+curl -X COPY http://127.0.0.1:5984/libri/lafineeilmioinizio -H "Destination: hungergames"
+
+# Cancella il documento con _id "hungergames"
+curl -X DELETE http://127.0.0.1:5984/libri/hungergames?rev=1-YYY 
+
+# Effettua un caricamento massivo di documenti da file
+curl -X POST http://127.0.0.1:5984/libri/_bulk_docs -H "Content-type: application/json" -d @biblio.json
+
+# Visualizza tutto il contenuto del database "libri" e il dettaglio dei documenti presenti
+curl -X GET http://127.0.0.1:5984/libri/_all_docs?include_docs=true
+
+</pre>
+<h2>Architettura</h2>
+<p>CouchDB e&#8217; un database document-oriented. Cio&#8217; significa che a differenza dei piu&#8217; tradizionali DBMS (Database Management System) relazionali come Oracle e PostgreSQL, i dati non vengono memorizzati in tabelle (o se volete, relazioni), ma in &#8220;documenti&#8221;.</p>
+<p>Su un database relazionale le tabelle hanno una struttura rigida, sono composte da campi definiti prima della effettiva memorizzazione dei dati. Le tabelle vanno dichiarate con gli opportuni statement DDL, prima di essere utilizzate. Ogni tabella e&#8217; composta da tuple (ovvero le righe della tabella o i record) che contengono i dati. La gestione dei dati si effettua con statement DML. I comandi DDL e DML della stragrande maggioranza dei DB relazionali sono in SQL. Ora dimentichiamoci tutto questo&#8230;</p>
+<p>In CouchDB il concetto di relazione o di tabella non esiste, l&#8217;elemento fondamentale e&#8217; il documento che contiene al suo interno tutti i dati relativi, organizzati in modo eterogeneo. Si possono aggiungere e modificare i campi anche dopo l&#8217;effettivo inserimento dei dati. In questo modo record appartenenti alla stessa categoria di informazioni possono avere campi diversi tra di loro. La chiave primaria dei database relazionali viene tradotta nel campo univoco <i>_id</i> di CouchDB, creato automaticamente dall&#8217;engine del DBMS (ma che e&#8217; anche possibile indicare in modo esplicito.</p>
+<p>Dal punto di vista del sistema operativo CouchDB si presenta come un unico processo beam.smp in ascolto sulla porta TCP 5984 (6984 se e&#8217; abilitato l&#8217;HTTPS). In realta&#8217; all&#8217;interno del processo operano diversi thread con compiti specifici.<br />
+I file utilizzati da CouchDB su Linux si trovano in /etc/couchdb, i file di database su /var/lib/couchdb, i log su /var/log/couchdb.</p>
+<h3><strong>Consistenza dei dati e replicazione</strong></h3>
+<p>CouchDB non utilizza alcun meccanismo di locking ma sfrutta l&#8217;MVCC (Multiversion Concurrency Control), ogni modifica di un oggetto ne crea una nuova versione. Le versioni precedenti non vengono cancellate. Se due modifiche vanno in conflitto poiche&#8217; accedono allo stesso documento, la seconda riceve un errore in save. L&#8217;applicazione deve riprendere l&#8217;ultima versione del documento e rieseguire l&#8217;UPDATE.<br />
+L&#8217;isolamento e&#8217; mantenuto solo a livello di un singolo documento, questa e&#8217; una notevole semplificazione, rispetto alla complessa logica transazionale di altri database, ma consente l&#8217;ottimizzazione, la parallelizzazione e la distribuzione dei dati in modo semplice. A livello di accesso al file di dati ogni singola modifica ad un documento rispetta le proprieta ACID (Atomic Consistent Isolated Durable) con la serializzazione delle modifiche sui documenti e la scrittura sincrona sul disco.</p>
+<p>Piu&#8217; database CouchDB possono essere collegati tra loro in modo molto semplice. I database vengono aggiornati tra loro con una replicazione peer-to-peer incrementale implementata nativamente nell&#8217;engine. CouchDB permette una replicazione bidirezionale asincrona, utilizza un meccanismo automatico di risoluzione dei conflitti e fornisce una <b>eventual consistency</b> tra i database. Se i database sono ospitati su nodi differenti si ottiene con questo la distribuzione dei dati.<br />
+La replicazione di CouchDB puo&#8217; essere utilizzata sia per sincronizzare database locali che per complesse configurazioni con sharding dei dati.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" medium="image">
+			<media:title type="html">couchDB</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

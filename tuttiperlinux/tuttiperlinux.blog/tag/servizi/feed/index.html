@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>servizi &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/servizi/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 07 Aug 2014 06:43:47 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>servizi &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Catturare il traffico di rete</title>
+		<link>https://tuttiperlinux.blog/2014/08/06/catturare-il-traffico-di-rete/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/06/catturare-il-traffico-di-rete/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 06 Aug 2014 22:41:38 +0000</pubDate>
+				<category><![CDATA[Load Balancing]]></category>
+		<category><![CDATA[back-end]]></category>
+		<category><![CDATA[bilanciamento]]></category>
+		<category><![CDATA[carico]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[load balancing]]></category>
+		<category><![CDATA[localhost]]></category>
+		<category><![CDATA[opensource]]></category>
+		<category><![CDATA[pound]]></category>
+		<category><![CDATA[rinetd]]></category>
+		<category><![CDATA[servizi]]></category>
+		<category><![CDATA[url]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=281</guid>
+
+					<description><![CDATA[Redirect fai da te Molte volte vi capitera&#8217; (ed a me e&#8217; capitato piu&#8217; volte) di aver bisogno di gestire il traffico di rete ottimizzandolo, filtrandolo e redirezionandolo. Si pensi, ad esempio, ai test di sviluppo effettuati sulle molte VM in cui si deve tenere conto della quantita&#8217; di Server interessati e del carico di &#8230; <a href="https://tuttiperlinux.blog/2014/08/06/catturare-il-traffico-di-rete/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h3><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg"><img data-attachment-id="282" data-permalink="https://tuttiperlinux.blog/2014/08/06/catturare-il-traffico-di-rete/redirect/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg" data-orig-size="252,200" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="redirect" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg?w=252" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg?w=252" class="alignleft size-full wp-image-282" src="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg?w=600" alt="redirect" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg 252w, https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg?w=150 150w" sizes="(max-width: 252px) 100vw, 252px"   /></a>Redirect fai da te </strong></h3>
+<p>Molte volte vi capitera&#8217; (ed a me e&#8217; capitato piu&#8217; volte) di aver bisogno di gestire il traffico di rete ottimizzandolo, filtrandolo e redirezionandolo.<br />
+Si pensi, ad esempio, ai test di sviluppo effettuati sulle molte VM in cui si deve tenere conto della quantita&#8217; di Server interessati e del carico di rete da gestire bilanciando quest&#8217;ultimo e gestendo le porte interessate.</p>
+<p>In questo articolo illustrero&#8217; alcuni dei migliori tra quelli da me usati in ambito OpenSource sono, <strong>Rinetd,</strong> <strong>LVS</strong> e <strong>Pound</strong>, ma l&#8217;elenco potrebbe ancora allungarsi, magari per un seguito.</p>
+<p><strong>PARTIAMO</strong></p>
+<p><strong>rinetd</strong></p>
+<p>E&#8217; il piu&#8217; semplice dei tre, dunque partiremo da questo; esso permette di ridirigere una destinazione TCP, definita attraverso una coppia <em>&lt;indirizzo-ip&gt;</em>:<em>&lt;numero-di-porta&gt;</em>, presso un&#8217;altra coppia di questi valori. Lo scopo di questo può essere semplicemente quello di dirigere una porta locale verso un&#8217;altra porta locale, oppure si può arrivare a intercettare il traffico IP che attraversa un <em>router</em> in modo da ridirigere alcune coppie di indirizzi e porte presso altre destinazioni.</p>
+<p>Tutto è composto semplicemente da un <em>daemon</em>, <b><code>rinetd</code></b>, che si avvale di un file di configurazione, <code>/etc/rinetd.conf</code>, nel quale si indicano semplicemente le ridirezioni da applicare.</p>
+<p>La presenza in funzione di <b><code>rinetd</code></b> è incompatibile con altri <em>daemon</em> che stanno in ascolto delle stesse porte che devono essere ridirette, anche se queste sono intese appartenere a <em>host</em> differenti.</p>
+<p>Il programma rinetd è il demone che si occupa di ridirigere il traffico TCP in base a quanto contenuto nel file di configurazione <code class="file">/etc/rinetd.conf<br />
+E' sufficiente avviarlo e, se il file di configurazione risultera'corretto, iniziare subito a lavorarci. All'avvio, dopo aver letto la configurazione, rinetd deve poter stare in ascolto dell'indirizzo da ridirigere e della porta relativa; qualunque sia l'indirizzo in questione, è necessario che non ci sia già un programma locale che fa la stessa cosa su quella stessa porta; per esempio, non si può tentare di ridirigere il servizio HTTP di un indirizzo qualunque, se questo è presente localmente.</code></p>
+<p>Un esempio di configurazione del file rinetd.conf dovrebbe essere sufficiente a chiarire le idee su questo file. Supponiamo di voler dirottare il traffico diretto verso l&#8217;indirizzo IP 10.11.12.13 alla porta 80, in modo che questo vada verso l&#8217;indirizzo IP 192.168.1.7, alla porta 80.</p>
+<pre>120.121.122.123 80 192.168.1.7 80</pre>
+<p>L&#8217;indirizzo da ridirigere, può appartenere a un&#8217;interfaccia del nodo presso cui si trova in funzione il demone rinetd,<br />
+oppure no, purché i pacchetti diretti a tale indirizzo transitino attraverso il nodo che attua la ridirezione.<br />
+Se si vuole apprendere il funzionamento di rinetd senza disporre di una rete vera e propria, basta una direttiva di configurazione simile a quella seguente:</p>
+<pre>localhost 8888 localhost html</pre>
+<p>In questo modo, la porta locale 8888 viene ridiretta sulla porta del servizio HTTP (80). Se il servizio HTTP è attivo, si può verificare la ridirezione con un programma di navigazione qualunque, puntando all&#8217;URL</p>
+<pre>http://localhost:8888</pre>
+<p>Rispetto ai prossimi due tool rinetd non e&#8217; in grado di fungere anche come LoadBalancer.</p>
+<hr />
+<p><strong>ipvsadm</strong></p>
+<p>Questo servizio aggiorna la tabella d&#8217;instradamento IPVS nel kernel. Il demone <strong><code class="command">lvs</code></strong> imposta e gestisce Load Balancer Add-On richiamando <strong><code class="command">ipvsadm</code></strong> per aggiungere, modificare e cancellare le voci all&#8217;interno della tabella d&#8217;instradamento IPVS. Inoltre ipvsadm fa parte del paccheto LVS  che è una soluzione di bilanciamento del carico avanzato per sistemi Linux.<br />
+Si tratta di un progetto open source avviato da Wensong Zhang nel lontano 1998. La missione del progetto è di costruire un server ad alte prestazioni e ad alta disponibilità per Linux utilizzando tecnologie di clustering, offrendo una buona scalabilità, affidabilità e facilità di manutenzione. L’opera principale del progetto LVS è ora quello di sviluppare un software avanzato di bilanciamento del carico IP (IPVS), ed un software di bilanciamento a livello dell’applicazione (KTCPVS), ed i componenti di gestione dei cluster.</p>
+<h3>Ipvs in pratica</h3>
+<p>IPVS (IP Virtual Server) implementa un bilanciatore di carico a livello Layer 4 della rete. IPVS in esecuzione su un host si comporta come un sistema di bilanciamento del carico di fronte ad un insieme di server reali in cluster, può indirizzare le richieste per servizi basati si TCP/UDP ai veri server, e fa apparire i servizi dei server reali come un unico servizio virtuale su un unico indirizzo IP.</p>
+<p>La componente IPVS è presente in tutti i recenti Kernel, per installare la componente in user-space utilizzate il vostro gestore di pacchetti, ad esempio in Ubuntu:</p>
+<pre>aptitude install ipvsadm</pre>
+<p>a questo punto si può creare uno script da far avviare al boot. Io di solito inserisco i comandi all’interno del file<br />
+<strong>/etc/rc.local</strong>.</p>
+<div>Prima di tutto dobbiamo <em>resettare</em> l’attuale configurazione con il comando:</div>
+<pre>ipvsadm -C</pre>
+<div>Dopodiché iniziamo a dare le regole con i comandi come nell’esempio qui sotto in cui diciamo che le chiamate TCP (parametro -t) all’indirizzo 192.168.10.100 sulla porta 5060 (quella per il protocollo SIP) debbano essere inoltrate alla stessa porta dell’indirizzo 192.168.10.250.  Per reindirizzare una chiamata UDP sostituire il -t con -u.</div>
+<pre>ipvsadm -A -t 192.168.10.100:5060 -s rr</pre>
+<p>ipvsadm -a -t 192.168.10.100:5060 -r 192.168.10.250:5060 -m</p>
+<div id="_mcePaste">Naturalmente è possibile catturare il traffico su una porta e inoltrarla ad un’altra con un comando tipo questo:</div>
+<div>ipvsadm -A -t 192.168.10.100:88 -s rr</div>
+<div>ipvsadm -a -t 192.168.10.100:88 -r 192.168.10.250:80 -m</div>
+<div>In questo caso non abbiamo fatto altro che prendere le chiamate alla porta 88 dell’indirizzo 192.168.10.100 e rinviarle al server web dell’IP 192.168.10.250 sulla normale porta 80</div>
+<p><strong>Metodi di bilanciamento utilizzati da LVS</strong></p>
+<p>In caso si desideri testare il funzionamento di <strong>LVS</strong> senza la necessita&#8217; di monitorare i servizi e possibile aggiungere e rimuovere nodi con il comando <code>ipvsadm</code>:<br />
+<code><br />
+ipvsadm -C<br />
+ipvsadm -A -t 10.2.1.164:8080 -s lc<br />
+ipvsadm -a -t 10.2.1.164:8080 -r 10.2.1.166 -g<br />
+ipvsadm -a -t 10.2.1.164:8080 -r 10.2.1.165 -g<br />
+</code><br />
+Le opzioni utilizzate nelle linee di comando di ipvsadm per l&#8217;esempio riportato sono le seguenti:</p>
+<p>&#8211; <strong>-C</strong>, <strong>&#8211;clear</strong>: cancella la tabella del virtual server.<br />
+&#8211; <strong>-A</strong>, <strong>&#8211;add-service</strong>: crea un servizio virtuale.<br />
+&#8211; <strong>-a</strong>, <strong>&#8211;add-server</strong>: aggiunge un nodo ad un servizio virtuale.<br />
+&#8211; <strong>-t</strong>, <strong>&#8211;tcp-service</strong>: specifica indirizzo ip e numero di porta tcp del servizio virtuale.<br />
+&#8211; <strong>-s</strong>, <strong>&#8211;scheduler</strong>: specifica l&#8217;algoritmo di bilanciamento<br />
+&#8211; <strong>-r</strong>, <strong>&#8211;real-server</strong>: specifica l&#8217;indirizzo ip del nodo reale<br />
+&#8211; <strong>-g</strong>, <strong>&#8211;gatewaying</strong>: indica il metodo di forwarding direct routing (<strong>LVS-DR</strong>)</p>
+<p><strong>** algoritmi per il bilanciamento che possiamo usare con LVS</strong>.</p>
+<p><strong>Statici</strong>:</p>
+<p>&#8211; Round Robin</p>
+<p>&#8211; Weighted Round Robin</p>
+<p>&#8211; Destination Hashing</p>
+<p>&#8211; Source Hashing</p>
+<p><strong>Dinamici</strong>:</p>
+<p>&#8211; Least-Connection</p>
+<p>&#8211; Weighted least-connection</p>
+<p>&#8211; Never queue</p>
+<p>&#8211; Locality-based least-connection</p>
+<p>&#8211; Locality-based least-connection with replication scheduling</p>
+<p>&#8211; Shortest expected delay</p>
+<hr />
+<p><strong>pound<br />
+</strong></p>
+<p>Pound è un proxy server di bilanciamento del carico inverso. Accetta richieste da HTTP / HTTPS clienti e li distribuisce a uno o più server web. Le richieste HTTPS vengono decifrati e passati al back-end come semplice protocollo HTTP.</p>
+<p>Se più di un server back-end è definita, Pound sceglie uno di loro a caso, sulla base delle priorità definite. Per impostazione predefinita, Pound tiene traccia di associazioni tra client e server back-end (sessioni).</p>
+<p>General Principles</p>
+<p>In generale, Pound ha bisogno di tre tipi di oggetti definiti, al fine di funzione: ascoltatori , i servizi e back-end .</p>
+<p><strong>Ascoltatori</strong><br />
+Un ascoltatore è una definizione di come Pound riceve le richieste dai client (browser). Due tipi di ascoltatori può essere definito: normale connessione HTTP ascoltatori e HTTPS (HTTP su SSL / TLS) ascoltatori . Per lo meno un ascoltatore deve definire l&#8217;indirizzo e la porta per l&#8217;ascolto su, con ulteriori requisiti per HTTPS ascoltatori .</p>
+<p><strong>Servizi</strong><br />
+Un servizio è la definizione di come le domande trovano risposta. Il servizio può essere definito all&#8217;interno di un ascoltatore o al livello superiore (globale). Quando viene ricevuta una richiesta Pound tenta di far corrispondere a ciascun servizio , a sua volta, a partire dai servizi definiti nel ascoltatore stesso e, se necessario, di proseguire con l&#8217; servizi definiti a livello globale. I servizi possono definire le proprie condizioni al quale le domande si può rispondere: in genere si tratta certo URL (solo foto, o un certo percorso) o intestazioni specifiche (come ad esempio l&#8217;intestazione Host). Un servizio può anche definire una sessione meccanismo: se definito le richieste future da un determinato cliente sarà sempre la stessa risposta da parte di back-end .</p>
+<p><strong>Back-end</strong><br />
+Il back-end sono i server reale per il contenuto richiesto. Di per sé, Pound fornisce nessuna risposta &#8211; tutti i contenuti devono essere ricevuti da un vero e proprio &#8220;web server&#8221;. Il back-end definisce come il server dovrebbe essere contattato.</p>
+<p>Tre tipi di back-end può essere definito: un &#8220;regolare&#8221; back-end che riceve le richieste e le risposte restituisce, un &#8220;redirect&#8221; back-end in questo caso, Pound risponde con una risposta redirect, senza l&#8217;accesso a qualsiasi back-end a tutti , o una &#8220;emergenza&#8221; back-end che sarà usato solo se tutti gli altri backend sono &#8220;morti&#8221;.</p>
+<p>Multiple back-end può essere definito all&#8217;interno di un servizio , nel qual caso Pound sarà bilanciamento del carico tra i disponibili back-end .</p>
+<p>Se un back-end non riesce a rispondere, sarà considerato &#8220;morto&#8221;, nel qual caso Pound si ferma l&#8217;invio di richieste ad esso. Dead indietro _ e NDS sono periodicamente controllate per la disponibilità, e una volta che rispondono ancora sono &#8220;resurected&#8221; e le richieste sono inviati di nuovo la loro strada. Se non back-end sono disponibili (nessuno è stato definito, o sono tutti &#8220;morti&#8221;), allora Pound risponderà con &#8220;503 Servizio non disponibile&#8221;, senza verificare ulteriori servizi .</p>
+<p>Il collegamento tra Pound e il back end- è sempre via HTTP, a prescindere dal protocollo utilizzato tra Pound e il cliente.</p>
+<p><strong>Installazione </strong></p>
+<pre>sudo apt-get install pound</pre>
+<p>La gestione completa del servizio avviene tramite la configurazione del file <strong>/etc/pound/pound.cfg</strong><br />
+<strong>Esempio 1:</strong></p>
+<p><strong>Semplice configurazione HTTP Proxy </strong><br />
+Supponiamo di forwardare le richieste http che arrivano dall”IP pubblico 202.54.10.5 all’IP sulla LAN 192.168.1.5 su cui è configurato un web server Apache sulla porta 8080.<br />
+Editiamo il file di configurazione di pound di una distro Debian/Ubuntu:</p>
+<p>vim /etc/pound/pound.cfg</p>
+<p>Questo è l’aspetto del file:</p>
+<pre>ListenHTTP
+Address  202.54.10.5
+Port          80
+Service
+BackEnd
+Address  192.168.1.5
+Port           8080
+End
+End
+End</pre>
+<p>Salvare e chiudere il file e restartare Pound:</p>
+<p>/etc/init.d/pound restart</p>
+<p><strong>Esempio 2</strong><br />
+<strong>Semplice configurazione HTTP &amp; HTTPS Proxy<br />
+</strong>In questo esempio vediamo come “proxare” una richiesta http e https dallo stesso IP pubblico 202.54.10.5 a due web server 192.168.1.5 e 192.168.1.6, entrambi sulla porta 80:</p>
+<pre>ListenHTTP
+Address  202.54.10.5
+Port          80
+End
+
+ListenHTTPs
+Address   202.54.10.5
+Port           443
+Cert           “/etc/ssl/local.server.pem” -–&gt;percorso certificato ssl
+End
+
+Service
+BackEnd
+Address     192.168.1.5
+Port              80
+Priority       1
+Backend
+Address     192.168.1.6
+Port              80
+Priority       3
+End
+End</pre>
+<p>Salviamo il file di configurazione e restartiamo pound.</p>
+<p>In questo esempio le richieste alla porta 80 all’ ip 202.54.10.5  vengono inoltrate alla porta 80 del webserver 192.168.1.5, mentre le richieste alla porta 443 dall’ ip 202.54.10.5 vengono inoltrate alla porta 80 del web server 192.168.1.6  e in questo caso pound gestisce il certificato ssl, che è possibile generarsi senza alcuna modifica nel backend del web server, che continua a gestire chiamate in http.</p>
+<p><strong>PS:</strong> e&#8217; possibile inoltre impostare una priorità di inoltro del traffico differente, nel caso si disponga di più server web, cosi&#8217; come indicato dalla voce &#8220;Priority&#8221; presente nella configurazione del secondo esempio; minore è la cifra, maggiore sarà la priorità assegnata al server.</p>
+<p>Buon divertimento !</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/06/catturare-il-traffico-di-rete/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/redirect.jpeg" medium="image">
+			<media:title type="html">redirect</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

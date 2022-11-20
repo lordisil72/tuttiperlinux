@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>stealth &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/stealth/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Sat, 30 Aug 2014 22:41:56 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>stealth &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Sicurezza con il PortKnocking</title>
+		<link>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sat, 30 Aug 2014 22:33:36 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[honeypot]]></category>
+		<category><![CDATA[ip]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[port knocking]]></category>
+		<category><![CDATA[ssh]]></category>
+		<category><![CDATA[stealth]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=461</guid>
+
+					<description><![CDATA[Mi e&#8217; capitato spesso di dover configurare firewall per proteggere i Server di mia competenza e molte volte capita l&#8217;esigenza di dover tenere aperto un accesso dall&#8217;esterno, per poter operare in qualunque momento o per qualunque motivo. Ovviamente questo ci potrebbe esporre facilmente alla possibilita&#8217; di venire attaccati; che cosa fare in questi casi ??? &#8230; <a href="https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png"><img loading="lazy" data-attachment-id="462" data-permalink="https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/portknocking/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png" data-orig-size="320,240" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="portknocking" data-image-description="&lt;p&gt;Port-Knocking&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=320" class="alignleft size-medium wp-image-462" src="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300&#038;h=225" alt="portknocking" width="300" height="225" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300&amp;h=225 300w, https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=150&amp;h=113 150w, https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png 320w" sizes="(max-width: 300px) 100vw, 300px" /></a>Mi e&#8217; capitato spesso di dover configurare firewall per proteggere i Server di mia competenza e molte volte capita l&#8217;esigenza di dover tenere aperto un accesso dall&#8217;esterno, per poter operare in qualunque momento o per qualunque motivo. Ovviamente questo ci potrebbe esporre facilmente alla possibilita&#8217; di venire attaccati; che cosa fare in questi casi ??? Beh! le possibili soluzioni sono davvero tante, tante quanto la fantasia di chi le studia; in questo articolo quindi descrivero&#8217; semplicemente un mio modo personale di arginare tale possibile pericolo.</p>
+<p><strong>* Il primo</strong> suggerimento e&#8217; quello di spostare il servizio SSH dalla porta 22 ad una di vostra preferenza, stando ben attenti a non usare possibili porte utilizzabili da altri servizi web.</p>
+<p><strong>* Il secondo</strong> suggerimento e&#8217; quello di creare un servizio di <a href="http://it.wikipedia.org/wiki/Honeypot">Honeypot</a> (tipo <em>honeyd a bassa interazione, oppure come honeynet ad alta interazione</em>) , da tenere in ascolto sulla porta standard (la 22) dell&#8217;SSH, cosi&#8217; che i male intenzionati trovino la porta attiva e nel tentativo di attaccarvi perdano tempo e si ritrovino successivamente all&#8217;interno di servizi fasulli.</p>
+<p><strong>* Il terzo</strong> suggerimento e&#8217; quello di utilizzare la tecnica del port-knocking per poter gestire a proprio piacimento ogni accesso in SSH attivando e disattivando tramite una sequenza di caratteri che solo voi conoscete e che potrete cambiare a piacimento.</p>
+<h3><strong>PORTKNOCKING</strong></h3>
+<p>Iniziamo col dire che cosa e&#8217; questa tecnica: le tecniche di <strong>Port knocking</strong> permettono di aumentare considerevolmente la sicurezza di un server che deve garantire alcuni servizi non permanenti attraverso IP pubblici. Se s&#8217;inviano dei pacchetti a delle porte prestabilite sulle quali il demone è in ascolto e nel caso la sequenza sia corretta, questi attiverà un comando che potrà eseguire delle regole di <strong>iptables </strong>che apriranno le porte necessarie alla connessione. Il vantaggio è notevole in quanto il server potrebbe rimanere sempre in <em>stealth</em> <em>mode</em> e aprire le porte per un determinato servizio solo in caso di necessità.</p>
+<p>Innanzitutto per poter utilizzare il portknocking e&#8217; necessario che il firewall sia attivo e funzionante, ora posiamo installare il pacchetto software</p>
+<p>sudo apt-get install knockd</p>
+<h3 id="Configurazione_knockd">Configurazione knockd</h3>
+<ol type="0">
+<li>
+<p class="line862">Per fare in modo che il demone parta all&#8217;avvio del computer modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/default/knockd</tt> in questo modo: <span id="line-14" class="anchor"></span><span id="line-15" class="anchor"></span><span id="line-16" class="anchor"></span></p>
+<pre><span id="line-1" class="anchor"></span>START_KNOCKD=1</pre>
+<p>&nbsp;</li>
+<li class="gap">
+<p class="line862">Sempre nel medesimo file <tt>/etc/default/knockd</tt> modificare con un editor di testo a piacimento, e con i privilegi di amministrazione indicando su quale interfaccia il demone dovrà rimanere in ascolto: <span id="line-19" class="anchor"></span><span id="line-20" class="anchor"></span><span id="line-21" class="anchor"></span></p>
+<pre><span id="line-1-1" class="anchor"></span>KNOCKD_OPTS="-i eth0"</pre>
+<p>&nbsp;</li>
+</ol>
+<h3 id="Configurazione_knockd.conf_per_l.27apertura_di_una_sola_porta">Configurazione knockd.conf per l&#8217;apertura di una sola porta</h3>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/knockd.conf</tt> impostandolo come segue: <span id="line-25" class="anchor"></span><span id="line-26" class="anchor"></span></p>
+<pre><span id="line-1-2" class="anchor"></span>[options]
+<span id="line-2" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3" class="anchor"></span>
+<span id="line-4" class="anchor"></span>[openSSH]
+<span id="line-5" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6" class="anchor"></span>        # Questa è la sequenza delle porte sulle quali knockd rimarrà in ascolto. Di default il protocollo è TCP.
+<span id="line-7" class="anchor"></span>        # Quali e quante porte usare è discrezionale.
+<span id="line-8" class="anchor"></span>
+<span id="line-9" class="anchor"></span>        # sequence   = 7000:udp,8000:tcp,9000:udp
+<span id="line-10" class="anchor"></span>        # Esempio con sequenza con porte miste udp/tcp
+<span id="line-11" class="anchor"></span>
+<span id="line-12" class="anchor"></span>        seq_timeout = 30
+<span id="line-13" class="anchor"></span>        #Tempo di attesa massimo per completare la sequenza.
+<span id="line-14" class="anchor"></span>
+<span id="line-15" class="anchor"></span>        command     = /sbin/iptables -A INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
+<span id="line-16" class="anchor"></span>        # Quando la sequenza verrà accettata verrà inserita una regola che aprirà la porta SSH standard.
+<span id="line-17" class="anchor"></span>
+<span id="line-18" class="anchor"></span>        tcpflags    = syn
+<span id="line-19" class="anchor"></span>        # Ulteriore filtro, sul tipo di flag del pacchetto inviato alla sequenza di porte.
+<span id="line-20" class="anchor"></span>        
+<span id="line-21" class="anchor"></span>[closeSSH]
+<span id="line-22" class="anchor"></span>        sequence    = 9000,8000,7000
+<span id="line-23" class="anchor"></span>        # Questa è un'altra sequenza di porte sulle quali knockd rimarrà in ascolto.
+<span id="line-24" class="anchor"></span>
+<span id="line-25" class="anchor"></span>        seq_timeout = 30
+<span id="line-26" class="anchor"></span>
+<span id="line-27" class="anchor"></span>        command     = /sbin/iptables -D INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
+<span id="line-28" class="anchor"></span>        # Quando la sequenza verrà accettata verrà inserita una regola che cancellerà quella creata in precedenza.
+<span id="line-29" class="anchor"></span>
+<span id="line-30" class="anchor"></span>        tcpflags    = syn
+<span id="line-31" class="anchor"></span>        # Ulteriore filtro, sul tipo di flag del pacchetto inviato alla sequenza di porte.</pre>
+<p class="line874">La variabile «%IP%» passa alla regola di iptables l&#8217;indirizzo che ha effettuato la richiesta di connessione, in questo caso verrà permessa l&#8217;apertura della porta SSH discriminando solo l&#8217;IP validato. <span id="line-61" class="anchor"></span><span id="line-62" class="anchor"></span></p>
+<h3 id="Configurazione_per_l.27apertura_di_una_sola_porta.2C_per_soli_esperti">Configurazione per l&#8217;apertura di una sola porta, per soli esperti</h3>
+<p class="line862">Un&#8217;altra possibilità per usare il demone knockd, e&#8217; utilizzabile <strong>solo se il firewall sul server è configurato per accettare le connessioni &#8220;established&#8221; e &#8220;related&#8221;</strong> alla porta che si vuole aprire (es ssh, 22) è di chiudersi subito dietro la porta appena aperta, per evitare che, restando &#8220;aperta&#8221;, qualche malintenzionato tenti un brute-force al servizio, lanciando uno script anzichè impostando delle regole sul firewall. <span id="line-64" class="anchor"></span><span id="line-65" class="anchor"></span></p>
+<p class="line862">Per questo scopo il file <tt>/etc/knockd.conf </tt>può ad esempio essere modificato, con un editor di testo a piacimento, e con i privilegi di amministrazione, come segue : <span id="line-66" class="anchor"></span><span id="line-67" class="anchor"></span></p>
+<pre><span id="line-1-3" class="anchor"></span>[options]
+<span id="line-2-1" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3-1" class="anchor"></span>
+<span id="line-4-1" class="anchor"></span>[openSSH]
+<span id="line-5-1" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6-1" class="anchor"></span>        seq_timeout = 30
+<span id="line-7-1" class="anchor"></span>        start_command     = /etc/init.d/ssh start
+<span id="line-8-1" class="anchor"></span>        tcpflags    = syn
+<span id="line-9-1" class="anchor"></span>
+<span id="line-10-1" class="anchor"></span>        cmd_timeout = 5
+<span id="line-11-1" class="anchor"></span>        stop_command     = /etc/init.d/ssh stop
+<span id="line-12-1" class="anchor"></span>        # Dopo cmd_timeout secondi, viene eseguito il comando stop_command</pre>
+<p class="line862">Ricordiamo ancora che <strong>è indispensabile</strong> che il firewall sul server accetti le connessioni &#8220;related&#8221; ed &#8220;established&#8221; altrimenti la sezione &#8220;stop_command&#8221;, appena sarà eseguita, vi chiuderà la connessione SSH senza quindi avere possibilità di connettervi al server! <span id="line-82" class="anchor"></span><span id="line-83" class="anchor"></span></p>
+<pre><span id="line-1-4" class="anchor">tuttiperlinux</span>@server:~# iptables -nL | grep ":22"
+<span id="line-2-2" class="anchor"></span>
+<span id="line-3-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp dpt:22
+<span id="line-4-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp spt:22 dpts:513:65535 state RELATED,ESTABLISHED
+<span id="line-5-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp spts:1024:65535 dpt:22 flags:0x17/0x02 state RELATED,ESTABLISHED
+<span id="line-6-2" class="anchor"></span>ACCEPT     udp  --  0.0.0.0/0    0.0.0.0/0           udp dpt:22 state ESTABLISHE
+<span id="line-7-2" class="anchor"></span></pre>
+<h3 id="Configurazione_knockd.conf_per_l.27apertura_di_pi.2BAPk_porte">Configurazione knockd.conf per l&#8217;apertura di più porte</h3>
+<p class="line874">Nell&#8217;esempio sopra esposto si è visto come aprire una sola porta. Se l&#8217;esigenza fosse però quella di aprirne di più procedere creando più sessioni «[openServizio]» e «[closeServizio]». Questo sistema risulta però scomodo per ovvi motivi, per ottenere lo stesso risultato è consigliato usare degli script. <span id="line-94" class="anchor"></span><span id="line-95" class="anchor"></span></p>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/knockd.conf</tt> impostandolo come segue: <span id="line-96" class="anchor"></span><span id="line-97" class="anchor"></span></p>
+<pre><span id="line-1-5" class="anchor"></span>[options]
+<span id="line-2-3" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3-3" class="anchor"></span>
+<span id="line-4-3" class="anchor"></span>[open]
+<span id="line-5-3" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6-3" class="anchor"></span>        seq_timeout = 30
+<span id="line-7-3" class="anchor"></span>        tcpflags    = syn
+<span id="line-8-2" class="anchor"></span>        command     = sh /etc/open_ports %IP%
+<span id="line-9-2" class="anchor"></span>
+<span id="line-10-2" class="anchor"></span>
+<span id="line-11-2" class="anchor"></span>[close]
+<span id="line-12-2" class="anchor"></span>        sequence    = 9000,8000,7000
+<span id="line-13-1" class="anchor"></span>        seq_timeout = 30
+<span id="line-14-1" class="anchor"></span>        tcpflags    = syn
+<span id="line-15-1" class="anchor"></span>        command     = sh /etc/close_ports %IP%</pre>
+<p class="line874">In questo caso invece di eseguire direttamente iptables si richiamano due script passando il parametro «%IP%» alla variabile speciale «$1». <span id="line-116" class="anchor"></span><span id="line-117" class="anchor"></span></p>
+<h3 id="Esempio_di_script_open_ports">Esempio di script open_ports</h3>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/open_ports</tt> impostandolo come segue: <span id="line-119" class="anchor"></span><span id="line-120" class="anchor"></span></p>
+<pre><span id="line-1-6" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 22 -j ACCEPT
+<span id="line-2-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 21 -j ACCEPT
+<span id="line-3-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 631 -j ACCEPT
+<span id="line-4-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 5125 -j ACCEPT
+<span id="line-5-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 5126 -j ACCEPT
+<span id="line-6-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 8888 -j ACCEPT
+<span id="line-7-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 10000 -j ACCEPT
+<span id="line-8-3" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 81 -j ACCEPT</pre>
+<h3 id="Esempio_di_script_close_ports">Esempio di script close_ports</h3>
+<p class="line862">Modificare con un editor di testo a piacimento,  e con i privilegi di amministrazione il file <tt>/etc/close_ports</tt> impostandolo come segue: <span id="line-134" class="anchor"></span><span id="line-135" class="anchor"></span></p>
+<pre><span id="line-1-7" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 22 -j ACCEPT
+<span id="line-2-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 21 -j ACCEPT
+<span id="line-3-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 631 -j ACCEPT
+<span id="line-4-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 5125 -j ACCEPT
+<span id="line-5-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 5126 -j ACCEPT
+<span id="line-6-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 8888 -j ACCEPT
+<span id="line-7-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 10000 -j ACCEPT
+<span id="line-8-4" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 81 -j ACCEPT
+
+</pre>
+<h3 id="Connessione">Esempio di una connessione</h3>
+<p class="line874">Per effettuare la connessione digitare il seguente comando all&#8217;interno di una finestra di terminale: <span id="line-168" class="anchor"></span><span id="line-169" class="anchor"></span></p>
+<pre><span id="line-1-9" class="anchor"></span>./knock -v &lt;ip_host&gt; port1 port2 port3 port...</pre>
+<p>Ora non resta altro che fare pratica e pratica ma sono sicuro che il portknocking vi dara&#8217; tanta soddisfazione.</p>
+<p>Leggete anche l&#8217;articolo sulla sicurezza inerente <a title="Metasploit Framework" href="http://tuttiperlinux.com/2014/08/29/metasploit-framework/">Metasploit Framework</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300" medium="image">
+			<media:title type="html">portknocking</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

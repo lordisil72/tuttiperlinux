@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>glusterfs &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/glusterfs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 08 Aug 2014 21:58:41 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>glusterfs &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>GlusterFS: Storage Scalabile e Distribuito</title>
+		<link>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 08 Aug 2014 21:58:41 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[cifs]]></category>
+		<category><![CDATA[export fs]]></category>
+		<category><![CDATA[filesystem]]></category>
+		<category><![CDATA[glusterfs]]></category>
+		<category><![CDATA[hosts]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[nfs]]></category>
+		<category><![CDATA[open source]]></category>
+		<category><![CDATA[peta byte]]></category>
+		<category><![CDATA[rdma]]></category>
+		<category><![CDATA[replicazione]]></category>
+		<category><![CDATA[storage]]></category>
+		<category><![CDATA[volume]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=329</guid>
+
+					<description><![CDATA[Introduzione GlusterFS è un file system open source distribuito e scalabile orizzontalmente, la cui capacità può essere dinamicamente espansa mediante l’aggiunta di nuovi nodi. GlusterFS è in grado di arrivare a gestire fino a diversi Peta Byte, migliaia di client e diverse aree dati (storage) organizzandole in blocchi che rende accessibili su Infiniband RDMA (remote &#8230; <a href="https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h3><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg"><img data-attachment-id="330" data-permalink="https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/gluster-logo-300x115/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg" data-orig-size="300,115" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="glusterfs" data-image-description="&lt;p&gt;GlusterFS&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=300" class="alignleft size-full wp-image-330" src="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=600" alt="glusterfs" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg 300w, https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=150 150w" sizes="(max-width: 300px) 100vw, 300px"   /></a>Introduzione</strong></h3>
+<p><strong>GlusterFS</strong> è un <strong>file system open source</strong> <em>distribuito e scalabile orizzontalment</em>e, la cui capacità può essere dinamicamente espansa mediante l’aggiunta di nuovi nodi. GlusterFS è in grado di arrivare a gestire fino a diversi Peta Byte, migliaia di client e diverse aree dati (storage) organizzandole in blocchi che rende accessibili su <em>Infiniband RDMA</em> (remote direct memory access, fibra ottica) o connessioni TCP/IP.</p>
+<p>Le risorse {<b>memoria e disco</b>} vengono rese disponibili sotto un unico punto di condivisione e tali risorse possono essere montate dai client mediante tre diversi protocolli: CIFS, NFS oppure tramite il client nativo Gluster.</p>
+<p>Inoltre GlusterFS supporta la replica geografica ossia la replica dei dati di un Volume su un Server dislocato in un area geografica diversa da quella dove sono presenti gli altri nodi.</p>
+<p><strong>Iniziamo a prendere confidenza con alcune terminologie di <a href="http://www.gluster.org/">GlusterFS</a>:</strong></p>
+<ul>
+<li><strong>Volume</strong>: Identifica la condivisione effettiva che viene messa a disposizione</li>
+<li><strong>Brick</strong>: Identifica il file system locale di un server su cui opera GlusterFS</li>
+<li><strong>Translator</strong>: Identifica delle componenti ( librerie ) che estendono le funzionalità del file system</li>
+<li><strong>Server</strong>: Identifica la macchina o le macchine ( reali o virtuali ) dove risiedono i dati</li>
+<li><strong>Client</strong>: Identifica la macchina che monta il volume</li>
+</ul>
+<p>La logica quindi è la seguente:</p>
+<p>Si installa GlusterFS su ogni server che fa parte del pool di storage del cluster, si definiscono i blocchi ( bricks ) da esportare ( directory ) andando cosi a creare la condivisione effettiva chiamata Volume.</p>
+<p>Successivamente su ogni Client interessato installiamo allo stesso modo GlusterFS, e tramite i protocolli citati prima ( NFS, CIFS, GlusterFS Client ) andiamo a montare il cluster rendendo disponibile la condivisione ( Volume ).</p>
+<p>Vediamo adesso le diverse <strong>TIPOLOGIE DI VOLUME</strong> ossia come i dati possono essere organizzati:</p>
+<ul>
+<li><strong>Distributed</strong>: Definisce un {Volume Distribuito} dove i file vengono distribuiti in maniera random tra i vari brick del Volume che compongono il Cluster. Questo comporta maggior scalabilità ma molta meno ridondanza,infatti nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Replicated</strong>: Definisce un Volume Replicato dove i file vengono replicati tra i Brick del Volume che compongono il Cluster. Questo comporta una riduzione dello spazio disponibile per lo Storage ma una maggior ridondanza e tale configurazione è consigliabile per avere un Elevata Affidabilità e un Elevata Disponibilità.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong><em>NON</em></strong> comporterebbe la perdita dei dati visto che ne abbiamo una replica a disposizione. Le repliche dei dati è consigliabile averle in brick separati cioè che non si trovino sulla stessa macchina.</li>
+<li><strong>Striped</strong>: Definisce un Volume Striped dove i file vengono memorizzati in blocchi nei brick del Volume che compongono il Cluster.<br />
+Questo comporta maggiori prestazioni in lettura e scrittura su file di grandi dimensioni e maggior spazio a disposizione ma una minor ridondanza. Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Distribuited Striped</strong>: Definisce un Volume Distribuito e Striped dove il Volume memorizza i file in blocchi tra 2 o più nodi del Cluster. Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Distribuited Replicated</strong>: Definisce un Volume Distribuito Replicato dove il Volume distribuisce e replica i file tra i Brick del Cluster. Questo comporta la combinazione dei pregi delle singole soluzioni distributedd e Replicated.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong><em>NON</em></strong> comporterebbe la perdita dei dati visto che ne abbiamo una replica a disposizione e il Volume resterebbe sempre accessibile.</li>
+<li><strong>Striped Replicated</strong>: Definisce un Volume Striped Replicato dove il Volume fa lo Stripe dei file e li replica tra i Brick del Cluster.<br />
+Si combinano i pregi dello <strong>Stripe</strong> ossia maggiori prestazioni in lettura e scrittura utile per esempio su file di grandi dimensioni con i pregi della <strong>Replicazione sui Brick</strong> del Cluster per avere cosi prestazioni e ridondanza.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong>NON</strong> comporta la perdita dei dati in esso contenuti.</li>
+</ul>
+<p><strong>INSTALLIAMOLO<br />
+</strong>Per procedere all&#8217;installazione e testare il software dovremo avvalerci di almeno due macchine, decidete voi se reali o VM, dopodiche&#8217; inizieremo dividendo il lavoro; partiamo con la macchina che fara&#8217; da Server :</p>
+<p>modifichiamo a dovere il file /etc/hosts, io ho fatto nel seguente modo</p>
+<p># vim /etc/hosts<br />
+192.168.2.138    server1.example.com     server1<br />
+192.168.2.182    client1.example.com     client1</p>
+<pre>aptitude install glusterfs-server</pre>
+<p>&#8230;ora dobbiamo creare le seguenti directory</p>
+<pre>mkdir /data/
+mkdir /data/export
+mkdir /data/export-ns</pre>
+<pre>cp /etc/glusterfs/glusterd.vol /etc/glusterfs/glusterd.vol_orig
+cat /dev/null &gt; /etc/glusterfs/glusterd.vol</pre>
+<pre>vim /etc/glusterfs/glusterd.vol</pre>
+<pre>volume posix
+  type storage/posix
+  option directory /data/export
+end-volume
+
+volume locks
+  type features/locks
+  option mandatory-locks on
+  subvolumes posix
+end-volume
+
+volume brick
+  type performance/io-threads
+  option thread-count 8
+  subvolumes locks
+end-volume
+
+volume server
+  type protocol/server
+  option transport-type tcp
+  option auth.addr.brick.allow 192.168.2.182 # inserire qui l'indirizzo od il nome host del vostro client
+  subvolumes brick
+end-volume</pre>
+<pre>/etc/init.d/glusterfs-server start</pre>
+<p>&#8230;ora passiamo a lavorare sul client</p>
+<pre>aptitude install glusterfs-client glusterfs-server</pre>
+<pre>mkdir /mnt/glusterfs  
+
+cp /etc/glusterfs/glusterd.vol /etc/glusterfs/glusterd.vol_orig
+cat /dev/null &gt; /etc/glusterfs/glusterd.vol</pre>
+<pre>vim /etc/glusterfs/glusterd.vol
+
+</pre>
+<pre>volume remote
+  type protocol/client
+  option transport-type tcp
+  option remote-host server1.example.com # inserite qui l'indirizzo od il nome host del server
+  option remote-subvolume brick
+end-volume
+
+volume writebehind
+  type performance/write-behind
+  option window-size 4MB
+  subvolumes remote
+end-volume
+
+volume cache
+  type performance/io-cache
+  option cache-size 512MB
+  subvolumes writebehind
+end-volume</pre>
+<p>ora dobbiamo lanciare uno di questi due comandi :</p>
+<p class="command">glusterfs -f /etc/glusterfs/glusterd.vol /mnt/glusterfs</p>
+<p>oppure</p>
+<p class="command">mount -t glusterfs /etc/glusterfs/glusterd.vol /mnt/glusterfs</p>
+<p class="command">&#8230;.se non avete avuto errori eseguendo il comando <strong>mount</strong> dovreste vedere qualcosa del genere</p>
+<p class="command"># mount<br />
+/etc/glusterfs/glusterd.vol on /mnt/glusterfs type fuse.glusterfs (rw,default_permissions,allow_other,max_read=131072)</p>
+<p class="command"># [client1] df -h<br />
+/etc/glusterfs/glusterd.vol<br />
+143G   33G  103G  25% /mnt/glusterfs</p>
+<p class="command">che nel mio caso equivale alla partizione /home della macchina server<br />
+# [server1] df -h<br />
+/home/server1/.Private            143G   33G    103G  25% /home/server1/Private</p>
+<p class="command">&#8230;come notate dalle dimensioni dei due filesystems</p>
+<p class="command">a questo punto non ci rimane altro che modificare il file /etc/fstab in modo da rendere immediato il mount al boot del client</p>
+<p class="command"># vim /etc/fstab</p>
+<pre>/etc/glusterfs/glusterfs.vol  /mnt/glusterfs  glusterfs  defaults  0  0</pre>
+<p class="command">Questo era solo un semplice esercizio per imparare a capire il software in questione ovviamente con le dovute aggiunte e modifiche del caso si potranno creare <strong>Volumi</strong> e directory ad hoc della grandezza desiderata in cui salvare tutti i dati per noi importanti.</p>
+<p class="command">Buon divertimento !</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg" medium="image">
+			<media:title type="html">glusterfs</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

@@ -1,0 +1,306 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>ipfs &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/ipfs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Tue, 05 Jan 2021 18:18:10 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>ipfs &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>FileSystem Decentralizzato &#8211; IPFS</title>
+		<link>https://tuttiperlinux.blog/2021/01/05/filesystem-decentralizzato-ipfs/</link>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Tue, 05 Jan 2021 18:18:10 +0000</pubDate>
+				<category><![CDATA[Blockchain]]></category>
+		<category><![CDATA[Networking]]></category>
+		<category><![CDATA[News]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[bittorrent]]></category>
+		<category><![CDATA[cloudflare]]></category>
+		<category><![CDATA[dapps]]></category>
+		<category><![CDATA[Ethereum]]></category>
+		<category><![CDATA[filecoin]]></category>
+		<category><![CDATA[gateway]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[infura]]></category>
+		<category><![CDATA[ipfs]]></category>
+		<category><![CDATA[pinata]]></category>
+		<category><![CDATA[pinning]]></category>
+		<category><![CDATA[web3.0]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.blog/?p=1674</guid>
+
+					<description><![CDATA[Per chi ancora non conosce il progetto IPFS (creato all&#8217;interno del MIT di Boston), posso cominciare dando la definizione riportata sulla pagina Wikipedia, ossia che: L&#8217;InterPlanetary File System (IPFS) è un protocollo di comunicazione e una rete peer-to-peer per l&#8217;archiviazione e la condivisione di dati in un file system distribuito. IPFS basa il suo funzionamento &#8230; <a href="https://tuttiperlinux.blog/2021/01/05/filesystem-decentralizzato-ipfs/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[
+<p>Per chi ancora non conosce il progetto IPFS (creato all&#8217;interno del MIT di Boston), posso cominciare dando la definizione riportata sulla pagina Wikipedia, ossia che: L&#8217;<strong>InterPlanetary File System</strong> (<strong>IPFS</strong>) è un protocollo di comunicazione e una rete <em>peer-to-peer</em> per l&#8217;archiviazione e la condivisione di dati in un <em>file system</em> distribuito.</p>
+
+
+
+<p>IPFS basa il suo funzionamento sull’utilizzo di molteplici tecnologie, racchiudendo in se le più moderne idee alla base di precedenti sistemi peer-to-peer, inclusi DHT, BitTorrent, Git e SFS.</p>
+
+
+
+<p>Bene, dopo questa introduzione dobbiamo capire cosa si può già realmente fare con IPFS, poichè essendo un progetto in forte sviluppo, sono già parecchi gli usi pratici su cui potremo inserire IPFS in un nostro progetto.</p>
+
+
+
+<p>Ma quella definizione di &#8220;Sistema Interplanetario per la gestione dei dati&#8221; potrebbe forse farvi comprendere la vicinanza di questo progetto con la blockchain. Infatti quando è nata la tecnologia della Blockchain, il Bitcoin aveva lo scopo di far usare la blockchain per espandere la libertà finanziaria a tutti coloro che avrebbero usato quel sistema. IPFS vuole portare ulteriormente avanti il concetto da cui è nata la blockchain, non a caso, per gli sviluppatori del progetto la stessa blockchain non dovrebbe essere vista legata solamente alle transazioni di denaro (immagine che attualmente è stata appiccicata a questa fantastica tecnologia ), ma bensì dovrebbe rappresentare la nuova infrastruttura di Internet.</p>
+
+
+
+<p>In pratica, Internet, così come lo conosciamo oggi, non dovrà più essere il sistema a cui noi semplicemente accediamo, e di cui qualcun&#8217;altro possiede l&#8217;infrastruttura.</p>
+
+
+
+<p>Proviamo a fare un esempio che possa essere chiaro per tutti:</p>
+
+
+
+<p>Oggi quando cerchiamo Facebook sul motore di Google, stiamo compiendo le seguenti azioni</p>
+
+
+
+<div class="wp-block-jetpack-markdown"><p>Chiediamo a Google di cercare Facebook, per poi</p>
+<p>Chiedere a Facebook di mostrarci che cosa fanno i nostri contatti</p>
+<p>..tutto ciò senza considerare tutti i passaggi intermedi che ci servono per arrivare su Google e successivamente arrivare a Facebook, ad iniziare dalla prima &quot;request&quot; che viene fatta dal nostro device al nostro gestore di connessione, che sia il provider che ci fornisce la linea di casa o l&#8217;operatore telefonico che ci fornisce la rete per navigare.</p>
+<p>Passaggi nei quali lasciamo in rete un sacco di tracce, dal nostro indirizzo IP, il nostro indirizzo MAC(ossia l’identificatore unico e univoco del nostro dispositivo connesso in rete), la localizzazione geografica della nostra posizione in tempo reale, la versione di Browser che stiamo utilizzando, fino alla stringa di ricerca che vogliamo venga esaudita. Insomma un bel pò di dati per una semplice ricerca.</p>
+<p>Consideriamo adesso che tutte le aziende attraverso cui passano i nostri dati di navigazione, possono leggere e dunque sfruttare tutte queste informazioni per capire come ci comportiamo in rete, cosa siamo soliti cercare, se siamo appassionati di viaggi o di informatica, se abbiamo preferenze verso certi prodotti piuttosto che altri, e molto altro ancora, una vera e propria profilazione.</p>
+<p>Ma una profilazione non serve solo come agglomerato di dettagli e specifiche di un&#8217; utente, vendute agli inserzionisti per creare una pubblicità su misura per ogni singolo internauta. Una profilazione di questo tipo identifica una specifica persona meglio delle sedute dallo psicanalista, e non serve usare il concetto di coloro che sono soliti dire: &quot;ma io non ho nulla da nascondere&quot;, in quanto il concetto di Privacy non nasce per difendere coloro che hanno qualcosa da nascondere. Immaginate di diventare dei VIP e che improvvisamente stuoli di giornalisti e paparazzi si piazzino davanti a casa vostra, cercando di rubare un momento qualunque della vostra vita, fotografandovi ovunque voi siate&#8230;&#8230;, credo che invochereste il diritto di privacy immediatamente, non perchè abbiate qualcosa da nascondere, ma perchè avete una vostra vita da vivere; allora immaginiamo questi &quot;scrutatori&quot; della vostra vita, come costantemente parcheggiati nel vialetto davanti alla vostra stradina per navigare in Internet. Appena vi collegate, per un qualunque motivo, loro sono già li tutti pronti a scattare foto di ogni attimo della vostra navigazione, che sia per lavoro o per svago.</p>
+<p>Adesso immaginiamo come potrebbe essere la stessa esperienza se non ci fosse bisogno di &quot;Internet, per accedere ad Internet&quot;, questo è quello che stanno cercando di realizzare con <strong>IPFS</strong>, costruendo un protocollo di navigazione che sostituisca HTTP/S, ormai vecchio, accroccato e che non riesce più a stare al passo con la costante crescita delle innovazioni del WEB. Tenendo anche presente che l&#8217;http/s è un protocollo di livello 4, mentre nella pila (ISO/OSI) dei protocolli di rete ci sono ben 7 livelli.</p>
+</div>
+
+
+
+<figure class="wp-block-image size-large"><a href="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png"><img data-attachment-id="1679" data-permalink="https://tuttiperlinux.blog/ipfs_net/" data-orig-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png" data-orig-size="767,292" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ipfs_net" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=600" src="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=767" alt="" class="wp-image-1679" srcset="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png 767w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=150 150w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=300 300w" sizes="(max-width: 767px) 100vw, 767px" /></a></figure>
+
+
+
+<p>IPFS vuole dunque cambiare il protocollo standard da https:// a ipfs:// , che può sembrare una cosa insignificante, invece tutto questo cambia moltissimo l&#8217;uso della rete per ogni utente, perchè con IPFS quando richiediamo un&#8217;informazione in rete , non la stiamo più chiedendo ad un insieme di server, sparsi chissà dove nel mondo, e di proprietà di una Big Corporation, ma lo stiamo chiedendo a qualcuno che si trova vicino a noi e che condivide quella informazione, nello spirito dei sistemi peer-to-peer.</p>
+
+
+
+<p>Oggi il web è fondamentalmente inefficiente e costoso perché internet costa in ogni suo singolo aspetto, dalla connessione, alle infrastrutture per i servizi che si appoggiano, tutti, troppo, alle infrastrutture GAFA (Google, Amazon, Facebook, Microsoft), di conseguenza, non è possibile immaginare l&#8217;attuale Internet come il luogo che preserverà la storia umana.</p>
+
+
+
+<p><strong><em>I vantaggi che si potrebbero trarre dall’utilizzo di IPFS sarebbero molteplici, ad esempio</em></strong>:</p>
+
+
+
+<p>• download più veloci ed efficienti: mentre HTTP può scaricare una risorsa da un solo computer alla volta, IPFS pu`o recuperare parti diverse di un file da molteplici computer contemporaneamente;</p>
+
+
+
+<p>• un web più robusto: l’architettura di IPFS elimina i server centrali che rappresentano un single point of failure permettendo la creazione di un Web “permanente”. IPFS crea una rete resiliente dove ogni risorsa è sempre disponibile grazie al mirroring dei dati su più nodi; </p>
+
+
+
+<p>• resistenza alla censura: mentre può essere molto semplice per un governo bloccare l’accesso a un determinato sito internet ospitato presso un server centralizzato, IPFS crea un Web immune alla censura.</p>
+
+
+
+<blockquote class="wp-block-quote"><p>Wikipedia è stato uno dei primi progetti ad essere stato &#8220;portato&#8221; su IPFS con un progetto che si chiama Distributed Wikipedia.</p></blockquote>
+
+
+
+<p>Dunque come iniziato ad accennare all&#8217;inizio dell&#8217;articolo, &lt;u&gt;IPFS è un sistema distribuito per l&#8217;archiviazione e l&#8217;accesso a file, siti Web, applicazioni e dati&lt;/u&gt;.</p>
+
+
+
+<p>Questo, in soldoni, significa che potrai archiviare qualsiasi tipo di dato/file in IPFS e, dopo averli archiviati, IPFS fornirà un hash che inizia con <strong>Qm</strong>. Si potrà quindi accedere ai dati usando quell&#8217;hash.</p>
+
+
+
+<h2 id="hash">HASH</h2>
+
+
+
+<p>Che cosa sono e quale scopo hanno gli hash ?</p>
+
+
+
+<p>L&#8217;hash in termini tecnici è noto come <strong>Identificatore di contenuto</strong> (CID) in IPFS. Il CID è sostanzialmente un&#8217;etichetta utilizzata per indicare il contenuto in IPFS, ma non indica dove è archiviato il contenuto. L&#8217;hash crittografico del contenuto viene quindi utilizzato per generare CID. L&#8217;hash corrisponde a un multihash di caratteri che inizierà con &#8220;Qm&#8221;. Le lettere &#8220;Qm&#8221; definiscono l&#8217;algoritmo (SHA-256) e la lunghezza (byte 32) utilizzati da IPFS.</p>
+
+
+
+<p>Gli hash sono funzioni che accettano input arbitrari e restituiscono un valore di lunghezza fissa. Essi possono essere rappresentati in diverse basi (base2, base16, base32, ecc&#8230;).</p>
+
+
+
+<p><strong>Caratteristiche degli hash crittografici:</strong></p>
+
+
+
+<ol><li>Deterministico</li><li>Non correlato</li><li>Unico</li><li>Senso unico</li></ol>
+
+
+
+<p>L’utilizzo dell’hash come chiave per l’identificazione dei file ha inoltre il vantaggio di garantirne l’integrità, poichè, così facendo, il nodo che ha richiesto una risorsa, per assicurarsi che il file ottenuto sia effettivamente quello richiesto e che non abbia subito alcuna alterazione, non dovrà far altro che ricalcolarne l’hash e verificare che questo corrisponda con quello che aveva inizialmente richiesto. Oltre ad aggiungere questa misura di sicurezza gratuitamente, la scelta di utilizzare l’hash come chiave porta un secondo vantaggio, ovvero la deduplicazione dei file: ogni volta che un utente pubblica un nuovo file su IPFS, la rete verifica attraverso il suo hash se questo è già presente, evitando automaticamente che ne vengano mantenute molteplici copie qualora più utenti caricassero la medesima risorsa.</p>
+
+
+
+<p>Dal momento che IPFS utilizza l’indirizzamento basato sul contenuto, i file memorizzati su di esso non possono più essere modificati, infatti qualunque aggiornamento al file produrrebbe anche una modifica dell’hash che lo identifica. Per questa ragione IPFS, esattamente come Git, supporta il versioning dei file. Ogni volta che il contenuto di un file viene aggiornato, IPFS crea un oggetto chiamato commit che rappresenta un particolare snapshot nella cronologia delle versioni di un determinato IPFS object. Ogni commit contiene un riferimento al commit precedente e un link alla specifica versione dell’IPFS object (vedi immagine). IPFS tiene traccia in questo modo dell’ultima versione del file e di tutte le versioni precedenti.</p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><a href="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png"><img loading="lazy" data-attachment-id="1682" data-permalink="https://tuttiperlinux.blog/ipfs_object/" data-orig-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png" data-orig-size="1366,768" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ipfs_object" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=600" src="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=1024" alt="" class="wp-image-1682" width="829" height="465" srcset="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=1024 1024w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=827 827w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=150 150w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=300 300w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=768 768w, https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png 1366w" sizes="(max-width: 829px) 100vw, 829px" /></a></figure>
+
+
+
+<h2>SALVARE I DATI</h2>
+
+
+
+<h3 id="pinning">pinning</h3>
+
+
+
+<p>Ora, una volta spiegato cosa c&#8217;è alla base del progetto IPFS, dobbiamo chiarire alcuni punti importanti. IPFS usa lo slogan per cui ciò che SALVI sul sistema rimarrà li per sempre&#8230;.. SI &amp; NO. La precisazione va ben fatta perchè, facciamo un esempio: Qualche giorno fa abbiamo assistito ad un service-down da parte di Google, che ha precluso l&#8217;accesso ai dati personali e lavorativi di milioni di persone, le quali improvvisamente, non riuscivano più ad accedere all&#8217;account Gmail, ai dati (privati e di lavoro) su Google Drive etc&#8230;. (e la lista è lunga). Pensiamo ai danno provocati da questo &#8220;blackout informatico&#8221;. Tutto ciò non sarebbe accaduto se i dati a cui noi volevamo attingere fossero stati già salvati su IPFS perchè non dipendono dai servizi e dalle architetture di un&#8217;azienda, per grande che sia, ma sono attivi perchè condivisi e replicati da tutti i pc degli utenti che utilizzano questo sistema/protocollo. Quindi se io salvo in rete un documento, questo sarà accessibile fino a quando ci sarà anche solo 1 pc nella rete IPFS in grado di condividermelo. Seppur banalizzato, il concetto è questo ma, non tutto ciò che possiamo caricare su IPFS rimane in eterno, questo perchè non ci serve mantenere ogni cosa, quindi esiste un processo, il PINNING, che ci permette di dire alla rete quali file noi consideriamo IMPORTANTI e vogliamo vengano mantenuti, altrimenti IPFS ha un suo sistema di pulizia della cache per cui, tutto ciò che non è stato &#8220;pinnato&#8221; verrà svuotato. Un pò come il garbage collector.</p>
+
+
+
+<h3>PROBLEMA</h3>
+
+
+
+<p>Chiaramente nessun sistema è perfetto, dunque anche IPFS, seppur abbia ottimi punti di partenza e di futuro sviluppo, ha anch&#8217;esso alcuni aspetti problematici da tenere presente, ma così come la Blockchain ha creato i Bitcoin come sistema di INCENTIVAZIONE per poter far crescere l&#8217;uso della sua innovazione, così anche IPFS ha dovuto trovare la soluzione per lo stesso dilemma.</p>
+
+
+
+<p>Infatti, il problema principale di IPFS è quello di riuscire a mantenere i file sempre disponibili, poichè se un file è condiviso da pochi nodi della rete questo diventerà non disponibile non appena questi nodi andranno offline, esattamente come capita su BitTorrent per i file con pochi seeders. L’unico modo per risolvere questo problema è offrire un incentivo ai nodi per rimanere online quanto più tempo possibile e distribuire così proattivamente i file sulla rete in modo che ci sia sempre un certo numero minimo garantito di nodi, che ne mantenga una copia disponibile.</p>
+
+
+
+<h3>SOLUZIONE</h3>
+
+
+
+<p>Per questo gli stessi sviluppatori di IPFS hanno creato il progetto <strong>Filecoin</strong>, una blockchain basata su IPFS che punta alla creazione di un mercato decentralizzato per lo storage di dati. In questo modo chi offre il proprio spazio di archiviazione per il salvataggio di dati su IPFS è al tempo stesso incentivato economicamente a farlo e a mantenere il proprio nodo online per quanto più tempo possibile. In pratica come Bitcoin per la Blockchain.</p>
+
+
+
+<p>Di Filecoin parleremo approfonditamente in un prossimo articolo.</p>
+
+
+
+<h3>IPNS</h3>
+
+
+
+<p>L&#8217;IPNS, ossia Inter-Planetary Name System è la parte tecnologica di IPFS che possiamo associare a ciò che noi conosciamo sulla internet, basata sul protocollo HTTP, come il servizio DNS, tramite il quale possiamo navigare, grazie alla traduzione da indirizzo-IP basato su numeri, a sequenza ordinata di lettere che compongono gli URL che utilizziamo ogni giorno.</p>
+
+
+
+<p>Secondo la documentazione ufficiale di IPFS:</p>
+
+
+
+<blockquote class="wp-block-quote"><p>&#8221; l&#8217; IPNS è un sistema per la creazione e l&#8217;aggiornamento di collegamenti mutabili al contenuto IPFS. Poiché gli oggetti in IPFS sono indirizzati al contenuto, il loro indirizzo cambia ogni volta che il loro contenuto lo fa. È utile per una varietà di cose, ma rende difficile ottenere l&#8217;ultima versione di qualcosa.&#8221;</p></blockquote>
+
+
+
+<p>Quindi, un nome gestito su IPNS equivale all&#8217;hash di una chiave pubblica, ed è associato a un record contenente informazioni sull&#8217;hash a cui è collegato, che è firmato dalla chiave privata corrispondente. Chiaramente tutti i nuovi record possono essere firmati e pubblicati in qualsiasi momento.</p>
+
+
+
+<h3>OGNI COSA HA BISOGNO DEL PROPRIO ATTREZZO</h3>
+
+
+
+<p>Come ho carcato di spiegare (data la vastità dell&#8217;argomento) , IPFS può rendervi indipendenti dall&#8217;Internet tradizionale, infatti posso salvalre file, pubblicare un sito ed altro ancora, senza dover usare Google, un DNS, o avere un dominio comprato su un ISP&#8230;&#8230;, già dimenticavo di dire che, così come oggi siamo abitutati a comprare e registrare un dominio per il nostro sito, la stessa cosa la possiamo fare in modo indipendente anche su IPFS, tramite ENS (Ethereum Name Service).</p>
+
+
+
+<p>In questo caso possiamo vedere come due tecnologie, simili nei concetti, si possono unire, ed è il caso proprio di IPFS+ENS.</p>
+
+
+
+<p>L&#8217; Ethereum Name Service (<strong>ENS</strong>) è definito come un &#8220;sistema di denominazione distribuito, aperto ed estensibile basato sulla blockchain di Ethereum&#8221;. <strong>Ethereum</strong>, per coloro che non lo sapessero, è una piattaforma di contratto intelligente (una blockchain) che vanta un gran numero di applicazioni decentralizzate (<strong>dapps</strong>), una vivace community di sviluppatori e una dichiarata community di utenti.</p>
+
+
+
+<p>ENS è stato progettato per creare un sistema simile al DNS, tuttavia, a causa della diversa architettura decentralizzata di Ethereum, l&#8217;ENS varia dalla struttura sfruttata nei sistemi DNS. Tuttavia, proprio come il DNS, l&#8217;ENS detiene un record di nomi gerarchici separati da punti chiamati domini, con il proprietario del dominio di primo livello che ha il pieno controllo sui sottodomini.</p>
+
+
+
+<p>Ad esempio, se &#8220;tizio&#8221; possiede il dominio &#8220;soldiapalate.eth&#8221;, può creare &#8220;blog.soldiapalate.eth&#8221; e configurarlo come desidera.</p>
+
+
+
+<p>Per gli utenti della rete principale di Ethereum, l&#8217;ENS semplifica decisamente le cose, inquanto migliora l&#8217;usabilità delle dapps restituendo, attraverso la risoluzione inversa, nomi leggibili dall&#8217;uomo invece dei lunghi hash di IPFS.</p>
+
+
+
+<h3>WEB 3.0</h3>
+
+
+
+<p>Come stavo chiarendo qui sopra, posso essere indipendente da tutto se voglio usare IPFS come sistema di backup/scambio di file ma, cosa succede se voglio usare queste nuove tecnologie per creare un sito web?. Da questi ragionamenti è nato quello che oggi è il web3, che accomuna sistemi decentralizzati come IPFS alle Blockchain, come Ethereum, ma non solo. Infatti, seppur abbiamo chiarito che IPFS funziona, a livello concettuale com Torrent, se i contenuti che voglio condividere sono presenti solo su un computer e quel computer, per qualsiasi motivo, non è disponibile, quei contenuti saranno irragingibili.</p>
+
+
+
+<p>Per questo motivo, da qualche tempo per IPFS esistono anche dei servizi di <em>pinning</em>: che ci aiutano a garantire la disponibilità dei nostri contenuti. Tra questi, alcuni nomi sono quelli di Pinata, Infura ed anche il blasonato Cloudflare ha aggiunto tra i suoi servizi quelli di &#8220;Gateway Website for IPFS&#8221; &#8230;&#8230; and more.</p>
+
+
+
+<p>Il vantaggio del Web 3.0 è che i dati sono distribuiti punto a punto, quindi non è necessario preoccuparsi di perdere i dati se i server sulla rete vengono interrotti. Non è lo stesso di un Web centralizzato, quando il server di accesso viene interrotto, non è possibile accedere al sito Web.</p>
+
+
+
+<h3>CONCLUSIONE</h3>
+
+
+
+<p>Per questo primo articolo introduttivo è tutto, nel prossimo inizieremo ad affrontare alcuni casi pratici per vedere come si salvano i dati, li si recuperino in caso di cancellazione, vedremo come attivare un nostro nodo locale e come accedere alla Dashboard di gestione del nodo, e come usare alcuni dei servizi di gateway per velocizzare e gestire il pinning dei dile importanti.</p>
+
+
+
+<p>Alla prossima !!</p>
+
+
+
+<div class="wp-block-cover has-background-dim is-style-bottom-wave" style="background-image:url('https://tuttiperlinux.files.wordpress.com/2021/01/ipfs-1.jpg');"><div class="wp-block-cover__inner-container">
+<p class="has-text-align-center has-large-font-size">IPFS &#8211; Filesystem distribuito</p>
+</div></div>
+]]></content:encoded>
+					
+		
+		
+		
+		<media:thumbnail url="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs.jpg" />
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs.jpg" medium="image">
+			<media:title type="html">ipfs</media:title>
+		</media:content>
+
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_net.png?w=767" medium="image" />
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2021/01/ipfs_object.png?w=1024" medium="image" />
+	</item>
+	</channel>
+</rss>

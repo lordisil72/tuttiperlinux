@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>mirror &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/mirror/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:06:44 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>mirror &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Sfdisk salvare le partizioni</title>
+		<link>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 27 Jun 2014 08:59:02 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[distro]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[mirror]]></category>
+		<category><![CDATA[partizioni]]></category>
+		<category><![CDATA[raid]]></category>
+		<category><![CDATA[sfdisk]]></category>
+		<category><![CDATA[testdisk]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=92</guid>
+
+					<description><![CDATA[Salvare la tabella della partizioni Anche se l&#8217;uso di TestDisk ci aiuta a ripristinare eventuali partizioni perse, ritrovarsi con una tabella della partizioni scombinata puo&#8217; richiedere  parecchio tempo per essere sistemata. Sarebbe molto meglio (come gia suggerito nei precedente articolo ( &#8220;testdisk e le partizioni&#8221;  ) averne gia salvata una in ordine&#8230;, in questi casi &#8230; <a href="https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong>Salvare la tabella della partizioni</strong></p>
+<p>Anche se l&#8217;uso di TestDisk ci aiuta a ripristinare eventuali partizioni perse, ritrovarsi con una tabella della partizioni scombinata puo&#8217; richiedere  parecchio tempo per essere sistemata. Sarebbe molto meglio (come gia suggerito nei precedente articolo ( &#8220;<a title="TestDisk e le partizioni" href="https://tuttiperlinux.wordpress.com/2014/06/27/testdisk-e-le-partizioni/">testdisk e le partizioni</a>&#8221;  ) averne gia salvata una in ordine&#8230;, in questi casi e&#8217; una buona idea usare <strong>sfdisk</strong> ogni volta che installate o rimuovete una distro, o comunque ogni qual volta facciate delle modifiche alle partizioni.</p>
+<p><strong>Sfdisk</strong> e&#8217; una piccola utility da riga di comando, gia&#8217; inclusa in tutte le recenti distro Linux, in grado di fare il backup ed il ripristino delle tabelle delle partizioni, oltre a poterle modificare a piacimento/necessita&#8217;.</p>
+<pre>Ad esempio il comando: <strong>sudo sfdisk -d /dev/sda &gt; sda_tabella.txt
+</strong></pre>
+<p>effettuera&#8217; una copia di sicurezza della tabella delle partizioni del disco <strong>sda</strong> all&#8217;interno del file di testo che dovrete tenere in un posto ben al sicuro.</p>
+<pre>Al contrario il comando : <strong>sudo sfdisk /dev/sda &lt;</strong> <strong>sda_tabella.txt</strong></pre>
+<p>leggera&#8217; il file di testo e ripristinera&#8217; la tabella dele partizioni all&#8217;interno dell&#8217;<strong>MBR </strong>di &#8220;sda&#8221; . Nel caso in cui abbiate un sistema di gestione dischi in <strong>RAID, </strong>potete comunque fare il mirror di una tabella delle partizioni da un disco all&#8217;altro usando</p>
+<pre><strong>sudo sfdisk -d /dev/sda | /dev/sdb</strong></pre>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>update-manager &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/update-manager/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Mon, 08 Sep 2014 23:32:33 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>update-manager &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Ubuntu Tips and Tricks</title>
+		<link>https://tuttiperlinux.blog/2014/09/08/491/</link>
+					<comments>https://tuttiperlinux.blog/2014/09/08/491/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 08 Sep 2014 21:58:49 +0000</pubDate>
+				<category><![CDATA[Tips & Tricks]]></category>
+		<category><![CDATA[distro upgrade]]></category>
+		<category><![CDATA[do-release]]></category>
+		<category><![CDATA[gnome]]></category>
+		<category><![CDATA[kde]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[sudo]]></category>
+		<category><![CDATA[synaptic]]></category>
+		<category><![CDATA[tips]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[update-manager]]></category>
+		<category><![CDATA[vim]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=491</guid>
+
+					<description><![CDATA[Ubuntu alcuni Trucchi per migliorane l&#8217;uso : 1. Cambiamo i programmi di default Ubuntu viene distribuito con moltissimi programmi che fanno le cose in modo molto simile tra loro, ad esempio come editor di default è settato &#8220;nano&#8221;, per alcuni di voi pero&#8217; potrebbe essere meglio cambiare e avere &#8220;vim&#8221;. La strada più facile per &#8230; <a href="https://tuttiperlinux.blog/2014/09/08/491/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg"><img data-attachment-id="492" data-permalink="https://tuttiperlinux.blog/2014/09/08/491/ubuntu-trucchi/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg" data-orig-size="200,150" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Ubuntu-trucchi" data-image-description="&lt;p&gt;Ubuntu Tips &amp;amp; Tricks&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg?w=200" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg?w=200" class="alignleft size-full wp-image-492" src="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg?w=600" alt="Ubuntu-trucchi" srcset="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg 200w, https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg?w=150 150w" sizes="(max-width: 200px) 100vw, 200px"   /></a>Ubuntu alcuni Trucchi per migliorane l&#8217;uso</strong> :</p>
+<p><span style="color:#3366ff;">1. Cambiamo i programmi di default</span></p>
+<p>Ubuntu viene distribuito con moltissimi programmi che fanno le cose in modo molto simile tra loro, ad esempio come editor di default è settato &#8220;nano&#8221;, per alcuni di voi pero&#8217; potrebbe essere meglio cambiare e avere &#8220;vim&#8221;.</p>
+<p>La strada più facile per farlo è usare il programma update-alternatives; questo tool di gestione mantiene dei link simbolici nel PATH /etc/alternatives ,  che determinano quali programmi lanciare di default, per alcuni programmi come ftp, system, editor, telnet, rsh, windows manager ecc…; per avere la lista completa basta digitare:<br />
+ls -la /etc/alternatives/</p>
+<p>ora per modificare l’editor di default per passare da nano a vim è sufficiente digitare:</p>
+<p>sudo update-alternatives &#8211;config editor</p>
+<p>apparirà qualcosa simile a questo:</p>
+<p>There are 3 alternatives which provide `editor&#8217;.</p>
+<p>Selection Alternative<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8211;<br />
+1 /usr/bin/vim<br />
+2 /bin/ed<br />
+*+ 3 /bin/nano</p>
+<p>Press enter to keep the default[*], or type selection number:</p>
+<p>a questo punto è sufficiente premere 1 per avere vim come editor di default.</p>
+<p><span style="color:#3366ff;">2. Come installare un pacchetto:</span></p>
+<p>Quasi tutti i software che volete installare in ubuntu sono presenti nei repositories di default ed è semplice installarli tramite programmi grafici come Synaptic o simili. Cosa succede però se si vuole installare un programma come ad esempio Opera (browser) che è disponibile per Ubuntu ma non è presente nei repositories?</p>
+<p>In questo caso dobbiamo scaricare il pacchetto debian (.deb) e cliccarci con il tasto destro per poi  aprirlo con GDebi, in alcuni casi è sufficiente il doppio click, GDebi mostrera&#8217; in modo grafico le informazioni sul pacchetto: cosa fa, le varie dipendenze, cosa contiene, ed un tasto per installarlo.</p>
+<p>Se invece preferite fare tutto da linea di comando è sufficiente digitare</p>
+<pre>sudo dpkg -i &lt;nomepacchetto.deb&gt;</pre>
+<p><span style="color:#3366ff;">3. Sudo e gksudo</span></p>
+<p>Se si e&#8217; usato linux per un pò di tempo, conoscete la potenza distruttiva che può avere un programma lanciato male da root, può modificare la configurazione spostare file di sistema, distruggere dati importanti ecc…</p>
+<p>Cosi in Ubuntu hanno pensato un sistema diverso; l’utente root esiste in Ubuntu ma non può essere usato se non attraverso il comando sudo.</p>
+<p>Probabilmente già conoscete come funziona <strong>sudo</strong> tool, ma se volete lanciare un programma grafico come se foste <strong>root</strong> o un altro utente ? è semplice basta usare <strong>gksudo</strong> al posto di sudo. Se volete lanciare ethereal (che è un famoso sniffer) come root,  bastera&#8217; lanciare dalla shell il comando <strong>gksudo ethereal</strong> , vi verra&#8217; richiesta una password (quella del vostro utente) e il programma sarà avviato come utente, ma con i permessi di root, a patto che il vostro utente sia stato precedentemente inserito tra gli utenti nella lista dei <strong>sudoers</strong> (/etc/sudoers).<br />
+Ma in alcuni casi si ha davvero la necessita&#8217; di usare proprio l’utente root da shell e, per ovviare a questo problema si puo&#8217;digitare :</p>
+<pre>sudo -i</pre>
+<p><span style="color:#3366ff;">4. Aggiungere utenti come admin</span></p>
+<p>Quando installiamo Ubuntu, viene aggiunto in automatico il primo utente come <strong>sudoers</strong>, questo permette a quell’utente di poter lanciare comandi come se fosse un utente root scrivendo la sua password (cosi come spiegato al punto precedente).</p>
+<p>Tuttavia se si aggiungono altri utenti questi non avranno tale privilegio; per poter dare anche ai nuovi utenti questo privilegio bisogna inserirli tra gli utenti &#8220;admin&#8221; , digitando quanto segue:</p>
+<pre>sudo usermod -G admin nomeutente</pre>
+<p>Se l’utente facesse già parte di un&#8217; altro gruppo bastera&#8217; aggiungere al comando l&#8217;opzione &#8221; -a &#8221; facendolo diventare:</p>
+<pre>sudo usermod -a -G admin nomeutente</pre>
+<p>Se preferite fare il tutto da interfaccia grafica potete andare in Sistema (System) -&gt; Amministrazione (Administration) -&gt; Utenti e Gruppi (Users and Groups), selezionare l’utente a cui si vogliono dare i permessi di sudo e cliccare con il tasto destro, scegliere Propietà e sotto  “Privileggi utente” selezionare “Amministrare il sistema”.</p>
+<p><span style="color:#3366ff;">5. Aggiungere un nuovo desktop</span></p>
+<p>Molti utenti non sono sicuri su quale desktop usare, a differenza di sistemi come windows, Linux prevede l’uso di molte, diverse, interfacce grafiche in base alle preferenze dell’utente, ogni Desktop Manager è completamente diverso dagli altri e offre funzionalità diverse, tra i più famosi troviamo Gnome (quello di default), KDE, Xfce e molti altri.</p>
+<p>Ubuntu infatti viene distribuito con molti nomi e contenuti diversi oltre all&#8217; Ubuntu classico infatti ci sono Kubuntu, Xubuntu, Edubuntu, ecc…  se se n&#8217; è installato soltanto uno è possibile comunque installare gli altri digitando semplicemente quanto segue senza bisogno di scaricare di nuovo il CD:</p>
+<pre>sudo apt-get install kubuntu-desktop
+sudo apt-get install edubuntu-desktop
+sudo apt-get install xubuntu-desktop</pre>
+<p>Alcuni sono più semplici da usare mentre altri sono più veloci, altri ancora sono più belli, insomma ce n&#8217;è per tutti i gusti.</p>
+<p>Naturalmente si possono installare anche da interfaccia grafica usando tool come Synaptic.</p>
+<p><span style="color:#3366ff;">6. Avanzamento di versione<br />
+</span></p>
+<p>Ci sono diversi metodi per eseguire un avanzamento di versione da un rilascio di Ubuntu ad un&#8217; altro. Questi descritti sono i metodi raccomandati sulle guide ufficiali, ma fate sempre molta attenzione poiche&#8217; <strong>nulla e&#8217; perfetto</strong>.</p>
+<pre>do-release-upgrade</pre>
+<p>Il metodo di avanzamento raccomandato per la <strong>Server Edition</strong> è l&#8217;utilizzo dell&#8217;utilità <strong>do-release-upgrade</strong>, installata in modo predefinito come parte del pacchetto update-manager-core e priva di alcuna dipendenza grafica.</p>
+<p>I sistemi basati su Debian possono ricorrere anche al comando <strong>apt-get dist-upgrade</strong>. L&#8217;uso di do-release-upgrade è comunque raccomandato in quanto è in grado di gestire le modifiche necessarie alla configurazione di sistema tra i rilasci.</p>
+<p>Per avanzare ad un nuovo rilascio, da un terminale digitate quindi :</p>
+<pre>do-release-upgrade</pre>
+<p>È anche possibile usare do-release-upgrade per avanzare a una versione di sviluppo di Ubuntu. Per fare ciò, usare l&#8217;opzione -d:</p>
+<pre>do-release-upgrade -d</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/09/08/491/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/09/ubuntu-trucchi.jpg" medium="image">
+			<media:title type="html">Ubuntu-trucchi</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

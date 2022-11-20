@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>checkdisk &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/checkdisk/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Mon, 30 Jun 2014 09:32:29 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>checkdisk &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Check Disk</title>
+		<link>https://tuttiperlinux.blog/2014/06/30/check-disk/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/30/check-disk/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 30 Jun 2014 09:23:37 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[backup]]></category>
+		<category><![CDATA[badblocks]]></category>
+		<category><![CDATA[checkdisk]]></category>
+		<category><![CDATA[disktype]]></category>
+		<category><![CDATA[smarttools]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=108</guid>
+
+					<description><![CDATA[Salvaguardare lo stato di salute del disco : Gli Hard Disk sono una delle parti più delicate degli odierni pc, ed infatti sono tra le periferiche che più facilmente sono soggette a rompersi. Fortunantamente ci sono degli strumenti studiati per diagnosticare i malfunzionamenti prima ancora che possano creare danno. Ma ricordate che un backup periodico &#8230; <a href="https://tuttiperlinux.blog/2014/06/30/check-disk/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong>Salvaguardare lo stato di salute del disco :</strong></p>
+<p>Gli Hard Disk sono una delle parti più delicate degli odierni pc, ed infatti sono tra le periferiche che più facilmente sono soggette a rompersi.</p>
+<p>Fortunantamente ci sono degli strumenti studiati per diagnosticare i malfunzionamenti prima ancora che possano creare danno. Ma ricordate che un backup periodico dei dati importanti è sempre la scelta migliore.</p>
+<p>In questo articolo vedremo come usare alcuni strumenti come <strong>smartmontools</strong> e <strong>badblocks</strong> per monitorare lo stato di salute di un hard disk.</p>
+<p><strong>*</strong> Controllare<strong> lo stato di salute di un HD:</strong> smartmontools</p>
+<p>Gli smartmontools permettono di usare la funzionalità SMART di tutti i moderni HD grazie alla quale è possibile prevedere con 24 ore di anticipo la rottura di un HD.</p>
+<p>In debian basta installare il pacchetto smartmontools:</p>
+<pre># apt-get install smartmontools</pre>
+<p><strong>* Analizzare lo stato dell&#8217;HD: </strong></p>
+<p>Possiamo usare l&#8217;utility <strong>smartctl</strong> per analizzare lo stato dell&#8217;HD.</p>
+<p>Innanzi tutto vediamo alcune informazioni generiche sul nostro HD:</p>
+<pre> sudo smartctl --scan
+/dev/sda -d scsi # /dev/sda, SCSI device
+/dev/sdd -d scsi # /dev/sdd, SCSI device
+</pre>
+<pre> sudo smartctl -a /dev/sda  # questo ci permettera' di vedere ogni info sul disco in questione</pre>
+<p>=== START OF INFORMATION SECTION ===<br />
+Model Family: Western Digital Scorpio Blue Serial ATA<br />
+Device Model: WDC WD5000BEVT-22ZAT0<br />
+Serial Number: WD-WXNY08ND3649<br />
+LU WWN Device Id: 5 0014ee 257a423e8<br />
+Firmware Version: 01.01A01<br />
+User Capacity: 500.107.862.016 bytes [500 GB]<br />
+Sector Size: 512 bytes logical/physical<br />
+Rotation Rate: 5400 rpm<br />
+Device is: In smartctl database [for details use: -P show]<br />
+ATA Version is: ATA8-ACS (minor revision not indicated)<br />
+SATA Version is: SATA 2.6, 3.0 Gb/s<br />
+Local Time is: Mon Jun 30 10:54:33 2014 CEST</p>
+<pre>SMART support is: Available - device has SMART capability.
+SMART support is: Enabled</pre>
+<p>oltre alle informazioni generiche, dalle ultime due righe si capisce che l&#8217;HD supporta la tecnologia SMART e che il supporto è attivato. Se non fosse attivato basterebbe questo comando:</p>
+<pre>sudo smartctl -s on /dev/sda</pre>
+<p>per attivare il supporto SMART.</p>
+<p>E&#8217; anche possibile effettuare dei test più o meno approfonditi sul disco. Alcuni test si possono effettuare con l&#8217;HD montato e funzionate, ed il test stesso avrà un impatto minimo o nullo sulle prestazioni del sistema.</p>
+<p>Per effettuare un test:</p>
+<pre>sudo smartctl -t &lt;tipo_test&gt; /dev/sda</pre>
+<p>dove tipo_test può essere:</p>
+<p><strong>short</strong><br />
+effettua un test sul disco di durata inferiore a 10 minuti, può essere eseguito durante il normale funzionamento e non impatta le prestazioni. Questo test controlla le performace meccaniche ed elettriche del disco, oltre che le performance in lettura.</p>
+<p><strong>long</strong><br />
+effettua un test di durata da 40 minuti ad un ora (a seconda del disco). Può essere effettuato durante il normale funzionamento del disco e non ha impatto sulle prestazioni. Questo test è una versione più estesa dello short test.</p>
+<p><strong>conveyance</strong><br />
+effettua un test di alcuni minuti atto a scoprire difetti dovuti ad incurie nel trasporto dell&#8217;HD. Può essere eseguito durante il normale funzionamento dell&#8217;HD.</p>
+<p>Esistono anche altri tipi di test per i quali si rimanda alla simpatica pagina di manuale: man smartctl.</p>
+<p>I risultati di questi test vengono riportati nella parte finale dell&#8217;output di smartctl -a /dev/sda, come notato in precedenza.</p>
+<p><strong>Controllo automatizzato :</strong></p>
+<p>E&#8217; possibile attivare il demone smartd fornito dal pacchetto smartmontools per monitorare in continuazione lo stato di salute dell&#8217;HD e notificare ogni anomalia immediatamente tramite syslog.</p>
+<p>Normalmente il demone è disabilitato. Per abilitarlo bisogna editare il file /etc/default/smartmontools e decommentare la riga:</p>
+<p><strong>start_smartd=yes</strong></p>
+<p>Dobbiamo inoltre configurare <em>smartd</em> per deciderne il suo comportamento. A tal scopo editiamo il file /etc/smartd.conf. Leggendo i commenti nel file e l&#8217;amichevole pagina di manuale (man smartd.conf) è possibile scegliere quali parametri smartd debba monitorare, programmare dei test automatici, e decidere quali azioni intraprendere in caso di errore.</p>
+<p>Nel mio caso ho inserito solo la seguente linea per il solo disco di sistema:</p>
+<pre>/dev/sda -a -o on -S on</pre>
+<p>che attiva il monitoraggio di tutti (-a) i parametri, abilitia l&#8217; automatic online data collection (-o on), e abilita il salvataggio degli attributi (-S on) in modo che le informazioni di log di SMART vengano memorizzare nella FLASH del disco e siano disponibili anche dopo il riavvio.</p>
+<p><strong>Verifica di settori corrotti con BadBlocks : </strong></p>
+<p><strong>**</strong> Data lapotenza dell&#8217;utility che va a lavorare davvero a basso livello se ne consiglia l&#8217;uso solo nei casi in cui l&#8217;hard disk risulta gia&#8217; compromesso e comunque soltanto dopo aver gia&#8217; effettuato un backup (come precedentemente spiegato). L&#8217;utility badblocks permette di fare un controllo di basso livello per vedere se su una partizione sono presenti dei settori danneggiati.</p>
+<p>I moderni HD  fanno un controllo automatico degli errori e sono in grado di segnare dei settori corrotti che di conseguenza non verranno più usati. Questo rende in parte inutile badblocks, ma se si effettua un controllo e dei settori risultano danneggiati vuol dire che probabilmente la superficie del disco contiene così tanti settori danneggiati che la circuiteria di controllo non è più in gradio di gestirli.</p>
+<p>Per effettuare un controllo con badblocks e&#8217; preferibile lavorare sui dischi usando una LiveCD da cui eseguiremo:</p>
+<pre># badblocks -b dimensione_blocco /dev/sdaX</pre>
+<p>dove /dev/sdaX è la partizione da controllare. Il parametro dimensione_blocco è la dimensione del blocco usata dal filesytem espresso in byte. Di solito è 4096 (ovvero 4KB), per controllare potete usare:</p>
+<pre># disktype /dev/sda</pre>
+<p>** Per le ulteriori opzioni di badblocks si rimanda all&#8217;amichevole pagina di manuale, ma <strong>attenzione: l&#8217;opzione -w distruggerà tutti i dati sulla vostra partizione.<br />
+Non usatela se non volete che ciò accada.</strong></p>
+<p>* Leggi anche ( &#8220;<a title="Estraiamo i nostri dati" href="https://tuttiperlinux.wordpress.com/2014/06/25/estraiamo-i-nostri-dati/"> estraiamo i nostri dati</a> &#8221; )</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/30/check-disk/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

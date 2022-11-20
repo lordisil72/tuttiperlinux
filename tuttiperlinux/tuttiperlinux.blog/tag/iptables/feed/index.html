@@ -1,0 +1,1160 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>iptables &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/iptables/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Mon, 30 Jan 2017 13:51:36 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>iptables &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Difenditi con ARTILLERY</title>
+		<link>https://tuttiperlinux.blog/2017/01/30/1296/</link>
+					<comments>https://tuttiperlinux.blog/2017/01/30/1296/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 30 Jan 2017 13:51:11 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[alerting]]></category>
+		<category><![CDATA[artillery]]></category>
+		<category><![CDATA[brute force]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[github]]></category>
+		<category><![CDATA[honeypot]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[security]]></category>
+		<category><![CDATA[social engineering toolkit]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1296</guid>
+
+					<description><![CDATA[In questo articolo parleremo di un tool che si pone come interessante aiuto verso la sicurezza delle nostre macchine in rete, il suo nome e&#8217; Artillery , esso è un interessante software scritto interamente in python. La cosa molto interessante di questo tool e&#8217; che lo possiamo intendere come una combinazione tra un honeypot, un tool &#8230; <a href="https://tuttiperlinux.blog/2017/01/30/1296/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1297" style="width: 257px" class="wp-caption alignnone"><img loading="lazy" aria-describedby="caption-attachment-1297" data-attachment-id="1297" data-permalink="https://tuttiperlinux.blog/2017/01/30/1296/project-artillery/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png" data-orig-size="284,345" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="project-artillery" data-image-description="&lt;p&gt;Artillery Honeypot All-in-one&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Artillery Honeypot All-in-one&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=247" data-large-file="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=284" class="size-medium wp-image-1297" src="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=247&#038;h=300" alt="Artillery Honeypot All-in-one" width="247" height="300" srcset="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=247&amp;h=300 247w, https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=123&amp;h=150 123w, https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png 284w" sizes="(max-width: 247px) 100vw, 247px" /><p id="caption-attachment-1297" class="wp-caption-text">Artillery Honeypot All-in-one</p></div>
+<p>In questo articolo parleremo di un tool che si pone come interessante aiuto verso la sicurezza delle nostre macchine in rete, il suo nome e&#8217; <strong>Artillery </strong>, esso è un interessante software scritto interamente in python. La cosa molto interessante di questo tool e&#8217; che lo possiamo intendere come una combinazione tra un honeypot, un tool di monitoraggio, ed un sistema di alerting. Uahoooo, tutto in un&#8217;unico strumento&#8230;&#8230;.</p>
+<p>I principi di funzionamento si caratterizzano dal fatto che in presenza di determinate attività di networking esso si comporta parzialmente come un honeypot, adottando anche manovre evasive e, contemporaneamente monitorizza il cambiamento di file sensibili; in entrambi i casi avvisando di quanto riscontrato i destinatari designati.<br />
+Artillery si pone in ascolto su di un certo numero di porte di uso comune (peraltro configurabile, tramite la variabile PORTS), e qualora riceva una richiesta di connessione per uno qualsiasi dei servizi fasulli, blocca in modo permanente l’indirizzo IP sorgente aggiungendo una relativa regola con target DROP a iptables.</p>
+<p><strong>Artillery può essere anche usato per prevenire attacchi di tipo brute force<br />
+</strong><br />
+L’ installazione ed il lancio di Artillery sono molto semplici: una volta effettuato il download via <strong>git</strong>, occorre lanciare uno script installer, editare un file di configurazione (&#8220;all&#8217;inizio questo passaggio sara&#8217; meglio farlo su macchina virtuale per fare pratica della configurazione delle regole&#8221;) e poi mandarlo in esecuzione:</p>
+<p># cd /opt<br />
+# <code>apt-get update &amp;&amp; apt-get install git [solo se ancora non avete installato il pacchetto git]<br />
+# git clone https://github.com/trustedsec/artillery/ artillery/<br />
+# cd artillery<br />
+</code># sudo ./setup.py</p>
+<p>Welcome to the Artillery installer. Artillery is a honeypot, file monitoring, and overall security tool used to protect your nix systems.</p>
+<p>Written by: Dave Kennedy (ReL1K)</p>
+<p>Do you want to install Artillery and have it automatically run when you restart [y/n]: y<br />
+[*] Beginning installation. This should only take a moment.<br />
+[*] Adding artillery into startup through init scripts..<br />
+[*] Triggering update-rc.d on artillery to automatic start&#8230;<br />
+Do you want to keep Artillery updated? (requires internet) [y/n]: y<br />
+[*] Checking out Artillery through github to /var/artillery<br />
+Cloning into &#8216;/var/artillery&#8217;&#8230;<br />
+remote: Counting objects: 876, done.<br />
+remote: Total 876 (delta 0), reused 0 (delta 0), pack-reused 876<br />
+Receiving objects: 100% (876/876), 207.83 KiB | 293.00 KiB/s, done.<br />
+Resolving deltas: 100% (568/568), done.<br />
+Checking connectivity&#8230; done.<br />
+[*] Finished. If you want to update Artillery go to /var/artillery and type &#8216;git pull&#8217;<br />
+Would you like to start Artillery now? [y/n]: y<br />
+Starting Artillery&#8230; Ok<br />
+[*] Installation complete. Edit /var/artillery/config in order to config artillery to your liking..</p>
+<p>Durante il processo di installazione verranno poste, come potete leggere qui sopra, alcune domande:<br />
+Do you want to install Artillery and have it automatically run when you restart [y/n]:<br />
+Do you want to keep Artillery updated? (requires internet) [y/n]:<br />
+Would you like to start Artillery now? [y/n]:</p>
+<p>Artillery verrà installato come servizio sotto /etc/init.d/<br />
+E’ sempre consigliabile leggere con attenzione prima d&#8217; impostare il file di configurazione.<br />
+In ogni caso, una volta effettuate delle modifiche alla configurazione, si può impartire e renderle immediatamente operanti:<br />
+# python restart_server.py</p>
+<p>Fate attenzione a non commettere l’errore di editare invece i files risultanti dal download via git. Una volta che che lo script di installazione sia stato eseguito, per modificarne la configurazione posizionatevi piuttosto nella directory /var/artillery.</p>
+<p>Il contenuto del file <strong>config</strong> è piuttosto chiarificatore delle funzionalità del software:<br />
+# determina se attivare l&#8217;attività di monitoraggio dell&#8217;integrità di files sensibili<br />
+MONITOR=YES<br />
+#<br />
+# le directories da monitorare, se ne possono ancora aggiungere &#8220;/root&#8221;,&#8221;/var/&#8221;, ecc.<br />
+MONITOR_FOLDERS=&#8221;/var/www&#8221;,&#8221;/etc/&#8221;<br />
+#<br />
+# frequenza del controllo in secondi.<br />
+MONITOR_FREQUENCY=60<br />
+#<br />
+# esclusione dal controllo per certe directories o files, ad esempio: /etc/passwd,/etc/hosts.allow<br />
+EXCLUDE=<br />
+#<br />
+# determina se attivare l&#8217;attività di HONEYPOT<br />
+HONEYPOT=YES<br />
+#<br />
+# ban automatico HONEYPOT<br />
+HONEYPOT_BAN=YES<br />
+#<br />
+# WHITELIST di indirizzi IP non vincolati dalle regole di controllo<br />
+WHITELIST_IP=127.0.0.1,localhost<br />
+#<br />
+# PORTS su cui attivare il monitoring<br />
+PORTS=&#8221;135,445,22,1433,3389,8080,21,5900,25,53,110,1723,1337,10000,5800,44443&#8243;<br />
+#<br />
+# determina se attivare l&#8217;alerting via email<br />
+EMAIL_ALERTS=OFF<br />
+#<br />
+# username SMTP<br />
+USERNAME=&#8221;thisisjustatest@gmail.com&#8221;<br />
+#<br />
+# password SMTP<br />
+PASSWORD=&#8221;pass&#8221;<br />
+#<br />
+# destinatario<br />
+SMTP_TO=&#8221;testing@test.com&#8221;<br />
+#<br />
+# server per l&#8217;invio, per default gmail<br />
+SMTP_ADDRESS=&#8221;smtp.gmail.com&#8221;<br />
+#<br />
+# Porta SMTP per l&#8217;invio. Di default è quella gmail con TTLS<br />
+SMTP_PORT=&#8221;587&#8243;<br />
+#<br />
+# Indirizzo EMAIL su cui ricevere gli ALERTS<br />
+ALERT_USER_EMAIL=&#8221;user@whatever.com&#8221;<br />
+#<br />
+# determina se l&#8217;invio delle email di alerting debba avvenire seguendo una certa frequenza. Se impostato a off, gli alerts<br />
+# verranno inviati automaticamente in tempo reale (può significare un mucchio di spam)<br />
+EMAIL_TIMER=ON<br />
+#<br />
+# la frequenza con la quale saranno inviati gli ALERTS per email (per default ogni 10 minuti)<br />
+EMAIL_FREQUENCY=600<br />
+#<br />
+# Attivazione del monitoraggio dei tentativi BRUTE FORCE contro SSH<br />
+SSH_BRUTE_MONITOR=ON<br />
+#<br />
+# Quanti tentativi prima del BAN<br />
+SSH_BRUTE_ATTEMPTS=4<br />
+#<br />
+# Per effettuare degli aggiornamenti automatici<br />
+AUTO_UPDATE=OFF<br />
+#<br />
+# ANTI DOS imposta la macchina a limitare le connessioni, e va impostato ad OFF nel caso non lo si intenda utilizzare<br />
+ANTI_DOS=ON<br />
+#<br />
+# Le porte dotate di protezione ANTI-DOS<br />
+ANTI_DOS_PORTS=80,443<br />
+#<br />
+# I parametri che limitano le connessioni come misura anti DOS<br />
+ANTI_DOS_THROTTLE_CONNECTIONS=50<br />
+ANTI_DOS_LIMIT_BURST=200<br />
+#</p>
+<p>Artillery ha un set di porte (comuni o comunemente attaccate) preimpostato sulle quali si pone in ascolto.<br />
+A rivelarle basta un semplice:</p>
+<p># netstat -antp |grep LISTEN<br />
+tcp 0 0 0.0.0.0:21 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:53 0.0.0.0:* LISTEN 827/dnsmasq<br />
+tcp 0 0 0.0.0.0:22 0.0.0.0:* LISTEN 637/sshd<br />
+tcp 0 0 127.0.0.1:631 0.0.0.0:* LISTEN 706/cupsd<br />
+tcp 0 0 0.0.0.0:1433 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:1337 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:25 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:90 0.0.0.0:* LISTEN 734/nginx -g daemon<br />
+tcp 0 0 0.0.0.0:44443 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:1723 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:47323 0.0.0.0:* LISTEN 616/rpc.statd<br />
+tcp 0 0 0.0.0.0:445 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:3389 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:135 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:5800 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 127.0.0.1:3306 0.0.0.0:* LISTEN 1089/mysqld<br />
+tcp 0 0 0.0.0.0:5900 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:110 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:111 0.0.0.0:* LISTEN 606/rpcbind<br />
+tcp 0 0 0.0.0.0:10000 0.0.0.0:* LISTEN 2428/python<br />
+tcp 0 0 0.0.0.0:8080 0.0.0.0:* LISTEN 2428/python<br />
+tcp6 0 0 :::53 :::* LISTEN 827/dnsmasq<br />
+tcp6 0 0 :::22 :::* LISTEN 637/sshd<br />
+tcp6 0 0 ::1:631 :::* LISTEN 706/cupsd<br />
+tcp6 0 0 :::46327 :::* LISTEN 616/rpc.statd<br />
+tcp6 0 0 :::90 :::* LISTEN 734/nginx -g daemon<br />
+tcp6 0 0 :::111 :::* LISTEN 606/rpcbind<br />
+tcp6 0 0 :::80 :::* LISTEN 1153/apache2<br />
+&#8230;</p>
+<p><strong>P.S.</strong>: L’esclusione dell’indirizzo IP che non riesca ad autenticarsi validamente viene effettuata attraverso il controllo del file /var/log/auth.log (per le distribuzioni basate su Debian).</p>
+<p>Il tool e&#8217; potente ed altamente configurabile; non rimane che dare un&#8217;occhiata alla configurazione e fare qualche prova, magari all&#8217;inizio giocando con qualche servizio aperto su di una VM.</p>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2017/01/30/1296/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2017/01/project-artillery.png?w=247" medium="image">
+			<media:title type="html">Artillery Honeypot All-in-one</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Semplificate i vostri Firewall</title>
+		<link>https://tuttiperlinux.blog/2015/05/04/semplificate-i-vostri-firewall/</link>
+					<comments>https://tuttiperlinux.blog/2015/05/04/semplificate-i-vostri-firewall/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 04 May 2015 08:44:24 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[chains]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[drop]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[ipset]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[mac address]]></category>
+		<category><![CDATA[match]]></category>
+		<category><![CDATA[routing]]></category>
+		<category><![CDATA[rules]]></category>
+		<category><![CDATA[smtp]]></category>
+		<category><![CDATA[tcp]]></category>
+		<category><![CDATA[udp]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1114</guid>
+
+					<description><![CDATA[Facilitare la gestione del Firewall usando IPSET Premessa iptables, che fa parte del più ampio framework netfilter, è notoriamente il tool in user-space destinato alla definizione delle regole di firewall del kernel Linux. Ipset è una estensione per iptables che permette la creazione di regole firewall applicabili contemporaneamente ad interi insiemi di indirizzi. A differenza &#8230; <a href="https://tuttiperlinux.blog/2015/05/04/semplificate-i-vostri-firewall/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1115" style="width: 155px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1115" data-attachment-id="1115" data-permalink="https://tuttiperlinux.blog/2015/05/04/semplificate-i-vostri-firewall/ipset_fw/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg" data-orig-size="900,930" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ipset_fw" data-image-description="&lt;p&gt;Ipset Velocizza il Firewall&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Ipset Velocizza il Firewall&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=290" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=600" class="wp-image-1115 size-thumbnail" src="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=145&#038;h=150" alt="Ipset facilita il Firewall" width="145" height="150" srcset="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=145&amp;h=150 145w, https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=290&amp;h=300 290w" sizes="(max-width: 145px) 100vw, 145px" /><p id="caption-attachment-1115" class="wp-caption-text">Ipset facilita il Firewall</p></div>
+<h4><strong>Facilitare la gestione del Firewall usando IPSET</strong></h4>
+<p><strong>Premessa</strong><br />
+iptables, che fa parte del più ampio framework netfilter, è notoriamente il tool in user-space destinato alla definizione delle regole di firewall del kernel Linux.</p>
+<p>Ipset è una estensione per iptables che permette la creazione di regole firewall applicabili contemporaneamente ad interi insiemi di indirizzi. A differenza di quanto avviene nelle normali catene iptables, che sono memorizzate e traversate linearmente, i sets sono memorizzati in strutture dati indicizzate, caratteristica che ne rende la consultazione molto efficiente, anche in presenza di sets voluminosi, oltre che in situazioni dove è facile immaginarne l’utilità, come il blocco di lunghe liste di “bad” hosts senza doversi preoccupare dell’eccessivo impiego di risorse di sistema o della congestione di quelle di rete, ipset offre anche un nuovo approccio a determinati aspetti inerenti la progettazione di un firewall, semplificandone la configurazione.</p>
+<p><strong>Ipset </strong>e&#8217; composto da due parti, un modulo kernel e, uno strumento di amministrazione, alcune distribuzioni includono anche dei wrapper di servizio per caricare configurazioni ipset al boot, come l&#8217;ipset-service di Fedora.</p>
+<p>Prima di proseguire è doveroso spendere un po’ di tempo a rinfrescare alcuni concetti fondamentali di iptables.</p>
+<p>In sintesi, la configuratione di un firewall iptables consiste di un set di “chains” built-in (raggruppate in quattro “tables”) che contengono ciascuna una lista di regole o “rules”.</p>
+<p>Per ciascun pacchetto, in ciascuna fase del suo trattamento, il kernel consulta la chain appropriata per determinarne il destino.<br />
+Le chains vengono consultate in rigoroso ordine, basato sulla direzione del pacchetto (remoto-&gt;locale, remoto-&gt;remoto oppure locale-&gt;remoto) e la sua fase corrente di trattamento o processing (prima o dopo il “routing”).</p>
+<p>Il pacchetto viene confrontato con ciascuna delle regole della chain, nell’ ordine, fino a che non viene trovata una corrispondenza. Una volta che ciò avviene, viene intrapresa la azione specificata nel target della regola.<br />
+Se viene invece raggiunta la fine della chain senza trovare una corrispondenza, viene intrapresa la azione target di default per la catena, o policy.</p>
+<p>Una chain non è altro che una lista ordinata di regole, ed una regola non è altro che una combinazione corrispondenza/target.<br />
+Un semplice esempio di corrispondenza è “TCP destination port 25″.<br />
+Un semplice esempio di target può essere “scarta il pacchetto” (DROP).<br />
+I targets possono anche redirigere ad altre chains definite dall’utente, cosa che fornisce un meccanismo per raggruppare e suddividere le regole seguendo una logica.<br />
+Ciascun comando iptables destinato a definire una regola, corto o lungo che sia, è composto di tre parti fondamentali che specificano la table/chain, la corrispondenza (match) ed il target</p>
+<p>Per creare una completa configurazione firewall, occorre di fatto mandare in esecuzione una serie di comandi iptables, in uno specifico ordine.</p>
+<p><strong>ipset</strong><br />
+ipset è una “match extension”, cioè una estensione basata sulla definizione di corrispondenze, per iptables.<br />
+Per poterla usare è prima necessario creare e popolare dei “sets” univocamente chiamati utilizzando il tool a linea di comando ipset, e successivamente fare riferimento a tali sets in una o più regole iptables.</p>
+<p>Un set può essere semplicemente una lista di indirizzi archiviata per un efficiente ritrovamento.<br />
+Prendiamo come riferimento i seguenti normali comandi iptables destinati a bloccare il traffico in ingresso proveniente da 201.121.12.1 e 202.121.12.2:</p>
+<pre>
+# iptables -A INPUT -s 201.121.12.1 -j DROP
+# iptables -A INPUT -s 202.121.12.2 -j DROP
+</pre>
+<p>La sintassi che specifica la corrispondenza (-s 201.121.12.1) significa “i pacchetti il cui indirizzo di origine è 201.121.12.1″. Per bloccare sia 201.121.12.1 che 202.121.12.2, devono venire definite due distinte regole iptables con due distinte specificazioni di corrispondenza (una per 201.121.12.1 ed una per 202.121.12.2).</p>
+<p>In alternativa, i seguenti comandi ipset/iptables servono ad ottenere lo stesso risultato:</p>
+<pre>
+# ipset -N myset iphash
+# ipset -A myset 201.121.12.1
+# ipset -A myset 202.121.12.2
+# iptables -A INPUT -m set --set myset src -j DROP
+</pre>
+<p>I comandi ipset appena visti creano un nuovo set (myset, del tipo iphash) con due indirizzi (201.121.12.1 e 202.121.12.2).<br />
+Il successivo comando iptables fa quindi riferimento al set specificando la corrispondenza con -m set –set myset src, che significa “i pacchetti il cui source header è compreso nel set di nome myset”.<br />
+Il flag src significa che la corrispondenza deve avvenire su “source”. Analogamente il flag dst avrebbe spostato la corrispondenza su “destination”, mentre il flag src,dst avrebbe riguardato sia source che destination.</p>
+<p>Nella seconda versione è richiesto un solo comando iptables, indipententemente da quanti indirizzi IP siano presenti nel set.<br />
+Anche se fossero migliaia, sarebbe necessaria sempre una singola regola iptables, mentre l’approccio tradizionale, senza il vantaggio offerto da ipset, richiederebbe migliaia di regole.</p>
+<p><strong>Tipi di set</strong><br />
+Ciascun set è di uno specifico tipo, che definisce che genere di valore possa esservi memorizzato (indirizzi IP, networks, porte ecc.) così come debba essere ricercata la corrispondenza (ovvero, quale parte del pacchetto debba essere controllata e come debba essere confrontata coi valori presenti nel set).<br />
+Oltre ai tipi più comuni, che controllano gli indirizzi IP, ne sono disponibili addizionali che si riferiscono alla porta, sia all’indirizzo IP che alla porta contemporaneamente, oppure contemporaneamente al MAC address e all’indirizzo IP, ecc.</p>
+<p>Ciascun tipo di set ha le proprie regole per tipo, range e distribuzione dei valori che può contenere.<br />
+Differenti tipi di set usano anche differenti tipi di indici e risultano ottimizzati per differenti scenari. La scelta del migliore o più efficiente tipo di set dipende quindi dalla situazione.</p>
+<p>I tipi più flessibili di set sono iphash, che archivia liste di indirizzi IP arbitrari, e nethash, che archivia liste di networks eterogenee (IP/mask) di varie dimensioni. Si faccia comunque riferimento all man page di ipset per un elenco completo ed una descrizione di tutti i tipi di set.</p>
+<p>È anche disponibile il tipo speciale setlist, che consente di raggruppare insieme differenti sets in un set unico.<br />
+È vantaggioso se si desidera, ad esempio,avere un singolo set che contenga sia singoli indirizzi IP che networks.</p>
+<p>Faccio ora un esempio per capire meglio la potenza di ipset:</p>
+<p><strong>Limitare l’accesso restringendolo solo a certi hosts pubblici da parte di certi PC della rete locale</strong><br />
+Supponiamo che nell&#8217;ufficio di cui gestite la rete passino spesso stagisti e che il megadirettore sia molto infastidito dall&#8217;idea che questi impiegati, Pippo, Pluto e Paperino possano passare il tempo a trastullarsi con Internet invece di lavorare e vi chieda di limitare l’accesso da parte dei loro PCs a uno specifico set di siti cui è necessario collegarsi solo per lavoro.<br />
+Per limitare i tre PC (192.168.0.5 è quello di Pippo, 192.168.0.6 quello di Pluto e 192.168.0.7 quello di Paperino) ad accedere solamente a corriere.it, repubblica.it e inps.it, si possono utilizzare i seguenti comandi:</p>
+<pre>
+# ipset -N limited_hosts iphash
+# ipset -A limited_hosts 192.168.0.5
+# ipset -A limited_hosts 192.168.0.6
+# ipset -A limited_hosts 192.168.0.7
+# ipset -N allowed_sites iphash
+# ipset -A allowed_sites corriere.it
+# ipset -A allowed_sites repubblica.it
+# ipset -A allowed_sites inps.it
+# iptables -I FORWARD \
+-m set --set limited_hosts src \
+-m set ! --set allowed_sites dst \
+-j DROP
+</pre>
+<p>Questo esempio effettua un confronto con due sets in una singola regola. Se il l’indirizzo sorgente è compreso in limited_hosts e la destinazione non è compresa in allowed_sites, il pacchetto viene semplicemente scartato (a limited_hosts è permesso comunicare solamente con allowed_sites).</p>
+<p>Si noti che dato che questa regola si trova nella chain FORWARD, non riguarda le comunicazioni da e verso il firewall stesso nè il traffico interno.</p>
+<p>Cosi&#8217; come per iptables, ipset vi permette di caricare le regole da un file ed effettuare l&#8217;output in un formato adatto al caricamento, nel seguente modo :</p>
+<pre># ipset save &gt; /path/to/ipset.save
+# ipset restore &lt; /path/to/ipset.save</pre>
+<p>Ipset vi permettera&#8217; di mantenere la configurazione del vostro firewall piu&#8217; corta, leggibile e molto piu&#8217; facile da mantenere. Se vi servono ulteriori informazioni potete visitare il sito del progetto <a href="http://ipset.netfilter.org">http://ipset.netfilter.org</a></p>
+<p>&nbsp;</p>
+<p>#IpsetfacilitailvostroFirewall</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/05/04/semplificate-i-vostri-firewall/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/05/ipset_fw.jpg?w=145" medium="image">
+			<media:title type="html">Ipset facilita il Firewall</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Proteggiti dagli attacchi brute force con APF BFD e DDOS Deflate</title>
+		<link>https://tuttiperlinux.blog/2015/04/10/proteggiti-dagli-attacchi-brute-force-con-apf-bfd-e-ddos-deflate/</link>
+					<comments>https://tuttiperlinux.blog/2015/04/10/proteggiti-dagli-attacchi-brute-force-con-apf-bfd-e-ddos-deflate/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 10 Apr 2015 00:29:16 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[alert]]></category>
+		<category><![CDATA[apf]]></category>
+		<category><![CDATA[bfd]]></category>
+		<category><![CDATA[brute force]]></category>
+		<category><![CDATA[ddos]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1090</guid>
+
+					<description><![CDATA[Usare password lunghe e complesse spesso non è sufficiente a proteggere il proprio server da eventuali intrusioni, proprio per questo oggi spieghiamo come proteggerli da attacchi di tipo brute force utilizzando due semplici software che sfruttano il firewall iptables. Questi due software vengono distribuiti gratuitamente dal sito http://www.rfxn.com/ . Vediamo quindi nel dettaglio cosa fanno &#8230; <a href="https://tuttiperlinux.blog/2015/04/10/proteggiti-dagli-attacchi-brute-force-con-apf-bfd-e-ddos-deflate/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1091" style="width: 310px" class="wp-caption alignleft"><a href="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg"><img aria-describedby="caption-attachment-1091" data-attachment-id="1091" data-permalink="https://tuttiperlinux.blog/2015/04/10/proteggiti-dagli-attacchi-brute-force-con-apf-bfd-e-ddos-deflate/apf-bfd_firewall/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg" data-orig-size="300,225" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="apf-bfd_firewall" data-image-description="&lt;p&gt;APF &amp;amp; BFD difenditi dai Brute Force&lt;/p&gt;
+" data-image-caption="&lt;p&gt;APF &amp;amp; BFD difenditi dai Brute Force&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg?w=300" class="size-full wp-image-1091" src="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg?w=600" alt="APF &amp; BFD difenditi dai Brute Force" srcset="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg 300w, https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg?w=150 150w" sizes="(max-width: 300px) 100vw, 300px"   /></a><p id="caption-attachment-1091" class="wp-caption-text">APF &amp; BFD difenditi dai Brute Force</p></div>
+<p>Usare password lunghe e complesse spesso non è sufficiente a proteggere il proprio server da eventuali intrusioni, proprio per questo oggi spieghiamo come proteggerli da attacchi di tipo <a href="https://it.wikipedia.org/wiki/Metodo_forza_bruta"><strong>brute force</strong></a> utilizzando due semplici software che sfruttano il firewall iptables.</p>
+<p>Questi due software vengono distribuiti gratuitamente dal sito <a href="http://www.rfxn.com/" rel="nofollow">http://www.rfxn.com/</a> . Vediamo quindi nel dettaglio cosa fanno e come configurarli.</p>
+<p><strong><br />
+APF</strong></p>
+<p>Partiamo da <strong>APF</strong> (advanced policy firewall), questo software è una sorta di configuratore per iptables, che ci permette di configurare in modo semplice e rapido le regole base di iptables come ad esempio le porte da aprire in base ai servizi che utilizziamo, il tutto a partire da un semplice file di configurazione molto dettagliato e con ogni opzione ben commentata.</p>
+<p><strong>INSTALLAZIONE</strong><br />
+Per installarlo basta scaricare il pacchetto <a href="http://www.rfxn.com/downloads/apf-current.tar.gz e" rel="nofollow">http://www.rfxn.com/downloads/apf-current.tar.gz e</a> decomprimerlo (per versioni ubuntu/debian possiamo usare <strong>sudo apt-get install apf-firewall</strong>).</p>
+<pre>wget http://www.rfxn.com/downloads/apf-current.tar.gz
+
+tar zxf apf-current.tar.gz
+
+ora entriamo nella directory appena estratta e installare APF
+
+cd apf-9.7-2/
+
+./install.sh
+
+Installing APF 9.7-2: Completed.
+
+Installation Details:
+Install path: /etc/apf/
+Config path: /etc/apf&lt;firewall&gt;/conf.apf
+Executable path: /usr/local/sbin/apf
+
+Other Details:
+Listening TCP ports: 21,22,80,631,3306,5900,15749,17500
+Listening UDP ports: 5353,15749,17500,38366
+Note: These ports are not auto-configured; they are simply presented for information purposes. You must manually configure all port options.
+ora andiamo a modificare il file di configurazione /etc/apf&lt;firewall&gt;/conf.apf
+
+DEVEL_MODE="1"
+questo parametro indica se apf è in modalità sviluppo (e quindi non applica le regole) o in modalità produzione e quindi rende effettive le regole del firewall, prima di impostarlo a 0 per renderlo attivo modifichiamo il resto delle regole altrimenti rischiamo di chiuderci fuori dal server
+
+Impostiamo le porte in ascolto modificando il paramentro IG_TCP_CPORTS
+
+# Common inbound (ingress) TCP ports
+IG_TCP_CPORTS="22,21,20,80,25,53,110,143,443,2222,587,953,993,995,4949"
+esempio d'impostazioni che sono valide per i servizi ssh,ftp,web,mail (pop/imap/smtp),directadmin e munin
+
+questi invece gli esempi per le impostazioni per le porte in uscita
+
+# Common outbound (egress) TCP ports
+EG_TCP_CPORTS="21,25,80,443,43"
+e poi più sotto impostiamo a “1″ le seguenti variabili che ci permettono di scaricare delle liste di ip conosciuti come malevoli in modo da filtrare a priori il loro traffico
+
+DLIST_PHP="1"
+DLIST_SPAMHAUS="1"
+DLIST_DSHIELD="1"
+DLIST_RESERVED="1"
+
+ora salviamo ed avviamo apf tramite il comando
+
+apf -s</pre>
+<p><strong>BFD</strong><br />
+Ora passiamo a<strong> BFD</strong> (brute force detection) il quale è un software che, analizzando i log, rileva i tentativi<br />
+d&#8217;intrusione ai servr con metodologia Brute Force, ciò significa che se qualcuno tenta di accedere alla nostra macchina per bucarla, nei log di sistema, BFD troverà traccia dei vari tentativi, e se questi superano una soglia, che possiamo impostare, banna gli ip responsabili tramite APF.<br />
+Procediamo con il download (<a href="http://www.rfxn.com/downloads/bfd-current.tar.gz" rel="nofollow">http://www.rfxn.com/downloads/bfd-current.tar.gz</a>) e l’installazione</p>
+<pre>wget http://www.rfxn.com/downloads/bfd-current.tar.gz
+tar zxf bfd-current.tar.gz
+cd bfd-1.5/2/
+./install.sh</pre>
+<p>A differenza di apf, bfd viene installato in /usr/local/bfd, procediamo ora alla modifica del fine di configurazione /usr/local/bfd/conf.bfd</p>
+<pre># how many failure events must an address have before being blocked?
+# you can override this on a per rule basis in /usr/local/bfd/rules/
+TRIG="15"
+
+# send email alerts for all events [0 = off; 1 = on]
+EMAIL_ALERTS="1"
+
+# local user or email address alerts are sent to (separate multiple with comma)
+EMAIL_ADDRESS="&lt;your@email.com&gt;"
+
+# subject of email alerts
+EMAIL_SUBJECT="Brute Force Warning for $HOSTNAME"</pre>
+<p>la prima variabile indica il numero di eventi che devono esser trovati nei file di log per scatenare il ban, questa impostazione può essere modificata successivamente servizio per servizio mentre EMAIL_ALERTS,EMAIL_ADDRESS e EMAIL_SUBJECT servono per ricevere una copia via email dei vari attacchi rilevati e delle azioni intraprese da bfd per bloccare eventuali nuovi attacchi dall’host.</p>
+<pre># syslog auth log path
+AUTH_LOG_PATH="/var/log/auth.log"</pre>
+<p>verificate anche che questo file punti correttamente al vostro auth log (di default nell’installazione bfd punta a /var/log/secure)</p>
+<p>e come ultima cosa modificate il file /etc/cron.d/bfd e rimuovete le seguenti righe altrimenti il cron non funzionerà</p>
+<p>MAILTO=<br />
+SHELL=/bin/bash</p>
+<p>a questo punto anche bfd è installato e funzionante;</p>
+<p>Per avviare BFD usiamo il seguente comando :</p>
+<p># sudo /usr /local /sbin /BFD &#8211; s</p>
+<p><strong>DDOS Deflate</strong></p>
+<p>E&#8217; un piccolissimo script in bash che serve a prevenire attacchi di tipo DoS o DDOS. Principalmente si basa sempre sul blocco degli indirizzi ip come mod_evasive, se quest’ultimi inviano &#8220;X&#8221; richieste al server in modo continuativo. In tal caso lo script attiva il firewall del server.</p>
+<p>Vediamo come installarlo</p>
+<p>Installare DDOS Deflate<br />
+dalla vostra shell di Linux, lanciate questo comando:</p>
+<pre>wget http://www.inetbase.com/scripts/ddos/install.sh</pre>
+<p>Successivamente andranno impostati i permessi al file ed eseguire l’installazione<br />
+chmod 0700 install.sh</p>
+<p>./install.sh</p>
+<p>Leggerete la lincenza dello script, quindi premete<br />
+q</p>
+<p>Potrete leggere a video che è stato creato un file di configurazione ddos.conf nella directori /usr/local/ddos/<br />
+Possiamo notare come lavora in cron lo script, lanciando il comando<br />
+ls -l /etc/cron.d</p>
+<p>&nbsp;</p>
+<p>#DifenditidagliattacchiBruteForce</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/04/10/proteggiti-dagli-attacchi-brute-force-con-apf-bfd-e-ddos-deflate/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/04/apf-bfd_firewall.jpg" medium="image">
+			<media:title type="html">APF &#038; BFD difenditi dai Brute Force</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Proteggiti da attacchi DoS e DDoS</title>
+		<link>https://tuttiperlinux.blog/2015/02/28/proteggiti-da-attacchi-dos-e-ddos/</link>
+					<comments>https://tuttiperlinux.blog/2015/02/28/proteggiti-da-attacchi-dos-e-ddos/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sat, 28 Feb 2015 21:04:18 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[apf firewall]]></category>
+		<category><![CDATA[attacchi DDoS]]></category>
+		<category><![CDATA[attacchi DoS]]></category>
+		<category><![CDATA[banda utilizzata]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[munin]]></category>
+		<category><![CDATA[netstat]]></category>
+		<category><![CDATA[nullroute]]></category>
+		<category><![CDATA[syn_flood]]></category>
+		<category><![CDATA[sysctl_syncookies]]></category>
+		<category><![CDATA[tcptrack]]></category>
+		<category><![CDATA[tcp_ports]]></category>
+		<category><![CDATA[vnstat]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1037</guid>
+
+					<description><![CDATA[Proteggere il server dagli attacchi DoS e DDoS  Un attacco DoS (Denial of Service), ha come scopo il rendere inutilizzabile un determinato servizio sul web, inondandolo di richieste fittizie, quindi qualsiasi servizio esposto su internet che fornisce servizi di rete basati sul protocollo TCP/IP e soggetto al potenziale rischio di attacchi DoS. La differenza tra &#8230; <a href="https://tuttiperlinux.blog/2015/02/28/proteggiti-da-attacchi-dos-e-ddos/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1038" style="width: 302px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1038" data-attachment-id="1038" data-permalink="https://tuttiperlinux.blog/2015/02/28/proteggiti-da-attacchi-dos-e-ddos/server-protection/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg" data-orig-size="316,325" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Server-protection" data-image-description="&lt;p&gt;APF-Firewall Server Protection&lt;/p&gt;
+" data-image-caption="&lt;p&gt;APF-Firewall Server Protection&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=292" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=316" class="size-medium wp-image-1038" src="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=292&#038;h=300" alt="APF-Firewall Server Protection" width="292" height="300" srcset="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=292&amp;h=300 292w, https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=146&amp;h=150 146w, https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg 316w" sizes="(max-width: 292px) 100vw, 292px" /><p id="caption-attachment-1038" class="wp-caption-text">APF-Firewall Server Protection</p></div>
+<p><strong>Proteggere il server dagli attacchi DoS e DDoS </strong></p>
+<p>Un attacco DoS (Denial of Service), ha come scopo il rendere inutilizzabile un determinato servizio sul web, inondandolo di richieste fittizie, quindi qualsiasi servizio esposto su internet che fornisce servizi di rete basati sul protocollo TCP/IP e soggetto al potenziale rischio di attacchi DoS. La differenza tra DoS e DDoS (Distributed Denial of Service) sta nel numero di macchine (PC, server, cellulari, in generale, qualsiasi dispositivo connesso ad internet che sia stato compromesso) utilizzate per lanciare l&#8217;attacco. Nel caso di un DoS l&#8217;attacco avviene da una sola macchina, mentre (nel ben piu difficile caso da bloccare) nel DDoS l&#8217;attacco puo avvenire contemporaneamente da centinaia di macchine diverse.</p>
+<p>Come potrete quindi immaginare tutti i consigli contenuti in questo articolo non vi assicureranno una protezione totale contro i DDoS, perché quando sono ben organizzati e l’attacco arriva da un grande numero di macchine diverse, l’unico modo per cercare di bloccarlo o più realisticamente, mitigarlo, è agire a monte, direttamente sull’infrastruttura del vostro provider (che quindi dovrete contattare), a meno che non abbiate una vostra infrastruttura di rete.</p>
+<p><strong>Come riconoscere un attacco </strong>?</p>
+<p>Questa è sicuramente la prima cosa da imparare, ossia imparare a riconoscere un attacco DoS, perche&#8217; tante volte si corre il rischio di pensare ad un attacco di questo tipo appena i servizi ospitati sul server risultano irraggiungibili, quando invece le cose più probabili sono ben altre.<br />
+Innanzitutto se siete sotto attacco vedrete sicuramente un picco (che può variare da pochi a diversi mbit/s) nei vostri grafici della banda utilizzata, ed un picco nelle connessioni netstat, anche per questo sarebbe bene generare dei grafici di tutto rispetto magari tramite Munin (di cui parleremo nel prossimo articolo) o con <a title="Grafici di rete con Vnstat" href="http://tuttiperlinux.com/2014/08/01/238/">Vnstat</a>, i servizi più importanti sul vostro server.</p>
+<p>Una volta accertato che ci sono effettivamente picchi anomali nell’utilizzo della banda, usate questo comando per visualizzare lo stato di tutte le connessioni attive sul vostro server:</p>
+<pre>netstat -nat | awk ‘{print $6}’ | sort | uniq -c | sort –n</pre>
+<p>L’output sarà qualcosa del genere:</p>
+<pre>1 CLOSING
+
+1 established
+
+1 Foreign
+
+7 LAST_ACK
+
+25 FIN_WAIT1
+
+26 LISTEN
+
+69 FIN_WAIT2
+
+484 TIME_WAIT
+
+542 ESTABLISHED</pre>
+<p>Se notate che ci sono diverse connessioni in stato <strong>SYS_SENT</strong> siete sicuramente sotto attacco, a questo punto non resta altro da fare che individuare l’IP o gli IP dai quali arrivano più connessioni, potete farlo con questo comando:</p>
+<pre>netstat -atun | awk ‘{print $5}’ | cut -d: -f1 | sed -e ‘/^$/d’ |sort | uniq -c | sort –n</pre>
+<p>A questo punto avrete una lista ordinata per numero di connessioni aperte da ogni IP, ed alla fine, molto probabilmente, avrete gli IP delle macchine dalle quali vi stanno attaccando, ora non resta che bloccare questi IP.<br />
+Una utility molto utile per analizzare il traffico di rete e vederlo in tempo reale è <strong>tcptrack</strong>, una volta installata usate i seguenti comandi per avviare il monitoring:</p>
+<p><strong>tcptrack -i eth0</strong> vi mostrerà tutto il traffico attivo sulla scheda di rete</p>
+<p><strong>tcptrack -i eth0</strong> <strong>port 80</strong> vi mostrerà tutto il traffico sulla porta 80</p>
+<p>Es:</p>
+<pre>tcptrack -i eth0 src or dst 192.168.2.138</pre>
+<p>vi mostrerà tutto il traffico generato dall’ip specificato. In più tcptrack vi mosterà in tempo reale l’utilizzo della banda.</p>
+<p><strong>Bloccare un attacco</strong></p>
+<p>Ora che sappiamo individuare un attacco e capire da quali IP sta arrivando possiamo cercare di bloccarlo, vediamo come.<br />
+Premesso che la cosa migliore sarebbe comunicare gli IP degli attaccanti al vostro provider così che possano essere bloccati a monte e che non possano quindi influire neanche minimamente sulla vostra banda disponibile, esistono principalmente due metodi per bloccare questi IP sul vostro server: bloccarli con<strong> iptables</strong>, oppure metterli in <strong>nullroute</strong> (che è, secondo me, preferibile).</p>
+<p>Per bloccare questi IP da itptables potete usare questo semplice comando:</p>
+<p><strong>iptables -A INPUT -s IP-ATTACCANTE -j DROP</strong></p>
+<p>Invece, per mettere un IP in nullroute, dobbiamo lanciare questo comando:</p>
+<p><strong>route add IP-ATTACANTE gw 127.0.0.1 lo</strong></p>
+<p>Possiamo anche mettere in nullroute un&#8217; intera subnet ad esempio così:</p>
+<p><strong>route add -net 192.168.2.0/24 gw 127.0.0.1 lo</strong></p>
+<p>Verifichiamo quindi che i settaggi siano stati effettivamente applicati con</p>
+<p><strong>netstat -nr<br />
+</strong></p>
+<p>Per rimuovere il nullroute possiamo utilizzare il comando <strong>route delete IP</strong></p>
+<p>Per far sì che i nullroute impostati vengano mantenuti al reboot dovrete scrivere gli stessi comandi di prima nel file /etc/rc.local</p>
+<p><strong><br />
+Come prevenire gli attacchi</strong></p>
+<p>Fin’ora abbiamo visto come comportarci una volta sotto attacco, ora vediamo cosa possiamo fare per evitare di trovarci coi servizi down e doverli ripristinare.<br />
+Per prima cosa consiglio di installare <strong>APF</strong> (Advanced Policy Firewall), un firewall basato su iptables che bloccherà autonomamente molti degli attacchi conosciuti, confrontandone i pattern, in più, grazie alla sua semplice e versatile configurazione diventa un&#8217;ottimo sostituto di iptables che spesso risulta abbastanza macchinoso da mantenere.</p>
+<p>Potete installare APF usando un packet manager tipo apt o yum, oppure compilando l’ultima versione :</p>
+<p>Scaricate l’ultima versione stabile:</p>
+<p><strong>wget <a href="http://www.rfxnetworks.com/downloads/apf-current.tar.gz" rel="nofollow">http://www.rfxnetworks.com/downloads/apf-current.tar.gz</a></strong></p>
+<p>Scompattate il file appena scaricato: <strong>tar -xvzf apf-current.tar.gz</strong></p>
+<p>Entrate nella directory creata ed eseguite <strong>./install.sh</strong></p>
+<p>A questo punto APF va configurato a dovere e, per farlo, bastera&#8217; editare il file <strong>/etc/apf/conf.apf</strong> .</p>
+<p>Per prima cosa bisognera&#8217; settare il parametro <strong>DEVEL_MODE</strong> a 1, così se sbagliate qualche settaggio e vi chiudete fuori dal server, dopo 5 minuti il firewall verrà automaticamente stoppato.</p>
+<p>Questo parametro indica se apf è in modalità sviluppo (e quindi non applica le regole) o in modalità produzione e quindi rende effettive le regole del firewall, prima di impostarlo a 0 per renderlo attivo modifichiamo il resto delle regole altrimenti rischiamo di chiuderci fuori dal server</p>
+<p>Impostiamo le porte in ascolto modificando il paramentro IG_TCP_CPORTS</p>
+<pre># Common inbound (ingress) TCP ports
+IG_TCP_CPORTS="22,21,20,80,25,53,110,143,443,2222,587,953,993,995,4949"</pre>
+<p>io utilizzo queste impostazioni che sono per i servizi ssh,ftp,web,mail (pop/imap/smtp), directadmin e munin</p>
+<div>e queste sono le impostazioni per le porte in uscita</div>
+<pre># Common outbound (egress) TCP ports
+EG_TCP_CPORTS="21,25,80,443,43"</pre>
+<p>e poi più sotto impostiamo a “1″ le seguenti variabili che ci permettono di scaricare delle liste di ip conosciuti come malevoli in modo da filtrare a priori il loro traffico</p>
+<pre>DLIST_PHP="1"
+DLIST_SPAMHAUS="1"
+DLIST_DSHIELD="1"
+DLIST_RESERVED="1"</pre>
+<p><strong>Ricordatevi</strong> di rimettere su <strong>0</strong> questo parametro una volta terminata la configurazione, altrimenti il firewall funzionerà solo per 5 minuti ad ogni riavvio.</p>
+<p>Settate su <strong>1</strong> tutti i parametri che abilitano le liste di network malefici dai quali le connessioni saranno rifiutate (DLIST_*).</p>
+<p>Settate manualmente le porte TCP che devono rimanere aperte nella variabile IG_TCP_CPORTS (ad esempio la 80 per il traffico web, se avete modificato la porta di ssh come avreste dovuto fare ricordatevi di settarla qua, altrimenti vi chiuderete fuori dal server), tutte le altre risulteranno chiuse.</p>
+<p>Stessa cosa per le porte UDP subito sotto, se ne fate uso.</p>
+<p>Impostando il parametro <strong>SYSCTL_SYNCOOKIES</strong> su 1, vi proteggerà dagli attacchi di tipo <strong>syn flood</strong>.</p>
+<p>salviamo ed avviamo apf con</p>
+<pre>apf -s</pre>
+<p>#Proteggiti#AttacchiDoSeDDoS</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/02/28/proteggiti-da-attacchi-dos-e-ddos/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/02/server-protection.jpg?w=292" medium="image">
+			<media:title type="html">APF-Firewall Server Protection</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Firehol il firewall flessibile</title>
+		<link>https://tuttiperlinux.blog/2014/09/26/firehol-il-firewall-flessibile/</link>
+					<comments>https://tuttiperlinux.blog/2014/09/26/firehol-il-firewall-flessibile/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 26 Sep 2014 11:55:11 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[client]]></category>
+		<category><![CDATA[firehol]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[interface]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[policy]]></category>
+		<category><![CDATA[rules]]></category>
+		<category><![CDATA[server]]></category>
+		<category><![CDATA[sicurezza]]></category>
+		<category><![CDATA[tpc ip]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=606</guid>
+
+					<description><![CDATA[Si parla spesso di come proteggere il proprio PC/Server e la parola che sicuramente ricorre piu&#8217; spesso e&#8217; FIREWALL, non c&#8217;e&#8217; dubbio. Il problema che salta all&#8217;occhio di chiunque si sia mai cimentato con la &#8220;scrittura&#8221; delle regole di IPtables e derivati, e&#8217; la non immediata semplicita&#8217; nel comprendere la giusta sintassi da utilizzare e &#8230; <a href="https://tuttiperlinux.blog/2014/09/26/firehol-il-firewall-flessibile/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p class="line862"><a href="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg"><img loading="lazy" data-attachment-id="607" data-permalink="https://tuttiperlinux.blog/2014/09/26/firehol-il-firewall-flessibile/firehol/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg" data-orig-size="624,333" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="firehol" data-image-description="&lt;p&gt;FireHol il Firewall flessibile&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=600" class="alignleft size-medium wp-image-607" src="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=300&#038;h=160" alt="firehol" width="300" height="160" srcset="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=300&amp;h=160 300w, https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=600&amp;h=320 600w, https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=150&amp;h=80 150w" sizes="(max-width: 300px) 100vw, 300px" /></a>Si parla spesso di come proteggere il proprio PC/Server e la parola che sicuramente ricorre piu&#8217; spesso e&#8217; <strong>FIREWALL</strong>, non c&#8217;e&#8217; dubbio.</p>
+<p class="line862">Il problema che salta all&#8217;occhio di chiunque si sia mai cimentato con la &#8220;scrittura&#8221; delle regole di IPtables e derivati, e&#8217; la non immediata semplicita&#8217; nel comprendere la giusta sintassi da utilizzare e dunque nel capire il corretto posizionamento delle tante/tantissime variabili che rendono questi strumenti ottimi nel tenere lontani la maggior parte dei malintenzionati .</p>
+<p class="line862">Uno strumento che potra&#8217; certamente darvi una mano e&#8217; il tool <a href="http://firehol.org">FireHol</a>.</p>
+<p class="line862"><strong>FireHOL</strong> è un linguaggio per esprimere le regole del firewall, non semplicemente uno script che produce un qualche tipo di firewall.&#8221; I file di configurazione di FireHOL sono script shell (ma di fatto non lo sembrano poiche&#8217; sono semplici che più semplici non si può).</p>
+<p class="line862">FireHOL viene fornito con firehol-wizard, che crea un file di configurazione che è poi <em>necessario</em> modificare a mano.<span id="line-162" class="anchor"></span><span id="line-163" class="anchor"></span></p>
+<p class="line862"><em>Il suggerimento migliore che posso dare rimane quello di utilizzare sempre, soprattutto all&#8217;inizio, le macchine virtuali, per  riuscire a prendere dimestichezza con la nuova tecnologia.</em></p>
+<p class="line862">Si tratta dunque di un particolare software che, tramite un “semplice” file di configurazione, permette di impostare velocemente le regole del firewall per proteggere l’accesso dalla LAN verso Internet e viceversa. Il file in questione si trova in /etc/firehol/firehol.conf, quindi apriamolo con sudo vim /etc/ firehol/firehol.conf, cancelliamone il contenuto pre esistente e scriviamo quanto segue:</p>
+<p class="line862">Anche l&#8217;installazione e&#8217; semplice come bere un bicchier d&#8217;acqua</p>
+<pre>sudo apt-get install firehol</pre>
+<p>Questo e&#8217; un piccolo esempio utile per dare un&#8217;idea della metodologia di configurazione del file:</p>
+<pre>#Imposto la LAN eth0 scheda di rete verso internet
+
+interface eth0 internet
+
+# Di default non accettare nessun pacchetto
+
+policy reject
+
+protection strong
+
+#Accetta solamente questi servizi
+
+server ssh accept
+
+server ping accept
+
+server http accept
+
+server https accept
+
+server dns accept
+
+client ping accept
+
+client http accept
+
+client https accept
+
+#Imposto eth1 come rete interna lan
+
+interface eth1 lan
+
+#Accetta tutto il traffico nella LAN interna
+
+policy accept
+
+#Imposto le tabelle di routing
+
+#Il traffico dalla LAN (eth1) reindirizzato verso eth0
+
+router lan2internet inface eth1 outface eth0
+
+# Regola per il masquerade
+
+masquerade
+
+#Accetta tutto il traffico
+
+router all accept
+
+#In ingresso, invece, fai il contrario...
+
+router internet2lan inface eth0 outface eth1</pre>
+<p class="line862">** Le righe precedute dal simbolo # sono commenti che possono essere omessi, ma che possono essere sempre di grande aiuto nel rileggere vecchie configurazioni. Dopo aver inserito tutte le regole, salviamo e usciamo dall’editor.</p>
+<p class="line862">A questo punto, bastera&#8217; impostare il firewall in modo che si attivi automaticamente all’avvio del server. Apriamo dunque il file firehol con sudo vim /etc/default/firehol e cambiamo la riga <strong>START_FIREHOL=NO</strong> in <strong>START_FIREHOL=YES</strong>.</p>
+<p class="line862">Infine, avviamo il firewall con il comando sudo /etc/init.d/firehol start. Il nostro lavoro è quasi finito, ma mancano ancora alcuni passi.</p>
+<p class="line862">Buone configurazioni!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/09/26/firehol-il-firewall-flessibile/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/09/firehol.jpg?w=300" medium="image">
+			<media:title type="html">firehol</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Firewall apriamo un passaggio segreto</title>
+		<link>https://tuttiperlinux.blog/2014/09/24/firewall-apriamo-un-passaggio-segreto/</link>
+					<comments>https://tuttiperlinux.blog/2014/09/24/firewall-apriamo-un-passaggio-segreto/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 24 Sep 2014 08:58:29 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[fwknop]]></category>
+		<category><![CDATA[honeypot]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[payload]]></category>
+		<category><![CDATA[portknoking]]></category>
+		<category><![CDATA[replay-attack]]></category>
+		<category><![CDATA[spa]]></category>
+		<category><![CDATA[ssh]]></category>
+		<category><![CDATA[tcp-ip]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=594</guid>
+
+					<description><![CDATA[Port-knoking &#8211; II Episodio Poco tempo fa abbiamo affrontato il concetto di sicurezza utilizzando la tecnologia del port-knoking . Oggi affronteremo una seconda metodologia legata al port knoking. Facciamo un passo indietro considerando il firewall il miglior sistema di difesa in nostro possesso. Il port-knoking e&#8217; in pratica una tecnica di autorizzazione che agisce sul firewall &#8230; <a href="https://tuttiperlinux.blog/2014/09/24/firewall-apriamo-un-passaggio-segreto/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h3><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg"><img loading="lazy" data-attachment-id="595" data-permalink="https://tuttiperlinux.blog/2014/09/24/firewall-apriamo-un-passaggio-segreto/fwknop_spa/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg" data-orig-size="750,367" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="fwknop_spa" data-image-description="&lt;p&gt;Portknoking con Fwknop&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=600" class="alignleft size-medium wp-image-595" src="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=300&#038;h=146" alt="fwknop_spa" width="300" height="146" srcset="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=298&amp;h=146 298w, https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=597&amp;h=292 597w, https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=150&amp;h=73 150w" sizes="(max-width: 300px) 100vw, 300px" /></a>Port-knoking &#8211; II Episodio</strong></h3>
+<p>Poco tempo fa abbiamo affrontato il concetto di sicurezza utilizzando la tecnologia del <strong>port-knoking </strong>. Oggi affronteremo una seconda metodologia legata al port knoking.</p>
+<p>Facciamo un passo indietro considerando il firewall il miglior sistema di difesa in nostro possesso. Il port-knoking e&#8217; in pratica una tecnica di autorizzazione che agisce sul firewall e che puo&#8217; essere realizzato con diverse metodologie; la &#8220;bussata&#8221; dipendera&#8217; dal software di port-knoking utilizzato, ma in tutti i casi si compone di pacchetti TPC/IP appositamente forgiati dall&#8217;utente.</p>
+<p>Le tipologie piu&#8217; frequenti sono due:</p>
+<ul>
+<li><strong>sequenza</strong> affinche&#8217; l&#8217;utente venga riconosciuto , il client deve inviare alcuni pacchetti secondo una sequenza creata al momento della configurazoine su diverse porte TCP o UDP;</li>
+<li><strong>payload</strong> tutto il necessario per il riconoscimento dell&#8217;utente e&#8217; contenuto nel payload dei pacchetti</li>
+</ul>
+<p>a) la prima tipologia e&#8217; di facile realizzazione e utilizzo, ma e&#8217; relativamente fragile perche&#8217; basta uno sniffer di pacchetti per ascoltare la sequenza la sequenza inviata al server, replicarla e ottenere cosi&#8217; l&#8217;accesso;</p>
+<p>b) se il nostro desiderio di sicurezza e&#8217; piu&#8217; paranoico, allora soltanto il port-knoking basato sui payload potranno soddisfarci, inqunato questi sono al sicuro dai tentativi di replay-attack.</p>
+<h3><strong>PARANOIA</strong></h3>
+<p>Il mondo e&#8217; bello ma e&#8217; pericoloso, se questo e&#8217; assodato anche per voi possiamo passare alla visione piu&#8217; paranoica per provare una nuova configurazione tramite il software <strong>fwknop</strong>, un sistema di port-knoking che pone la sua forza nel criptare i payload del pacchetto di autorizzazione.</p>
+<p><strong>Fwknop</strong> va oltre al semplice sistema di port-knoking, esso in realta&#8217; e&#8217; il prototipo di una nuova tecnologia chiamata : <strong>Single Packet Authorization </strong>o (<strong>SPA</strong>) che si differenzia proprio per la possibilita&#8217; di autorizzare l&#8217;utente utilizzando un&#8217;unico pacchetto TCP/IP.</p>
+<p><strong>SPA</strong> si comporta alla stessa maniera del port-knoking, solo che  invia un singolo pacchetto criptato verso il server di destinazione.<br />
+Questo comporta una migliore velocità nell’accedere al servizio che decidiamo di nascondere (esempio SSH), ed un maggiore livello di discrezione sulla rete (al contrario il Port Knocking classico può essere scambiato per un tentativo di port scanning da un IDS) e soprattutto protegge dai tentativi di connessioni replicate ( il singolo pacchetto criptato viene creato tutte le volte con valore casuale e non può essere riutilizzato!).</p>
+<p><strong><em>Fwknop è composto da un client ed un server</em></strong>.<br />
+Il demone fwknopd installato sul server sniffa le connesioni che arrivano sull’interfaccia di rete tramite la libreria libpcap, appena riceve dal client il pacchetto criptato e firmato con la chiave giusta abilita la connessione dell’indirizzo IP sorgente verso il servizio prestabilito (iptables).<br />
+Una volta inviato il pacchetto tramite il client fwknop si ha un lasso di tempo per stabilire la connessione verso il servizio protetto (di default 30 sec.), sfiorata questa tempistica il server chiude la connessione.</p>
+<p><strong>INSTALLAZIONE</strong></p>
+<pre>sudo apt-get install fwknop-server libpcap-dev
+
+sudo apt-get install fwknop-client</pre>
+<p>Oltre ai pacchetti vanno inserite due regole iptables fondamentali per il funziomaneto di fwknop:</p>
+<div>
+<pre><strong>iptables -I INPUT 1 -i eth0 -p tcp --dport 22 -j DROP
+iptables -I INPUT 1 -i eth0 -p tcp --dport 22 -m conntrack --ctstate ESTABLISHED,RELATED -j ACCEPT</strong></pre>
+</div>
+<p>La prima blocca tutte le connessioni in entrata per il servizio SSH, la seconda invece accetta le connessioni già stabilite (questa servirà quando fwknop server ci autorizzerà a collegarsi verso il demone ssh).<br />
+ATTENZIONE!!!<br />
+Così facendo chiuderete tutte le connessioni verso ssh, accertatevi di poter accedere al server<br />
+dalla console locale o abilitate la connessione a un singolo ip.<br />
+Esempio:</p>
+<pre><strong>iptables -I INPUT -i eth0 -s 3.3.3.3 -p tcp --dport 22 -j ACCEPT
+
+</strong></pre>
+<p>In questo caso le configurazioni sul server remoto le eseguirò da una connessione con ip 3.3.3.3 , che avra&#8217; libero accesso.</p>
+<h3>Configurazione fwknop server/client</h3>
+<p>Immaginiamo lo scenario:</p>
+<p>ServerSPA: 2.2.2.2</p>
+<p>ClientSPA: 1.1.1.1</p>
+<p>UserClientSPA: pippo</p>
+<p><strong>***</strong> Geneare le chiavi sul client e prenderne nota:</p>
+<pre>pippo@clientspa:~$ <strong>fwknop -A tcp/22 -D 2.2.2.2 --key-gen --use-hmac --save-rc-stanza</strong>
+[*] Creating initial rc file: /home/pippo/.fwknoprc.
+[+] Wrote Rijndael and HMAC keys to rc file: /home/pippo/.fwknoprc
+pippo@clientspa:~$
+pippo@clientspa:~$ <strong>grep KEY /home/pippo/.fwknoprc</strong>
+KEY_BASE64                  NPhe11+ORlK1Yfr4ipzW+ngQxzRt8kjI6UTDXLZYSv0=
+HMAC_KEY_BASE64             SypMEUIhiAKTjeHlHoWR5dfu7hrLVvLnoIXINPbGTOowST1vUIs+tOtMc/XlKl6+JcVw7qc2jrpqmKujZxvnqw==
+pippo@clientspa:~$
+
+</pre>
+<p><strong>***</strong> Creare sul serverspa (2.2.2.2) il file “<strong>/etc/fwknop/access.conf</strong>” inserendo le chiavi del client:</p>
+<pre>SOURCE                     ANY
+REQUIRE_SOURCE_ADDRESS     Y
+KEY_BASE64                  NPhe11+ORlK1Yfr4ipzW+ngQxzRt8kjI6UTDXLZYSv0=
+HMAC_KEY_BASE64             SypMEUIhiAKTjeHlHoWR5dfu7hrLVvLnoIXINPbGTOowST1vUIs+tOtMc/XlKl6+JcVw7qc2jrpqmKujZxvnqw==</pre>
+<p><strong>***</strong> Controllare che sul file di configurazione del serverspa (2.2.2.2) sia configurata l’interfaccia di rete (WAN) corretta su cui fwknopd starà in ascolto:</p>
+<pre>[root@serverspa]# <strong>grep PCAP_INTF /etc/fwknop/fwknopd.conf</strong>
+# the PCAP_INTF setting.
+PCAP_INTF                   eth0;</pre>
+<p><strong>***</strong>  Far partire il demone fwknop sul serverspa (2.2.2.2):</p>
+<pre>[pippo@serverspa]$ <strong>sudo /etc/init.d/fwknop-server start</strong>
+Avvio di fwknopd:                                          [  OK  ]
+[pippo@serverspa]$</pre>
+<p><strong>Test di connessione</strong></p>
+<p>Controllare che il serverspa (2.2.2.2) blocchi di default le connessioni verso il servizio SSH:</p>
+<pre>pippo@<strong>clientspa</strong>:~$ <strong>nmap 2.2.2.2 -p22</strong>
+
+Starting Nmap 6.40 ( http://nmap.org ) at 2014-04-30 23:21 CEST
+Nmap scan report for 2.2.2.2
+Host is up (0.0011s latency).
+PORT   STATE    SERVICE
+22/tcp <strong>filtered</strong> ssh
+
+Nmap done: 1 IP address (1 host up) scanned in 1.97 seconds</pre>
+<p><strong>***</strong> Spedire il pacchetto SPA al serverspa ed abilitare l’accesso SSH al clientspa:</p>
+<p>pippo@clientspa:~$ <strong>fwknop -n 2.2.2.2 -a 1.1.1.1 # </strong>in assenza di ip statico 1.1.1.1 dovrà essere sempre sostituito dall&#8217;ip pubblico assegnato dal vostro ISP.</p>
+<p>&nbsp;</p>
+<p><strong>***</strong> Collegarsi dal clientspa verso il serverspa tramite ssh client <strong>entro 30 secondi</strong> :</p>
+<pre>pippo@clientspa:~$ <strong>fwknop -n 2.2.2.2 -a 1.1.1.1</strong>
+pippo@clientspa:~$ <strong>ssh root@2.2.2.2</strong>
+root@2.2.2.2's password:
+Last login: Wed Apr 30 23:06:51 2014 from 5.5.5.5
+[root@serverspa ~]#</pre>
+<p><strong>Conclusioni</strong></p>
+<p>Fwknop non puo&#8217; garantire una sicurezza assoluta (come nessun altro software) ma integrato nel vostro sistema insieme ad altri tool puo&#8217; aumentarne notevolmente il livello.</p>
+<p>Pro:</p>
+<ul>
+<li>Protegge i servizi da eventuali 0-day</li>
+<li>Riduce i tempi di risposta del Port Knocking</li>
+<li>Cripta il playload</li>
+<li>Disponibilità del client per vari dispositivi</li>
+</ul>
+<p>Contro:</p>
+<ul>
+<li>Non è utilizzabile con tutti i servizi (soprattutto quelli pubblici a cui devono accedere qualsiasi utente)</li>
+<li>Devi sempre avere un client disponibile</li>
+</ul>
+<p>&nbsp;</p>
+<p>*** Leggi anche <a title="Sicurezza con il PortKnocking" href="http://tuttiperlinux.com/2014/08/30/sicurezza-con-il-portknocking/">Portknoking</a> &amp; <a title="Sicurezza – Honeypot SSH" href="http://tuttiperlinux.com/2014/09/03/sicurezza-honeypot-ssh/">Honeypot SSH</a></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/09/24/firewall-apriamo-un-passaggio-segreto/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/09/fwknop_spa.jpg?w=300" medium="image">
+			<media:title type="html">fwknop_spa</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Sicurezza con il PortKnocking</title>
+		<link>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sat, 30 Aug 2014 22:33:36 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[firewall]]></category>
+		<category><![CDATA[honeypot]]></category>
+		<category><![CDATA[ip]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[port knocking]]></category>
+		<category><![CDATA[ssh]]></category>
+		<category><![CDATA[stealth]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=461</guid>
+
+					<description><![CDATA[Mi e&#8217; capitato spesso di dover configurare firewall per proteggere i Server di mia competenza e molte volte capita l&#8217;esigenza di dover tenere aperto un accesso dall&#8217;esterno, per poter operare in qualunque momento o per qualunque motivo. Ovviamente questo ci potrebbe esporre facilmente alla possibilita&#8217; di venire attaccati; che cosa fare in questi casi ??? &#8230; <a href="https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png"><img loading="lazy" data-attachment-id="462" data-permalink="https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/portknocking/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png" data-orig-size="320,240" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="portknocking" data-image-description="&lt;p&gt;Port-Knocking&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=320" class="alignleft size-medium wp-image-462" src="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300&#038;h=225" alt="portknocking" width="300" height="225" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300&amp;h=225 300w, https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=150&amp;h=113 150w, https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png 320w" sizes="(max-width: 300px) 100vw, 300px" /></a>Mi e&#8217; capitato spesso di dover configurare firewall per proteggere i Server di mia competenza e molte volte capita l&#8217;esigenza di dover tenere aperto un accesso dall&#8217;esterno, per poter operare in qualunque momento o per qualunque motivo. Ovviamente questo ci potrebbe esporre facilmente alla possibilita&#8217; di venire attaccati; che cosa fare in questi casi ??? Beh! le possibili soluzioni sono davvero tante, tante quanto la fantasia di chi le studia; in questo articolo quindi descrivero&#8217; semplicemente un mio modo personale di arginare tale possibile pericolo.</p>
+<p><strong>* Il primo</strong> suggerimento e&#8217; quello di spostare il servizio SSH dalla porta 22 ad una di vostra preferenza, stando ben attenti a non usare possibili porte utilizzabili da altri servizi web.</p>
+<p><strong>* Il secondo</strong> suggerimento e&#8217; quello di creare un servizio di <a href="http://it.wikipedia.org/wiki/Honeypot">Honeypot</a> (tipo <em>honeyd a bassa interazione, oppure come honeynet ad alta interazione</em>) , da tenere in ascolto sulla porta standard (la 22) dell&#8217;SSH, cosi&#8217; che i male intenzionati trovino la porta attiva e nel tentativo di attaccarvi perdano tempo e si ritrovino successivamente all&#8217;interno di servizi fasulli.</p>
+<p><strong>* Il terzo</strong> suggerimento e&#8217; quello di utilizzare la tecnica del port-knocking per poter gestire a proprio piacimento ogni accesso in SSH attivando e disattivando tramite una sequenza di caratteri che solo voi conoscete e che potrete cambiare a piacimento.</p>
+<h3><strong>PORTKNOCKING</strong></h3>
+<p>Iniziamo col dire che cosa e&#8217; questa tecnica: le tecniche di <strong>Port knocking</strong> permettono di aumentare considerevolmente la sicurezza di un server che deve garantire alcuni servizi non permanenti attraverso IP pubblici. Se s&#8217;inviano dei pacchetti a delle porte prestabilite sulle quali il demone è in ascolto e nel caso la sequenza sia corretta, questi attiverà un comando che potrà eseguire delle regole di <strong>iptables </strong>che apriranno le porte necessarie alla connessione. Il vantaggio è notevole in quanto il server potrebbe rimanere sempre in <em>stealth</em> <em>mode</em> e aprire le porte per un determinato servizio solo in caso di necessità.</p>
+<p>Innanzitutto per poter utilizzare il portknocking e&#8217; necessario che il firewall sia attivo e funzionante, ora posiamo installare il pacchetto software</p>
+<p>sudo apt-get install knockd</p>
+<h3 id="Configurazione_knockd">Configurazione knockd</h3>
+<ol type="0">
+<li>
+<p class="line862">Per fare in modo che il demone parta all&#8217;avvio del computer modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/default/knockd</tt> in questo modo: <span id="line-14" class="anchor"></span><span id="line-15" class="anchor"></span><span id="line-16" class="anchor"></span></p>
+<pre><span id="line-1" class="anchor"></span>START_KNOCKD=1</pre>
+<p>&nbsp;</li>
+<li class="gap">
+<p class="line862">Sempre nel medesimo file <tt>/etc/default/knockd</tt> modificare con un editor di testo a piacimento, e con i privilegi di amministrazione indicando su quale interfaccia il demone dovrà rimanere in ascolto: <span id="line-19" class="anchor"></span><span id="line-20" class="anchor"></span><span id="line-21" class="anchor"></span></p>
+<pre><span id="line-1-1" class="anchor"></span>KNOCKD_OPTS="-i eth0"</pre>
+<p>&nbsp;</li>
+</ol>
+<h3 id="Configurazione_knockd.conf_per_l.27apertura_di_una_sola_porta">Configurazione knockd.conf per l&#8217;apertura di una sola porta</h3>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/knockd.conf</tt> impostandolo come segue: <span id="line-25" class="anchor"></span><span id="line-26" class="anchor"></span></p>
+<pre><span id="line-1-2" class="anchor"></span>[options]
+<span id="line-2" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3" class="anchor"></span>
+<span id="line-4" class="anchor"></span>[openSSH]
+<span id="line-5" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6" class="anchor"></span>        # Questa è la sequenza delle porte sulle quali knockd rimarrà in ascolto. Di default il protocollo è TCP.
+<span id="line-7" class="anchor"></span>        # Quali e quante porte usare è discrezionale.
+<span id="line-8" class="anchor"></span>
+<span id="line-9" class="anchor"></span>        # sequence   = 7000:udp,8000:tcp,9000:udp
+<span id="line-10" class="anchor"></span>        # Esempio con sequenza con porte miste udp/tcp
+<span id="line-11" class="anchor"></span>
+<span id="line-12" class="anchor"></span>        seq_timeout = 30
+<span id="line-13" class="anchor"></span>        #Tempo di attesa massimo per completare la sequenza.
+<span id="line-14" class="anchor"></span>
+<span id="line-15" class="anchor"></span>        command     = /sbin/iptables -A INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
+<span id="line-16" class="anchor"></span>        # Quando la sequenza verrà accettata verrà inserita una regola che aprirà la porta SSH standard.
+<span id="line-17" class="anchor"></span>
+<span id="line-18" class="anchor"></span>        tcpflags    = syn
+<span id="line-19" class="anchor"></span>        # Ulteriore filtro, sul tipo di flag del pacchetto inviato alla sequenza di porte.
+<span id="line-20" class="anchor"></span>        
+<span id="line-21" class="anchor"></span>[closeSSH]
+<span id="line-22" class="anchor"></span>        sequence    = 9000,8000,7000
+<span id="line-23" class="anchor"></span>        # Questa è un'altra sequenza di porte sulle quali knockd rimarrà in ascolto.
+<span id="line-24" class="anchor"></span>
+<span id="line-25" class="anchor"></span>        seq_timeout = 30
+<span id="line-26" class="anchor"></span>
+<span id="line-27" class="anchor"></span>        command     = /sbin/iptables -D INPUT -s %IP% -p tcp --dport 22 -j ACCEPT
+<span id="line-28" class="anchor"></span>        # Quando la sequenza verrà accettata verrà inserita una regola che cancellerà quella creata in precedenza.
+<span id="line-29" class="anchor"></span>
+<span id="line-30" class="anchor"></span>        tcpflags    = syn
+<span id="line-31" class="anchor"></span>        # Ulteriore filtro, sul tipo di flag del pacchetto inviato alla sequenza di porte.</pre>
+<p class="line874">La variabile «%IP%» passa alla regola di iptables l&#8217;indirizzo che ha effettuato la richiesta di connessione, in questo caso verrà permessa l&#8217;apertura della porta SSH discriminando solo l&#8217;IP validato. <span id="line-61" class="anchor"></span><span id="line-62" class="anchor"></span></p>
+<h3 id="Configurazione_per_l.27apertura_di_una_sola_porta.2C_per_soli_esperti">Configurazione per l&#8217;apertura di una sola porta, per soli esperti</h3>
+<p class="line862">Un&#8217;altra possibilità per usare il demone knockd, e&#8217; utilizzabile <strong>solo se il firewall sul server è configurato per accettare le connessioni &#8220;established&#8221; e &#8220;related&#8221;</strong> alla porta che si vuole aprire (es ssh, 22) è di chiudersi subito dietro la porta appena aperta, per evitare che, restando &#8220;aperta&#8221;, qualche malintenzionato tenti un brute-force al servizio, lanciando uno script anzichè impostando delle regole sul firewall. <span id="line-64" class="anchor"></span><span id="line-65" class="anchor"></span></p>
+<p class="line862">Per questo scopo il file <tt>/etc/knockd.conf </tt>può ad esempio essere modificato, con un editor di testo a piacimento, e con i privilegi di amministrazione, come segue : <span id="line-66" class="anchor"></span><span id="line-67" class="anchor"></span></p>
+<pre><span id="line-1-3" class="anchor"></span>[options]
+<span id="line-2-1" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3-1" class="anchor"></span>
+<span id="line-4-1" class="anchor"></span>[openSSH]
+<span id="line-5-1" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6-1" class="anchor"></span>        seq_timeout = 30
+<span id="line-7-1" class="anchor"></span>        start_command     = /etc/init.d/ssh start
+<span id="line-8-1" class="anchor"></span>        tcpflags    = syn
+<span id="line-9-1" class="anchor"></span>
+<span id="line-10-1" class="anchor"></span>        cmd_timeout = 5
+<span id="line-11-1" class="anchor"></span>        stop_command     = /etc/init.d/ssh stop
+<span id="line-12-1" class="anchor"></span>        # Dopo cmd_timeout secondi, viene eseguito il comando stop_command</pre>
+<p class="line862">Ricordiamo ancora che <strong>è indispensabile</strong> che il firewall sul server accetti le connessioni &#8220;related&#8221; ed &#8220;established&#8221; altrimenti la sezione &#8220;stop_command&#8221;, appena sarà eseguita, vi chiuderà la connessione SSH senza quindi avere possibilità di connettervi al server! <span id="line-82" class="anchor"></span><span id="line-83" class="anchor"></span></p>
+<pre><span id="line-1-4" class="anchor">tuttiperlinux</span>@server:~# iptables -nL | grep ":22"
+<span id="line-2-2" class="anchor"></span>
+<span id="line-3-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp dpt:22
+<span id="line-4-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp spt:22 dpts:513:65535 state RELATED,ESTABLISHED
+<span id="line-5-2" class="anchor"></span>ACCEPT     tcp  --  0.0.0.0/0    0.0.0.0/0           tcp spts:1024:65535 dpt:22 flags:0x17/0x02 state RELATED,ESTABLISHED
+<span id="line-6-2" class="anchor"></span>ACCEPT     udp  --  0.0.0.0/0    0.0.0.0/0           udp dpt:22 state ESTABLISHE
+<span id="line-7-2" class="anchor"></span></pre>
+<h3 id="Configurazione_knockd.conf_per_l.27apertura_di_pi.2BAPk_porte">Configurazione knockd.conf per l&#8217;apertura di più porte</h3>
+<p class="line874">Nell&#8217;esempio sopra esposto si è visto come aprire una sola porta. Se l&#8217;esigenza fosse però quella di aprirne di più procedere creando più sessioni «[openServizio]» e «[closeServizio]». Questo sistema risulta però scomodo per ovvi motivi, per ottenere lo stesso risultato è consigliato usare degli script. <span id="line-94" class="anchor"></span><span id="line-95" class="anchor"></span></p>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/knockd.conf</tt> impostandolo come segue: <span id="line-96" class="anchor"></span><span id="line-97" class="anchor"></span></p>
+<pre><span id="line-1-5" class="anchor"></span>[options]
+<span id="line-2-3" class="anchor"></span>        logfile = /var/log/knockd.log
+<span id="line-3-3" class="anchor"></span>
+<span id="line-4-3" class="anchor"></span>[open]
+<span id="line-5-3" class="anchor"></span>        sequence    = 7000,8000,9000
+<span id="line-6-3" class="anchor"></span>        seq_timeout = 30
+<span id="line-7-3" class="anchor"></span>        tcpflags    = syn
+<span id="line-8-2" class="anchor"></span>        command     = sh /etc/open_ports %IP%
+<span id="line-9-2" class="anchor"></span>
+<span id="line-10-2" class="anchor"></span>
+<span id="line-11-2" class="anchor"></span>[close]
+<span id="line-12-2" class="anchor"></span>        sequence    = 9000,8000,7000
+<span id="line-13-1" class="anchor"></span>        seq_timeout = 30
+<span id="line-14-1" class="anchor"></span>        tcpflags    = syn
+<span id="line-15-1" class="anchor"></span>        command     = sh /etc/close_ports %IP%</pre>
+<p class="line874">In questo caso invece di eseguire direttamente iptables si richiamano due script passando il parametro «%IP%» alla variabile speciale «$1». <span id="line-116" class="anchor"></span><span id="line-117" class="anchor"></span></p>
+<h3 id="Esempio_di_script_open_ports">Esempio di script open_ports</h3>
+<p class="line862">Modificare con un editor di testo a piacimento, e con i privilegi di amministrazione il file <tt>/etc/open_ports</tt> impostandolo come segue: <span id="line-119" class="anchor"></span><span id="line-120" class="anchor"></span></p>
+<pre><span id="line-1-6" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 22 -j ACCEPT
+<span id="line-2-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 21 -j ACCEPT
+<span id="line-3-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 631 -j ACCEPT
+<span id="line-4-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 5125 -j ACCEPT
+<span id="line-5-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 5126 -j ACCEPT
+<span id="line-6-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 8888 -j ACCEPT
+<span id="line-7-4" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 10000 -j ACCEPT
+<span id="line-8-3" class="anchor"></span>iptables -A INPUT -s $1 -p tcp --dport 81 -j ACCEPT</pre>
+<h3 id="Esempio_di_script_close_ports">Esempio di script close_ports</h3>
+<p class="line862">Modificare con un editor di testo a piacimento,  e con i privilegi di amministrazione il file <tt>/etc/close_ports</tt> impostandolo come segue: <span id="line-134" class="anchor"></span><span id="line-135" class="anchor"></span></p>
+<pre><span id="line-1-7" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 22 -j ACCEPT
+<span id="line-2-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 21 -j ACCEPT
+<span id="line-3-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 631 -j ACCEPT
+<span id="line-4-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 5125 -j ACCEPT
+<span id="line-5-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 5126 -j ACCEPT
+<span id="line-6-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 8888 -j ACCEPT
+<span id="line-7-5" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 10000 -j ACCEPT
+<span id="line-8-4" class="anchor"></span>iptables -D INPUT -s $1 -p tcp --dport 81 -j ACCEPT
+
+</pre>
+<h3 id="Connessione">Esempio di una connessione</h3>
+<p class="line874">Per effettuare la connessione digitare il seguente comando all&#8217;interno di una finestra di terminale: <span id="line-168" class="anchor"></span><span id="line-169" class="anchor"></span></p>
+<pre><span id="line-1-9" class="anchor"></span>./knock -v &lt;ip_host&gt; port1 port2 port3 port...</pre>
+<p>Ora non resta altro che fare pratica e pratica ma sono sicuro che il portknocking vi dara&#8217; tanta soddisfazione.</p>
+<p>Leggete anche l&#8217;articolo sulla sicurezza inerente <a title="Metasploit Framework" href="http://tuttiperlinux.com/2014/08/29/metasploit-framework/">Metasploit Framework</a>.</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/30/sicurezza-con-il-portknocking/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/portknocking.png?w=300" medium="image">
+			<media:title type="html">portknocking</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>PenMode2 penetration testing</title>
+		<link>https://tuttiperlinux.blog/2014/08/25/penmode2-penetration-testing/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/25/penmode2-penetration-testing/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 25 Aug 2014 20:56:05 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[anonimato]]></category>
+		<category><![CDATA[anonymous]]></category>
+		<category><![CDATA[auditing]]></category>
+		<category><![CDATA[backtrack]]></category>
+		<category><![CDATA[cms]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[kali linux]]></category>
+		<category><![CDATA[liinux blog]]></category>
+		<category><![CDATA[penetration testing]]></category>
+		<category><![CDATA[tor]]></category>
+		<category><![CDATA[web scanner]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=430</guid>
+
+					<description><![CDATA[Ho recentemente parlato in un articolo inerente Kali Linux (ex BackTrack) di sistemi di penetration testing; oggi in questo nuovo articolo parleremo di PenMode 2. Questo prodotto e&#8217;  l’ ultima versione di un tool per la sicurezza informatica pensato appositamente per Kali Linux, (distribuzione Debian based). I suoi autori sono i membri del PH#OS Team &#8230; <a href="https://tuttiperlinux.blog/2014/08/25/penmode2-penetration-testing/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png"><img loading="lazy" data-attachment-id="431" data-permalink="https://tuttiperlinux.blog/2014/08/25/penmode2-penetration-testing/penmode2-logo/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png" data-orig-size="720,180" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="penmode2-logo" data-image-description="&lt;p&gt;PenMode 2&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=600" class="alignleft size-medium wp-image-431" src="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=300&#038;h=75" alt="penmode2-logo" width="300" height="75" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=300&amp;h=75 300w, https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=600&amp;h=150 600w, https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=150&amp;h=38 150w" sizes="(max-width: 300px) 100vw, 300px" /></a>Ho recentemente parlato in un articolo inerente <a title="Kali Linux l’erede di BackTrack" href="http://tuttiperlinux.com/2014/08/23/kali-linux-lerede-di-backtrack/">Kali Linux</a> (ex BackTrack) di sistemi di penetration testing; oggi in questo nuovo articolo parleremo di <a href="http://penmode2.tk/">PenMode 2</a>. Questo prodotto e&#8217;  l’ ultima versione di un tool per la sicurezza informatica pensato appositamente per Kali Linux, (distribuzione Debian based). I suoi autori sono i membri del <a href="http://www.cct-seecity.com/2014/02/ecco-le-facce-del-phos-team/">PH#OS Team</a> e sono riusciti a sviluppare un ottimo ed efficiente software, che può essere usato sia a livello professionale che a livello amatoriale, ed ha come suo punto di forza proprio quello di aggregare una serie di tool essenziali per eseguire le varie operazioni di <strong>pentesting</strong>.</p>
+<p>Il tool è suddiviso in 3 sezioni, che possiamo riassumere in:</p>
+<ul>
+<li><strong>Information Gathering:</strong> usato per l’acquisizione di informazioni quali, la tipologia di Server, le porte aperte, domini, email ecc</li>
+<li><strong>Web Scanner:</strong> per effettuare scansioni complete del target tramite tool appositi</li>
+<li><strong>CMS: </strong>usato per effettuare analisi e pentesting mirati per determinati CMS quali WordPress, Joomla e Typo3</li>
+</ul>
+<p>C’è inoltre un&#8217;ulteriore funzionalita&#8217; davvero niente male, si chiama <strong>Anon Surf </strong>; si tratta di uno script che lavora direttamente sulle tabelle di  <strong>iptables</strong> per garantire che ogni comunicazione debba passare attraverso <a href="https://www.torproject.org/">TOR</a> cosi&#8217; da diventare anonima. Oltre a tutto ciò sono presenti anche molti altri tool davvero interessanti e vari.<br />
+PenMode 2 è inoltre dotato di un’interfaccia grafica basata sulle librerie penmode_logoGTK in modo da adattarsi al tema grafico impostato sul sistema.</p>
+<p><strong>Passiamo ora all&#8217;INSTALLAZIONE </strong></p>
+<ul>
+<li>scarichiamo i pacchetti .deb necessari (<code>gtkd.deb &amp; penmode.deb)</code>dalla seguente pagina (<a href="https://github.com/Pinperepette/Penmode2" rel="nofollow">https://github.com/Pinperepette/Penmode2</a>), troverete i pacchetti sia per 32 e 64 bit</li>
+<li><code><code>installiamo i pacchetti con il seguente comando:</code></code>
+<pre>dpkg -i gtkd.deb penmode.deb</pre>
+<p>i pacchetti in questione possono richiedere diverse dipendenze da soddisfare e, nel qual caso l&#8217;installazione non finisse nel modo piu&#8217; corretto converra&#8217;utilizzare il comando</p>
+<pre>apt-get -f install</pre>
+</li>
+<li>Per avviarlo potete andare su menù -&gt; Auditing -&gt; Miscellaneous -&gt; PenMode o tramite terminale digitando penmode</li>
+</ul>
+<p>Ecco inoltre un video introduttivo che potra&#8217; essere di aiuto <a href="https://www.youtube.com/watch?v=6uihx1aQ0OQ">LINK</a></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/25/penmode2-penetration-testing/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/penmode2-logo.png?w=300" medium="image">
+			<media:title type="html">penmode2-logo</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Proteggersi da scansioni ed intrusioni</title>
+		<link>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 30 Jul 2014 15:06:35 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[ddos]]></category>
+		<category><![CDATA[forward]]></category>
+		<category><![CDATA[icmp]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[memoria]]></category>
+		<category><![CDATA[run-time]]></category>
+		<category><![CDATA[sicurezza]]></category>
+		<category><![CDATA[smurf]]></category>
+		<category><![CDATA[sniffing]]></category>
+		<category><![CDATA[spoofing]]></category>
+		<category><![CDATA[sysctl]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=224</guid>
+
+					<description><![CDATA[Sysctl Molte volte si pensa che per poter difendere il nostro amato PC da occhi indiscreti ci voglia chissa&#8217; quale software sofisticato , oppure una decennale esperienza nella scrittura di regole con iptables ; certo tutto questo aiuta comunque, ma e&#8217; anche vero che nella maggior parte dei casi il nostro PC non e&#8217; poi cosi&#8217; &#8230; <a href="https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h2><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg"><img data-attachment-id="225" data-permalink="https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/shell/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg" data-orig-size="120,120" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Sysctl" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=120" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=120" class="alignleft size-full wp-image-225" src="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=600" alt="Sysctl"   /></a>Sysctl</strong></h2>
+<p>Molte volte si pensa che per poter difendere il nostro amato PC da occhi indiscreti ci voglia chissa&#8217; quale software sofisticato , oppure una decennale esperienza nella scrittura di regole con <strong>iptables </strong>; certo tutto questo aiuta comunque, ma e&#8217; anche vero che nella maggior parte dei casi il nostro PC non e&#8217; poi cosi&#8217; invitante e non contiene nessun vero segreto che valga la pena, per un hacker ( o x meglio dire chracker ) di perderci del tempo. Quindi molte volte alziamo fortificazioni esagerate, oltre il nostro vero sapere e controllo, senza avere un buon motivo. Si potrebbe invece iniziare a prendere dimestichezza con tutta quella serie di tools che Linux fornisce di base per cominciare a restringere le possibilita&#8217; di accesso agli estranei ed ai curiosi.</p>
+<p>Oggi inizieremo da <strong>sysctl</strong> ossia &#8221; <strong>la gestione dei parametri del kernel</strong>  &#8221;</p>
+<p>Il comando<strong> sysctl </strong>viene usato per la personalizzazione dei parametri in<strong> run-time del kernel</strong> che si trovano in /proc/sys.<br />
+Per avere uno sguardo dell’output del comando basterà digitare da root:</p>
+<blockquote><p><strong>sysctl -a</strong></p></blockquote>
+<p><strong>Le categorie</strong></p>
+<pre>                 debug
+                 dev
+                 fs
+                 kernel
+                 net
+                 vm
+
+<strong>Significato</strong>
+parametri per il debug.
+parametri dei dispositivi.
+parametri dei filesystem.
+parametri generici del kernel.
+parametri della rete.
+parametri della memoria virtuale.
+
+Praticamente possiamo modificare molti valori riguardanti il sistema,la rete,ecc.</pre>
+<p>Possiamo cambiare valore ai vari parametri in base alle nostre esigenze, facciamo un esempio.<br />
+Vogliamo cambiare valore all’ip forward:</p>
+<blockquote><p>sysctl -a | grep ip_forward</p></blockquote>
+<pre>@lorenzo:/etc# sysctl -a | grep ip_forward
+net.ipv4.ip_forward = 0</pre>
+<p><strong>Come vediamo il valore è a 0</strong> e noi <strong>lo vogliamo mettere a 1</strong>:</p>
+<blockquote><p>sysctl -w net.ipv4.ip_forward=”1″</p></blockquote>
+<p>Come possiamo vedere ha preso il valore 1:</p>
+<pre>@lorenzo:/etc# sysctl -a | grep ip_forward
+net.ipv4.ip_forward = 0</pre>
+<p>Ovviamente<strong> questa modifica è temporanea</strong> infatti dopo un riavvio il valore torna a 0, ma possiamo renderla<strong> definitiva </strong>andato a editare il file<strong> /etc/sysctl.conf</strong> (facendo sempre prima un bel backup) mettendo 1 alla voce net.ipv4.ip_forward.</p>
+<p>Una volta scritta la regola nel file ed usciti dalla modalita&#8217; scrittura dovremo far rileggere la configurazione dei parametri di questo file tramite il seguente comando:</p>
+<blockquote><p><strong>sysctl -p</strong></p></blockquote>
+<p>Vediamo ora alcuni parametri e scopriamo a cosa servono :</p>
+<p><strong>net.ipv4.tcp_syncookies</strong>:  Quando abilitato, protegge dagli attacchi SYN FLOOD</p>
+<p><strong>net.ipv4.icmp_echo_ignore_broadcasts</strong>: Quando abilitato, ignora tutte le richieste ICMP ECHO e TIMESTAMP dirette ad indirizzi broadcast e multi cast proteggendo il server da attacchi SMURF.</p>
+<p><strong>net.ipv4.icmp_ignore_bogus_error_responses</strong>: Quando abilitato, protegge da errori ICMP maligni</p>
+<p><strong>net.ipv4.tcp_keepalive_time</strong>: Definisce ogni quanti secondi inviare al client con una connessione keepalive aperta un pacchetto in modo tale da mantenerla aperta.</p>
+<p>L’abilitazione dei seguenti paramentri permette di inoltrare il traffico di rete da un’interfaccia ad un’altra agendo come un router:</p>
+<p><strong>net.ipv4.ip_forward</strong><br />
+<strong>net.ipv4.conf.all.send_redirects</strong><br />
+<strong>net.ipv4.conf.default.send_redirects</strong></p>
+<p><strong>net.ipv4.tcp_max_syn_backlog=512</strong>   Quando la coda dei segmenti SYN provenienti da un certo host supera il numero stabilito in questo parametro il kernel invece di tenere i dati in arrivo nella coda dei pacchetti SYN in attesa di risposta, invierà un SYN+ACK di risposta.<br />
+Si svuota cosi la coda SYN, evitando che diventi troppo grande,</p>
+<p><strong>net.ipv4.icmp_echo_ignore_broadcasts = 1</strong>  Il kernel ignorerà i ping destinati all’indirizzo di broadcast della rete. Questo può evitare diversi tipi di <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ip_conntrack_max=15000</strong>  Viene impostato il numero massimo di connessioni che il sistema può gestire. E’ bene dimensionare tale numero in base alle risorse del sistema, per evitare in ogni momento il rischio che la RAM si esaurisca. *** ***Prevenzione <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ipfrag_high_tresh=131072</strong></p>
+<p><strong>net.ipv4.ipfrag_low_tresh=102400</strong></p>
+<p>Queste due opzioni indicano la quantità di RAM massima e minima che deve essere usata nel momento in cui i segmenti TCP vengono riassemblati, per non esaurire la RAM.  ***Prevenzione <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ipfrag_time=20</strong> Quest’opzione indica in secondi il tempo che i segmenti TCP devono essere tenuti in memoria</p>
+<p><strong>net.ipv4.conf.all.rp_filter=1</strong> Quest’opzione è utile quando un pacchetto arriva in ingresso su un’interfaccia di rete diversa da quella che ci si aspetterebbe secondo le tabelle di routing.  ***Protezione contro <strong>attacchi di Spoofing</strong></p>
+<p><strong>net.ipv4.tcp_mem = 12288, 16384, 24576<br />
+</strong>Queste impostazioni istruiscono lo stack TCP su come compostarsi nei riguardi dell’uso della memoria. Indicano al kernel qual&#8217;e&#8217; la soglia al di sopra della quale debba iniziare un uso più attento della memoria. Il primo attributo indica il valore per il quale il kernel non si deve preoccupare dell’utilizzo della memoria. Il secondo attributo invece indica la valore per il quale il kernel deve iniziare a forzare la diminuzione dell’uso della memoria. Questo stato si chiama <strong>memory pressure mode</strong>.<br />
+L’ultimo valore indica il valore per il quale il kernel non può piu assegnare pagine di memoria finchè non torna sotto la soglia.</p>
+<p>Per l’architettura <strong>x86</strong> ad esempio le pagine di memoria sono grandi <strong>4096 byte</strong>.<br />
+E’ bene dimensionare la configurazione di questa variabile in base alla RAM disponibile sulla propria macchina, per evitare l’esaurimento delle risorse.</p>
+<p>Nel prossimo articolo vedremo altri tool ed altri sistemi di protezione integrati , bye !!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg" medium="image">
+			<media:title type="html">Sysctl</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

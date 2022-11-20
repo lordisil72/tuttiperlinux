@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>troubleshooting &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/troubleshooting/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Sun, 22 Feb 2015 14:11:29 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>troubleshooting &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>HAPROXY – ed il bilanciamento di carico e&#8217; servito</title>
+		<link>https://tuttiperlinux.blog/2015/02/22/haproxy-ed-il-bilanciamento-di-carico-e-servito/</link>
+					<comments>https://tuttiperlinux.blog/2015/02/22/haproxy-ed-il-bilanciamento-di-carico-e-servito/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sun, 22 Feb 2015 14:11:29 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[backend]]></category>
+		<category><![CDATA[bilanciatore di carico]]></category>
+		<category><![CDATA[cloud server]]></category>
+		<category><![CDATA[frontend]]></category>
+		<category><![CDATA[haproxy]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[httplog]]></category>
+		<category><![CDATA[https]]></category>
+		<category><![CDATA[iso/osi]]></category>
+		<category><![CDATA[layer]]></category>
+		<category><![CDATA[load balancer]]></category>
+		<category><![CDATA[roundrobin]]></category>
+		<category><![CDATA[tcp]]></category>
+		<category><![CDATA[troubleshooting]]></category>
+		<category><![CDATA[webserver bilanciati]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1025</guid>
+
+					<description><![CDATA[Bilanciamento, chi è costui? Quando pensiamo a come implementare un servizio web, solitamente lo immaginiamo erogato da potenti server che, all&#8217;occorenza, sono in grado di scalare in automatico in modo da garantirne la continuità. Ma con i nuovi servizi cloud ad alta frequentazione, la mole di accessi che deve essere trattata sara&#8217; talmente elevata da mettere &#8230; <a href="https://tuttiperlinux.blog/2015/02/22/haproxy-ed-il-bilanciamento-di-carico-e-servito/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1026" style="width: 310px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1026" data-attachment-id="1026" data-permalink="https://tuttiperlinux.blog/2015/02/22/haproxy-ed-il-bilanciamento-di-carico-e-servito/ha-proxy_load-balancing/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png" data-orig-size="1024,370" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ha-proxy_load-balancing" data-image-description="&lt;p&gt;HAProxy Load Balancing&lt;/p&gt;
+" data-image-caption="&lt;p&gt;HAProxy Load Balancing&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=600" class="size-medium wp-image-1026" src="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=300&#038;h=108" alt="HAProxy Load Balancing" width="300" height="108" srcset="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=300&amp;h=108 300w, https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=598&amp;h=216 598w, https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=150&amp;h=54 150w" sizes="(max-width: 300px) 100vw, 300px" /><p id="caption-attachment-1026" class="wp-caption-text">HAProxy Load Balancing</p></div>
+<p><strong>Bilanciamento, chi è costui?</strong><br />
+Quando pensiamo a come implementare un servizio web, solitamente lo immaginiamo erogato da potenti server che, all&#8217;occorenza, sono in grado di scalare in automatico in modo da garantirne la continuità.<br />
+Ma con i nuovi servizi cloud ad alta frequentazione, la mole di accessi che deve essere trattata sara&#8217; talmente elevata da mettere in crisi qualunque configurazione.</p>
+<p>Come evitare una situazione del genere? Utilizzare ulteriore hardware, più potente, potrebbe non essere sufficiente, inoltre gestire una configurazione composta da sempre più server richiede l’introduzione di un “oggetto” capace di distribuire le connessioni su tutte le macchine installate.</p>
+<p>L’oggetto a cui facciamo riferimento è un <strong>Load Balancer</strong> (bilanciatore di carico), capace di distribuire tutte le connessioni entranti tra i vari server assegnati alla funzionalita&#8217; del nostro servizio.<br />
+Così facendo sara&#8217; possibile:</p>
+<ul>
+<li><i></i>migliorare l’alta affidabilità del servizio, perchè le richieste verranno sempre e solo, indirizzate ai server “attivi”;</li>
+<li><i></i>migliorare la disponibilità del servizio, perchè le richieste verranno inviate ai server meno “carichi” in quel momento.</li>
+</ul>
+<p><strong>La soluzione: HAPROXY</strong><br />
+Esistono molte soluzioni commerciali in tema di Load Balancing, ma può essere più interessante, sfruttabile, performante e conveniente, ricorrere a prodotti Open Source e, tra questi, c’è <strong>HAPROXY</strong>.<br />
+HAPROXY (<a href="http://haproxy.1wt.eu/">http://www.haproxy.org/</a>) è un bilanciatore in grado di gestire sia connessioni HTTP/HTTPS che connessioni di tipo TCP.</p>
+<p><strong>Utilizzo</strong><br />
+Per prendere coscienza di quali siano le potenzialità di HAPROXY, proviamo a fare due esempi d&#8217;impiego delle funzionalità di bilanciamento, una dedicata ad un servizio di puro HTTP, e l’altra dedicata a bilanciare un servizio esclusivamente TCP.<br />
+Per provare le funzionalità di HAPROXY ho realizzato un ambiente virtuale con <a title="Virtualizzazione e provisioning senza sforzo" href="http://tuttiperlinux.com/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">vagrant</a> costituito da tre macchine virtuali:</p>
+<ul>
+<li>1 macchina Gentoo (molto leggera e performante) utilizzata come bilanciatore (loadbalancer)</li>
+<li>2 macchine Ubuntu utilizzate come server da bilanciare (web1 e web2)</li>
+</ul>
+<p>Installiamo HAPROXY  sulla macchina Gentoo, attraverso il comando:</p>
+<pre>emerge haproxy</pre>
+<p>Mentre sulle macchine Ubuntu procediamo con l’installazione di Apache utilizzando il comando:<br />
+<code></code></p>
+<pre>apt-get install apache2</pre>
+<p>Tutte le macchine sono state collegate alla stessa rete: 192.168.0.0/24:</p>
+<ul>
+<li><i></i><strong>loadbalancer</strong>: configurato con l’indirizzo fisico 192.168.0.<strong>254</strong>, e con due alias, per i servizi bilanciati, 192.168.0.<strong>253</strong> e 192.168.0.<strong>252</strong>.</li>
+</ul>
+<ul>
+<li><i></i><strong>web1</strong>: indirizzo 192.168.0.31.</li>
+</ul>
+<ul>
+<li><i></i><strong>web2</strong>: indirizzo 192.168.0.32.</li>
+</ul>
+<p>Si ricorre all’uso degli <strong>alias</strong> <strong>di rete</strong> per poter pubblicare i due servizi di bilanciamento su indirizzi distinti; in alternativa sarebbe stato possibile pubblicare tutti i servizi di bilanciamento sullo stesso indirizzo fisico del server loadbalancer, perché, nel nostro caso, le porte di ascolto dei due servizi sono comunque differenti; ovviamente, se si vogliono bilanciare più servizi che ascoltano sulla stessa porta l’impiego degli alias è inevitabile.</p>
+<p>La configurazione di un servizio di bilanciamento in HAPROXY, può essere realizzata definendo una sezione di “<strong>frontend</strong>” ed una di “<strong>backend</strong>”; la prima serve per definire il punto di accesso dei client (internet), mentre la seconda viene utilizzata per definire l’insieme dei server a cui inviare le connessioni da bilanciare.<br />
+In alternativa, è possibile configurare un’unica sezione, “<strong>listen</strong>”, in cui vengono racchiuse sia le direttive che verrebbero utilizzate per configurare le sezioni di “frontend” e di “backend”.</p>
+<p><strong>Esempi di impiego di HAPROXY</strong><br />
+Il file di configurazione del servizio si trova in <strong>/etc/haproxy/haproxy.cfg</strong>.</p>
+<p>La configurazione di Haproxy è stata impostata per includere una sezione in cui inserire i parametri che agiscono a livello globale (“global”), nel nostro caso viene configurato il log degli eventi.<br />
+Viene poi configurata una sezione in cui riportare tutte quelle impostazioni che costituiranno la base di ciascun servizio bilanciato (sezione “defaults”).</p>
+<pre>global
+log /dev/log local0
+log /dev/log local1 notice
+
+</pre>
+<pre>defaults
+timeout client 5000
+timeout connect 5000
+timeout server 5000
+</pre>
+<p>Nella sezione “defaults” sono quindi impostati i valori dei timeout:</p>
+<ul>
+<li><i></i>i timeout di <strong>inattività lato client</strong> mentre si attende una risposta dal server (timeout client);</li>
+</ul>
+<ul>
+<li><i></i>i timeout di <strong>attesa di attivazione</strong> di una <strong>connessione</strong> al server (timeout connect);</li>
+</ul>
+<ul>
+<li><i></i>il timeout di <strong>inattività lato server</strong> (timeout server).</li>
+</ul>
+<p>Tutti i valori di timeout sono stati impostati a 5000 millisecondi (5 secondi); ma possono essere adeguati in base alle proprie necessità.</p>
+<p><strong>Esempio 1: bilanciare il web</strong><br />
+In questo primo esempio, HAPROXY viene utilizzato per bilanciare le richieste indirizzate a due server web, configurati per pubblicare una semplice pagina HTML (index2.html) che visualizza una serie di immagini (differenti tra i due server web, così da rendere evidente all’utente su quale server si è stati bilanciati).</p>
+<pre>frontend webfront
+bind 192.168.0.253:80
+default_backend webback</pre>
+<pre>backend webback
+balance roundrobin
+server web1 192.168.0.31:80 check inter 5000 rise 2 fall 3 weight 10
+server web2 192.168.0.32:80 check inter 5000 rise 2 fall 3 weight 10
+mode http
+log global
+option httplog
+option httpchk GET /index.html
+</pre>
+<p>All’interno della sezione “frontend” viene specificato l’indirizzo su cui si pone in ascolto il bilanciatore per il servizio specifico, e viene poi incluso il riferimento alla configurazione di “backend”, contenente informazioni sui server da bilanciare.</p>
+<p>Nella parte “backend”, si può specificare quale metodologia di bilanciamento da utilizzare, quindi con quale criterio distribuire le richieste dei client, in questo caso il bilanciamento è di tipo “<strong>round robin</strong>”, cioè le richieste vengono inviate alternativamente ai due server bilanciati 50 &amp; 50 % .<br />
+Con la direttiva “server” vengono specificati tutti i server che si vogliono bilanciare, identificando ciascuno con un nome (non necessariamente corrispondente all’hostname del server), l’indirizzo IP e la porta su cui ascolta il servizio (in questo esempio, la porta TCP/80 per il web server).<br />
+Per ogni server, vengono poi specificati i criteri da seguire per controllare se questo è attivo (a livello di servizio web) o meno, in modo da poterlo escludere a fronte di un problema.<br />
+Con l’opzione “<strong>check</strong>” viene specificata la frequenza con cui controllare il server (“inter”, impostata a 5000 millisecondi), dopo quanti check falliti il server deve essere escluso dal bilanciamento (“<strong>fall</strong>”), oppure dopo quanti check andati a buon fine (“<strong>rise</strong>”), invece, deve essere reinserito nel bilanciamento, ed il peso (“<strong>weight</strong>”) di ciascun server, in modo da poter distribuire il carico in maniera proporzionale tra le varie macchine, cosi da poter meglio bilanciare lo sforzo dei server nel caso che questi avessero hadrware con prestazioni differenti, infatti impostando un server con un peso maggiore rispetto alle altre macchine, questo riceverà un numero di richieste maggiore.</p>
+<p>Se non si specificheranno particolari direttive, Haproxy verificera&#8217; solo la disponibilità del servizio su ciascun server, controllando se la porta TCP specificata è in ascolto o meno.<br />
+Nel caso di web server bilanciati, è possibile definire dei controlli specifici sul protocollo HTTP interrogando direttamente la parte web, cosi che, a fronte di una risposta HTTP diversa dal codice 200 (OK) , il server verra&#8217; escluso (“option httpchk”).</p>
+<p>Con l’opzione <strong>httplog</strong> si attiva anche un livello di log per tutte le richieste HTTP che arrivano al bilanciatore per quel determinato servizio.<br />
+Particolare attenzione va riservata alle impostazioni di “rise” e “fall”, per cercare il giusto equilibrio che consenta di evitare che un server venga escluso, o reinserito troppo velocemente dal bilanciamento.</p>
+<p><strong>Esempio 2: bilanciare un servizio TCP</strong><br />
+Oltre a bilanciare servizi HTTP, Haproxy può bilanciare praticamente qualsiasi tipo di connessione TCP; nel nostro test, sui due server attivati e&#8217; stato configurato in ascolto, un servizio sulla porta TCP/2222.<br />
+In queso caso, HAPROXY è configurato per restare in ascolto su un indirizzo IP diverso da quello del servizio web dell’esempio precedente, e diverso dall’indirizzo fisico del bilanciatore.</p>
+<pre>frontend sshfront
+bind 192.168.0.252:2222
+default_backend sshbe</pre>
+<pre>backend sshback
+balance roundrobin
+server ssh1 192.168.0.31:2222 check inter 5000 rise 2 fall 3 weight 10
+server ssh2 192.168.0.32:2222 check inter 5000 rise 2 fall 3 weight 10
+</pre>
+<p><strong>Troubleshooting</strong><br />
+All’interno dei log generati da haproxy è possibile rilevare gli eventi in cui un server viene escluso, oppure incluso, nel bilanciamento.<br />
+Nel caso in cui il server (o il servizio) bilanciato non sia disponibile verrà registrato il seguente evento:</p>
+<p><code>Feb 22 10:30:50 localhost haproxy[23679]: Server webbe/web2 is DOWN, reason: Layer4 connection problem, info: "Connection refused", check duration: 0ms. 1 active and 0 backup servers left. 0 sessions active, 0 requeued, 0 remaining in queue.<br />
+</code></p>
+<p>Nel momento in cui il server/servizio torna disponibile nei log di Haproxy si troverà, invece, questo evento:</p>
+<p><code>Feb 22 10:32:10 localhost haproxy[23679]: Server webbe/web2 is UP, reason: Layer7 check passed, code: 200, info: "OK", check duration: 0ms. 2 active and 0 backup servers online. 0 sessions requeued, 0 total in queue.<br />
+</code></p>
+<p><strong>Conclusioni</strong><br />
+Haproxy offre la possibilità di risolvere problemi di eccessivo carico, ma anche di realizzare un meccanismo di alta affidabilità per diverse architetture di server, con questo approccio si semplifichera&#8217; quindi la gestione dei sistemi e dei servizi.<br />
+Le funzionalità di Haproxy non si fermano solo agli esempi trattati precedentemente, ma permettono di creare servizi di bilanciamento capaci di lavorare <strong>dal livello 3 al livello 7</strong> della pila <strong>ISO/OSI</strong>.<br />
+Vedremo in un secondo tempo di approfondire le varie funzionalità avanzate che Haproxy mette a disposizione.</p>
+<p>&nbsp;</p>
+<p>#Haproxy#Bilanciatoredicarico</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/02/22/haproxy-ed-il-bilanciamento-di-carico-e-servito/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/02/ha-proxy_load-balancing.png?w=300" medium="image">
+			<media:title type="html">HAProxy Load Balancing</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

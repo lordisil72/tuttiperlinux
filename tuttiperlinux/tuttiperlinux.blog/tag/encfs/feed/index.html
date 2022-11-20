@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>encfs &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/encfs/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 15 Apr 2016 14:00:16 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>encfs &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Cifrare una Directory con EncFS</title>
+		<link>https://tuttiperlinux.blog/2014/06/25/cifrare-una-directory-con-encfs/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/25/cifrare-una-directory-con-encfs/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2014 23:31:03 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[cifrare]]></category>
+		<category><![CDATA[crittografare]]></category>
+		<category><![CDATA[encfs]]></category>
+		<category><![CDATA[encryptfs]]></category>
+		<category><![CDATA[luks]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=78</guid>
+
+					<description><![CDATA[Cifrare il contenuto di una Directory da occhi indiscreti non e&#8217; mai stato cosi&#8217; facile come con EncFS. EncFS è uno speciale filsystem in userspace che consente di cifrare tutto il contenuto di una directory senza dover ricorrere all&#8217;uso di un dispositivo apposito. Pertanto il contenuto potrà essere memorizzato direttamente in un&#8217;altra directory, senza la &#8230; <a href="https://tuttiperlinux.blog/2014/06/25/cifrare-una-directory-con-encfs/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Cifrare il contenuto di una Directory da occhi indiscreti non e&#8217; mai stato cosi&#8217; facile come con EncFS.</p>
+<p><strong>EncFS</strong> è uno speciale filsystem in userspace che consente di cifrare tutto il contenuto di una directory senza dover ricorrere all&#8217;uso di un dispositivo apposito. Pertanto il contenuto potrà essere memorizzato direttamente in un&#8217;altra directory, senza la necessità di dover creare un filesystem su un dispositivo cifrato. I primo passo è installare il programma con tutte le sue dipendenze con:</p>
+<pre><strong>sudo apt-get install encfs
+</strong></pre>
+<p>Una volta installato il programma la creazione di una directory cifrata è molto semplice, sarà sufficiente usare lo stesso specificando come primo argomento la directory che conterrà i contenuti cifrati e come secondo argomento quella in cui compariranno i contenuti in chiaro quindi creiamo in un PATH a nostro piacere due directory assegnate al nostro utente e con  permessi 700, dopodiche&#8217; il comando da usare sara&#8217; molto semplice cioè qualcosa del tipo:</p>
+<pre><strong>mkdir ~/.protetta ~/protetta
+</strong><strong>chmod 700 ~/.protetta ~/protetta
+</strong><strong>encfs </strong><strong>~/.protetta ~/protetta</strong></pre>
+<pre>Creazione nuovo volume cifrato.
+Scegliere tra una delle seguenti opzioni:
+ digitare "x" per la modalità di configurazione per esperti,
+ digitare "p" per la modalità paranoica preconfigurata.
+ qualsiasi altra cosa o una riga vuota selezionerà la modalità standard.</pre>
+<p>la scelta della modalità standard è sufficiente per tutti gli usi normali, per cui una volta premuto invio verrà richiesta due volte l&#8217;immissione della password di cifratura dei dati, e montato automaticamente nella directory di destinazione. I file eventualmente già presenti nella directory <em>cifrata</em> non verranno toccati, ma verranno creati al suo interno file e directory cifrati il cui contenuto in chiaro apparirà soltanto nella directory cifrata.</p>
+<p>Una volta completate le operazioni, per inibire l&#8217;accesso alla directory con i contenuti in chiaro sarà sufficiente smontarla con <code>fusemount</code>, con un comando del tipo:</p>
+<pre><strong>fusermount -u ~/protetta
+</strong></pre>
+<p>In seguito si potrà riaccedere al contenuto in chiaro riutilizzando <code>encfs</code>, esattamente con lo stesso comando visto in precedenza. In questo caso però non verranno fatte le domande relative alla creazione ma verrà semplicemente richiesta la password di decifrazione.</p>
+<p>Su encfs è possibile anche indicare un tempo di inattività, decorso il quale la directory verrà automaticamente smontata, ad esempio con:</p>
+<pre><strong>encfs -i 5 ~/.protetta_enfs ~/protetta</strong></pre>
+<p>Smonterà la directory dopo 5 minuti di inattività se non risultano files aperti.</p>
+<p>Infine è possibile cambiare la password per l’accesso alla directory con:</p>
+<pre><strong>encfsctl passwd ~/.protetta_encfs</strong></pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/25/cifrare-una-directory-con-encfs/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

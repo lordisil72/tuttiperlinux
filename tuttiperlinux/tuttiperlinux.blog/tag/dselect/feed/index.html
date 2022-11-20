@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>dselect &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/dselect/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Wed, 12 Nov 2014 21:41:36 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>dselect &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Rimuovere un pacchetto appeso</title>
+		<link>https://tuttiperlinux.blog/2014/11/12/rimuovere-un-pacchetto-appeso/</link>
+					<comments>https://tuttiperlinux.blog/2014/11/12/rimuovere-un-pacchetto-appeso/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 12 Nov 2014 21:41:35 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[Tips & Tricks]]></category>
+		<category><![CDATA[apt]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[dpkg]]></category>
+		<category><![CDATA[dselect]]></category>
+		<category><![CDATA[gedit]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[postrm]]></category>
+		<category><![CDATA[synaptic]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=670</guid>
+
+					<description><![CDATA[Ok, oramai avete acquisito una certa confidenza con la vostra distribuzione Linux preferita, avete imparato ad utilizzare i tanti tool di gestione dei pacchetti compresa l&#8217;installazione dei nuove chiavi e source list ma, improvvisamente succede l&#8217;imprevisto ed un pacchetto che volevate disinstallre od anche solo aggiornare vi ritorna un messaggio di errore dal tipo : &#8230; <a href="https://tuttiperlinux.blog/2014/11/12/rimuovere-un-pacchetto-appeso/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg"><img data-attachment-id="671" data-permalink="https://tuttiperlinux.blog/2014/11/12/rimuovere-un-pacchetto-appeso/dpkg2/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg" data-orig-size="216,216" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="apt-get" data-image-description="&lt;p&gt;apt-get rimozione sicura&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg?w=216" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg?w=216" class="alignleft size-full wp-image-671" src="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg?w=600" alt="apt-get" srcset="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg 216w, https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg?w=150 150w" sizes="(max-width: 216px) 100vw, 216px"   /></a>Ok, oramai avete acquisito una certa confidenza con la vostra distribuzione Linux preferita, avete imparato ad utilizzare i tanti tool di gestione dei pacchetti compresa l&#8217;installazione dei nuove chiavi e source list ma, improvvisamente succede l&#8217;imprevisto ed un pacchetto che volevate disinstallre od anche solo aggiornare vi ritorna un messaggio di errore dal tipo :</p>
+<p>&#8221; E: &lt;nome pacchetto&gt;: il sottoprocesso installato script di post-installation ha restituito lo stato di errore 1 &#8221;</p>
+<p>e, nonostante ogni tentativo provato, tra comandi di ogni sorta (apt-get purge ecc&#8230;) e pacchetti di gestione (es. synaptic) , nulla funziona.</p>
+<p>che cosa fare adesso ??? come togliersi da questo impiccio ???</p>
+<p>Bene, una soluzione esiste ed anche piuttosto semplice, bastera&#8217; seguire questi pochi passi :</p>
+<ul>
+<li>spostarsi nella directory <strong>/var/lib/dpkg/info/</strong>   # e&#8217; qui che trovate tutti ipacchetti installati</li>
+<li>cercate il nome del vostro pacchetto con estensione <strong>.postrm</strong> (es. &lt;nome_pacchetto.postrm&gt;</li>
+<li>editatelo e, scrivete <strong>exit 0</strong> nella seconda riga del file dopo <strong>#!/bin/sh</strong></li>
+<li>ultima operazione <strong># apt-get remove &lt;nome_pacchetto&gt;</strong></li>
+</ul>
+<p>&#8230;.. salvo strani inconvenienti dovreste aver cancellato il pacchetto incriminato.</p>
+<p>Buon lavoro !</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/11/12/rimuovere-un-pacchetto-appeso/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/11/dpkg2.jpeg" medium="image">
+			<media:title type="html">apt-get</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

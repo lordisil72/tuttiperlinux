@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>virt-manager &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/virt-manager/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Sun, 20 Jul 2014 15:33:24 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>virt-manager &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Virtualizzazione oltre confini con KVM</title>
+		<link>https://tuttiperlinux.blog/2014/07/20/virtualizzazione-oltre-confini-con-kvm/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/20/virtualizzazione-oltre-confini-con-kvm/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sun, 20 Jul 2014 15:00:55 +0000</pubDate>
+				<category><![CDATA[Virtualizzazione]]></category>
+		<category><![CDATA[guest]]></category>
+		<category><![CDATA[host]]></category>
+		<category><![CDATA[kvm]]></category>
+		<category><![CDATA[nat]]></category>
+		<category><![CDATA[virt-manager]]></category>
+		<category><![CDATA[virtualizzazione]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/2014/07/20/virtualizzazione-oltre-confini-con-kvm/</guid>
+
+					<description><![CDATA[PREMESSA Una delle crescenti necessità dei grandi sistemi server Linux, cosi come dei piccoli esperimenti casalinghi, è fornire la possibilità ad amministratori, sistemisti ed utenti smanettoni di godere delle funzionalità di più sistemi operativi. Questo genere di richieste può essere soddisfatto dal supporto alla virtualizzazione, ovvero la possibilità di rendere virtuali le risorse hardware di &#8230; <a href="https://tuttiperlinux.blog/2014/07/20/virtualizzazione-oltre-confini-con-kvm/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg"><img data-attachment-id="200" data-permalink="https://tuttiperlinux.blog/kvm-vitrualization/" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg" data-orig-size="212,243" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="kvm-vitrualization" data-image-description="&lt;p&gt;Kernel-based Virtual Machine&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg?w=212" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg?w=212" class="alignnone size-full wp-image-200" src="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg?w=600" alt="kvm-vitrualization" srcset="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg 212w, https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg?w=131 131w" sizes="(max-width: 212px) 100vw, 212px"   /></a></p>
+<p><strong>PREMESSA</strong></p>
+<p>Una delle crescenti necessità dei grandi sistemi server Linux, cosi come dei piccoli esperimenti casalinghi, è fornire la possibilità ad amministratori, sistemisti ed utenti smanettoni di godere delle funzionalità di più sistemi operativi. Questo genere di richieste può essere soddisfatto dal supporto alla <strong>virtualizzazione</strong>, ovvero la possibilità di rendere virtuali le risorse hardware di cui un sistema operativo ha bisogno, per poi installare l’intera piattaforma “virtualmente” su di esse. Per capire quanto ciò sia conveniente, si pensi ai dischi che un sistema virtuale utilizza, che in realtà non sono altro che semplici file, e come essi si prestino meglio alle operazioni di backup, ed anche le periferiche virtuali sono facilmente standardizzabili e, quindi, uniformabili; ciò rende l’hardware (che può essere cosi&#8217; molto vario&#8230;), “virtualmente compatibile” con qualsiasi sistema virtualizzato, azzerando i problemi di compatibilità, ed è a questo che serve <strong>KVM</strong>.</p>
+<p><strong>KVM = <span dir="auto">Kernel-based Virtual Machine<br />
+</span></strong><span dir="auto">(</span><strong><span dir="auto"><b>KVM</b></span></strong><span dir="auto">)</span><span dir="auto"> è un&#8217;infrastruttura di virtualizzazione del kernel Linux. KVM attualmente supporta una completa virtualizzazione usando Intel VT o AMD-V. KVM è implementato come un modulo kernel caricabile, e dotato d&#8217;interfaccia grafica</span><span dir="auto">, un vero e proprio Virtual Manager Interface</span><span dir="auto"> , per la gestione completa delle vostre VM. Il progetto nato gia nel 2007, grazie all&#8217;opera di Moshe Bar (gia fondatore di Xensource) che fonda l&#8217;azienda Qumranet per occuparsi dello sviluppo di questo nuovo modo di fare virtualizzazione. La Qumranet verra&#8217; acuistata circa un anno piu&#8217; tardi direttamente da RedHat che passera&#8217; tutti i suoi progetti di virtualizzazione proprio su KVM.<br />
+</span></p>
+<p><strong>I vantaggi di KVM </strong><br />
+come dicevamo poco fa, per prima cosa KVM è integrato nel kernel di Linux, quindi dal punto di vista di un sysadmin, ci sono molti meno problemi, basta effettuare i normali update della tua distribuzione e sei a posto (per Xen invece sono una vagonata di Patch, non incluse nel kernel).</p>
+<p>KVM non richiede alcun kernel modificato lato guest, quindi meno problemi e più libertà per gli utenti. Ed in caso di distribuzioni Linux come guest, anche qui fai i normali update della distro, senza preoccuparci di quale kernel installare (sembra una sciocchezza ma non è così.)</p>
+<p>Ciascun guest KVM viene visto a livello di sistema come un normalissimo processo e puo&#8217; essere gestito con i comandi più consueti (top, ps, kill, etc). Xen ad esempio ti obbliga ad usare una vagonata di strumenti e per sapere quanto sta occupando un domU sei costretto ad installare i tools lato client.</p>
+<p>KVM è più flessibile in ambienti eterogenei, ad esempio puoi migrare da un nodo 32 bit verso un 64 e viceversa (ovviamente il guest può essere solo a 32 in questo caso, un 64 su un 32 non può andare mentre il 32 può andare sul 64). Puoi migrare da AMD a Intel e viceversa. Xen ti obbliga ad avere un cluster di nodi tutti uguali, o per meglio dire *identici*.</p>
+<h2>Verificare il supporto alla virtualizzazione</h2>
+<p>KVM sfrutta il <strong>supporto hardware alla virtualizzazione</strong> che il processore installato nel PC deve, necessariamente, poter implementare. Molte delle moderne CPU soddisfano questo requisito, considerando che sia AMD che Intel (che insieme raggiungono circa il 98% del mercato dei processori) includono da tempo le tecnologie <strong>AMD-V</strong> ed <strong>Intel VT-x</strong> rispettivamente, in grado proprio di supportare la virtualizzazione. Ciò è fondamentale, poiché senza tale supporto hardware, KVM non può funzionare.</p>
+<p>Quindi, prima d&#8217;installare KVM dobbiamo verificare che l’hardware supporti la virtualizzazione. Per farlo, possiamo digitare, sul terminale, il comando seguente:</p>
+<p>Per farlo, possiamo digitare, sul terminale, il comando seguente:</p>
+<div>
+<div id="highlighter_848877" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain">egrep -c ‘(svm|vmx)’ /proc/cpuinfo</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Se l’output è diverso da 0, siamo certi che <strong>la nostra CPU è compatibile</strong> con la virtualizzazione, e possiamo passare al processo di installazione vera e propria. Altrimenti, ahimé, non sarà possibile sfruttare questo potentissimo strumento.</p>
+<h2>Installare KVM</h2>
+<p>A questo punto possiamo finalmente installare <strong>KVM</strong>. La procedura è abbastanza semplice, soprattutto se si utilizzano le maggiori distribuzioni server :</p>
+<div>
+<div id="highlighter_508681" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"># apt-get install qemu-kvm libvirt-bin bridge-utils virt-manager</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Se, invece, non è così, e possiamo avvalerci di <em>yum</em>, utilizzeremo i comandi seguenti:</p>
+<div>
+<div id="highlighter_674177" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"># yum groupinstall "Virtualisation Tools" "Virtualization Platform"</code></div>
+<div class="line number2 index1 alt1"><code class="plain plain"># yum install python-virtinst</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>oppure, in alternativa:</p>
+<div>
+<div id="highlighter_879554" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"># yum install kvm qemu-kvm python-virtinst libvirt libvirt-python virt-manager libguestfs-tools</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Terminata l’installazione, c’è ancora un dettaglio da tenere in considerazione. Di norma, le <strong>virtual machine di KVM</strong> possono essere gestite ed utilizzate soltanto dall’utente <em>root</em>, o da tutti gli utenti appartenenti al gruppo <em>libvirtd</em>. Per questo motivo, se vogliamo <strong>utilizzare KVM</strong> con il nostro account (diciamo, ad esempio, con l’account <em>pippo</em>), dovremo ultimare l’installazione con il comando seguente:</p>
+<div>
+<div id="highlighter_368791" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"># adduser pippo libvirtd</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Fatto ciò, possiamo verificare che KVM sia stato correttamente installato, riavviando il sistema e <strong>verificando</strong> che il comando seguente:</p>
+<div>
+<div id="highlighter_454190" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"><code class="plain plain">$ virsh -c qemu:///system list</code></code></div>
+<div class="line number1 index0 alt2">@lorenzo:~# virsh -c qemu:///system list<br />
+Id    Nome                           Stato<br />
+&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;&#8212;-</p>
+</div>
+<div class="line number1 index0 alt2">Se ciò non dovesse accadere, potrebbe non essere stato avviato <strong>libvirtd</strong>, il demone che gestisce il sistema di virtualizzazione. Possiamo avviarlo con i seguenti comandi:</p>
+<div>
+<div id="highlighter_178928" class="syntaxhighlighter nogutter  plain">
+<table border="0" cellspacing="0" cellpadding="0">
+<tbody>
+<tr>
+<td class="code">
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain"># chkconfig libvirtd on</code></div>
+<div class="line number2 index1 alt1"><code class="plain plain"># service libvirtd start</code></div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>A questo punto non resta che <strong>configurare in maniera esauriente KVM</strong>, ed iniziare a creare ed avviare le macchine virtuali. Se abbiamo a disposizione un ambiente grafico, possiamo affidarci a <strong>virt-manager</strong>.</p>
+<div class="container">
+<div class="line number1 index0 alt2"><code class="plain plain">virt-manager</code></div>
+</div>
+<p>Una volta avviato, possiamo subito <strong>creare una nuova virtual machine</strong>, cliccando sul primo pulsante da sinistra, sulla barra principale della finestra di <strong>virt-manager</strong>. Qui possiamo:</p>
+<ul>
+<li>inserire il nome della macchina virtuale</li>
+<li>scegliere come installare il sistema operativo guest (se utilizzando un’immagine ISO locale, o se effettuare un’installazione via network)</li>
+<li>selezionare il tipo di sistema operativo che stiamo installando</li>
+<li>impostare la quantità di memoria RAM da assegnare al sistema, nonché il numero di CPU</li>
+<li>definire alcune impostazioni avanzate, come l’architettura del sistema, nonché le preferenze di rete</li>
+</ul>
+<p>Una nota importante riguarda proprio queste ultime impostazioni relative alla rete. Per default, la virtual machine accede ad <strong>internet</strong> non come macchina a sé stante, ma tramite un <strong>NAT bridge</strong> che la rende, dal punto di vista della rete, un tutt’uno col sistema host. E’ possibile modificare questa impostazione tramite le <em>Opzioni avanzate</em> subito prima della fine del processo di creazione della macchina virtuale. Ciò può risultare molto utile se si vuole <strong>utilizzare la macchina virtuale come server</strong> accessibile all’esterno (una situazione abbastanza tipica). Non resta che giocarci il piu&#8217; possibile ed impratichirsi con tutte le opzioni a disposizione. Buon divertimento.</p>
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/20/virtualizzazione-oltre-confini-con-kvm/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/kvm-vitrualization.jpg" medium="image">
+			<media:title type="html">kvm-vitrualization</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

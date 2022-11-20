@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>grice &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/grice/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Mon, 30 Jun 2014 20:02:20 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>grice &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Sharing con Google Drive</title>
+		<link>https://tuttiperlinux.blog/2014/06/30/sharing-con-google-drive/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/30/sharing-con-google-drive/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 30 Jun 2014 13:17:57 +0000</pubDate>
+				<category><![CDATA[Streaming]]></category>
+		<category><![CDATA[dropbox]]></category>
+		<category><![CDATA[fuse]]></category>
+		<category><![CDATA[google-drive]]></category>
+		<category><![CDATA[grice]]></category>
+		<category><![CDATA[web-storage]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=134</guid>
+
+					<description><![CDATA[Il primo servizio di Web Storage che ho provato e&#8217; l&#8217;ancora buono Drop Box, ma nel frattempo anche Google non ha perso tempo creando il proprio sistema denominato Google-Drive o Grive che sara&#8217; il tema di questo articolo. Il famoso cloud di Google si trasforma in una comoda cartella nell&#8217;ambiente di sistema Ubuntu (14.04). Con pochi &#8230; <a href="https://tuttiperlinux.blog/2014/06/30/sharing-con-google-drive/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div>
+<div><a href="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg"><img data-attachment-id="147" data-permalink="https://tuttiperlinux.blog/2014/06/30/sharing-con-google-drive/gdrive/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg" data-orig-size="268,188" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="gdrive" data-image-description="&lt;p&gt;Il primo servizio di Web Storage che ho provato e’ l’ancora buono Drop Box, ma nel frattempo anche Google non ha perso tempo creando il proprio sistema denominato Google-Drive o Grive che sara’ il tema di questo articolo.&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg?w=268" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg?w=268" class="alignleft size-full wp-image-147" src="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg?w=600" alt="gdrive" srcset="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg 268w, https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg?w=150 150w" sizes="(max-width: 268px) 100vw, 268px"   /></a>Il primo servizio di Web Storage che ho provato e&#8217; l&#8217;ancora buono Drop Box, ma nel frattempo anche Google non ha perso tempo creando il proprio sistema denominato <strong>Google-Drive</strong> o <strong>Grive </strong>che sara&#8217; il tema di questo articolo.</div>
+<div>Il famoso cloud di Google si trasforma in una comoda cartella nell&#8217;ambiente di sistema Ubuntu (14.04).<br />
+Con pochi e semplici codici da digitare da riga di comando potremo avere tutta la comodità del cloud configurandone<br />
+anche il mount automatico direttamente  nella nostra &#8220;Home&#8221; , che sara&#8217; cosi&#8217; sempre sincronizzata con il proprio server Drive.</p>
+<p><b>INSTALLAZIONE GOOGLE DRIVE</b></div>
+</div>
+<p>Per prima cosa aggiungere i repositary e installare il tool digitando</p>
+<div>
+<pre>sudo add-apt-repository ppa:alessandro-strada/ppa
+sudo apt-get update
+sudo apt-get install google-drive-ocamlfuse</pre>
+</div>
+<p>Per aprire il tool digitare sempre da terminale</p>
+<p>google-drive-ocamlfuse</p>
+<p>Ora l&#8217;installazione è terminata. Per la configurazione del programma verrà aperta una finestra nel browser in cui si da il consenso ad utilizzare l&#8217;integrazione nel PC. Ora una volta inserite tutte le credenziali creiamo la cartella di Google Drive nella cartella Home digitando</p>
+<p>mkdir ~/gdrive</p>
+<p>Oppure creare manualmente una cartella in Home con un nome qualsiasi. Ma successivamente al posto di gdrive scrivere il nome della cartella che si è scelto; l&#8217;importante è che il nome sia tutto unito. Ed infine montare la cartella creata digitando il seguente ed ultimo comando</p>
+<p>google-drive-ocamlfuse ~/gdrive</p>
+<p>La configurazione del programma è conclusa. Se si vuole che il tool si avvii in automatico all&#8217;accensione del PC perché i file presenti si sincronizzino in automatico, basta aggiungere il programma all&#8217;elenco dei programmi in avvio automatico. Per fare ciò è necessario cercare il programma nel menu Dash <b>Avvio Programmi</b> e aggiungere nei primi due campi il nome del tool ovvero google-drive-ocamlfuse.</p>
+<p><em><span style="color:#666666;">Questa guida è a solo e puro scopo informativo. Non mi assumo alcuna responsabilità sui danni che potrebbero essere causati.</span></em></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/30/sharing-con-google-drive/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/06/gdrive.jpg" medium="image">
+			<media:title type="html">gdrive</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

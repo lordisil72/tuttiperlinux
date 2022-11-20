@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>7zip &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/7zip/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:20:44 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>7zip &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Ripristinare file cancellati</title>
+		<link>https://tuttiperlinux.blog/2014/06/25/ripristinare-file-cancellati/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/25/ripristinare-file-cancellati/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2014 11:45:29 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[7zip]]></category>
+		<category><![CDATA[deb]]></category>
+		<category><![CDATA[filesystem]]></category>
+		<category><![CDATA[hard disk]]></category>
+		<category><![CDATA[odf]]></category>
+		<category><![CDATA[open source]]></category>
+		<category><![CDATA[pdf]]></category>
+		<category><![CDATA[photorec]]></category>
+		<category><![CDATA[rpm]]></category>
+		<category><![CDATA[sdd]]></category>
+		<category><![CDATA[tar]]></category>
+		<category><![CDATA[usb]]></category>
+		<category><![CDATA[wizard]]></category>
+		<category><![CDATA[zip]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=74</guid>
+
+					<description><![CDATA[Tutti gli strumenti visti nei precedenti articoli vengono utilizzati principalmente per recuperare files da dischi rovinati o prossimi alla rottura. Non sempre la causa dei nostri mal di testa e&#8217; imputabile ad un guasto hardware ma spesso siamo noi stessi causa del nostro male. Un utente goffo, distratto o alle prime armi puo&#8217; causarsi da &#8230; <a href="https://tuttiperlinux.blog/2014/06/25/ripristinare-file-cancellati/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Tutti gli strumenti visti nei precedenti articoli vengono utilizzati principalmente per recuperare files da dischi rovinati o prossimi alla rottura. Non sempre la causa dei nostri mal di testa e&#8217; imputabile ad un guasto hardware ma spesso siamo noi stessi causa del nostro male. Un utente goffo, distratto o alle prime armi puo&#8217; causarsi da solo la perdita di dati; che cosa fare in questi casi ?? Bisogna prima di tutto capire che quando viene cancellato un file  esso non viene eliminato fisicamente, piuttosto il filesystem lo &#8220;marca&#8221; come cancellato rendendo cosi&#8217; disponibile alla scrittura di altri file la porzione di disco che questo occupava. Questo vuol dire che finche&#8217; un&#8217;applicazione non usera&#8217; quella porzione di disco il file sara&#8217; comunque presente e&#8217; recuperabile, per questo come gia&#8217; accennato in un precedente articolo, se vi accorgete di aver cancellato qualcosa e&#8217; importante ridurre al minimo possibile l&#8217;utilizzo del sistema fino a che non si sara&#8217; tentato il recupero dei dati cancellati. Probabilmente , ad oggi, il tool OpenSource piu&#8217; completo per questo genere di attivita&#8217; e&#8217; senz&#8217;altro <strong>PhotoRec</strong> , questo tool e&#8217; in grado di andare a caccia dei formati di file immagine piu&#8217; comuni ed inoltre e&#8217; in grado di ripristinare file in molti altri formati quali : <strong>odf, pdf, 7zip, zip, tar, rpm, deb</strong>&#8230; ed anche <strong>dischi virtuali</strong>. Questa utility e&#8217; in grado di funzionare su ogni tipologia di disco, inclusi hard disk, chiavette usb ed anche schede sdd. PhotoRec e&#8217; anche in grado di recuperare file da partizioni che sono state formattate. Aggiungo che per quanto sia un tool da riga di comando PhotoRec  suddivide le operazioni di salvataggio in piccoli passi, proprio come farebbe un wizard grafico. Per avviare PhotoRec bastera&#8217; il semplice comando :</p>
+<ul>
+<li><strong>sudo photorec</strong></li>
+</ul>
+<p>Appena avviato photorec  vi chiedera&#8217;, nel seguente ordine, queste informazioni :</p>
+<ul>
+<li>selezionare il disco e la partizione che ospita i file cancellati # [No partition] per indicarle tutte</li>
+<li>selezionare il tipo di filesystem</li>
+<li>selezionare &#8220;Search&#8221; per recuperare tutti i file oppure &#8220;Opt&#8221; per selezionare le tipologie</li>
+<li>selezionare i formati dei file che c&#8217;interessa recuperare dall&#8217;elenco proposto</li>
+<li>selezionare la Directory in cui salvare i file recuperati</li>
+</ul>
+<p>Il tempo impiegato dipendera&#8217; ovviamente dalla grandezza della partizione selezionata e dalla quantita&#8217; di file da recuperare. Una volta ultima l&#8217;operazione troverete nella cartella indicata in fase di avvio una quantita&#8217; di file con nomi strani, questo perche&#8217; PhotoRec nomina i file a suo modo man mano che li trova e lascia all&#8217;utente il compito di riordinarli.</p>
+<p>** Leggi anche ( &#8221; <a title="Estraiamo i nostri dati" href="https://tuttiperlinux.wordpress.com/2014/06/25/estraiamo-i-nostri-dati/">estraiamo i nostri dati </a>&#8221; )</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/25/ripristinare-file-cancellati/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

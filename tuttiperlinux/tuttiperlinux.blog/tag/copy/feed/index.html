@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>copy &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/copy/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:29:21 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>copy &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Copia Bit a Bit</title>
+		<link>https://tuttiperlinux.blog/2014/06/24/copia-bit-a-bit/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/24/copia-bit-a-bit/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Tue, 24 Jun 2014 10:03:12 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[bit]]></category>
+		<category><![CDATA[copy]]></category>
+		<category><![CDATA[dd]]></category>
+		<category><![CDATA[ddrescue]]></category>
+		<category><![CDATA[drive]]></category>
+		<category><![CDATA[fault]]></category>
+		<category><![CDATA[logfile]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=15</guid>
+
+					<description><![CDATA[Con l&#8217;uso di fsck dovremmo aver corretto diversi problemi sui nostri dischi ma qualche volta tutto cio&#8217; non basta ed il problema potrebbe essere piu&#8217; serio ed il disco hardware potrebbe essere li li per lasciarci. Dischi morenti , con testine saltellanti, che contengono tutti i nostri preziosi dati non sono una bella cosa da vedere. Come &#8230; <a href="https://tuttiperlinux.blog/2014/06/24/copia-bit-a-bit/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Con l&#8217;uso di fsck dovremmo aver corretto diversi problemi sui nostri dischi ma qualche volta tutto cio&#8217; non basta ed il problema potrebbe essere piu&#8217; serio ed il disco hardware potrebbe essere li li per lasciarci.</p>
+<p>Dischi morenti , con testine saltellanti, che contengono tutti i nostri preziosi dati non sono una bella cosa da vedere. Come spiegato nel primo articolo in questi casi la prima cosa da evitare e&#8217; di andare a modificare qualunque file e questo puo&#8217; intendere anche cercare di farne singole copie su di altri supporti, questo perche&#8217;ogni azione compiuta vi avvicinera&#8217; sempre di piu&#8217; al momento di <strong>fault</strong> del disco, complicando molto ogni futura azione, la cosa migliore quindi e&#8217; quella di non sottoporre ad ulteriore stress il disco e di clonarlo immediatamente effettuando una sua immagine &#8220;bit to bit&#8221; , sara&#8217; sempre possibile, con tutta calma, operare sulla copia per estrapolare e becappare i nostri preziosi dati. Normalmente per effettuare questo tipo di copie si usa il tool <strong>dd </strong>ma in questo caso, presupponendo, un imminente guasto/arresto del disco a causa di seri problemi non fara&#8217; al nostro caso poiche&#8217; &#8216;dd&#8217; e&#8217; progettato per interrompersi non appena riscontra un errore e non sarebbe di grande aiuto dovendo operare su di un disco non funzionante. Affideremo quindi questa delicata operazione al comando <strong>ddrescue</strong> che, come <strong>dd</strong> , viene utilizzato per effettuare copie &#8216;bit to bit&#8217; ma , diversamente da &#8216;dd&#8217; , e&#8217; in grado di saltare i blocchi guasti rilevati sul disco durante l&#8217;esecuzione e di copiare soltanto quelli sani.</p>
+<p>Ora per poter cominciare questa importante fase ocorrera&#8217; procurarsi un supporto su cui effettuare la copia, sta a voi usare il device (sano) che avete a disposizione sia che sia un secondo disco (interno/esterno) una chiavetta USB o altro, la cosa piu&#8217; importante da verificare e&#8217; che mentre il disco su cui effettuerete la copia dovra&#8217; essere montato sul sistema, quello da &#8220;copiare&#8221; (difettoso) dovra&#8217; invece essere smontato; effettuata questa importante verifica potremo lanciare il tutto eseguendo il seguente comando (come negli articoli precedenti nel mio caso il disco primario e di root del sistema e&#8217; /dev/sdd1 quindi lo usero&#8217; come esempio) :</p>
+<ul>
+<li><strong>sudo ddrescue /dev/sdd1 /media/drive-di-backup/sdd1.image /media/drive-di-backup/logfile</strong></li>
+</ul>
+<p>questo comando effettuera&#8217; la copia della partizione <strong>sdd1 </strong>del disco guasto e la salvera&#8217; nel file  <strong>sdd1.image</strong> all&#8217;interno del disco di backup montato sotto /media/&lt;drive-di-backup&gt; , l&#8217;ultima parte si occupa invece di creare anche un file di LOG da poter leggere in caso di problemi. A questo punto tutti o gran parte dei nostri dati (dipende da quanto grave sia il guasto sul disco) saranno stati copiati e salvati sull&#8217;immagine creata; ora volendo essere pignoli potremmo chiedere ancora a ddrescue di cercare di recuperare quelle parti di blocchi/informazioni che risultano difettose tramite il seguente comando :</p>
+<ul>
+<li><strong>sudo ddrescue -r 3 -C</strong> <strong>/dev/sdd1 /media/drive-di-backup/sdd1.image /media/drive-di-backup/logfile</strong></li>
+</ul>
+<p>in pratica con l&#8217;aggiunta dell&#8217;opzione &#8221; -r 3 &#8221; diciamo a ddrescue di effettuare un numero massimo di tre tentativi di lettura di quei dati su cui ha riscontrato errori per cercare cosi di riempire ulteriormente qualche altra fetta dei nostri preziosi dati. Questa operazione causa un forte stress sul disco ecco perche&#8217; la eseguiamo soltanto dopo aver messo al riparo tutto il resto sull&#8217;immagine creata al primo giro. Sara&#8217; proprio grazie alla lettura del file di LOG che ddrescue e&#8217; in grado di riempire/aggiungere soltanto i blocchi vuoti , senza rileggere le parti gia&#8217; eseguite correttamente in precedenza.</p>
+<p>Ultimo consiglio se dovete salvare piu&#8217; partizioni eseguite ddrescue piu&#8217; volte tante quante sono le partizioni per voi necessarie e create N file .image .</p>
+<p>** Leggi anche ( &#8221; <a title="A volte basta poco !" href="https://tuttiperlinux.wordpress.com/2014/06/24/a-volte-basta-poco/">a volte basta poco!</a> &#8221; )</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/24/copia-bit-a-bit/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

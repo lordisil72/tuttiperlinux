@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>banda &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/banda/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 01 Aug 2014 18:23:43 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>banda &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Grafici di rete con Vnstat</title>
+		<link>https://tuttiperlinux.blog/2014/08/01/238/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/01/238/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 01 Aug 2014 17:59:15 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[banda]]></category>
+		<category><![CDATA[ip link]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[localhost]]></category>
+		<category><![CDATA[monitoring]]></category>
+		<category><![CDATA[php frontend]]></category>
+		<category><![CDATA[rete]]></category>
+		<category><![CDATA[vnstat]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=238</guid>
+
+					<description><![CDATA[Controllare la banda Sui server, come sui PC, è utile monitorare e raccogliere dati circa l’utilizzo della banda di rete. E&#8217; possibile utilizzare vnstat per avere un monitoraggio in tempo reale della banda; questo piccolo programma ha qualcosa in più degli altri, oltre a mostrare statistiche in tempo reale, la caratteristica in cui brilla questo piccolo programma &#8230; <a href="https://tuttiperlinux.blog/2014/08/01/238/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h3><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png"><img loading="lazy" data-attachment-id="242" data-permalink="https://tuttiperlinux.blog/2014/08/01/238/vnstat-php-frontend-screenshots/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png" data-orig-size="593,424" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="vnstat-php-frontend-screenshots" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=593" class="alignleft size-medium wp-image-242" src="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=300&#038;h=214" alt="vnstat-php-frontend-screenshots" width="300" height="214" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=300&amp;h=214 300w, https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=150&amp;h=107 150w, https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png 593w" sizes="(max-width: 300px) 100vw, 300px" /></a></strong></h3>
+<h3><strong>Controllare la banda</strong></h3>
+<p>Sui server, come sui PC, è utile monitorare e raccogliere dati circa l’utilizzo della banda di rete. E&#8217; possibile utilizzare <strong>vnstat</strong> per avere un monitoraggio in tempo reale della banda; questo piccolo programma ha qualcosa in più degli altri, oltre a mostrare statistiche in tempo reale, la caratteristica in cui brilla questo piccolo programma è la sua capacità di raccogliere dati su un lungo periodo di tempo. <code>vnstat </code>è un monitor di traffico di rete basata su console per Linux e BSD che mantiene un log del traffico di rete per l’interfaccia/e che gli indicherete nel file di conf. Utilizza le statistiche dell’interfaccia di rete fornite dal kernel come fonte di informazioni, ciò significa che vnstat non sta effettivamente sniffando il traffico, inoltre assicura anche un basso impatto sull’uso delle risorse di sistema.</p>
+<p>In Linux, è richiesto almeno un kernel della serie 2.2, che vuol dire che tutti oggigiorno sono in grado di utilizzare questo piccolo programma.</p>
+<p>Il programma è open source/GPL e può essere utilizzato sia come root che come utente non privilegiato.</p>
+<p><strong>INSTALLAZIONE</strong></p>
+<pre>sudo apt-get install vnstat
+                     vnstati
+                     apache2
+                     php5
+                     php5-gd
+</pre>
+<h3>Primo setup</h3>
+<p>Durante la prima esecuzione è necessario inizializzare ogni interfaccia che desiderate registrare su vnstat. Ad esempio per una interfaccia cablata con cavo di rete è necessario utilizzare il comando:</p>
+<div class="wp_syntax">
+<table>
+<tbody>
+<tr>
+<td class="code">
+<pre># vnstat -u -i eth0</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>o per una interfaccia wireless:</p>
+<div class="wp_syntax">
+<table>
+<tbody>
+<tr>
+<td class="code">
+<pre># vnstat -u -i wlan0</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Quando si inizializza una interfaccia per la prima volta ci potrà essere un messaggio di errore che stamperà ‘unable to read database’. Se questo messaggio è seguito da un messaggio di informazioni che dice ‘a new database has been created’ l’interfaccia è stata aggiunta con successo.<br />
+Se questo non accade verificare che l’interfaccia specificata sia valida.</p>
+<p>Per vedere tutte le interfacce del vostro sistema Linux, è possibile utilizzare il comando</p>
+<div class="wp_syntax">
+<table>
+<tbody>
+<tr>
+<td class="code">
+<pre> ip link show</pre>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<pre> ... ora scarichiamo il pacchetto vnstat_php_frontend nel seguente modo :</pre>
+<pre># cd /tmp
+# wget http://www.sqweek.com/sqweek/files/vnstat_php_frontend-1.5.1.tar.gz</pre>
+<pre class="bash">scompattiamolo nel percorso dei file di Apache ( /var/www/html )</pre>
+<pre># sudo tar zxvf vnstat_php_frontend-1.5.1.tar.gz -C /var/www/html/</pre>
+<p>a questo punto non rimane altro che spostarci nel percorso sopra indicato in cui potremo trovare la nuova directory<br />
+# cd /var/www/html<br />
+** rinominiamo x maggiore comodita&#8217; da &#8220;vnstat_php_frontend-1.5.1&#8221; a semplicemente vnstat<br />
+# sudo mv vnstat_php_frontend-1.5.1 vnstat</p>
+<p>&#8230;. spostiamoci all&#8217;interno della Directory vnstat ed andiamo a fare alcune veloci modifiche che ci permetteranno di diventare subito operativi.</p>
+<p># cd vnstat<br />
+&#8230;effettuiamo come consuetudine un backup del file config.php prima di fare qualunque modifica<br />
+# cp config.php config.php.bck</p>
+<p>ora possiamo passare ad editare il file in questione e ad apportare le seguenti modifiche :<br />
+# vim config.php</p>
+<pre>*** modifichiamo nel seguente modo
+$locale = 'en_US.UTF-8';
+$language = '<strong>en</strong>';</pre>
+<pre>$iface_list = array('<strong>eth0</strong>', '<strong>eth1</strong>'); # nel mio caso ho modificato le interfacce con la mia <strong>wlan0 
+
+</strong></pre>
+<pre>$iface_title['wlan0'] = '<strong>Internal</strong>';
+// $iface_title['eth1'] = '<strong>External</strong>'; # se non avete due o piu' interfacce da monitorare potete commentarla</pre>
+<p>&#8230;salvate ed uscite dal file; a questo punto bastera&#8217; puntare il browser all&#8217;URL</p>
+<pre>http://localhost/vnstat/
+</pre>
+<p>&nbsp;</p>
+<pre class="bash">da qui in avanti potrete tenere sotto controllo i consumi della/e vostra interfaccia di rete (ora,giorno,mese).</pre>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/01/238/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/vnstat-php-frontend-screenshots.png?w=300" medium="image">
+			<media:title type="html">vnstat-php-frontend-screenshots</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

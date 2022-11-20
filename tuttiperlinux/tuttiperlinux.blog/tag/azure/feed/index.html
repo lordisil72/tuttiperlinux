@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>azure &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/azure/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 05 Aug 2021 14:36:33 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>azure &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>RESTIC il backup funzionale e cross platform</title>
+		<link>https://tuttiperlinux.blog/2021/08/05/restic-il-backup-funzionale-e-cross-platform/</link>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Thu, 05 Aug 2021 14:28:45 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[aws]]></category>
+		<category><![CDATA[azure]]></category>
+		<category><![CDATA[backup cross-platform]]></category>
+		<category><![CDATA[cloud]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[openstack]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.blog/?p=1740</guid>
+
+					<description><![CDATA[INTRODUZIONE &#8211;&#160;Restic è un&#8217;applicazione per la gestione di backup sia in locale che in cloud, che supporta la crittografazione (AES-256) e la deduplicazione dei dati, riducendo dunque in modo significativo lo spazio necessario per conservare i file bekappati. Restic è già ad oggi compatibile con la maggior parte dei servizi cloud quali : &#8220;OpenStack Swift, &#8230; <a href="https://tuttiperlinux.blog/2021/08/05/restic-il-backup-funzionale-e-cross-platform/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[
+<figure class="wp-block-image"><img data-attachment-id="1760" data-permalink="https://tuttiperlinux.blog/databackup-1/" data-orig-file="https://tuttiperlinux.files.wordpress.com/2021/08/databackup-1.jpg" data-orig-size="768,432" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="databackup-1" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2021/08/databackup-1.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2021/08/databackup-1.jpg?w=600" src="https://tuttiperlinux.files.wordpress.com/2021/08/databackup-1.jpg" alt="" class="wp-image-1760" /></figure>
+
+
+
+<h2><strong>INTRODUZIONE</strong></h2>
+
+
+
+<p>&#8211;<strong>&nbsp;</strong>Restic è un&#8217;applicazione per la gestione di backup sia in locale che in cloud, che supporta la crittografazione (AES-256) e la deduplicazione dei dati, riducendo dunque in modo significativo lo spazio necessario per conservare i file bekappati.</p>
+
+
+
+<p>Restic è già ad oggi compatibile con la maggior parte dei servizi cloud quali : &#8220;OpenStack Swift, bucket Amazon S3, Backblaze B2, Microsoft Azure Blob Storage, Google Cloud&#8221;, e sono presenti anche immagini Docker.</p>
+
+
+
+<p>Restic è sviluppato in linguaggio GO, cosa che lo rende molto leggero ed efficiente, risolvendo anche molti problemi di gestione di dipendenze.</p>
+
+
+
+<h2><strong>&#8211; INSTALLAZIONE</strong></h2>
+
+
+
+<p>Esistono molti pacchetti di installazione per la maggior parte dei sistemi operativi, coprendo un range che va da Arch Linux a MacOS, fino ai sistemi *BSD/*NIX&#8230;&#8230;</p>
+
+
+
+<p>Per i sistemi più &#8220;standard&#8221; l&#8217;installazione è banale:</p>
+
+
+
+<p>&#8211;&nbsp;<strong>Debian</strong></p>
+
+
+
+<p>apt-get install restic</p>
+
+
+
+<p><strong>&#8211; Fedora</strong></p>
+
+
+
+<p>dnf install restic</p>
+
+
+
+<p><strong>&#8211; MacOS</strong></p>
+
+
+
+<p>brew install restic</p>
+
+
+
+<p>&#8230;.. per tutti gli altri sistemi si possono trovare tutte le specifiche sul sito ufficiale di Restic (<a href="https://restic.readthedocs.io/en/latest/020_installation.html#stable-releases" rel="nofollow">https://restic.readthedocs.io/en/latest/020_installation.html#stable-releases</a>)</p>
+
+
+
+<p>Una volta installato il pacchetto i comandi per l&#8217;utilizzo di Restic sono davvero semplici ed immediati.</p>
+
+
+
+<p>Prima di tutto va inizializzato lo spazio che si decide di stanziare, dedicare, al backup, ricordandosi che Restic chiama la destinazione per i backup &#8220;repository&#8221; ( &#8211;repo oppure -r ).</p>
+
+
+
+<p>Quindi per inizializzare la Directory prescelta per la gestione dei backup possiamo agire in 3 modi diversi:</p>
+
+
+
+<ul><li>spostarci all&#8217;interno della DIR prescelta e dare il comando # restic init</li><li>indicare il PATH dei backup # restic init &#8211;repo /mnt/data/&lt;nome_utente&gt;/backup/</li><li>indicare un percorso di rete # restic -r sftp:&lt;utente&gt;@&lt;indirizzo_IP&gt;:/mnt/data/&lt;nome_utente&gt;/backup init</li></ul>
+
+
+
+<h3><strong>&#8211; COMANDI PRINCIPALI</strong></h3>
+
+
+
+<ul><li>init</li><li>backup</li><li>ls</li><li>restore</li><li>snapshots</li><li>tag</li><li>copy</li><li>stats</li></ul>
+
+
+
+<p>&#8230;&#8230;.. e molti altri ancora che potete trovare sulla documentazione ufficiale, al sito <a href="https://restic.readthedocs.io/en/stable/" target="_blank" rel="noreferrer noopener">restic-official-docu</a></p>
+
+
+
+<p>Per poter automatizzare gli accessi ad aree esterne come, altri server, servizi cloud o altro, possiamo usare due metodi diversi;</p>
+
+
+
+<p>1) creiamo un file <strong>.restic.env </strong>nel quale possiamo inserire i dati di accesso (es. ad AWS S3) , aggiungendo la password creata durante la fase di inizializzazione [&#8220;<strong>init</strong>&#8220;]</p>
+
+
+
+<p>oppure</p>
+
+
+
+<p>2) creiamo un file&nbsp;<strong>.rest_pass&nbsp;</strong>in cui inseriamo soltanto la password&nbsp;</p>
+
+
+
+<p><strong>&#8211; ESEMPI</strong></p>
+
+
+
+<p><strong>Es. file di tipo ENV ( .restic.env )</strong></p>
+
+
+
+<p>#!/bin/bash</p>
+
+
+
+<p>export RESTIC_REPOSITORY=&#8221; s3:<a href="https://s3.amazonaws.com/restic-backup-test" rel="nofollow">https://s3.amazonaws.com/restic-backup-test</a> &#8220;</p>
+
+
+
+<p>export AWS_SECRET_ACCESS_KEY=&#8221;IVZ6GSBXEaZ1DeXzhN1gr4eCWcxD7hhMOt1RWMdn&#8221;</p>
+
+
+
+<p>export RESTIC_PASSWORD=&#8221;&lt;PASSWD&gt;&#8221;</p>
+
+
+
+<p> <strong>&#8211; </strong>Prima di lanciare i comandi per restic, in ambiente Cloud, eseguo il comando:<strong>  </strong></p>
+
+
+
+<p><strong>source .restic.env</strong>  </p>
+
+
+
+<p>per caricare le variabili d&#8217;ambiente indicate nel file .restic.env</p>
+
+
+
+<p></p>
+
+
+
+<p><strong>Es. file di tipo PASSWD ( .rest_pass )</strong></p>
+
+
+
+<p>&lt; password &gt;</p>
+
+
+
+<p>&#8230;.quando si decide di usare il file .rest_pass basta indicarlo alla fine della stringa di comando, come ad esempio:</p>
+
+
+
+<p>restic -r sftp:&lt;utente&gt;@&lt;indirizzo_IP&gt;:/home/&lt;utente&gt;/backup/database snapshots -p .rest_pass</p>
+
+
+
+<h3><strong>&#8211; Esempi Pratici</strong></h3>
+
+
+
+<p><strong>INIZIALIZZO UNA DIRECTORY LOCALE</strong></p>
+
+
+
+<p>.\restic.exe init &#8211;repo C:\Users\User\Desktop\restic-repo </p>
+
+
+
+<p>enter password for new repository: </p>
+
+
+
+<p>enter password again: </p>
+
+
+
+<p>created restic repository 80ee4591fd at C:\Users\User\Desktop\restic-repo </p>
+
+
+
+<p>Please note that knowledge of your password is required to access the repository. Losing your password means that your data is irrecoverably lost.</p>
+
+
+
+<h3><strong>Esegui il BACKUP</strong></h3>
+
+
+
+<p>.\restic.exe backup -r C:\Users\User\Desktop\restic-repo E:\TEST1.txt<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct<br>created new cache in C:\Users\User\AppData\Local\restic<br></p>
+
+
+
+<p>Files: 1 new, 0 changed, 0 unmodified<br>Dirs: 1 new, 0 changed, 0 unmodified<br>Added to the repo: 467 B</p>
+
+
+
+<p>processed 1 files, 0 B in 0:00<br>snapshot 0161a85c saved</p>
+
+
+
+<h3><strong>Vedere la lista degli snapshot effettuati</strong></h3>
+
+
+
+<p>.\restic.exe snapshots -r C:\Users\User\Desktop\restic-repo<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct</p>
+
+
+
+<p>ID                        Time                          Host             Tags         Paths</p>
+
+
+
+<p>0161a85c     2021-08-05 13:08:45    Windows10                      E:\TEST1.txt</p>
+
+
+
+<p>1 snapshots</p>
+
+
+
+<p></p>
+
+
+
+<h2><strong>Vedere la lista dei files di una snapshot:</strong></h2>
+
+
+
+<p>.\restic.exe ls -l -r C:\Users\User\Desktop\restic-repo 0161a85c<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct<br>snapshot 0161a85c of [E:\TEST1.txt] filtered by [] at 2021-08-05 13:08:45.8317433 +0200 CEST):<br>drwxrwxrwx 0 0 0 1979-12-31 23:00:00 /E<br>-rw-rw-rw- 0 0 0 2021-08-05 13:07:20 /E/TEST1.txt</p>
+
+
+
+<h3><strong>Esegui il Restore</strong></h3>
+
+
+
+<p>Per effettuare un test reale, ho cancellato il file E:\TEST1.txt</p>
+
+
+
+<p>.\restic.exe restore 0161a85c -r C:\Users\User\Desktop\restic-repo &#8211;target E:\restore<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct<br>restoring to E:\restore</p>
+
+
+
+<p>&#8230;.così facendo ho recuperato la copia di backup facendone il restore sul disco E:\restore</p>
+
+
+
+<p>$ ls -l E:\restore</p>
+
+
+<div class="wp-block-syntaxhighlighter-code "><pre class="brush: plain; title: ; notranslate">
+Directory: E:\restore
+</pre></div>
+
+
+<p>Mode       LastWrite      Time       Length      Name<br>&#8212;- &#8212;&#8212;&#8212;&#8212;- &#8212;&#8212; &#8212;-<br>d&#8212;&#8211;      31/12/1979    23:00         0             TEST1.txt</p>
+
+
+
+<h3><strong>Elimina gli snapshot</strong></h3>
+
+
+
+<p>.\restic.exe forget &#8211;prune 0161a85c -r C:\Users\User\Desktop\restic-repo<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct<br>[0:00] 100.00% 1 / 1 files deleted<br>1 snapshots have been removed, running prune<br>loading indexes…<br>loading all snapshots…<br>finding data that is still in use for 0 snapshots<br>[0:00] 0 snapshots<br>searching used packs…<br>collecting packs for deletion and repacking<br>[0:00] 100.00% 1 / 1 packs processed</p>
+
+
+
+<p>to repack: 0 blobs / 0 B<br>this removes 0 blobs / 0 B<br>to delete: 2 blobs / 531 B<br>total prune: 2 blobs / 531 B<br>remaining: 0 blobs / 0 B<br>unused size after prune: 0 B ( of remaining size)</p>
+
+
+
+<p>rebuilding index<br>[0:00] 0 packs processed<br>deleting obsolete index files<br>[0:00] 100.00% 1 / 1 files deleted<br>removing 1 old packs<br>[0:00] 100.00% 1 / 1 files deleted<br>done</p>
+
+
+
+<p><strong>N.B.:</strong> bisogna ricordarsi che, nel caso stessimo agendo sull&#8217;eliminazione di un backup/snapshot in ambiente cloud, tipo Amazon Bucket S3, prima del comando di forget &#8211;prune bisognerà dare un &#8220;<strong>restic unlock &lt;ID dello snapshot&gt;</strong>&#8220;</p>
+
+
+
+<h3><strong>Auto Pulizia</strong></h3>
+
+
+
+<p>.\restic.exe forget &#8211;prune &#8211;keep-daily 7 &#8211;keep-monthly 12 &#8211;keep-yearly 3 -r C:\Users\User\Desktop\restic-repo<br>enter password for repository:<br>repository 80ee4591 opened successfully, password is correct<br>Applying Policy: keep 7 daily, 12 monthly, 3 yearly snapshots</p>
+
+
+
+<h3><strong>Aggiorna la versione</strong></h3>
+
+
+
+<p>Prima di tutto verifichiamo quale versione abbiamo al momento:</p>
+
+
+
+<p>.\restic.exe version<br>restic 0.12.0 compiled with go1.15.8 on windows/amd64</p>
+
+
+
+<p>oppure </p>
+
+
+
+<p>$ restic version<br>restic 0.12.0 compiled with go1.15.8 on linux/amd64</p>
+
+
+
+<p>Sulla macchina ArchLinux la versione è già l&#8217;ultima disponibile al momento (5 Agosto 2021) quindi non eseguiremo l&#8217;aggiornamento ma, ricordate che in caso di macchine nascoste da un Firewall a cui è vietato fare download di pacchetti si può comunque scaricare su di un&#8217;altra macchina l&#8217;ultima versione del software dal repository ufficiale su github , scompattarlo e sostituire il nuovo &#8220;restic&#8221; direttamente in /usr/bin</p>
+
+
+
+<p><a href="https://github.com/restic/restic/releases/tag/v0.12.1" target="_blank" rel="noreferrer noopener">RESTIC Last Version Binaries Page</a></p>
+
+
+
+<p>Es. :</p>
+
+
+
+<h4>bunzip2 restic_0.12.0_linux_amd64.bz2</h4>
+
+
+
+<p>mv restic_0.12.0_linux_amd64.bz2 restic</p>
+
+
+
+<p>chmod +x restic</p>
+
+
+
+<p>mv restic /usr/bin/</p>
+
+
+
+<p></p>
+
+
+
+<p>restic self-update</p>
+
+
+
+<p></p>
+
+
+
+<p>L&#8217;invito è quello di leggere la documentazione ufficiale poichè è davvero ricca di esempi, spiegazioni e modi di utilizzare questo fantastico strumento, ultra flessibile e davvero performante.</p>
+]]></content:encoded>
+					
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2021/08/databackup-1.jpg" medium="image" />
+	</item>
+		<item>
+		<title>CoreOS ed uso nei Datacenter</title>
+		<link>https://tuttiperlinux.blog/2015/06/07/coreos-ed-uso-nei-datacenter/</link>
+					<comments>https://tuttiperlinux.blog/2015/06/07/coreos-ed-uso-nei-datacenter/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sun, 07 Jun 2015 08:56:32 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[Virtualizzazione]]></category>
+		<category><![CDATA[amazon]]></category>
+		<category><![CDATA[azure]]></category>
+		<category><![CDATA[cluster]]></category>
+		<category><![CDATA[coreos]]></category>
+		<category><![CDATA[docker]]></category>
+		<category><![CDATA[etcd]]></category>
+		<category><![CDATA[fastpatch]]></category>
+		<category><![CDATA[github]]></category>
+		<category><![CDATA[google]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[rackspace]]></category>
+		<category><![CDATA[systemd]]></category>
+		<category><![CDATA[vagrant]]></category>
+		<category><![CDATA[virtualizzazione]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1128</guid>
+
+					<description><![CDATA[Ormai l&#8217;ho capito, dai tanti esempi di storie di successo in campo informatico che, le migliori invenzioni si realizzano nei garage. Così come i due famosi Steve furono capaci di creare da zero il primo Mac, così i creatori di Google concepirono il loro motore di ricerca proprio in un garage o giu&#8217; di li. &#8230; <a href="https://tuttiperlinux.blog/2015/06/07/coreos-ed-uso-nei-datacenter/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><div data-shortcode="caption" id="attachment_1129" style="width: 248px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1129" data-attachment-id="1129" data-permalink="https://tuttiperlinux.blog/2015/06/07/coreos-ed-uso-nei-datacenter/coreos-clustering-on-docker/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg" data-orig-size="638,479" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="coreos-clustering-on-docker" data-image-description="&lt;p&gt;CoreOS Docker Cluster&lt;/p&gt;
+" data-image-caption="&lt;p&gt;CoreOS Docker Cluster&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=600" class=" wp-image-1129" src="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=150" alt="CoreOS Docker Cluster" width="238" height="180" srcset="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=150 150w, https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=238 238w, https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=476 476w, https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=300 300w" sizes="(max-width: 238px) 100vw, 238px" /><p id="caption-attachment-1129" class="wp-caption-text">CoreOS Docker Cluster</p></div></p>
+<p>Ormai l&#8217;ho capito, dai tanti esempi di storie di successo in campo informatico che, le migliori invenzioni si realizzano nei garage. Così come i due famosi Steve furono capaci di creare da zero il primo Mac, così i creatori di Google concepirono il loro motore di ricerca proprio in un garage o giu&#8217; di li. La storia che si sente inizia sempre cosi :<br />
+&#8220;Qualche anno fa, in un garage della Silicon Valley&#8230;&#8221; etc&#8230; ; ma cosa ci sarà mai in questi garage americani ?!?</p>
+<p><strong><br />
+Nasce così CoreOS</strong></p>
+<p>CoreOS è praticamente una leggerissima distribuzione Linux solo con kernel e systemd. Questa distribuzione, che effettua il boot in un paio di secondi, è pensata per chi deve realizzare e gestire cluster di centinaia, addirittura migliaia, di nodi. Praticamente permette di realizzare, con hardware di proprietà, un&#8217;infrastruttura IT come quella di Amazon o Google. Oltre ad essere già disponibile sui sistemi cloud di Amazon, di Rackspace e di Google ultimamente anche Microsoft ne ha annunciato la disponibilità su Windows Azure.</p>
+<p>Il prodotto è davvero interessanteinfatti, in poco tempo ha avuto migliaia di raccomandazioni su GitHub ed una cifra compresa tra uno e cinque milioni di dollari da gruppi di investimento privati.</p>
+<p><strong>CoreOS</strong>, il cui codice è interamente disponibile <strong>su GitHub</strong>, è fortemente <strong>basato su</strong> &#8220;<strong>docker</strong>&#8220;, etcd e systemd oltre ad avere un sistema di aggiornamento del sistema operativo sottostante molto innovativo chiamato <strong>FastPatch</strong>:</p>
+<p>FastPatch aggiorna l&#8217;intero sistema operativo in un&#8217;unica soluzione, non i singoli pacchetti, su uno schema di partizioni attivo/passivo e siccome le applicazioni e le configurazioni risiedono in ambienti completamente separati e indipendenti, non si corre il rischio di lasciare alcuni nodi del cluster in uno stato di inconsistenza.</p>
+<p>Quindi se la vostra esigenza è quella di creare un <strong>cluster</strong>, CoreOS rappresenta davvero un&#8217;ottima scelta.</p>
+<p>Nel prossimo articolo vedremo come creare un cluster CoreOS con <strong><a href="http://tuttiperlinux.com/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">Vagrant</a> </strong>.</p>
+<p>&nbsp;</p>
+<p>#CoreOSsistemaclusteravanzato</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/06/07/coreos-ed-uso-nei-datacenter/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/06/coreos-clustering-on-docker.jpg?w=150" medium="image">
+			<media:title type="html">CoreOS Docker Cluster</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

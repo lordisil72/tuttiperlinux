@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>smurf &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/smurf/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 31 Jul 2014 23:07:11 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>smurf &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Proteggersi da scansioni ed intrusioni</title>
+		<link>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 30 Jul 2014 15:06:35 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[ddos]]></category>
+		<category><![CDATA[forward]]></category>
+		<category><![CDATA[icmp]]></category>
+		<category><![CDATA[iptables]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[memoria]]></category>
+		<category><![CDATA[run-time]]></category>
+		<category><![CDATA[sicurezza]]></category>
+		<category><![CDATA[smurf]]></category>
+		<category><![CDATA[sniffing]]></category>
+		<category><![CDATA[spoofing]]></category>
+		<category><![CDATA[sysctl]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=224</guid>
+
+					<description><![CDATA[Sysctl Molte volte si pensa che per poter difendere il nostro amato PC da occhi indiscreti ci voglia chissa&#8217; quale software sofisticato , oppure una decennale esperienza nella scrittura di regole con iptables ; certo tutto questo aiuta comunque, ma e&#8217; anche vero che nella maggior parte dei casi il nostro PC non e&#8217; poi cosi&#8217; &#8230; <a href="https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h2><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg"><img data-attachment-id="225" data-permalink="https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/shell/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg" data-orig-size="120,120" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Sysctl" data-image-description="" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=120" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=120" class="alignleft size-full wp-image-225" src="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg?w=600" alt="Sysctl"   /></a>Sysctl</strong></h2>
+<p>Molte volte si pensa che per poter difendere il nostro amato PC da occhi indiscreti ci voglia chissa&#8217; quale software sofisticato , oppure una decennale esperienza nella scrittura di regole con <strong>iptables </strong>; certo tutto questo aiuta comunque, ma e&#8217; anche vero che nella maggior parte dei casi il nostro PC non e&#8217; poi cosi&#8217; invitante e non contiene nessun vero segreto che valga la pena, per un hacker ( o x meglio dire chracker ) di perderci del tempo. Quindi molte volte alziamo fortificazioni esagerate, oltre il nostro vero sapere e controllo, senza avere un buon motivo. Si potrebbe invece iniziare a prendere dimestichezza con tutta quella serie di tools che Linux fornisce di base per cominciare a restringere le possibilita&#8217; di accesso agli estranei ed ai curiosi.</p>
+<p>Oggi inizieremo da <strong>sysctl</strong> ossia &#8221; <strong>la gestione dei parametri del kernel</strong>  &#8221;</p>
+<p>Il comando<strong> sysctl </strong>viene usato per la personalizzazione dei parametri in<strong> run-time del kernel</strong> che si trovano in /proc/sys.<br />
+Per avere uno sguardo dell’output del comando basterà digitare da root:</p>
+<blockquote><p><strong>sysctl -a</strong></p></blockquote>
+<p><strong>Le categorie</strong></p>
+<pre>                 debug
+                 dev
+                 fs
+                 kernel
+                 net
+                 vm
+
+<strong>Significato</strong>
+parametri per il debug.
+parametri dei dispositivi.
+parametri dei filesystem.
+parametri generici del kernel.
+parametri della rete.
+parametri della memoria virtuale.
+
+Praticamente possiamo modificare molti valori riguardanti il sistema,la rete,ecc.</pre>
+<p>Possiamo cambiare valore ai vari parametri in base alle nostre esigenze, facciamo un esempio.<br />
+Vogliamo cambiare valore all’ip forward:</p>
+<blockquote><p>sysctl -a | grep ip_forward</p></blockquote>
+<pre>@lorenzo:/etc# sysctl -a | grep ip_forward
+net.ipv4.ip_forward = 0</pre>
+<p><strong>Come vediamo il valore è a 0</strong> e noi <strong>lo vogliamo mettere a 1</strong>:</p>
+<blockquote><p>sysctl -w net.ipv4.ip_forward=”1″</p></blockquote>
+<p>Come possiamo vedere ha preso il valore 1:</p>
+<pre>@lorenzo:/etc# sysctl -a | grep ip_forward
+net.ipv4.ip_forward = 0</pre>
+<p>Ovviamente<strong> questa modifica è temporanea</strong> infatti dopo un riavvio il valore torna a 0, ma possiamo renderla<strong> definitiva </strong>andato a editare il file<strong> /etc/sysctl.conf</strong> (facendo sempre prima un bel backup) mettendo 1 alla voce net.ipv4.ip_forward.</p>
+<p>Una volta scritta la regola nel file ed usciti dalla modalita&#8217; scrittura dovremo far rileggere la configurazione dei parametri di questo file tramite il seguente comando:</p>
+<blockquote><p><strong>sysctl -p</strong></p></blockquote>
+<p>Vediamo ora alcuni parametri e scopriamo a cosa servono :</p>
+<p><strong>net.ipv4.tcp_syncookies</strong>:  Quando abilitato, protegge dagli attacchi SYN FLOOD</p>
+<p><strong>net.ipv4.icmp_echo_ignore_broadcasts</strong>: Quando abilitato, ignora tutte le richieste ICMP ECHO e TIMESTAMP dirette ad indirizzi broadcast e multi cast proteggendo il server da attacchi SMURF.</p>
+<p><strong>net.ipv4.icmp_ignore_bogus_error_responses</strong>: Quando abilitato, protegge da errori ICMP maligni</p>
+<p><strong>net.ipv4.tcp_keepalive_time</strong>: Definisce ogni quanti secondi inviare al client con una connessione keepalive aperta un pacchetto in modo tale da mantenerla aperta.</p>
+<p>L’abilitazione dei seguenti paramentri permette di inoltrare il traffico di rete da un’interfaccia ad un’altra agendo come un router:</p>
+<p><strong>net.ipv4.ip_forward</strong><br />
+<strong>net.ipv4.conf.all.send_redirects</strong><br />
+<strong>net.ipv4.conf.default.send_redirects</strong></p>
+<p><strong>net.ipv4.tcp_max_syn_backlog=512</strong>   Quando la coda dei segmenti SYN provenienti da un certo host supera il numero stabilito in questo parametro il kernel invece di tenere i dati in arrivo nella coda dei pacchetti SYN in attesa di risposta, invierà un SYN+ACK di risposta.<br />
+Si svuota cosi la coda SYN, evitando che diventi troppo grande,</p>
+<p><strong>net.ipv4.icmp_echo_ignore_broadcasts = 1</strong>  Il kernel ignorerà i ping destinati all’indirizzo di broadcast della rete. Questo può evitare diversi tipi di <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ip_conntrack_max=15000</strong>  Viene impostato il numero massimo di connessioni che il sistema può gestire. E’ bene dimensionare tale numero in base alle risorse del sistema, per evitare in ogni momento il rischio che la RAM si esaurisca. *** ***Prevenzione <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ipfrag_high_tresh=131072</strong></p>
+<p><strong>net.ipv4.ipfrag_low_tresh=102400</strong></p>
+<p>Queste due opzioni indicano la quantità di RAM massima e minima che deve essere usata nel momento in cui i segmenti TCP vengono riassemblati, per non esaurire la RAM.  ***Prevenzione <strong>attacchi DOS</strong>.</p>
+<p><strong>net.ipv4.ipfrag_time=20</strong> Quest’opzione indica in secondi il tempo che i segmenti TCP devono essere tenuti in memoria</p>
+<p><strong>net.ipv4.conf.all.rp_filter=1</strong> Quest’opzione è utile quando un pacchetto arriva in ingresso su un’interfaccia di rete diversa da quella che ci si aspetterebbe secondo le tabelle di routing.  ***Protezione contro <strong>attacchi di Spoofing</strong></p>
+<p><strong>net.ipv4.tcp_mem = 12288, 16384, 24576<br />
+</strong>Queste impostazioni istruiscono lo stack TCP su come compostarsi nei riguardi dell’uso della memoria. Indicano al kernel qual&#8217;e&#8217; la soglia al di sopra della quale debba iniziare un uso più attento della memoria. Il primo attributo indica il valore per il quale il kernel non si deve preoccupare dell’utilizzo della memoria. Il secondo attributo invece indica la valore per il quale il kernel deve iniziare a forzare la diminuzione dell’uso della memoria. Questo stato si chiama <strong>memory pressure mode</strong>.<br />
+L’ultimo valore indica il valore per il quale il kernel non può piu assegnare pagine di memoria finchè non torna sotto la soglia.</p>
+<p>Per l’architettura <strong>x86</strong> ad esempio le pagine di memoria sono grandi <strong>4096 byte</strong>.<br />
+E’ bene dimensionare la configurazione di questa variabile in base alla RAM disponibile sulla propria macchina, per evitare l’esaurimento delle risorse.</p>
+<p>Nel prossimo articolo vedremo altri tool ed altri sistemi di protezione integrati , bye !!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/30/proteggersi-da-scansioni-ed-intrusioni/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/shell.jpg" medium="image">
+			<media:title type="html">Sysctl</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>deploy &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/deploy/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 19 Mar 2015 17:07:14 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>deploy &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Ansible &#8211; automazione IT e Configuration Management (II parte)</title>
+		<link>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/</link>
+					<comments>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Thu, 19 Mar 2015 17:07:14 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[ansible]]></category>
+		<category><![CDATA[ansible galaxy]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[automazione it]]></category>
+		<category><![CDATA[configuration management]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[drupal]]></category>
+		<category><![CDATA[forwarded port]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[mongodb]]></category>
+		<category><![CDATA[nginx]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[playbook]]></category>
+		<category><![CDATA[provisioning]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[tomcat]]></category>
+		<category><![CDATA[vagrant]]></category>
+		<category><![CDATA[versioning]]></category>
+		<category><![CDATA[virtual environment]]></category>
+		<category><![CDATA[web dashboard]]></category>
+		<category><![CDATA[webserver]]></category>
+		<category><![CDATA[yml]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1073</guid>
+
+					<description><![CDATA[&#160; &#160; &#160; &#160; &#160; &#160; Nel primo articolo &#8220;Ansible per l’automazione IT ed il Configuration Management&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible. Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso &#8230; <a href="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1078" style="width: 433px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1078" data-attachment-id="1078" data-permalink="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/multistage-ansible/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg" data-orig-size="750,280" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Ansible + Vagrant Environment" data-image-description="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=600" class=" wp-image-1078" src="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&#038;h=158" alt="Ansible + Vagrant Environment" width="423" height="158" srcset="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&amp;h=158 423w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=150&amp;h=56 150w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300&amp;h=112 300w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg 750w" sizes="(max-width: 423px) 100vw, 423px" /><p id="caption-attachment-1078" class="wp-caption-text">Ansible + Vagrant Environment</p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Nel primo articolo &#8220;<a title="Ansible per l’automazione IT ed il Configuration Management" href="http://tuttiperlinux.com/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/">Ansible per l’automazione IT ed il Configuration Management</a>&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible.</p>
+<p>Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso una delle grandi novita&#8217; del Web degli ultimi mesi come <a href="https://www.vagrantup.com/">Vagrant</a>, di cui abbiamo parlato nell&#8217;articolo &#8220;<a title="Virtualizzazione e provisioning senza sforzo" href="http://tuttiperlinux.com/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">Virtualizzazione e provisioning senza sforzo</a>&#8220;.</p>
+<p>configuriamoci l&#8217;ambiente Vagrant:</p>
+<pre>$ vagrant box add pre http://files.vagrantup.com/precise32.box
+$ vagrant init precise32
+$ vagrant up</pre>
+<p>a seguito dell’ultimo comando, vedremo dei messaggi come questi:</p>
+<pre>Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- <strong>22 =&gt; 2222</strong> (adapter 1)
+[default] Booting VM...
+[default] Waiting for machine to boot. This may take a few minutes...
+[default] Machine booted and ready!
+Guest Additions Version: 4.2.0
+VirtualBox Version: 4.3
+[default] Mounting shared folders...
+[default] -- /vagrant
+
+</pre>
+<p>Vagrant ha quindi scaricato e creato per noi una macchina virtuale Ubuntu Precise (32bit). Scorrendo i messaggi ci sono due cose importanti da notare: la prima è che il traffico sulla porta 2222 del nostro pc locale sarà inoltrato alla porta 22 della macchina virtuale; la seconda è che l’utente “vagrant” sulla macchina remota può connettersi con la password “vagrant” ed ha già i privilegi per diventare root con sudo. Aggiorniamo quindi l&#8217;inventario delle macchine che decidete di coinvolgere modificando il file /etc/ansible/hosts</p>
+<p>Dopo aver preso confidenza con Vagrant iniziamo la configurazione dell’ambiente per <a href="https://www.ansible.com/">Ansible</a>, iniziando ad usarlo per automatizzare i compiti di ogni giorno.</p>
+<p>Configuriamo il file /etc/ansible/hosts tramite comando:</p>
+<pre># sudo bash -c 'echo [web] &gt;&gt; /etc/ansible/hosts'
+# sudo bash -c 'echo 127.0.0.1:2222 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant &gt;&gt; /etc/ansible/hosts'</pre>
+<p>Verifichiamo che ansible sia in grado di leggere correttamente i parametri inseriti nel file hosts usando il seguente comando:</p>
+<pre># ansible -m ping all
+127.0.0.1 | success &gt;&gt; {
+"changed": false,
+"ping": "pong"
+}</pre>
+<p><strong>Ansible facts</strong><br />
+come possiamo essere sicuri che la macchina a cui ci stiamo connettendo sia quella giusta ? Diamo un’occhiata ai “facts”, ovvero a tutte le informazioni che Ansible raccoglie…</p>
+<pre># ansible web -m setup | less</pre>
+<p>otteniamo cosi&#8217; una serie di dati in formato JSON tra cui notiamo che il nostro nuovo server ha come hostname ‘localhost’.<br />
+A titolo didattico scriveremo un playbook per installare un webserver nginx sul nuovo server.</p>
+<p>Ora apriamo un editor per iniziare a scrivere il nostro playbook che si chiamera&#8217; <strong>nginx.yml</strong> :</p>
+<pre>--- <strong>PLAYBOOK ottimizzato su Centos Linux</strong>
+- name: installa NGINX e avvia il servizio
+   remote_user: root
+   sudo: yes
+   hosts: web
+   tasks:
+   - name: installazione Nginx
+     apt: pkg=nginx state=installed update_cache=true
+     notify:
+     - start nginx
+   handlers:
+     - name: start nginx
+     service: name=nginx state=started
+</pre>
+<p>Come possiamo notare nel playbook abbiamo editato una lista di task, uno per ogni “step” del nostro compito.<br />
+Se stiamo usando virtualbox come hypervisor, dobbiamo aggiungere una riga al file (bastera&#8217; solo decommentarla) di configurazione di vagrant perché attivi il forwarding della porta 80 della guest sulla porta 8080 del nostro pc.</p>
+<p>(vedi <a href="https://docs.vagrantup.com/v2/networking/forwarded_ports.html">https://docs.vagrantup.com/v2/networking/forwarded_ports.html</a>)</p>
+<pre>config.vm.network "forwarded_port", guest: 80, host: 8080</pre>
+<p>e dare il comando per ricaricare la virtual machine con la nuova configurazione:</p>
+<pre>vagrant reload
+[default] Attempting graceful shutdown of VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 =&gt; 2222 (adapter 1)
+[default] -- <strong>80 =&gt; 8080</strong> (adapter 1)
+[default] Booting VM...
+[default] Machine booted and ready!</pre>
+<p>Ora possiamo lanciare il playbook</p>
+<pre># ansible-playbook nginx.yml
+
+PLAY [installa NGINX e avvia il servizio] *****************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [installazione Nginx] ***************************************************
+changed: [127.0.0.1]
+
+NOTIFIED: [start nginx] *******************************************************
+changed: [127.0.0.1]
+
+PLAY RECAP ********************************************************************
+127.0.0.1 : ok=3 changed=2 unreachable=0 failed=0
+</pre>
+<p>sulla macchina virtuale potrete visualizzare, dal syslog, quello che sta accadendo:</p>
+<p>ansible-apt: Invoked with dpkg_options=force-confdef,force-confold upgrade=None force=False package=[&#8216;nginx&#8217;] purge=False state=installed update_cache=True pkg=nginx default_release=None install_recommends=True deb=None cache_valid_time=None<br />
+Mar 19 15:59:33 precise32 ansible-service: Invoked with name=nginx pattern=None enabled=None state=started sleep=None arguments= runlevel=default</p>
+<p>ora sulla macchina virtuale mi ritrovo con l&#8217;nginx attivo e rispondente all&#8217;indirizzo 127.0.0.1:8080</p>
+<h1>Welcome to nginx!</h1>
+<p>Come gia accennato nel primo articolo la curva di apprendimento di questo ottimo strumento di Management dei server e&#8217; davvero bassa e funzionale, ed in poco tempo si e&#8217; in grado di gestire un ambiente ad alto volume di macchine.</p>
+<p>Questa è solo una semplice introduzione al mondo di Ansible, e prima di concludere vi faccio inoltre presente che Ansible non è solo usufruibile da linea di comando ma presso <a href="http://www.ansible.com/tower">il sito ufficiale</a> è disponibile una <strong>web dashboard</strong> che permette di controllare i job, avere report, statistiche e così via.</p>
+<p>Esiste anche <a href="https://galaxy.ansible.com/">Ansible Galaxy</a> , che è invece un repository comunitario di “ricette”, playbooks, task moduli e tutto quello che si può immaginare … Quindi se doveste installare e configurare software come tomcat, oracle, mongodb, jenkins, drupal, rabbitmq e tanti altri, troverete già tutto pronto.<br />
+Di sicuro una base di partenza molto comoda per le vostre personalizzazioni!</p>
+<p>Se tutto ciò non bastasse ancora, Ansible ha una API estremamente chiara e flessibile per scrivere moduli custom in Python o qualsiasi altro linguaggio, un esempio concreto</p>
+<p>#AnsibleConfigurationManagement</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" medium="image">
+			<media:title type="html">Ansible + Vagrant Environment</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Virtualizzazione e provisioning senza sforzo</title>
+		<link>https://tuttiperlinux.blog/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/</link>
+					<comments>https://tuttiperlinux.blog/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Sat, 03 Jan 2015 14:43:22 +0000</pubDate>
+				<category><![CDATA[News]]></category>
+		<category><![CDATA[Virtualizzazione]]></category>
+		<category><![CDATA[ansibe]]></category>
+		<category><![CDATA[bash]]></category>
+		<category><![CDATA[box]]></category>
+		<category><![CDATA[centos]]></category>
+		<category><![CDATA[chef]]></category>
+		<category><![CDATA[content management]]></category>
+		<category><![CDATA[debian]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[git]]></category>
+		<category><![CDATA[kvm]]></category>
+		<category><![CDATA[linux blox in italiano]]></category>
+		<category><![CDATA[provisioning]]></category>
+		<category><![CDATA[puppet]]></category>
+		<category><![CDATA[scripting]]></category>
+		<category><![CDATA[ubuntu]]></category>
+		<category><![CDATA[vagrant]]></category>
+		<category><![CDATA[virtualbox]]></category>
+		<category><![CDATA[virtualizzazione]]></category>
+		<category><![CDATA[vmware]]></category>
+		<category><![CDATA[xen]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=866</guid>
+
+					<description><![CDATA[La virtualizzazione ha sicuramente cambiato il modo di lavorare e di pensare alla gestione dei sistemi informatici aziendali o dei service provider, ed il cloud ha aggiunto un&#8217;ulteriore strato, sia di liberta&#8217;, ma anche di complicazione in piu&#8217;, nella gestione dei nuovi sistemi ad alta affidabilita&#8217; che devono essere in grado di scalare nel minor tempo possibile &#8230; <a href="https://tuttiperlinux.blog/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_868" style="width: 310px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-868" data-attachment-id="868" data-permalink="https://tuttiperlinux.blog/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/vagrant-virtualbox/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png" data-orig-size="1184,265" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="vagrant-virtualbox" data-image-description="&lt;p&gt;Vagrant Virtualization Box&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Vagrant Virtualization Box&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=600" class="size-medium wp-image-868" src="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=300&#038;h=67" alt="Vagrant Virtualization Box" width="300" height="67" srcset="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=300&amp;h=67 300w, https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=600&amp;h=134 600w, https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=150&amp;h=34 150w" sizes="(max-width: 300px) 100vw, 300px" /><p id="caption-attachment-868" class="wp-caption-text">Vagrant Virtualization Box</p></div>
+<p>La virtualizzazione ha sicuramente cambiato il modo di lavorare e di pensare alla gestione dei sistemi informatici aziendali o dei service provider, ed il cloud ha aggiunto un&#8217;ulteriore strato, sia di liberta&#8217;, ma anche di complicazione in piu&#8217;, nella gestione dei nuovi sistemi ad alta affidabilita&#8217; che devono essere in grado di scalare nel minor tempo possibile ecc&#8230;.</p>
+<p>Queste esigenze hanno portato alla nascita di innumerevoli sistemi di virtualizzazione, tra i piu&#8217; conosciuti sicuramente ci sono Xen, Vmware, Kvm, Virtuozzo, Virtualbox, Openvz &#8230;..! che per certi versi si trasformano in un incubo per gli amministratori di sistema, costretti ad avere diversi ambienti di gestione delle VM su diversi sistemi e con molteplici file di configurazione da settare.</p>
+<p>Infatti quando ci troviamo ad amministrare un ambiente cloud con molte macchine, il rischio di dover aggiungere una macchina in più e doverla successivamente configurare in poco tempo per il <strong>deploy</strong> e la messa in produzione insieme a tutte le altre è molto alto. In più, se siamo all’interno di un’architettura che deve scalare rapidamente per rispondere in modo agile alle esigenze degli utenti (e chiaramente dell’azienda), dover attendere l’installazione del sistema operativo e poi del software non è certamente divertente. Per tutte queste esigenze, <a href="https://www.vagrantup.com/"><strong>Vagrant</strong> </a>potrebbe risultare la giusta soluzione che può semplificarci la vita, permettendoci di aggirare tutte queste “rogne”</p>
+<p><a href="https://www.vagrantup.com/"><strong>Vagrant</strong></a> è un gestore di macchine virtuali che può usare parecchi hypervisor tra cui <strong>VirtualBox</strong>, il <strong>predefinito</strong>, ma anche VMWare, Xen e KVM. Attraverso questo software infatti potremo basarci su una struttura di base comune a tutte le macchine, che contiene il sistema operativo (anche se poi vedremo come personalizzare questa alberatura), e mantenere degli step comuni nella configurazione delle nostre istanze virtuali, per poi dedicarci solo alle rifiniture, risparmiando tantissimo tempo grazie alle capacità di elaborazione dei datacenter che abbiamo in-house o magari in cloud.</p>
+<p>Per inizializzare il nostro primo progetto Vagrant, abbiamo solo bisogno di spostarci in una directory vuota e dare il comando (avendo già installato il software):</p>
+<p><strong>Installazione Vagrant</strong></p>
+<pre>### Verificare di aver installati i seguenti pacchetti : rubygems ruby1.9.1-dev virtualbox-4.2 (o superiori)
+# sudo apt-get install vagrant
+# vagrant plugin install vagrant-vbguest
+</pre>
+<p><strong>Le Box di Vagrant</strong><br />
+Il primo concetto fondamentale da fare nostro, per quanto riguarda Vagrant, è quello del concetto di Box. Una Box per quanto riguarda questo ambiente di virtualizzazione infatti è una vera e propria scatola che contiene il sistema operativo, e tutto quello di cui abbiamo bisogno come i software di base ed ogni loro configurazione di base. Al punto di partenza abbiamo delle Box rese disponibili dai server di Vagrant, ma possiamo tranquillamente aggiungerne altre: tutto quello di cui abbiamo bisogno è un po’ di fantasia coi nomi, e di conoscere l’URL remoto tramite il quale scaricare la Box (ne trovate parecchie già fatte su <a href="http://www.vagrantbox.es/">Vagrantbox.es</a> oppure su <a href="https://atlas.hashicorp.com/boxes/search">Hasicorp</a>), con questa sintassi da riga di comando.</p>
+<pre># vagrant init
+# vagrant box add name url</pre>
+<p>che, traducendolo con un esempio reale:</p>
+<pre># vagrant box add precise32 http://files.vagrantup.com/precise32.box</pre>
+<p>Che non farà altro che aggiungere al nostro progetto Vagrant una Box Ubuntu 12.04 a 32 bit.</p>
+<p><strong>Il Vagrantfile</strong><br />
+Una volta scaricata la nostra Box di partenza, possiamo cominciare a configurare il nostro progetto Vagrant tramite il <a href="https://docs.vagrantup.com/v2/">Vagrantfile</a> che abbiamo a disposizione e che si presenta essenzialmente come un file <a href="https://www.ruby-lang.org/it/documentation/">Ruby</a> con vari namespace, ma niente paura, non è necessario conoscere direttamente <a href="https://www.ruby-lang.org/it/documentation/">Ruby</a> per la configurazione (anche se può aiutare), ed è possibile fare riferimento alla documentazione per conoscere i vari prefissi e le possibilità che abbiamo a disposizione. Ogni volta che eseguiamo un comando Vagrant, il Vagrantfile viene cercato in tutte le directory di livello superiore nell’albero.</p>
+<p>Il file può avere grossomodo un aspetto del genere:</p>
+<p><strong>Esempio</strong> di un cluster di 7 Boxes. Preso da:<br />
+### <a href="https://github.com/patrickdlee/vagrant-examples" rel="nofollow">https://github.com/patrickdlee/vagrant-examples</a></p>
+<pre>domain   = 'example.com'
+ 
+nodes = [
+  { :hostname =&gt; 'ex7proxy',   :ip =&gt; '192.168.0.42', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7db',      :ip =&gt; '192.168.0.43', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7web1',    :ip =&gt; '192.168.0.44', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7web2',    :ip =&gt; '192.168.0.45', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7static1', :ip =&gt; '192.168.0.46', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7static2', :ip =&gt; '192.168.0.47', :box =&gt; 'precise32' },
+  { :hostname =&gt; 'ex7cache',   :ip =&gt; '192.168.0.48', :box =&gt; 'precise32' },
+]
+ 
+Vagrant::Config.run do |config|
+  nodes.each do |node|
+    config.vm.define node[:hostname] do |node_config|
+      node_config.vm.box = node[:box]
+      node_config.vm.host_name = node[:hostname] + '.' + domain
+      node_config.vm.network :hostonly, node[:ip]
+ 
+      memory = node[:ram] ? node[:ram] : 256;
+      node_config.vm.customize [
+        'modifyvm', :id,
+        '--name', node[:hostname],
+        '--memory', memory.to_s
+      ]
+    end
+  end
+ 
+  config.vm.provision :puppet do |puppet|
+    puppet.manifests_path = 'puppet/manifests'
+    puppet.manifest_file = 'site.pp'
+    puppet.module_path = 'puppet/modules'
+  end
+end</pre>
+<p>Prima di arrivare a questo livello tuttavia, è necessario cominciare dalle basi: il primo file di configurazione di Vagrant che andremo a scrivere conterrà ben poche specifiche, e si baserà esclusivamente sulla Box che abbiamo scelto per la nostra prima macchina virtuale.</p>
+<p># Una singola Box.<br />
+#<br />
+Vagrant.configure(&#8220;2&#8221;) do |config|<br />
+config.vm.box = &#8220;precise32&#8221;<br />
+end</p>
+<p><strong>Esempio</strong> per una singola Box.</p>
+<pre>Vagrant.configure("2") do |config|
+config.vm.box = "precise32"
+end</pre>
+<p>Inoltre il <strong>Vagrantfile</strong> deve essere soggetto a version control (tramite <strong>git</strong> ad esempio) per tenere traccia di ogni modifica e rendere il tutto facilmente riportabile in una nuova architettura</p>
+<p><strong>Avviamo la Box</strong></p>
+<pre># sudo vagrant up
+Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 =&gt; 2222 (adapter 1)
+[default] Booting VM...
+[default] Waiting for machine to boot. This may take a few minutes...
+[default] Mounting shared folders...
+[default] -- /vagrant
+</pre>
+<p>Adesso che abbiamo il nostro progetto funzionante, basterà dare</p>
+<pre># vagrant ssh
+Last login: Fri Apr 15 05:43:58 2011 from 10.0.2.2
+[vagrant@localhost ~]$</pre>
+<p>per collegarci ed esserne subito operativi all’interno della nostra box.</p>
+<p><strong>Provisioning</strong><br />
+Vagrant non è solo un sistema per avviare velocemente delle macchine virtuali, infatti ci permette anche di controllarle, e di controllarne le impostazioni nel tempo, insieme al software installato. Possiamo quindi gestire la configurazione automatica secondo le nostre esigenze delle varie Box che abbiamo, attraverso una struttura di provisioning abbastanza flessibile che supporta normali shell script (Bash), il buon vecchio <a title="Puppet: automatizziamo e gestiamo ogni task" href="http://tuttiperlinux.com/2014/11/30/puppet-automatizziamo-e-gestiamo-ogni-task/">Puppet</a>, ma anche <a href="https://www.chef.io/solutions/configuration-management/">Chef</a> e <a href="http://www.ansible.com/configuration-management">Ansible</a>.</p>
+<p>Tramite questa infrastruttura possiamo modificare il Vagrantfile per eseguire quindi qualsiasi istruzione, che sia configurata per script Puppet oppure attraverso Bash. Ad esempio, possiamo utilizzare la piccola struttura riportata di seguito, che proviene direttamente dalla documentazione di Vagrant e che mostra come sia facile scriversi uno script di configurazione da mandare poi in pasto alla propria Box.</p>
+<pre>$script = &lt;&lt;SCRIPT
+echo I am provisioning...
+date &gt; /etc/vagrant_provisioned_at
+SCRIPT</pre>
+<pre>Vagrant.configure("2") do |config|
+config.vm.provision "shell", inline: $script
+end</pre>
+<p><strong>Non solo VirtualBox</strong></p>
+<p>Una volta imparato a usare Vagrant, avremo comunque basato tutto il nostro lavoro su VirtualBox. Tuttavia, potremmo anche avere qualcosa in contrario sull’uso di VirtualBox, e voler usare altri provider che ci permettano un’amministrazione più efficace o semplicemente il riciclo di competenze che già abbiamo. Ad esempio, Vagrant supporta tramite plugin anche l’integrazione con VMWare o con Xen; questi plugin sono installabili attraverso il gestore integrato nel software, semplicemente tramite un singolo comando, esattamente come in un classico gestore di pacchetti:</p>
+<pre># vagrant plugin install vagrant-vmware-fusion</pre>
+<p>Oppure se invece di VMWare Fusion usate la variante Workstation:</p>
+<pre># vagrant plugin install vagrant-vmware-workstation</pre>
+<p>Una volta installato il plugin, ed ovviamente il software di providing delle macchine virtuali che vogliamo testare, ci bastera&#8217; modificare il Vagrantfile, con istruzioni come queste nell&#8217; esempio:</p>
+<p><strong>Esempio</strong> tratto da [ <a href="http://puppetlabs.com/blog/new-vmware-provider-gives-vagrant-a-boost" rel="nofollow">http://puppetlabs.com/blog/new-vmware-provider-gives-vagrant-a-boost</a> ]</p>
+<pre>config.vm.provider :vmware_workstation do |v|
+v.vmx["memsize"] = "2048"
+end</pre>
+<p>Vagrant può ovviamente essere configurato per essere alla base di una complessa configurazione in ambiente cloud, o della propria infrastruttura più modesta.</p>
+<p>Se questo primo articolo vi ha incuriositi, la documentazione ufficiale, passo passo, vi sta aspettando : <a href="https://docs.vagrantup.com/"><strong>VAGRANT DOC</strong></a></p>
+<p>Nel prossimo articolo vedremo come sfruttare le potenzialita&#8217; di <strong>Vagrant</strong> <strong>+</strong> <a title="Docker – cosi’ cambia la virtualizzazione" href="http://tuttiperlinux.com/2014/09/07/docker-cosi-cambia-la-virtualizzazione/"><strong>Docker</strong>.</a></p>
+<p>#VagrantVirtualizzazioneeProvisioning</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/feed/</wfw:commentRss>
+			<slash:comments>6</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/01/vagrant-virtualbox.png?w=300" medium="image">
+			<media:title type="html">Vagrant Virtualization Box</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

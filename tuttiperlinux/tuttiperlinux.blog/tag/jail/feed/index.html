@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>jail &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/jail/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 26 Jun 2014 07:59:41 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>jail &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Fail2ban &#8211; fuori i curiosi</title>
+		<link>https://tuttiperlinux.blog/2014/06/24/fail2ban-tenere-i-curiosi-fuori-dal-nostro-pc/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/24/fail2ban-tenere-i-curiosi-fuori-dal-nostro-pc/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Tue, 24 Jun 2014 11:34:07 +0000</pubDate>
+				<category><![CDATA[Sicurezza]]></category>
+		<category><![CDATA[client]]></category>
+		<category><![CDATA[fail2ban]]></category>
+		<category><![CDATA[ip]]></category>
+		<category><![CDATA[jail]]></category>
+		<category><![CDATA[ssh]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=17</guid>
+
+					<description><![CDATA[Spesso capita, persino in ufficio, di dover proteggere la propria privacy da curiosi o male intenzionati e fail2ban ha sempre svolto egregiamente il suo compito di guardiano del castello, infatti si tratta di un programma che tiene sotto monitoraggio alcuni file di log e, quando rileva dei tentativi ripetuti &#38; falliti (configurabili) di accedere ad un determinato servizio provvedera&#8217; &#8230; <a href="https://tuttiperlinux.blog/2014/06/24/fail2ban-tenere-i-curiosi-fuori-dal-nostro-pc/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Spesso capita, persino in ufficio, di dover proteggere la propria privacy da curiosi o male intenzionati e <strong>fail2ban</strong> ha sempre svolto egregiamente il suo compito di guardiano del castello, infatti si tratta di un programma che tiene sotto monitoraggio alcuni file di log e, quando rileva dei tentativi ripetuti &amp; falliti (configurabili) di accedere ad un determinato servizio provvedera&#8217; al blocco dell&#8217;host incriminato, a livello d&#8217;indirizzo IP, aggiungendolo alle regole di firewall di IPTABLES.</p>
+<p>Bene, installiamolo ! :  <strong>/$ sudo apt-get install fail2ban</strong></p>
+<p>Appena installato il pacchetto saranno gia&#8217; in esecuzione alcune regole abilitate di default come ad esempio quella per bloccare gli IP che falliscono gli accessi SSH ecc&#8230;.</p>
+<p>Fail2ban viene installato in modalita&#8217; demone, sara&#8217; quindi possibile gestirne lo start &amp; stop tramite i comandi</p>
+<p><strong>/etc/init.d/fail2ban  start/stop</strong>      oppure       <strong>service fail2ban  start/stop</strong></p>
+<p>I file di configurazione si trovano in /etc/fail2ban, in particolare prestiamo attenzione al file &#8220;jail.conf&#8221; il quale contiene le configurazioni di base del pacchetto e suo relativo uso. Dal manuale viene consigliato di non modificare i file di conf originari ma di creare una copia locale tramite (es.) : <strong>/etc/fail2ban$ sudo cp jail.conf jail.local </strong></p>
+<p>Andremo ora ad impostare all&#8217;interno di quest&#8217;ultimo file le regole di filtraggio per i vari servizi di nostro interesse.</p>
+<p>Ogni regola e&#8217; indicata dal nome della regola, scritta tra parentesi quadre, a cui fanno seguito i parametri che vogliamo impostare, seguiti da un simbolo  &#8221; = &#8221; e dal valore che vogliamo assegnare alla regola, facciamo un esempio lavorando su alcuni parametri di Default e sulla regola di filtraggio del servizio SSH :</p>
+<p>[DEFAULT]<br />
+ignoreip = 127.0.0.1 192.168.xx.xx<br />
+bantime = 600<br />
+maxretry = 3<br />
+backend = polling<br />
+destemail = root@localhost<br />
+action = iptables[name=%(__name__)s, port=%(port)s]</p>
+<p>&#8230;in questo esempio stiamo dicendo al programma di non considerare nei filtri le richieste di autenticazione errate provenienti dall&#8217;IP locale (127.0.0.1) e da un IP fidato della nostra rete (192.168.xx.xx). Il secondo parametro imposta il tempo di <strong>&#8220;ban&#8221; </strong>ossia la quantita&#8217; di tempo (espressa in secondi) per cui vogliamo che fail2ban tenga nelle regole di Iptables</p>
+<p>l&#8217;IP da &#8216;bannare&#8217; / bloccare [600 secondi = 10 minuti], mentre il parametro &#8216;maxretry&#8217; indica quanti tentativi errati di connessione lasciamo attivi prima di bannare l&#8217;IP, le ultime tre righe lavorano insieme, in pratica il polling e&#8217; il metodo di gestione degli allarmi a cui, una volta scattato l&#8217;allarme, viene fatta mandare una mail al destinatario sotto indicato.</p>
+<p>Passiamo adesso alla sezione del servizio SSH :</p>
+<p>[ssh]<br />
+enabled = true<br />
+port = ssh<br />
+filter = sshd<br />
+logpath = /var/log/auth.log<br />
+maxretry = 5</p>
+<p>i parametri in questo caso sono presto spiegati, la prima riga dice di abilitare il controllo su questo servizio, indicando come porta da monitorare quella del servizio SSH (che come standard ascolta sulla 22) e come demone associa SSHD, indicando il percorso contenente il file di log da cui leggere per verificare i tentativi di accesso; l&#8217;ultimo parametro indica il valore del numero di accessi negati da trovare nel file di log prima che l&#8217;IP venga bloccato dalle regole di firewall Iptables.</p>
+<p>Al termine della configurazione delle regole di nostro interesse sara&#8217; necessario riavviare il servizio cosi&#8217; come indicato precedentemente e magari provare ad accedere da qualche altro PC, sbagliando volontariamente la password di accesso in ssh cosi da poter sperimentare l&#8217;effettivo funzionamento dei filtri.</p>
+<p>Per verificare il funzionamento dei filtri su di un servizio e&#8217; anche possibile utilizzare il comando del client fail2ban:</p>
+<ul>
+<li><strong>sudo fail2ban-client status ssh </strong></li>
+</ul>
+<p>dalla versione 8.8 in poi e&#8217; anche possibile &#8220;unbannare&#8221; ossia togliere dall&#8217;esclusione degli accessi un IP precedentemente bloccato tramite il comando : <strong>sudo fail2ban-client set ssh unbanip &lt;ip da sbloccare&gt;</strong></p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/24/fail2ban-tenere-i-curiosi-fuori-dal-nostro-pc/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

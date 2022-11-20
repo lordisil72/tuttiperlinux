@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>livecd &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/livecd/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:30:53 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>livecd &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>A volte basta poco !</title>
+		<link>https://tuttiperlinux.blog/2014/06/24/a-volte-basta-poco/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/24/a-volte-basta-poco/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Tue, 24 Jun 2014 08:54:08 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[chroot]]></category>
+		<category><![CDATA[grub]]></category>
+		<category><![CDATA[livecd]]></category>
+		<category><![CDATA[mount]]></category>
+		<category><![CDATA[update]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=12</guid>
+
+					<description><![CDATA[Ovvero fare un CHROOT dentro un sistema non funzionante ! Prima di continuare la panoramica dei tool salva filesystem/files volevo aggiungere che in alcuni casi quello che ci serve e che ci puo&#8217; bastare e&#8217; gia sotto il nostro naso, li pronto per riparare il nostro Linux e si trova gia&#8217; dentro il sistema, sto &#8230; <a href="https://tuttiperlinux.blog/2014/06/24/a-volte-basta-poco/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">Ovvero fare un CHROOT dentro un sistema non funzionante !</span></span></strong></p>
+<p><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">Prima di continuare la panoramica dei tool salva filesystem/files volevo aggiungere che in alcuni casi quello che ci serve e che ci puo&#8217; bastare e&#8217; gia sotto il nostro naso, li pronto per riparare il nostro Linux e si trova gia&#8217; dentro il sistema, sto parlando di </span></span><strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">chroot. </span></span></strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">Poniamo il caso che vi accorgiate di un mal funzionamento in cui forse avete danneggiato il boot loader (GRUB) , oppure avete cancellato per errore qualche pacchetto/libreria importante, la cui mancanza impedisce  l&#8217;avvio di Linux. In questi ed in altri casi simili si puo&#8217; provare a ricorrere proprio a &#8220;chroot&#8221; che potete trovare su qualunque distro su cui stiate lavorando o studiando; CHROOT vi dara&#8217; accesso , come utente root, ad un sistema, ad esempio, che non si avvia.</span></span></p>
+<p><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">Usandolo potrete fare il boot da una LiveCD e successivamente eseguire qualsiasi programma come se aveste fatto un normale boot. Per testare questa opzione avviate il vostro pc con la LiveCD, aprite un terminale e diventate l&#8217;utente root ( su &#8211; ). Poi ipotizzando che il vostro Linux, che non si avvia, sia installato su &#8221; / &#8220;eseguiamo i seguenti comandi :</span></span></p>
+<ul>
+<li><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">con il comando </span></span><strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">mount</span></span></strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;"> scoprite qual&#8217;e&#8217; la vostra partizione di root, la mia e&#8217; /dev/sdd1</span></span></li>
+<li><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">/$ mkdir /mnt/guasto</span></span></li>
+<li><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">/$ mount /dev/sdd1 /mnt/guasto</span></span></li>
+<li><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">/$ chroot /mnt/guasto</span></span></li>
+</ul>
+<p><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">da questo momento in avanti, tutti i comandi che impartirete al sistema avranno effetto sulla vostra installazione di Linux e non sulla LiveCD, quindi anche qualunque file andrete a modificare sara&#8217; riferito al vostro sistema.</span></span></p>
+<p><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">A questo punto per ultimare l&#8217;esempio e riparare il boot loader potremo decidere di riconfigurare GRUB nell&#8217;MBR (Master Boot Record) eseguendo </span></span><strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">update-grub </span></span></strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">.</span></span></p>
+<p><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">Una volta ultimata questa fase per uscire dall&#8217;ambiente shell di </span></span><strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">chroot </span></span></strong><span style="color:#333333;"><span style="font-family:Arial, sans-serif;">bastera&#8217; digitare exit, saremo quindi pronti per testare il funzionamento del boot riparato sul nostro sistema originario effettuando un reboot del PC ed estraendo il supporto che contiene la nostra LiveCD.</span></span></p>
+<p>** Leggi anche ( &#8221; <a title="Linux Rescue File System" href="https://tuttiperlinux.wordpress.com/2014/06/23/linux-rescue-file-system/"><span style="text-decoration:underline;">linux rescue file system</span></a> &#8221; )</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/24/a-volte-basta-poco/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

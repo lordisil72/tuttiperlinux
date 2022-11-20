@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>bind &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/bind/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 25 Jul 2014 10:03:02 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>bind &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>DNS sempre funzionante</title>
+		<link>https://tuttiperlinux.blog/2014/07/25/dns-sempre-funzionante/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/25/dns-sempre-funzionante/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 25 Jul 2014 10:01:08 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[bind]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[monitor]]></category>
+		<category><![CDATA[mysql]]></category>
+		<category><![CDATA[pdns]]></category>
+		<category><![CDATA[powerdns]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=187</guid>
+
+					<description><![CDATA[Premessa : Ogni volta che visitiamo un sito, il browser risolve il nome a dominio, ad esempio &#8220;miodominio.it&#8221; , in un IP come 1.2.3.4  . Tramite IP il browser potrà fare richiesta al server che ospita il dominio e quindi scambiare contenuti. In genere queste richieste DNS vengono fatte al server del proprio ISP o a &#8230; <a href="https://tuttiperlinux.blog/2014/07/25/dns-sempre-funzionante/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong>Premessa :</strong> Ogni volta che visitiamo un sito, il browser risolve il nome a dominio, ad esempio &#8220;miodominio.it&#8221; ,<br />
+in un IP come 1.2.3.4  . Tramite IP il browser potrà fare richiesta al server che ospita il dominio e<br />
+quindi scambiare contenuti. In genere queste richieste DNS vengono fatte al server del proprio ISP<br />
+o a server pubblici come Google DNS, OpenDNS&#8230; che fino ad ora non hanno ancora censurato<br />
+nessun dominio, forse eccetto per quelli dannosi che portano a malware.</p>
+<p>C’era una volta <strong>BIND</strong>, probabilmente il piu&#8217; noto software di gestione DNS al mondo, purtroppo segnato da un lungo elenco d&#8217;innumerevoli bug e con la gestione dei parametri del server DNS tramite file di testo, che può risultare scomodo e lento, quindi fortunatamente hanno messo al mondo &#8220;PowerDNS&#8221;.</p>
+<p><strong>PowerDNS</strong> è un server DNS scritto in C++ sotto licenza GPL. È un prodotto della società olandese PowerDNS.COM BV, con numerosi contributi da parte della comunità Open Source.</p>
+<p>I principali punti di forza di <a href="http://www.powerdns.com/">PowerDNS</a> sono:</p>
+<ul>
+<li>Backend per svariati database quali ad esempio MySQL e PostgreSQL</li>
+</ul>
+<ul>
+<li>Facilità di configurazione</li>
+<li>Sicurezza</li>
+<li>Versatilità</li>
+</ul>
+<p>Prima di procedere con l’installazione è doveroso illustrare le parti che compongono questo software:</p>
+<ol>
+<li><em>pdns-server</em>: il server DNS vero e proprio</li>
+<li><em>pdns-backend-*</em>: il backend dove sono memorizzati i dati ad esempio<em>pdns-backend-mysql</em> utilizzerà MySQL per memorizzare i record DNS</li>
+<li><em>pdns-recursor</em>: un server necessario se si devono risolvere altri domini Internet oltre a quelli gestiti dal server</li>
+</ol>
+<p>Installiamo!<span id="more-206"></span></p>
+<p>Come sempre facile e veloce:</p>
+<pre><strong>sudo apt-get install pdns-server pdns-backend-mysql pdns-recursor mysql-server mysql-clients</strong></pre>
+<p>** Durante l&#8217;installazione vi verra&#8217; chiesto se avete gia creato il DB di riferimento oppure se volete crearlo seduta stante, a voi gestire la cosa come meglio credete ed in base al vostro livello di conoscenza in ambito database. Per coloro che fossero a digiuno sull&#8217;argomento ecco quello che andrebbe fatto :</p>
+<p><strong>Entriamo in MySQL Shell tramite root</strong><br />
+# mysql -u root -p<br />
+&#8211; Creiamo il database:<br />
+&gt;&gt;  mysql&gt; create database powerdns;<br />
+&gt;&gt;  mysql&gt; exit;<br />
+&#8211; Creiamo un utente associato al database creato, per sicurezza, mai usare l&#8217;accesso root per<br />
+collegare software al database.<br />
+&gt;&gt;  mysql&gt; GRANT ALL ON powerdns.* TO &#8216;powerdns&#8217;@&#8217;localhost&#8217; IDENTIFIED BY &#8216;la-password&#8217;;<br />
+mysql&gt; FLUSH PRIVILEGES;<br />
+mysql&gt; exit;<br />
+&#8211; Importiamo le tabelle che vengono fornite da PowerDNS sul database creato:<br />
+&gt;&gt;  # mysql -h localhost -u nome-utente -p powerdns &lt; /usr/share/doc/pdns-backend-mysql/mysql.sql<br />
+Adesso configuriamo alcune impostazioni del database di pdns:<br />
+# nano /etc/powerdns/pdns.d/pdns.local<br />
+gmysql-host=localhost<br />
+gmysql-port=3306<br />
+gmysql-dbname=powerdns<br />
+gmysql-user=powerdns<br />
+gmysql-password=mypassword<br />
+#gmysql-socket=</p>
+<p>Riavviamo il server di PowerDNS<br />
+# /etc/init.d/pdns restart</p>
+<p>PowerDNS puo avviarsi anche in Monitor Mode:<br />
+# /etc/init.d/pdns monitor</p>
+<p>Ora vediamo se un dominio a caso (d6f5v4.it) si risolve nel nostro server locale:<br />
+# host <a href="http://www.d6f5v4.it" rel="nofollow">http://www.d6f5v4.it</a> 127.0.0.1<br />
+In teoria non dovrebbe risultare alcun record A poichè non è presente nel server locale. Non<br />
+abbiamo aggiungo nessun record nel database.. Facciamolo!<br />
+# mysql -h localhost -u username -p powerdns<br />
+mysql&gt; INSERT INTO domains (name, type) values (&#8216;d6f5v4.it&#8217;,&#8217;NATIVE&#8217;);</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/25/dns-sempre-funzionante/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

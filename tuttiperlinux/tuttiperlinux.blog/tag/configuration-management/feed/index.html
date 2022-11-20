@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>configuration management &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/configuration-management/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 19 Mar 2015 17:07:14 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>configuration management &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Ansible &#8211; automazione IT e Configuration Management (II parte)</title>
+		<link>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/</link>
+					<comments>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Thu, 19 Mar 2015 17:07:14 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[Uncategorized]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[ansible]]></category>
+		<category><![CDATA[ansible galaxy]]></category>
+		<category><![CDATA[api]]></category>
+		<category><![CDATA[automazione it]]></category>
+		<category><![CDATA[configuration management]]></category>
+		<category><![CDATA[deploy]]></category>
+		<category><![CDATA[drupal]]></category>
+		<category><![CDATA[forwarded port]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[mongodb]]></category>
+		<category><![CDATA[nginx]]></category>
+		<category><![CDATA[oracle]]></category>
+		<category><![CDATA[playbook]]></category>
+		<category><![CDATA[provisioning]]></category>
+		<category><![CDATA[python]]></category>
+		<category><![CDATA[tomcat]]></category>
+		<category><![CDATA[vagrant]]></category>
+		<category><![CDATA[versioning]]></category>
+		<category><![CDATA[virtual environment]]></category>
+		<category><![CDATA[web dashboard]]></category>
+		<category><![CDATA[webserver]]></category>
+		<category><![CDATA[yml]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=1073</guid>
+
+					<description><![CDATA[&#160; &#160; &#160; &#160; &#160; &#160; Nel primo articolo &#8220;Ansible per l’automazione IT ed il Configuration Management&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible. Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso &#8230; <a href="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_1078" style="width: 433px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1078" data-attachment-id="1078" data-permalink="https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/multistage-ansible/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg" data-orig-size="750,280" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Ansible + Vagrant Environment" data-image-description="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Ansible + Vagrant Environment&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=600" class=" wp-image-1078" src="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&#038;h=158" alt="Ansible + Vagrant Environment" width="423" height="158" srcset="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=423&amp;h=158 423w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=150&amp;h=56 150w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300&amp;h=112 300w, https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg 750w" sizes="(max-width: 423px) 100vw, 423px" /><p id="caption-attachment-1078" class="wp-caption-text">Ansible + Vagrant Environment</p></div>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Nel primo articolo &#8220;<a title="Ansible per l’automazione IT ed il Configuration Management" href="http://tuttiperlinux.com/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/">Ansible per l’automazione IT ed il Configuration Management</a>&#8221; abbiamo descritto le caratteristiche principali di questo interessante prodotto per il Configuration Management. In questo secondo articolo descriveremo con degli esempi come utilizzare nel concreto Ansible.</p>
+<p>Per preparare il nostro ambiente di lavoro sfrutteremo un&#8217;altro software, che rappresenta, anch&#8217;esso una delle grandi novita&#8217; del Web degli ultimi mesi come <a href="https://www.vagrantup.com/">Vagrant</a>, di cui abbiamo parlato nell&#8217;articolo &#8220;<a title="Virtualizzazione e provisioning senza sforzo" href="http://tuttiperlinux.com/2015/01/03/virtualizzazione-e-provisioning-senza-sforzo/">Virtualizzazione e provisioning senza sforzo</a>&#8220;.</p>
+<p>configuriamoci l&#8217;ambiente Vagrant:</p>
+<pre>$ vagrant box add pre http://files.vagrantup.com/precise32.box
+$ vagrant init precise32
+$ vagrant up</pre>
+<p>a seguito dell’ultimo comando, vedremo dei messaggi come questi:</p>
+<pre>Bringing machine 'default' up with 'virtualbox' provider...
+[default] Importing base box 'precise32'...
+[default] Matching MAC address for NAT networking...
+[default] Setting the name of the VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- <strong>22 =&gt; 2222</strong> (adapter 1)
+[default] Booting VM...
+[default] Waiting for machine to boot. This may take a few minutes...
+[default] Machine booted and ready!
+Guest Additions Version: 4.2.0
+VirtualBox Version: 4.3
+[default] Mounting shared folders...
+[default] -- /vagrant
+
+</pre>
+<p>Vagrant ha quindi scaricato e creato per noi una macchina virtuale Ubuntu Precise (32bit). Scorrendo i messaggi ci sono due cose importanti da notare: la prima è che il traffico sulla porta 2222 del nostro pc locale sarà inoltrato alla porta 22 della macchina virtuale; la seconda è che l’utente “vagrant” sulla macchina remota può connettersi con la password “vagrant” ed ha già i privilegi per diventare root con sudo. Aggiorniamo quindi l&#8217;inventario delle macchine che decidete di coinvolgere modificando il file /etc/ansible/hosts</p>
+<p>Dopo aver preso confidenza con Vagrant iniziamo la configurazione dell’ambiente per <a href="https://www.ansible.com/">Ansible</a>, iniziando ad usarlo per automatizzare i compiti di ogni giorno.</p>
+<p>Configuriamo il file /etc/ansible/hosts tramite comando:</p>
+<pre># sudo bash -c 'echo [web] &gt;&gt; /etc/ansible/hosts'
+# sudo bash -c 'echo 127.0.0.1:2222 ansible_ssh_user=vagrant ansible_ssh_pass=vagrant &gt;&gt; /etc/ansible/hosts'</pre>
+<p>Verifichiamo che ansible sia in grado di leggere correttamente i parametri inseriti nel file hosts usando il seguente comando:</p>
+<pre># ansible -m ping all
+127.0.0.1 | success &gt;&gt; {
+"changed": false,
+"ping": "pong"
+}</pre>
+<p><strong>Ansible facts</strong><br />
+come possiamo essere sicuri che la macchina a cui ci stiamo connettendo sia quella giusta ? Diamo un’occhiata ai “facts”, ovvero a tutte le informazioni che Ansible raccoglie…</p>
+<pre># ansible web -m setup | less</pre>
+<p>otteniamo cosi&#8217; una serie di dati in formato JSON tra cui notiamo che il nostro nuovo server ha come hostname ‘localhost’.<br />
+A titolo didattico scriveremo un playbook per installare un webserver nginx sul nuovo server.</p>
+<p>Ora apriamo un editor per iniziare a scrivere il nostro playbook che si chiamera&#8217; <strong>nginx.yml</strong> :</p>
+<pre>--- <strong>PLAYBOOK ottimizzato su Centos Linux</strong>
+- name: installa NGINX e avvia il servizio
+   remote_user: root
+   sudo: yes
+   hosts: web
+   tasks:
+   - name: installazione Nginx
+     apt: pkg=nginx state=installed update_cache=true
+     notify:
+     - start nginx
+   handlers:
+     - name: start nginx
+     service: name=nginx state=started
+</pre>
+<p>Come possiamo notare nel playbook abbiamo editato una lista di task, uno per ogni “step” del nostro compito.<br />
+Se stiamo usando virtualbox come hypervisor, dobbiamo aggiungere una riga al file (bastera&#8217; solo decommentarla) di configurazione di vagrant perché attivi il forwarding della porta 80 della guest sulla porta 8080 del nostro pc.</p>
+<p>(vedi <a href="https://docs.vagrantup.com/v2/networking/forwarded_ports.html">https://docs.vagrantup.com/v2/networking/forwarded_ports.html</a>)</p>
+<pre>config.vm.network "forwarded_port", guest: 80, host: 8080</pre>
+<p>e dare il comando per ricaricare la virtual machine con la nuova configurazione:</p>
+<pre>vagrant reload
+[default] Attempting graceful shutdown of VM...
+[default] Clearing any previously set forwarded ports...
+[default] Clearing any previously set network interfaces...
+[default] Preparing network interfaces based on configuration...
+[default] Forwarding ports...
+[default] -- 22 =&gt; 2222 (adapter 1)
+[default] -- <strong>80 =&gt; 8080</strong> (adapter 1)
+[default] Booting VM...
+[default] Machine booted and ready!</pre>
+<p>Ora possiamo lanciare il playbook</p>
+<pre># ansible-playbook nginx.yml
+
+PLAY [installa NGINX e avvia il servizio] *****************************
+
+GATHERING FACTS ***************************************************************
+ok: [127.0.0.1]
+
+TASK: [installazione Nginx] ***************************************************
+changed: [127.0.0.1]
+
+NOTIFIED: [start nginx] *******************************************************
+changed: [127.0.0.1]
+
+PLAY RECAP ********************************************************************
+127.0.0.1 : ok=3 changed=2 unreachable=0 failed=0
+</pre>
+<p>sulla macchina virtuale potrete visualizzare, dal syslog, quello che sta accadendo:</p>
+<p>ansible-apt: Invoked with dpkg_options=force-confdef,force-confold upgrade=None force=False package=[&#8216;nginx&#8217;] purge=False state=installed update_cache=True pkg=nginx default_release=None install_recommends=True deb=None cache_valid_time=None<br />
+Mar 19 15:59:33 precise32 ansible-service: Invoked with name=nginx pattern=None enabled=None state=started sleep=None arguments= runlevel=default</p>
+<p>ora sulla macchina virtuale mi ritrovo con l&#8217;nginx attivo e rispondente all&#8217;indirizzo 127.0.0.1:8080</p>
+<h1>Welcome to nginx!</h1>
+<p>Come gia accennato nel primo articolo la curva di apprendimento di questo ottimo strumento di Management dei server e&#8217; davvero bassa e funzionale, ed in poco tempo si e&#8217; in grado di gestire un ambiente ad alto volume di macchine.</p>
+<p>Questa è solo una semplice introduzione al mondo di Ansible, e prima di concludere vi faccio inoltre presente che Ansible non è solo usufruibile da linea di comando ma presso <a href="http://www.ansible.com/tower">il sito ufficiale</a> è disponibile una <strong>web dashboard</strong> che permette di controllare i job, avere report, statistiche e così via.</p>
+<p>Esiste anche <a href="https://galaxy.ansible.com/">Ansible Galaxy</a> , che è invece un repository comunitario di “ricette”, playbooks, task moduli e tutto quello che si può immaginare … Quindi se doveste installare e configurare software come tomcat, oracle, mongodb, jenkins, drupal, rabbitmq e tanti altri, troverete già tutto pronto.<br />
+Di sicuro una base di partenza molto comoda per le vostre personalizzazioni!</p>
+<p>Se tutto ciò non bastasse ancora, Ansible ha una API estremamente chiara e flessibile per scrivere moduli custom in Python o qualsiasi altro linguaggio, un esempio concreto</p>
+<p>#AnsibleConfigurationManagement</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/03/19/ansible-automazione-it-e-configuration-management-ii-parte/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/03/multistage-ansible.jpg?w=300" medium="image">
+			<media:title type="html">Ansible + Vagrant Environment</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Ansible per l’automazione IT ed il Configuration Management</title>
+		<link>https://tuttiperlinux.blog/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/</link>
+					<comments>https://tuttiperlinux.blog/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Tue, 13 Jan 2015 12:49:52 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[WebServer]]></category>
+		<category><![CDATA[aws]]></category>
+		<category><![CDATA[cfengine]]></category>
+		<category><![CDATA[chef]]></category>
+		<category><![CDATA[configuration management]]></category>
+		<category><![CDATA[devops]]></category>
+		<category><![CDATA[ec2]]></category>
+		<category><![CDATA[google engine]]></category>
+		<category><![CDATA[handlers]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[modules]]></category>
+		<category><![CDATA[open source]]></category>
+		<category><![CDATA[playbook]]></category>
+		<category><![CDATA[puppet]]></category>
+		<category><![CDATA[ruby]]></category>
+		<category><![CDATA[salstack]]></category>
+		<category><![CDATA[ssh]]></category>
+		<category><![CDATA[tasks]]></category>
+		<category><![CDATA[yaml]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=920</guid>
+
+					<description><![CDATA[Ansible e’ un tool di Configuration Management ed IT Automation che sta riscuotendo un notevole successo tra gli addetti ai lavori in virtu’ della sua immediatezza, della sua semplicita’ di utilizzo e del superamento delle limitazioni della tipica configurazione basata su &#8220;server &#38; agent&#8221;. Che cos’e’ Ansible Ansible quindi e’ un tool di Configuration Management ed &#8230; <a href="https://tuttiperlinux.blog/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_921" style="width: 310px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-921" data-attachment-id="921" data-permalink="https://tuttiperlinux.blog/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/ansible_diagram/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg" data-orig-size="788,436" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="ANSIBLE_DIAGRAM" data-image-description="&lt;p&gt;Ansible e l’automazione IT&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Ansible e l’automazione IT&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=600" class="size-medium wp-image-921" src="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=300&#038;h=166" alt="Ansible e l’automazione IT" width="300" height="166" srcset="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=300&amp;h=166 300w, https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=600&amp;h=332 600w, https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=150&amp;h=83 150w" sizes="(max-width: 300px) 100vw, 300px" /><p id="caption-attachment-921" class="wp-caption-text">Ansible e l’automazione IT</p></div>
+<p><strong>Ansible</strong> e’ un tool di <strong>Configuration Management</strong> ed <strong>IT Automation</strong> che sta riscuotendo un notevole successo tra gli addetti ai lavori in virtu’ della sua immediatezza, della sua semplicita’ di utilizzo e del superamento delle limitazioni della tipica configurazione basata su &#8220;server &amp; agent&#8221;.</p>
+<h4><strong>Che cos’e’ Ansible</strong></h4>
+<p><a href="http://www.ansible.com/home">Ansible</a> quindi e’ un tool di Configuration Management ed IT Automation che rientra nella sfera degli strumenti tipici del metodo <a href="https://it.wikipedia.org/wiki/Devops"><strong>DevOps</strong></a>.</p>
+<p>DevOps e&#8217; un movimento nato per abbattere il muro di gomma che nel corso degli anni si e’ innalzato tra Developer e Sysadmin. Per usare un’analogia, DevOps e’ una cultura che ha lo scopo di creare una pipeline (in pratica un ponte di comunicazione) tra sviluppatori ed amministratori di sistema.</p>
+<p><strong>L’obiettivo</strong> e’ uno solo: aumentare costantemente la soddisfazione del cliente producendo ed erogando software allo stato dell’arte con continue release correttive.</p>
+<p>Per raggiungere un obiettivo cosi’ ambizioso e’ importante poter contare non solo sulle persone ma anche sugli strumenti. Cosi’ sono nati tool agili ed intuitivi che hanno lo scopo di automatizzare lo sviluppo, il testing e la configurazione di server ed applicazioni. Questa famiglia di tool per il Configuration Management comprende gia diversi nomi blasonati come ad esempio <strong>Puppet</strong>, <strong>Chef</strong>, <strong>Saltstack</strong> e <strong>CFEngine</strong>.</p>
+<h4>Configuration Management in breve</h4>
+<p>Il Configuration Management e’ un processo utilizzato per definire la configurazione delle applicazioni web e dei server in modo consistente, possibilmente sotto controllo di versione. Con il Configuration Management e’ possibile definire a priori come dovra’ essere configurato il server X o l’applicazione Y. Il tutto in linguaggio sorgente o sotto forma di meta-linguaggio.</p>
+<p>I tool di <strong>Configuration Management</strong> leggono le configurazioni a partire da un file sorgente ed applicano le stesse su uno o piu’ server, in modo <strong>automatico</strong> e prevedibile.</p>
+<p>Esempio:</p>
+<pre>inizio configurazione
+1 assicurati che apache2 sia installato
+2 assicurati che php5 sia installato
+3 assicurati che mysql sia installato
+fine configurazione</pre>
+<p>Un tool di Configuration Management puo’ leggere queste istruzioni ed applicarle su uno o piu’ server. In questo modo l’operatore puo’ replicare la stessa configurazione su decine di server oppure ricostruire la stessa in pochi secondi quando uno o piu’ server vengono messi fuori uso.</p>
+<h4>Ansible, un po’ di storia</h4>
+<p>Lanciato nel 2012, <strong>Ansible </strong> nasce da un’idea di <a title="Michael De Haan Ansible" href="http://www.linkedin.com/in/michaeldehaan" target="_blank">Michael de Haan</a>, creatore tra l’altro di <a title="Cobbler" href="http://www.cobblerd.org/" target="_blank">Cobbler</a>. De Haan un bel giorno sente la necessita’ di scrivere un software che potesse <span style="color:#000000;"><a style="color:#000000;" title="The origins of Ansible" href="http://blog.ansibleworks.com/2013/12/08/the-origins-of-ansible/" target="_blank">semplificare all’ennesima potenza</a></span> le attivita’ di Configuration Management ed Automazione IT.</p>
+<p>Fino a quel momento il panorama del Configuration Management era dominato da <strong>Puppet</strong> e <strong>Chef</strong> (che comunque mantengono e sicuramente manterranno  anche in futuro quote di mercato molto vaste). Ma seppure ottimi, sia Puppet che Chef hanno alcuni punti deboli, che fanno storcere il naso ai Sysadmin piu’ esigenti:</p>
+<p>* Puppet e Chef funzionano principalmente in modalita’ server – agent</p>
+<p>* Chef richiede anche la conoscenza del linguaggio Ruby</p>
+<p>Anche se non si tratta di limitazioni insormontabili ci sono comunque alcuni svantaggi in questo tipo di approccio.</p>
+<p>Prima di tutto non sempre e’ possibile installare un agent sul server di destinazione, poiche&#8217; un agent e’ comunque un piccolo software che rimane in esecuzione permanente su uno o piu’ server ed ha lo scopo di attendere comandi e configurazioni impartite dal server master.</p>
+<p>Sia Chef che Puppet utilizzano questo approccio che spesso non e’ possibile mettere in pratica.</p>
+<p>Pensiamo ad esempio ad ambienti server che per ragioni di conformita’ o sicurezza non possono ospitare agenti o software estranei oppure a quei server con un discreto numero di anni sulle spalle, dove l’installazione di una versione aggiornata di Ruby (richiesta, ad esempio, da Puppet) potrebbe causare effetti imprevedibili.</p>
+<h4>I vantaggi di Ansible</h4>
+<p>Perche’ dunque adottare Ansibile ?<br />
+Se sei un Sysadmin o un Developer potrai trarre sicuramente grande beneficio dall’uso di questo tool: con Ansible non e’ mai stato cosi’ semplice definire lo stato di un server e delle tue applicazioni web.<br />
+Con Ansible quindi il risparmio di tempo e di codice e’ notevole rispetto a Puppet o Chef.</p>
+<h4>Curva di apprendimento bassa</h4>
+<p>Dalla lettura della documentazione alla scrittura dei primi Playbooks il passo sara&#8217; breve, ed in pochi minuti vi sara&#8217; possibile iniziare a lavorare con Ansible senza dover penare con configurazioni di server Master e agenti vari.</p>
+<h4>Non sono richieste capacita’ di coding</h4>
+<p>Puppet e Chef nascono entrambi da un team di sviluppatori follemente innamorati di Ruby. Per la definizione dello stato dei server e delle configurazioni Puppet adotta un linguaggio simile al codice Ruby mentre per definire lo stato di un server con Chef e’ addirittura essenziale conoscere il linguaggio, invece <strong>Ansible supera</strong> completamente questa limitazione.</p>
+<p>In Ansible ad esempio e’ possibile definire che il server X dovra’ contenere Apache con due righe:<br />
+es:</p>
+<pre>Install Httpd
+yum: name=httpd state=latest</pre>
+<p>Come si puo&#8217; notare, a differenza di Puppet, Chef e Saltstack, Ansible non ha bisogno di nessun agente per applicare le configurazioni su un server. Ansible utilizza di default il trasporto <strong>SSH</strong>: questo elimina la necessita’ di installare software estraneo sui nodi.</p>
+<h4>Modulare e Open Source</h4>
+<p>Ansible e’ composto da numerosi moduli. Per analogia i <a href="http://docs.ansible.com/modules.html" target="_blank">moduli di Ansible </a>hanno la stessa funzione delle risorse in Puppet. Ogni modulo svolge delle funzioni ben precise e gestisce un singolo aspetto di ogni sistema. Questa architettura consente di espandere Ansible praticamente all’infinito, senza contare che i moduli possono essere scritti in qualsiasi linguaggio di programmazione. Inoltre Ansible e’ Open Source e la comunita’ continua a crescere rapidamente.</p>
+<h4>Ansible, i concetti chiave</h4>
+<p>Prima di terminare con questa introduzione su Ansible vediamo quali sono i concetti chiave ed i componenti che ruotano attorno a questo software.</p>
+<h4>Ansible: l’inventario</h4>
+<p>L’inventario e’ una lista di server sui quali Ansible applica, a comando, le configurazioni di sistema e le istruzioni di automazione. L’inventario di solito e’ contenuto all’interno del file <strong>/etc/ansible/hosts</strong> anche se e’ possibile specificare una posizione a piacere.</p>
+<p>All’interno dell’inventario l’operatore puo’ specificare la lista dei server “bersaglio”. E&#8217; chiaramente obbligatorio che ogni server abbia una corrispondenza DNS anche se e’ possibile specificare ogni server con il proprio indirizzo IP . Un esempio di inventario:</p>
+<pre>[webservers]
+webserver1.example.com
+webserver2.example.com
+
+[dbservers]
+dbserver1.example.com
+dbserver2.example.com</pre>
+<h4>Ansible ed i Tasks</h4>
+<p>In Ansible i Tasks sono dei “compiti” ovvero una serie di istruzioni che Ansible esegue in ordine di apparizione. Ogni istruzione contiene la definizione e/o la configurazione che dovra’ essere applicata ad ogni sistema.</p>
+<h4>Ansible e gli Handlers</h4>
+<p>Gli Handlers in Ansible sono delle istruzioni che vengono eseguite a seguito di una determinata azione. Ad esempio dopo aver installato httpd un operatore puo’ voler avviare Apache automaticamente. Un esempio di Handler che avvia Apache su CentOS:</p>
+<pre>name: start httpd
+service  : name=httpd state=started enabled=yes</pre>
+<p>Gli Handlers si basano sul modulo <a title="Ansible Service Module" href="http://docs.ansible.com/service_module.html" target="_blank">service</a> di Ansible (questo modulo viene utilizzato per gestire i servizi di sistema).</p>
+<h4>Ansible ed i Playbook</h4>
+<p>In Ansible i <strong>Playbook</strong> sono delle collezioni di Tasks. Ogni Playbook puo’ contenere un determinato numero di <strong>Tasks</strong> e di <strong>Handlers</strong>. I Playbook devono essere definiti in linguaggio <strong>YAML</strong>.</p>
+<p><strong><br />
+Ansible ed i Moduli</strong></p>
+<p>Ansible e’ composto da numerosi moduli. Esistono moduli per gestire i servizi di Cloud Computing (EC2 su AWS), Rackspace e Google Compute Engine, esistono moduli per installare pacchetti software su server Linux con apt e yum, moduli per gestire file di configurazione e database e molto altro ancora.</p>
+<p>Per una lista completa dei moduli puoi consultare la documentazione ufficiale: <a title="Ansible Modules" href="http://docs.ansible.com/modules.html" target="_blank">Ansible Modules</a>.</p>
+<p>#AnsibleConfigurationManagement</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/01/13/ansible-per-lautomazione-it-ed-il-configuration-management/feed/</wfw:commentRss>
+			<slash:comments>7</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/01/ansible_diagram.jpg?w=300" medium="image">
+			<media:title type="html">Ansible e l’automazione IT</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

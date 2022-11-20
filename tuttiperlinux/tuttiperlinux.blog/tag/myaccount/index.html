@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html id="ie8" lang="it-IT">
+<![endif]-->
+<!--[if IE 9]>
+<html id="ie9" lang="it-IT">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="it-IT">
+<!--<![endif]-->
+
+<!-- Mirrored from tuttiperlinux.blog/tag/myaccount/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Nov 2022 17:52:15 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>myaccount | Tutti per Linux</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="../../xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/splendio/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.parentNode.removeChild( dom_node ); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[ i ].parentNode.removeChild( dom_nodes[ i ] );
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com/" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '../../remote-login4f98.html?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+					+ '//' + window.location.hostname
+					+ '&postid=1291'
+					+ '&is_singular=';
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&amp;origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly90dXR0aXBlcmxpbnV4LmJsb2c%3D"
+		+ "&wpcomid=70283720"
+		+ "&time=1668783495";
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='http://s2.wp.com/' />
+<link rel='dns-prefetch' href='http://s1.wp.com/' />
+<link rel='dns-prefetch' href='http://tuttiperlinux.wordpress.com/' />
+<link rel='dns-prefetch' href='http://s0.wp.com/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; Feed dei commenti" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; myaccount Feed del tag" href="feed/index.html" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1652185836h&ver=6.1.1-alpha-54812"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??-eJyNktFuwyAMRX9ogNJ0UV+mfQsBi7kzBGFoyt+PpmuVdWu7F8S1OebaoOYozBQyhKx8EZGKw8Bqjmbygj0S1BslDfOLWmEXxpUmR0iuZRKoQ7eVr3KjxoJk1UiT+RSEY9KpKs6V4FoIg6FigdWelQeLGgj8YmglIukKSRA4bar0GJ7jLbfWP6D75henrRjkqE+WdZ1KFi6hvbH97xJJZwyOn+Bm+sY2stvJTjD6SCASHGSvLHK+nhB3xtcCypBmRiPyR+uZ/2x59cynh2pxH/XvaT3AZrQO8vnC815kOD5Gli80jjEBs2irx+IvLhv37t+6YdgN/a7vt/svVZj3/g==?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+.wp-block-cover__image-background.has-parallax {
+	background-size: cover;
+}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;}body .is-layout-flow > .alignright{float: right;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;}body .is-layout-constrained > .alignright{float: right;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+</style>
+<link rel='stylesheet' id='droid-sans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3Aregular%2Cbold&amp;ver=20120821' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-4-1' href='https://s1.wp.com/_static/??-eJyFjtsKwjAQRH/IuFS00AfxW9p0jamb7NLdUPx74+WhoOjbGZg5DCziPGfDbGAXTKggZQAVwjxGBrUb4darbuBPM2b/artFPKePTSpOqISYFSY06f31nUFmHou3yBlSJarmJY4BTcFYnLBW+n5kJQ3Ijtj3T886uDP1cf41nXEgDhUD1NYqPkandGzaQ7vfdV3bTHcmJXJU?cssminify=yes' type='text/css' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='print-css-5-1' href='../../../s2.wp.com/wp-content/mu-plugins/global-print/global-printa1cf.css?m=1465851035h&amp;cssminify=yes' type='text/css' media='print' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-8-1' href='../../../s0.wp.com/wp-content/themes/h4/global21a2.css?m=1420737423h&amp;cssminify=yes' type='text/css' media='all' />
+<script id='wpcom-actionbar-placeholder-js-extra'>
+var actionbardata = {"siteID":"70283720","siteURL":"https:\/\/tuttiperlinux.blog","xhrURL":"https:\/\/tuttiperlinux.blog\/wp-admin\/admin-ajax.php","nonce":"132c2e5565","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https:\/\/s0.wp.com\/wp-content\/js\/wpcom-proxy-request.js?ver=20211021","i18n":{"followedText":"I nuovi articoli da questo sito saranno ora visibili nel tuo <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Riduci la barra","unfoldBar":"Espandi questa barra"}};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='https://s2.wp.com/_static/??-eJyFjUsOwjAMRC9EGkpFdoiz9OMWR4kdYkeltyeVqAQrViPNvKexazIjkwKp9WIjDxjAFIHcL7UzSDM3Xk72l8tBTcr82o4NaQxlAtlH/yyQt080EekvZCIuuVf4ho83fUCsSiqDlRSAJuTdnwuNikxS+Xu8tc657nrpzq1/A84tTcc='></script>
+<script type='text/javascript'>
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tuttiperlinux.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress.com" />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="myaccount &#8211; Tutti per Linux" />
+<meta property="og:url" content="https://tuttiperlinux.blog/tag/myaccount/" />
+<meta property="og:site_name" content="Tutti per Linux" />
+<meta property="og:image" content="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=200&#038;ts=1668783495" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="it_IT" />
+<meta name="twitter:creator" content="@tuttiperlinux1" />
+<meta name="twitter:site" content="@tuttiperlinux1" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=32" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=32" sizes="16x16" />
+<link rel="apple-touch-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=114" />
+<link rel='openid.server' href='../../indexdd8f.html?openidserver=1' />
+<link rel='openid.delegate' href='../../index.html' />
+<link rel="search" type="application/opensearchdescription+xml" href="../../osd.xml" title="Tutti per Linux" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Tutti per Linux" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale" /><meta name="msapplication-task" content="name=Iscriviti;action-uri=https://tuttiperlinux.blog/feed/;icon-uri=https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=16" /><meta name="msapplication-task" content="name=Iscriviti per un blog gratis;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Supporto WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Forums WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="description" content="Post su myaccount scritto da Tutti per Linux" />
+<style type="text/css" id="custom-colors-css">	body.custom-background.custom-colors {
+		background-color: #e9e9dc;
+	}
+	.site-navigation li:hover > a,
+	.site-navigation ul ul :hover > a {
+		text-shadow: none;
+	}
+.site-navigation li:hover > a, .site-navigation ul ul :hover > a { color: #333333;}
+.feature-slider a:hover, .feature-slider a.active { color: #4C4C4C;}
+.entry-title a, .entry-title a:visited { color: #557A00;}
+.widget a { color: #4A6B00;}
+a:hover, a:focus, a:active { color: #557A00;}
+#entry-author-info a:hover,#entry-author-info a:focus,#entry-author-info a:active { color: #456600;}
+a { color: #8E6600;}
+a:visited { color: #8E6600;}
+#branding hgroup .site-title a:hover { color: #8E6600;}
+.entry-title a:hover { color: #8E6600;}
+.single .entry-title a:hover { color: #8E6600;}
+.featured-posts .entry-title a { color: #8E6600;}
+.feature-slider a:hover,.feature-slider a.active { background-color: #FABE28;}
+.widget a:hover { color: #845F00;}
+.site-navigation li:hover > a, .site-navigation ul ul :hover > a { background-color: #B78504;}
+#entry-author-info a { color: #7A5700;}
+</style>
+</head>
+
+<body class="archive tag tag-myaccount tag-17147668 customizer-styles-applied highlander-enabled highlander-light">
+	<div id="wrapper" class="hfeed">
+				<div id="header">
+			<div id="branding">
+				<header id="masthead" role="banner">
+					<hgroup>
+						<h1 class="site-title"><a href="../../index.html" title="Tutti per Linux" rel="home">Tutti per Linux</a></h1>
+						<h2 class="site-description">Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</h2>
+					</hgroup>
+
+					<nav role="navigation" class="site-navigation">
+						<h1 class="assistive-text">Menu principale</h1>
+						<div class="assistive-text skip-link"><a href="#content" title="Vai al contenuto">Vai al contenuto</a></div>
+
+						<div class="menu-header"><ul id="menu-menu-1" class="menu"><li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="https://tuttiperlinux.wordpress.com/">Home</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-48"><a href="../../category/backup-disaster-recovery/index.html">Backup &amp; Disaster Recovery</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-51"><a href="../../category/networking/index.html">Networking</a>
+<ul class="sub-menu">
+	<li id="menu-item-52" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52"><a href="../../category/networking/proxy/index.html">Proxy</a></li>
+	<li id="menu-item-50" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50"><a href="../../category/networking/load-balancing/index.html">Load Balancing</a></li>
+	<li id="menu-item-142" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-142"><a href="../../category/networking/streaming-networking/index.html">Streaming</a></li>
+</ul>
+</li>
+<li id="menu-item-54" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-54"><a href="../../category/sysadmin/index.html">SysAdmin</a>
+<ul class="sub-menu">
+	<li id="menu-item-63" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-63"><a href="../../category/sysadmin/sicurezza/index.html">Sicurezza</a></li>
+	<li id="menu-item-151" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-151"><a href="../../category/sysadmin/tips-tricks/index.html">Tips &amp; Tricks</a></li>
+	<li id="menu-item-530" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-530"><a href="../../category/sysadmin/scripting/index.html">Scripting</a></li>
+</ul>
+</li>
+<li id="menu-item-55" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-55"><a href="../../category/virtualizzazione/index.html">Virtualizzazione</a></li>
+<li id="menu-item-509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-509"><a href="../../category/db/index.html">DB</a></li>
+<li id="menu-item-57" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-57"><a href="../../category/webserver/index.html">WebServer</a>
+<ul class="sub-menu">
+	<li id="menu-item-49" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="../../category/webserver/cms/index.html">CMS</a></li>
+	<li id="menu-item-261" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-261"><a href="../../category/webserver/cloud-webserver/index.html">Cloud</a></li>
+	<li id="menu-item-190" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="../../category/webserver/systemlog/index.html">SystemLog</a></li>
+</ul>
+</li>
+<li id="menu-item-60" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-60"><a href="../../category/devices/index.html">Devices</a>
+<ul class="sub-menu">
+	<li id="menu-item-1245" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1245"><a href="../../category/devices/android/index.html">Android</a></li>
+	<li id="menu-item-61" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-61"><a href="../../category/devices/arduino/index.html">Arduino</a></li>
+	<li id="menu-item-62" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-62"><a href="../../category/devices/raspberry-pi/index.html">Raspberry PI</a></li>
+	<li id="menu-item-138" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-138"><a href="../../category/devices/varie-devices/index.html">Varie</a></li>
+</ul>
+</li>
+<li id="menu-item-1613" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1613"><a href="../../category/blockchain/index.html">Blockchain</a>
+<ul class="sub-menu">
+	<li id="menu-item-1614" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1614"><a href="../../category/blockchain/dapp-defi/index.html">Dapp DeFi</a></li>
+	<li id="menu-item-1615" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1615"><a href="../../category/blockchain/mining/index.html">Mining</a></li>
+</ul>
+</li>
+<li id="menu-item-296" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-296"><a href="../../category/eventi/index.html">Eventi</a></li>
+<li id="menu-item-311" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-311"><a href="../../category/news/index.html">News</a></li>
+<li id="menu-item-394" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-394"><a href="../../category/opinioni/index.html">Opinioni</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="../../about/index.html">About ME</a></li>
+<li id="menu-item-896" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-896"><a href="../../contatto/index.html">Contatto</a></li>
+</ul></div>					</nav>
+				</header>
+			</div><!-- #branding -->
+
+			<div id="header-auxiliary">
+				<div class="header-search">
+					<form method="get" action="#">
+						<fieldset>
+							<p class="search-title">Cerca</p>
+							<input type="text" value="" name="s" /><button type="submit">Vai</button>
+						 </fieldset>
+					 </form>
+				 </div><!-- .header-search -->
+
+									 <div class="syndicate">
+						  <ul class="fade">
+															<li><a class="rss-link" href="../../feed/index.html" title="RSS"><span>Feed RSS</span></a></li>
+							
+															<li><a class="twitter-link" href="https://twitter.com/tuttiperlinux1" title="Twitter "><span>Twitter </span></a></li>
+							
+															<li><a class="facebook-link" href="https://www.facebook.com/profile.php?id=100004677258234&amp;fref=ts" title="Facebook"><span>Facebook</span></a></li>
+													</ul>
+					 </div><!-- .syndicate -->
+							</div><!-- #header-auxiliary -->
+
+			<div id="header-image" role="banner">
+								<a href="../../index.html">
+											<img src="../../../tuttiperlinux.files.wordpress.com/2014/10/cropped-pcsmallerpiccolo.jpg" width="980" height="215" alt="" />
+									</a>
+							</div><!-- #header-image -->
+		</div><!-- #header -->
+
+		<div id="container">
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">
+						Archivi tag: <span>myaccount</span>					</h1>
+									</header>
+
+				
+								
+					
+<article id="post-1291" class="post-1291 post type-post status-publish format-standard hentry category-news category-tips-tricks tag-geo-localizzazione tag-google-maps tag-google-myactivity tag-history-google tag-linux-blog-in-italiano tag-myaccount tag-youtube">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2016/10/05/come-vedere-tutto-quello-che-hai-cercato-su-google/index.html" title="9:33 PM" rel="bookmark"><time class="entry-date" datetime="2016-10-05T21:33:41+00:00" pubdate>ottobre 5, 2016</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2016/10/05/come-vedere-tutto-quello-che-hai-cercato-su-google/index.html" rel="bookmark">Come vedere tutto quello che hai cercato su&nbsp;Google</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<div data-shortcode="caption" id="attachment_1292" style="width: 610px" class="wp-caption alignnone"><img loading="lazy" aria-describedby="caption-attachment-1292" data-attachment-id="1292" data-permalink="https://tuttiperlinux.blog/2016/10/05/come-vedere-tutto-quello-che-hai-cercato-su-google/myactivity/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg" data-orig-size="634,322" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Google My Activity" data-image-description="" data-image-caption="&lt;p&gt;Google My Activity&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg?w=600" class="wp-image-1292 size-large" src="../../../tuttiperlinux.files.wordpress.com/2016/10/myactivity4fe5.jpg?w=600&amp;h=305" alt="Google My Activity" width="600" height="305" srcset="https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg?w=600&amp;h=305 600w, https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg?w=150&amp;h=76 150w, https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg?w=300&amp;h=152 300w, https://tuttiperlinux.files.wordpress.com/2016/10/myactivity.jpg 634w" sizes="(max-width: 600px) 100vw, 600px" /><p id="caption-attachment-1292" class="wp-caption-text">Welcome to Google My Activity</p></div>
+<p>Noi magari no ma Google ha una memoria davvero di ferro, infatti si ricorda tutto, ma proprio tutto quello che avete mai cercato mentre stavate usando il vostro account Google. Infatti, ogni ricerca fatta su Google lascia una traccia, così come rimane memoria dei luoghi che cerchiamo su Maps o dei video che guardiamo su YouTube.</p>
+<p>Da qualche tempo però è possibile visualizzare e (volendo) cancellare tutte le attività svolte sul motore di ricerca e sui siti di sua proprietà (come ad esempio YouTube) attraverso My Activity, un portale costruito come la timeline di un social network in cui ritrovare tutto quello che è stato fatto attraverso il proprio account.</p>
+<p>L&#8217;idea nasce per dare agli utenti la possibilità di conoscere quali dati vengono memorizzati da Big G e di poter gestire autonomamente la privacy della propria vita virtuale.</p>
+<p>Pero&#8217; la cosa potrebbe risultare imbarazzante se qualcuno vi rubasse l&#8217;account o se lasciaste incustodito il vostro computer o altro dispositivo digitale su cui usate il vostro account Google. L&#8217;imbarazzo potrebbe capitare a tutti, sia perché a Google oramai chiediamo qualunque cosa, senza pudori, sia perché una ricerca innocente potrebbe comunque causare equivoci.</p>
+<p>Per consultare la vostra cronologia delle ricerche (che non è pubblica ma è accessibile solo a chi sa la password del vostro account Google) potete arrivarci collegandovi a <strong>history.google.com/history</strong>, che vi dirottera&#8217; a <strong>myactivity.google.com/myactivity</strong>. Qui scoprirete un&#8217; universo di dettagli cronologici non solo sulle vostre ricerche, ma anche sulle vostre attività su computer e telefonini associati al vostro account Google, comprese le app che avete usato e gli orari nei quali le avete usate.<br />
+Se avete usato un dispositivo mobile provvisto di geo-localizzazione abilitata, ci sara&#8217; anche l&#8217;indicazione di dove eravate quando avete fatto la ricerca. Potete anche esplorare la cronologia usando un filtro per data, scegliendo per esempio, e poi selezionando, una data massima e una minima.</p>
+<p>Se avete un account Google da molti anni, andare a sfogliare le informazioni risalenti a molto tempo fa richiedera&#8217; un bel po&#8217; di clic sul calendario del filtro, oppure per selezionare una data specifica si può usare l&#8217;URL seguente:</p>
+<p><strong><a href="https://myactivity.google.com/myactivity?utm_campaign=continue&amp;authuser=0&amp;max=numero" rel="nofollow">https://myactivity.google.com/myactivity?utm_campaign=continue&#038;authuser=0&#038;max=numero</a></strong></p>
+<p>dove numero è una sequenza di 16 cifre di cui sembrano essere significative solo le prime cinque; qualunque valore immesso nelle cifre successive non cambia la data.</p>
+<p><strong>Cosa colleziona Google su di noi?</strong><br />
+Tre tipologie principali di dati. La prima riguarda le nostre attività: ricerche, siti web visitati, video guardati, annunci pubblicitari visualizzati, posizione su GoogleMaps e dati relativi a cookie e indirizzo Ip. Le seconde sono definite da Google &#8220;creazioni&#8221;, ovvero ciò che realizziamo utilizzando i suoi servizi: email inviate, contatti aggiunti, foto e video caricati, documenti e presentazioni ecc. E, in ultimo, gli &#8220;elementi personali&#8221; come nome, indirizzo email e password, data di nascita e le altre caratteristiche personali che ci contraddistinguono. Tra queste My Activity si focalizza principalmente sulla prima. E se è vero che basta impostare la navigazione anonima da browser per evitare che le aziende registrino le nostre &#8220;impronte digitali&#8221;, è altrettanto vero che impostando il profilo Google correttamente è possibile accedere da qualunque Pc o app senza più preoccupazioni.</p>
+<p>Se volete eliminare l&#8217;intera cronologia, usate questo link: myactivity.google.com/delete-activity. Alla voce Elimina per data, scegliete Sempre e poi cliccate su Elimina: avrete un&#8217;ultima occasione per decidere se procedere con l&#8217;eliminazione o annullarla. Se cliccate di nuovo su Elimina, la cancellazione della vostra cronologia sarà definitiva e irrevocabile.</p>
+<p>Per scaricare una copia completa della vostra cronologia di ricerca (magari prima di eliminarla dalla memoria di Google), potete andare a myactivity.google.com/more-activity e cliccare su Crea archivio nella sezione Scarica le ricerche precedenti: riceverete una mail che vi avviserà quando la cronologia sarà pronta da scaricare.</p>
+<p>Per impedire che Google accumuli di nuovo queste informazioni sulle vostre attività, potete andare a myaccount.google.com/activitycontrols e disattivare Attività web e app.</p>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../index29ec.html?taxonomy=nav_menu&amp;term=news" rel="category tag">News</a>, <a href="../../category/sysadmin/tips-tricks/index.html" rel="category tag">Tips &amp; Tricks</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../geo-localizzazione/index.html" rel="tag">geo localizzazione</a>, <a href="../google-maps/index.html" rel="tag">google maps</a>, <a href="../google-myactivity/index.html" rel="tag">google myactivity</a>, <a href="../history-google/index.html" rel="tag">history google</a>, <a href="../linux-blog-in-italiano/index.html" rel="tag">linux blog in italiano</a>, <a href="index.html" rel="tag">myaccount</a>, <a href="../youtube/index.html" rel="tag">youtube</a></li>
+		
+				<li class="comments-link"><a href="../../2016/10/05/come-vedere-tutto-quello-che-hai-cercato-su-google/index.html#respond">Lascia un commento</a></li>
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-1291 -->
+				
+					<nav id="nav-below" class="site-navigation paging-navigation">
+		<h1 class="assistive-text">Navigazione articolo</h1>
+
+	
+	</nav><!-- #nav-below -->
+	
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+						<aside id="text-4" class="widget widget_text"><h1 class="widget-title">Consulenza per la Progettazione di Architetture in ambiente LINUX</h1>			<div class="textwidget"><p><img class="alignleft size-thumbnail wp-image-119" src="../../../tuttiperlinux.files.wordpress.com/2018/12/IO27658.jpg?w=150" alt="Lorenzo Disilvestro Senior Linux System Integrator &amp; Architect" width="150" height="150" /><br />
+EFFETTUO :<br />
+- Progettazione di Infrastrutture in ambienti Linux ad alta affidabilità sia virtuali che fisici.<br />
+- Analisi dell'infrastruttura ed ottimizzazione dei punti critici e delle vulnerabilità.<br />
+- Analisi dei processi di backup e disaster recovery e loro eventuale implemetazione.</p>
+<p>Profilo Linkedin :<br />
+https://www.linkedin.com/in/lorenzodisilvestro/</p>
+</div>
+		</aside><aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Articoli piu&#8217; letti</h1><ul class='widgets-list-layout no-grav'>
+<li><a href="../../2014/09/27/ottimizzare-la-connessione-a-internet/index.html" title="Ottimizzare la connessione a Internet " class="bump-view" data-bump-view="tp"><img width="40" height="40" src="../../../tuttiperlinux.files.wordpress.com/2014/09/wondershaper632f.jpg?w=300&amp;resize=40%2C40" alt="Ottimizzare la connessione a Internet " data-pin-nopin="true" class="widgets-list-layout-blavatar" /></a><div class="widgets-list-layout-links">
+								<a href="../../2014/09/27/ottimizzare-la-connessione-a-internet/index.html" title="Ottimizzare la connessione a Internet " class="bump-view" data-bump-view="tp">Ottimizzare la connessione a Internet </a>
+							</div>
+							</li><li><a href="../../2014/08/05/montare-una-cartella-ftp/index.html" title="Montare una cartella FTP" class="bump-view" data-bump-view="tp"><img width="40" height="40" src="../../../tuttiperlinux.files.wordpress.com/2014/08/curlftpfscb45.jpg?resize=40%2C40" alt="Montare una cartella FTP" data-pin-nopin="true" class="widgets-list-layout-blavatar" /></a><div class="widgets-list-layout-links">
+								<a href="../../2014/08/05/montare-una-cartella-ftp/index.html" title="Montare una cartella FTP" class="bump-view" data-bump-view="tp">Montare una cartella FTP</a>
+							</div>
+							</li></ul>
+</aside><aside id="categories-7" class="widget widget_categories"><h1 class="widget-title">Cerca per categoria</h1><form action="https://tuttiperlinux.blog/" method="get"><label class="screen-reader-text" for="cat">Cerca per categoria</label><select  name='cat' id='cat' class='postform'>
+	<option value='-1'>Seleziona una categoria</option>
+	<option class="level-0" value="641922">Android</option>
+	<option class="level-0" value="17868400">Backup &amp; Disaster Recovery</option>
+	<option class="level-0" value="64575263">Blockchain</option>
+	<option class="level-0" value="255916294">Cloud</option>
+	<option class="level-0" value="646">CMS</option>
+	<option class="level-0" value="700871191">Dapp DeFi</option>
+	<option class="level-0" value="4667">DB</option>
+	<option class="level-0" value="71599">Devices</option>
+	<option class="level-0" value="3448">Eventi</option>
+	<option class="level-0" value="310703">Load Balancing</option>
+	<option class="level-0" value="54069">Mining</option>
+	<option class="level-0" value="7426">Networking</option>
+	<option class="level-0" value="103">News</option>
+	<option class="level-0" value="6621">Opinioni</option>
+	<option class="level-0" value="9628">Proxy</option>
+	<option class="level-0" value="49695267">Raspberry PI</option>
+	<option class="level-0" value="2929">Scripting</option>
+	<option class="level-0" value="14115">Sicurezza</option>
+	<option class="level-0" value="247107959">Streaming</option>
+	<option class="level-0" value="13505">SysAdmin</option>
+	<option class="level-0" value="3301">Tips &amp; Tricks</option>
+	<option class="level-0" value="1">Uncategorized</option>
+	<option class="level-0" value="247073814">Varie</option>
+	<option class="level-0" value="694405">Virtualizzazione</option>
+	<option class="level-0" value="28027">WebServer</option>
+</select>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+			</aside><aside id="archives-10" class="widget widget_archive"><h1 class="widget-title">Archivio</h1>		<label class="screen-reader-text" for="archives-dropdown-10">Archivio</label>
+		<select id="archives-dropdown-10" name="archive-dropdown">
+			
+			<option value="">Seleziona mese</option>
+				<option value='https://tuttiperlinux.blog/2022/11/'> novembre 2022 </option>
+	<option value='https://tuttiperlinux.blog/2022/10/'> ottobre 2022 </option>
+	<option value='https://tuttiperlinux.blog/2021/08/'> agosto 2021 </option>
+	<option value='https://tuttiperlinux.blog/2021/01/'> gennaio 2021 </option>
+	<option value='https://tuttiperlinux.blog/2020/11/'> novembre 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/07/'> luglio 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/06/'> giugno 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/05/'> Maggio 2020 </option>
+	<option value='https://tuttiperlinux.blog/2019/10/'> ottobre 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/06/'> giugno 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/05/'> Maggio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/04/'> aprile 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/03/'> marzo 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/02/'> febbraio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/01/'> gennaio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2018/12/'> dicembre 2018 </option>
+	<option value='https://tuttiperlinux.blog/2017/06/'> giugno 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/05/'> Maggio 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/03/'> marzo 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/01/'> gennaio 2017 </option>
+	<option value='https://tuttiperlinux.blog/2016/10/'> ottobre 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/05/'> Maggio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/04/'> aprile 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/03/'> marzo 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/02/'> febbraio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/01/'> gennaio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2015/12/'> dicembre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/11/'> novembre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/10/'> ottobre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/08/'> agosto 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/06/'> giugno 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/05/'> Maggio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/04/'> aprile 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/03/'> marzo 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/02/'> febbraio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/01/'> gennaio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2014/12/'> dicembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/11/'> novembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/10/'> ottobre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/09/'> settembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/08/'> agosto 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/07/'> luglio 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/06/'> giugno 2014 </option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-10" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+			</aside>
+		<aside id="recent-posts-5" class="widget widget_recent_entries">
+		<h1 class="widget-title">Recenti</h1>
+		<ul>
+											<li>
+					<a href="../../2022/11/16/limportanza-ed-il-valore-del-web3/index.html">L&#8217;importanza ed il valore del&nbsp;Web3</a>
+									</li>
+											<li>
+					<a href="../../2022/10/17/bitcoin-un-anno-di-studio/index.html">Bitcoin un anno di&nbsp;studio</a>
+									</li>
+											<li>
+					<a href="../../2021/08/05/restic-il-backup-funzionale-e-cross-platform/index.html">RESTIC il backup funzionale e cross&nbsp;platform</a>
+									</li>
+											<li>
+					<a href="../../2021/01/05/filesystem-decentralizzato-ipfs/index.html">FileSystem Decentralizzato &#8211;&nbsp;IPFS</a>
+									</li>
+											<li>
+					<a href="../../2020/11/04/le-elezioni-statunitensi-e-bitcoin-in-che-modo-le-elezioni-influenzeranno-il-mercato-delle-criptovalute/index.html">Le elezioni statunitensi e Bitcoin: in che modo le elezioni influenzeranno il mercato delle&nbsp;criptovalute?</a>
+									</li>
+					</ul>
+
+		</aside><aside id="widget_contact_info-5" class="widget widget_contact_info"><h1 class="widget-title">Per info e Contatti</h1><div itemscope itemtype="http://schema.org/LocalBusiness"><iframe width="600"  height="216" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=12359+Berlin&amp;key=AIzaSyCq4vWNv6eCGe2uvhPRGWQlv80IQp8dwTE" title="Integrazione di Google Maps" class="contact-map"></iframe><div class="confit-address" itemscope itemtype="http://schema.org/PostalAddress" itemprop="address"><a href="https://maps.google.com/maps?z=16&amp;q=12359%2Bberlin" target="_blank" rel="noopener noreferrer">12359 Berlin</a></div><div class="confit-hours" itemprop="openingHours">Se vuoi contattarmi:<br/>Mattina: 10:00 - 13:00 <br/>Pomeriggio: 14:00 - 17:00 <br/>e-mail: <br/>tuttiperlinux@gmail.com</div></div></aside><aside id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Cloud</h1><a href="../amazon/index.html" class="tag-cloud-link tag-link-6602 tag-link-position-1" style="font-size: 11.5pt;" aria-label="amazon (8 elementi)">amazon</a>
+<a href="../android/index.html" class="tag-cloud-link tag-link-641922 tag-link-position-2" style="font-size: 13.74pt;" aria-label="Android (12 elementi)">Android</a>
+<a href="../apache/index.html" class="tag-cloud-link tag-link-3768 tag-link-position-3" style="font-size: 13.32pt;" aria-label="apache (11 elementi)">apache</a>
+<a href="../aws/index.html" class="tag-cloud-link tag-link-144203 tag-link-position-4" style="font-size: 10.1pt;" aria-label="aws (6 elementi)">aws</a>
+<a href="../backup/index.html" class="tag-cloud-link tag-link-5469 tag-link-position-5" style="font-size: 10.1pt;" aria-label="backup (6 elementi)">backup</a>
+<a href="../bash/index.html" class="tag-cloud-link tag-link-2674 tag-link-position-6" style="font-size: 9.12pt;" aria-label="bash (5 elementi)">bash</a>
+<a href="../berlino/index.html" class="tag-cloud-link tag-link-264284 tag-link-position-7" style="font-size: 8pt;" aria-label="berlino (4 elementi)">berlino</a>
+<a href="../cache/index.html" class="tag-cloud-link tag-link-29733 tag-link-position-8" style="font-size: 9.12pt;" aria-label="cache (5 elementi)">cache</a>
+<a href="../centos/index.html" class="tag-cloud-link tag-link-134600 tag-link-position-9" style="font-size: 9.12pt;" aria-label="centos (5 elementi)">centos</a>
+<a href="../cloud/index.html" class="tag-cloud-link tag-link-69816 tag-link-position-10" style="font-size: 16.68pt;" aria-label="cloud (20 elementi)">cloud</a>
+<a href="../cloud-computing/index.html" class="tag-cloud-link tag-link-1715866 tag-link-position-11" style="font-size: 8pt;" aria-label="cloud computing (4 elementi)">cloud computing</a>
+<a href="../cms-2/index.html" class="tag-cloud-link tag-link-35202393 tag-link-position-12" style="font-size: 11.5pt;" aria-label="cms (8 elementi)">cms</a>
+<a href="../coreos/index.html" class="tag-cloud-link tag-link-2570792 tag-link-position-13" style="font-size: 9.12pt;" aria-label="coreos (5 elementi)">coreos</a>
+<a href="../database/index.html" class="tag-cloud-link tag-link-475 tag-link-position-14" style="font-size: 12.76pt;" aria-label="database (10 elementi)">database</a>
+<a href="../ddos/index.html" class="tag-cloud-link tag-link-64500 tag-link-position-15" style="font-size: 8pt;" aria-label="ddos (4 elementi)">ddos</a>
+<a href="../debian/index.html" class="tag-cloud-link tag-link-428 tag-link-position-16" style="font-size: 15.42pt;" aria-label="debian (16 elementi)">debian</a>
+<a href="../dns/index.html" class="tag-cloud-link tag-link-17846 tag-link-position-17" style="font-size: 11.5pt;" aria-label="dns (8 elementi)">dns</a>
+<a href="../docker/index.html" class="tag-cloud-link tag-link-4504191 tag-link-position-18" style="font-size: 12.76pt;" aria-label="docker (10 elementi)">docker</a>
+<a href="../facebook/index.html" class="tag-cloud-link tag-link-81819 tag-link-position-19" style="font-size: 13.74pt;" aria-label="facebook (12 elementi)">facebook</a>
+<a href="../filesystem/index.html" class="tag-cloud-link tag-link-793571 tag-link-position-20" style="font-size: 8pt;" aria-label="filesystem (4 elementi)">filesystem</a>
+<a href="../firewall/index.html" class="tag-cloud-link tag-link-3087 tag-link-position-21" style="font-size: 14.3pt;" aria-label="firewall (13 elementi)">firewall</a>
+<a href="../framework/index.html" class="tag-cloud-link tag-link-7136 tag-link-position-22" style="font-size: 10.1pt;" aria-label="framework (6 elementi)">framework</a>
+<a href="../git/index.html" class="tag-cloud-link tag-link-209196 tag-link-position-23" style="font-size: 9.12pt;" aria-label="git (5 elementi)">git</a>
+<a href="../github/index.html" class="tag-cloud-link tag-link-5603054 tag-link-position-24" style="font-size: 10.1pt;" aria-label="github (6 elementi)">github</a>
+<a href="../gmail/index.html" class="tag-cloud-link tag-link-1110 tag-link-position-25" style="font-size: 9.12pt;" aria-label="gmail (5 elementi)">gmail</a>
+<a href="../google/index.html" class="tag-cloud-link tag-link-81 tag-link-position-26" style="font-size: 15.42pt;" aria-label="google (16 elementi)">google</a>
+<a href="../honeypot/index.html" class="tag-cloud-link tag-link-318562 tag-link-position-27" style="font-size: 8pt;" aria-label="honeypot (4 elementi)">honeypot</a>
+<a href="../html/index.html" class="tag-cloud-link tag-link-647 tag-link-position-28" style="font-size: 8pt;" aria-label="html (4 elementi)">html</a>
+<a href="../http/index.html" class="tag-cloud-link tag-link-10518 tag-link-position-29" style="font-size: 10.8pt;" aria-label="http (7 elementi)">http</a>
+<a href="../internet/index.html" class="tag-cloud-link tag-link-22 tag-link-position-30" style="font-size: 8pt;" aria-label="internet (4 elementi)">internet</a>
+<a href="../internet-of-things/index.html" class="tag-cloud-link tag-link-780658 tag-link-position-31" style="font-size: 9.12pt;" aria-label="internet of things (5 elementi)">internet of things</a>
+<a href="../iot/index.html" class="tag-cloud-link tag-link-2121118 tag-link-position-32" style="font-size: 10.1pt;" aria-label="iot (6 elementi)">iot</a>
+<a href="../iptables/index.html" class="tag-cloud-link tag-link-391491 tag-link-position-33" style="font-size: 12.2pt;" aria-label="iptables (9 elementi)">iptables</a>
+<a href="../kali-linux/index.html" class="tag-cloud-link tag-link-139664097 tag-link-position-34" style="font-size: 8pt;" aria-label="kali linux (4 elementi)">kali linux</a>
+<a href="../kernel/index.html" class="tag-cloud-link tag-link-2428 tag-link-position-35" style="font-size: 12.2pt;" aria-label="kernel (9 elementi)">kernel</a>
+<a href="../kvm/index.html" class="tag-cloud-link tag-link-75342 tag-link-position-36" style="font-size: 9.12pt;" aria-label="kvm (5 elementi)">kvm</a>
+<a href="../linux/index.html" class="tag-cloud-link tag-link-610 tag-link-position-37" style="font-size: 14.72pt;" aria-label="linux (14 elementi)">linux</a>
+<a href="../linux-blog/index.html" class="tag-cloud-link tag-link-346577 tag-link-position-38" style="font-size: 22pt;" aria-label="linux blog (49 elementi)">linux blog</a>
+<a href="../linux-blog-in-italiano/index.html" class="tag-cloud-link tag-link-313719882 tag-link-position-39" style="font-size: 21.44pt;" aria-label="linux blog in italiano (45 elementi)">linux blog in italiano</a>
+<a href="../load-balancing-2/index.html" class="tag-cloud-link tag-link-82197607 tag-link-position-40" style="font-size: 8pt;" aria-label="load balancing (4 elementi)">load balancing</a>
+<a href="../localhost/index.html" class="tag-cloud-link tag-link-78334 tag-link-position-41" style="font-size: 8pt;" aria-label="localhost (4 elementi)">localhost</a>
+<a href="../mysql/index.html" class="tag-cloud-link tag-link-4419 tag-link-position-42" style="font-size: 11.5pt;" aria-label="mysql (8 elementi)">mysql</a>
+<a href="../nosql/index.html" class="tag-cloud-link tag-link-22319505 tag-link-position-43" style="font-size: 9.12pt;" aria-label="nosql (5 elementi)">nosql</a>
+<a href="../opensource/index.html" class="tag-cloud-link tag-link-44 tag-link-position-44" style="font-size: 8pt;" aria-label="opensource (4 elementi)">opensource</a>
+<a href="../open-source/index.html" class="tag-cloud-link tag-link-25 tag-link-position-45" style="font-size: 10.8pt;" aria-label="open source (7 elementi)">open source</a>
+<a href="../openstack/index.html" class="tag-cloud-link tag-link-13108840 tag-link-position-46" style="font-size: 11.5pt;" aria-label="openstack (8 elementi)">openstack</a>
+<a href="../pdf/index.html" class="tag-cloud-link tag-link-47759 tag-link-position-47" style="font-size: 10.1pt;" aria-label="pdf (6 elementi)">pdf</a>
+<a href="../phishing/index.html" class="tag-cloud-link tag-link-21013 tag-link-position-48" style="font-size: 9.12pt;" aria-label="phishing (5 elementi)">phishing</a>
+<a href="../php/index.html" class="tag-cloud-link tag-link-458 tag-link-position-49" style="font-size: 8pt;" aria-label="php (4 elementi)">php</a>
+<a href="../privacy/index.html" class="tag-cloud-link tag-link-3279 tag-link-position-50" style="font-size: 9.12pt;" aria-label="privacy (5 elementi)">privacy</a>
+<a href="../proxy-2/index.html" class="tag-cloud-link tag-link-10932389 tag-link-position-51" style="font-size: 13.32pt;" aria-label="proxy (11 elementi)">proxy</a>
+<a href="../python/index.html" class="tag-cloud-link tag-link-832 tag-link-position-52" style="font-size: 10.8pt;" aria-label="python (7 elementi)">python</a>
+<a href="../ram/index.html" class="tag-cloud-link tag-link-59756 tag-link-position-53" style="font-size: 10.1pt;" aria-label="ram (6 elementi)">ram</a>
+<a href="../redhat/index.html" class="tag-cloud-link tag-link-72331 tag-link-position-54" style="font-size: 10.8pt;" aria-label="redhat (7 elementi)">redhat</a>
+<a href="../repository/index.html" class="tag-cloud-link tag-link-28139 tag-link-position-55" style="font-size: 8pt;" aria-label="repository (4 elementi)">repository</a>
+<a href="../ruby/index.html" class="tag-cloud-link tag-link-4872 tag-link-position-56" style="font-size: 8pt;" aria-label="ruby (4 elementi)">ruby</a>
+<a href="../sicurezza-2/index.html" class="tag-cloud-link tag-link-35491116 tag-link-position-57" style="font-size: 12.2pt;" aria-label="sicurezza (9 elementi)">sicurezza</a>
+<a href="../smartphone/index.html" class="tag-cloud-link tag-link-24435 tag-link-position-58" style="font-size: 10.1pt;" aria-label="smartphone (6 elementi)">smartphone</a>
+<a href="../sql/index.html" class="tag-cloud-link tag-link-10346 tag-link-position-59" style="font-size: 9.12pt;" aria-label="sql (5 elementi)">sql</a>
+<a href="../ssh/index.html" class="tag-cloud-link tag-link-49320 tag-link-position-60" style="font-size: 10.8pt;" aria-label="ssh (7 elementi)">ssh</a>
+<a href="../storage/index.html" class="tag-cloud-link tag-link-3386 tag-link-position-61" style="font-size: 9.12pt;" aria-label="storage (5 elementi)">storage</a>
+<a href="../tablet/index.html" class="tag-cloud-link tag-link-7939 tag-link-position-62" style="font-size: 8pt;" aria-label="tablet (4 elementi)">tablet</a>
+<a href="../tuttiperlinux/index.html" class="tag-cloud-link tag-link-666888242 tag-link-position-63" style="font-size: 9.12pt;" aria-label="tuttiperlinux (5 elementi)">tuttiperlinux</a>
+<a href="../twitter/index.html" class="tag-cloud-link tag-link-599182 tag-link-position-64" style="font-size: 9.12pt;" aria-label="twitter (5 elementi)">twitter</a>
+<a href="../ubuntu/index.html" class="tag-cloud-link tag-link-255 tag-link-position-65" style="font-size: 19.62pt;" aria-label="ubuntu (33 elementi)">ubuntu</a>
+<a href="../usb/index.html" class="tag-cloud-link tag-link-57231 tag-link-position-66" style="font-size: 8pt;" aria-label="usb (4 elementi)">usb</a>
+<a href="../video/index.html" class="tag-cloud-link tag-link-412 tag-link-position-67" style="font-size: 8pt;" aria-label="video (4 elementi)">video</a>
+<a href="../virtualizzazione-2/index.html" class="tag-cloud-link tag-link-35630667 tag-link-position-68" style="font-size: 13.74pt;" aria-label="virtualizzazione (12 elementi)">virtualizzazione</a>
+<a href="../vmware/index.html" class="tag-cloud-link tag-link-38600 tag-link-position-69" style="font-size: 8pt;" aria-label="vmware (4 elementi)">vmware</a>
+<a href="../vpn/index.html" class="tag-cloud-link tag-link-13847 tag-link-position-70" style="font-size: 9.12pt;" aria-label="vpn (5 elementi)">vpn</a>
+<a href="../webserver-2/index.html" class="tag-cloud-link tag-link-54678872 tag-link-position-71" style="font-size: 11.5pt;" aria-label="webserver (8 elementi)">webserver</a>
+<a href="../whatsapp/index.html" class="tag-cloud-link tag-link-25699058 tag-link-position-72" style="font-size: 9.12pt;" aria-label="whatsapp (5 elementi)">whatsapp</a>
+<a href="../wifi/index.html" class="tag-cloud-link tag-link-4305 tag-link-position-73" style="font-size: 10.1pt;" aria-label="wifi (6 elementi)">wifi</a>
+<a href="../windows/index.html" class="tag-cloud-link tag-link-800 tag-link-position-74" style="font-size: 8pt;" aria-label="windows (4 elementi)">windows</a>
+<a href="../youtube/index.html" class="tag-cloud-link tag-link-6567 tag-link-position-75" style="font-size: 8pt;" aria-label="youtube (4 elementi)">youtube</a></aside>		</div><!-- #secondary .widget-area -->
+		<div class="container-bottom"></div>
+	</div><!-- #container -->
+
+	<footer id="colophon" role="contentinfo">
+
+		
+		<div class="site-info">
+						<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog su WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+
+	</footer><!-- #colophon -->
+</div><!-- #wrapper -->
+
+<!--  -->
+<script type="text/javascript">
+	window._tkq = window._tkq || [];
+	if ( Math.random() < 0.01 ) {
+		window._tkq.push( [
+			'recordEvent',
+			'wpcom_wordads_noad',
+			{"theme":"pub\/splendio","blog_id":70283720,"reason_noadverts_plugin":1,"reason_upgrade":1,"reason_blog_unsafe":1}
+		] );
+	}
+</script><script src='../../../0.gravatar.com/js/gprofiles87a4.js?ver=202246z' id='grofiles-cards-js'></script>
+<script id='wpgroho-js-extra'>
+var WPGroHo = {"my_hash":""};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='../../../s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgrohodc5c.js?m=1610363240h'></script>
+
+	<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
+
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
+
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
+
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+
+		<div style="display:none">
+	</div>
+	<div id="actionbar" style="display: none;"
+			class="actnbr-pub-splendio actnbr-has-follow">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="#">
+			<svg class="gridicon gridicons-reader-follow" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"/></g></svg><span>Segui</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="#">
+			<svg class="gridicon gridicons-reader-following" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"/></g></svg><span>Siti che segui</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="../../index.html">
+				<img alt='' src='../../../secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd254381.png?s=50&amp;d=https%3A%2F%2Fs2.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' />				Tutti per Linux			</a>
+		</li>
+										<form method="post" action="https://subscribe.wordpress.com/" accept-charset="utf-8" style="display: none;">
+																						<div class="actnbr-follow-count">Segui assieme ad altri 28 follower</div>
+																					<div>
+										<input type="email" name="email" placeholder="Inserisci il tuo indirizzo e-mail" class="actnbr-email-field" aria-label="Inserisci il tuo indirizzo e-mail" />
+										</div>
+										<input type="hidden" name="action" value="subscribe" />
+										<input type="hidden" name="blog_id" value="70283720" />
+										<input type="hidden" name="source" value="index.html" />
+										<input type="hidden" name="sub-type" value="actionbar-follow" />
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="13c4b6aac8" />										<div class="actnbr-button-wrap">
+											<button type="submit" value="Registrami">
+												Registrami											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Hai già un account WordPress.com? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Ftuttiperlinux.blog%252F2016%252F10%252F05%252Fcome-vedere-tutto-quello-che-hai-cercato-su-google%252F">Accedi ora.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"/></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+									<li class="actnbr-sitename">
+			<a href="../../index.html">
+				<img alt='' src='../../../secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd254381.png?s=50&amp;d=https%3A%2F%2Fs2.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' />				Tutti per Linux			</a>
+		</li>
+								<li class="actnbr-folded-customize">
+								<a href="https://tuttiperlinux.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Ftuttiperlinux.wordpress.com%2Ftag%2Fmyaccount%2F">
+									<svg class="gridicon gridicons-customize" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z"/></g></svg>									<span>Personalizza</span>
+								</a>
+							</li>
+																<li class="actnbr-folded-follow">
+												<a class="actnbr-action actnbr-actn-follow " href="#">
+			<svg class="gridicon gridicons-reader-follow" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"/></g></svg><span>Segui</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="#">
+			<svg class="gridicon gridicons-reader-following" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"/></g></svg><span>Siti che segui</span>
+		</a>
+										</li>
+																	<li class="actnbr-signup"><a href="https://wordpress.com/start/">Registrati</a></li>
+									<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Ftuttiperlinux.blog%252F2016%252F10%252F05%252Fcome-vedere-tutto-quello-che-hai-cercato-su-google%252F">Accedi</a></li>
+																	<li class="flb-report"><a href="http://en.wordpress.com/abuse/">Segnala questo contenuto</a></li>
+																	<li class="actnbr-reader">
+										<a href="https://wordpress.com/read/feeds/91525927">
+											Visualizza il sito nel Reader										</a>
+									</li>
+																	<li class="actnbr-subs">
+										<a href="https://subscribe.wordpress.com/">Gestisci gli abbonamenti</a>
+									</li>
+																		<li class="actnbr-fold"><a href="#">Riduci la barra</a></li>
+															</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "../../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbar2866.css?v=20210915";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "../../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbarb516.js?v=20220329";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+			<div id="jp-carousel-loading-overlay">
+			<div id="jp-carousel-loading-wrapper">
+				<span id="jp-carousel-library-loading">&nbsp;</span>
+			</div>
+		</div>
+		<div class="jp-carousel-overlay" style="display: none;">
+
+		<div class="jp-carousel-container">
+			<!-- The Carousel Swiper -->
+			<div
+				class="jp-carousel-wrap swiper-container jp-carousel-swiper-container jp-carousel-transitions"
+				itemscope
+				itemtype="https://schema.org/ImageGallery">
+				<div class="jp-carousel swiper-wrapper"></div>
+				<div class="jp-swiper-button-prev swiper-button-prev">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskPrev" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="9" height="12">
+							<path d="M16.2072 16.59L11.6496 12L16.2072 7.41L14.8041 6L8.8335 12L14.8041 18L16.2072 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskPrev)">
+							<rect x="0.579102" width="23.8823" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+				<div class="jp-swiper-button-next swiper-button-next">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskNext" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8" height="12">
+							<path d="M8.59814 16.59L13.1557 12L8.59814 7.41L10.0012 6L15.9718 12L10.0012 18L8.59814 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskNext)">
+							<rect x="0.34375" width="23.8822" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!-- The main close buton -->
+			<div class="jp-carousel-close-hint">
+				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="maskClose" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="15" height="14">
+						<path d="M19.3166 6.41L17.9135 5L12.3509 10.59L6.78834 5L5.38525 6.41L10.9478 12L5.38525 17.59L6.78834 19L12.3509 13.41L17.9135 19L19.3166 17.59L13.754 12L19.3166 6.41Z" fill="white"/>
+					</mask>
+					<g mask="url(#maskClose)">
+						<rect x="0.409668" width="23.8823" height="24" fill="#FFFFFF"/>
+					</g>
+				</svg>
+			</div>
+			<!-- Image info, comments and meta -->
+			<div class="jp-carousel-info">
+				<div class="jp-carousel-info-footer">
+					<div class="jp-carousel-pagination-container">
+						<div class="jp-swiper-pagination swiper-pagination"></div>
+						<div class="jp-carousel-pagination"></div>
+					</div>
+					<div class="jp-carousel-photo-title-container">
+						<h2 class="jp-carousel-photo-caption"></h2>
+					</div>
+					<div class="jp-carousel-photo-icons-container">
+						<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-info" aria-label="Attiva/disattiva visibilità dei metadata delle foto">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskInfo" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.7537 2C7.26076 2 2.80273 6.48 2.80273 12C2.80273 17.52 7.26076 22 12.7537 22C18.2466 22 22.7046 17.52 22.7046 12C22.7046 6.48 18.2466 2 12.7537 2ZM11.7586 7V9H13.7488V7H11.7586ZM11.7586 11V17H13.7488V11H11.7586ZM4.79292 12C4.79292 16.41 8.36531 20 12.7537 20C17.142 20 20.7144 16.41 20.7144 12C20.7144 7.59 17.142 4 12.7537 4C8.36531 4 4.79292 7.59 4.79292 12Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskInfo)">
+										<rect x="0.8125" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+							</span>
+						</a>
+												<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-comments" aria-label="Attiva/disattiva visibilità dei commenti alle foto">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskComments" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.3271 2H20.2486C21.3432 2 22.2388 2.9 22.2388 4V16C22.2388 17.1 21.3432 18 20.2486 18H6.31729L2.33691 22V4C2.33691 2.9 3.2325 2 4.3271 2ZM6.31729 16H20.2486V4H4.3271V18L6.31729 16Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskComments)">
+										<rect x="0.34668" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+
+								<span class="jp-carousel-has-comments-indicator" aria-label="Questa immagine ha dei commenti."></span>
+							</span>
+						</a>
+											</div>
+				</div>
+				<div class="jp-carousel-info-extra">
+					<div class="jp-carousel-info-content-wrapper">
+						<div class="jp-carousel-photo-title-container">
+							<h2 class="jp-carousel-photo-title"></h2>
+						</div>
+						<div class="jp-carousel-comments-wrapper">
+															<div id="jp-carousel-comments-loading">
+									<span>Caricamento commenti...</span>
+								</div>
+								<div class="jp-carousel-comments"></div>
+								<div id="jp-carousel-comment-form-container">
+									<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+									<div id="jp-carousel-comment-post-results"></div>
+																														<form id="jp-carousel-comment-form">
+												<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Scrivi un Commento...</label>
+												<textarea
+													name="comment"
+													class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea"
+													id="jp-carousel-comment-form-comment-field"
+													placeholder="Scrivi un Commento..."
+												></textarea>
+												<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+													<div id="jp-carousel-comment-form-commenting-as">
+																													<fieldset>
+																<label for="jp-carousel-comment-form-email-field">E-mail</label>
+																<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-author-field">Nome</label>
+																<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-url-field">Sito web</label>
+																<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field" />
+															</fieldset>
+																											</div>
+													<input
+														type="submit"
+														name="submit"
+														class="jp-carousel-comment-form-button"
+														id="jp-carousel-comment-form-button-submit"
+														value="Pubblica un commento" />
+												</div>
+											</form>
+																											</div>
+													</div>
+						<div class="jp-carousel-image-meta">
+							<div class="jp-carousel-title-and-caption">
+								<div class="jp-carousel-photo-info">
+									<h3 class="jp-carousel-caption" itemprop="caption description"></h3>
+								</div>
+
+								<div class="jp-carousel-photo-description"></div>
+							</div>
+							<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+							<a class="jp-carousel-image-download" target="_blank" style="display: none;">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="19" height="18">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.84615 5V19H19.7775V12H21.7677V19C21.7677 20.1 20.8721 21 19.7775 21H5.84615C4.74159 21 3.85596 20.1 3.85596 19V5C3.85596 3.9 4.74159 3 5.84615 3H12.8118V5H5.84615ZM14.802 5V3H21.7677V10H19.7775V6.41L9.99569 16.24L8.59261 14.83L18.3744 5H14.802Z" fill="white"/>
+									</mask>
+									<g mask="url(#mask0)">
+										<rect x="0.870605" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+								<span class="jp-carousel-download-text"></span>
+							</a>
+							<div class="jp-carousel-image-map" style="display: none;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-2' href='https://s2.wp.com/_static/??-eJyljcEOwjAMQ3+IEg1BpR0Q31LSMHW0adSk2u9TJHbgvJtt2c+wicPKRmxQupPcl8QKK5kEfP88SKuxo6XKUIbKpICh1a6UQbck1Nyzc8x0RtUTHGbu1T04ht1SXMgGfowDmkv8qn/GlSDfi0e5T/7mr5d59tP6Ab4Ga3w=?cssminify=yes' type='text/css' media='all' />
+<script id='jetpack-carousel-js-extra'>
+var jetpackSwiperLibraryPath = {"url":"https:\/\/s2.wp.com\/wp-content\/mu-plugins\/jetpack-plugin\/production\/_inc\/build\/carousel\/swiper-bundle.min.js"};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"it","ajaxurl":"https:\/\/tuttiperlinux.blog\/wp-admin\/admin-ajax.php","nonce":"7b479549df","display_exif":"1","display_comments":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Commento","post_comment":"Pubblica un commento","write_comment":"Scrivi un Commento...","loading_comments":"Caricamento commenti...","download_original":"Vedi immagine a grandezza originale<span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Assicurati di scrivere del testo nel commento.","no_comment_email":"Fornisci un indirizzo e-mail per commentare.","no_comment_author":"Fornisci il tuo nome per commentare.","comment_post_error":"Si \u00e8 verificato un problema durante la pubblicazione del commento. Riprova pi\u00f9 tardi.","comment_approved":"Il tuo commento \u00e8 stato approvato.","comment_unapproved":"Il tuo commento deve venire moderato.","camera":"Fotocamera","aperture":"Apertura","shutter_speed":"Velocit\u00e0 di scatto","focal_length":"Lunghezza focale","copyright":"Copyright","comment_registration":"0","require_name_email":"0","login_url":"https:\/\/tuttiperlinux.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftuttiperlinux.blog%2F2016%2F10%2F05%2Fcome-vedere-tutto-quello-che-hai-cercato-su-google%2F","blog_id":"70283720","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"stats_query_args":"blog=70283720&v=wpcom&tz=0&user_id=0&subd=tuttiperlinux","is_public":"1"};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='https://s0.wp.com/_static/??-eJx9jUsOwjAMRC9EavFpJRaIo6DUsVBCPlbsUI5PFhQhFt3NjN94YGGDJStlhSDg6OmR+DUE2cHPKTXDsd19FrAu+WxmWyFZUapdGa0WH7JRCqTckY8HrsU1VF8y3HxGmJuPDtDW0oTil16DoS9uPF8xszCW9Gd775ou+2k6jNPxNJ7DG3S3WkI='></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='../../wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script><script src="../../../stats.wp.com/w03af.js?63" defer></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'70283720','blog_tz':'0','user_lang':'it','blog_lang':'it','user_id':'0'}]);
+_stq.push(['view', {'blog':'70283720','v':'wpcom','tz':'0','user_id':'0','subd':'tuttiperlinux'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1mNzc2NTVTamdsd0xoLz9RQkM2K298TXY9bERQMXc2MjhEaVZfb2wwakRoSj0mUkp1THptM1NdbkV1WjZIcU9mVWQmPUIvMlN6Jk8wW3NYVEJ3dWZOWExuWD9rdEhGbW1xOHc4XWJHVkxxW1pocnlJbWZSSC5ZejUrd2x5U1puaEU1dn4zc3FqcTJHRWRsLUw3SU1zQkxpUiZvTTRFLCtZWzQsbHpqUVUxZEhXLGlmcSsycWRxY2NGSEldTlhXRUQ0Tk9veHVhUD0sWU9QYmdyY1BZRTc4fi0uQXYrJXk9MyV6amRBVDU2W35Yd3FnNn5WbnVzJWYwVXJpTGg1VDZNcE1dU2RUPzhvJnZiS3UmWDBFRk1xNy43fExsRSV6cXxsOWhjSzAzYXc3T0lXZjJxSDM='}]);
+_stq.push([ 'clickTrackerInit', '70283720', '0' ]);
+	</script>
+<noscript><img src="../../../pixel.wp.com/b0b80.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+
+<!-- Mirrored from tuttiperlinux.blog/tag/myaccount/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Nov 2022 17:52:15 GMT -->
+</html>

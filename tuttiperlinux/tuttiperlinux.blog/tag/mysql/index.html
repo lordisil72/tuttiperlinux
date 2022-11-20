@@ -1,0 +1,1396 @@
+<!DOCTYPE html>
+<!--[if IE 8]>
+<html id="ie8" lang="it-IT">
+<![endif]-->
+<!--[if IE 9]>
+<html id="ie9" lang="it-IT">
+<![endif]-->
+<!--[if !(IE)]><!-->
+<html lang="it-IT">
+<!--<![endif]-->
+
+<!-- Mirrored from tuttiperlinux.blog/tag/mysql/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Nov 2022 14:53:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>mysql | Tutti per Linux</title>
+<link rel="profile" href="http://gmpg.org/xfn/11" />
+<link rel="pingback" href="../../xmlrpc.php" />
+<!--[if lt IE 9]>
+<script src="https://s2.wp.com/wp-content/themes/pub/splendio/js/html5.js" type="text/javascript"></script>
+<![endif]-->
+
+<meta name='robots' content='max-image-preview:large' />
+
+<!-- Async WordPress.com Remote Login -->
+<script id="wpcom_remote_login_js">
+var wpcom_remote_login_extra_auth = '';
+function wpcom_remote_login_remove_dom_node_id( element_id ) {
+	var dom_node = document.getElementById( element_id );
+	if ( dom_node ) { dom_node.parentNode.removeChild( dom_node ); }
+}
+function wpcom_remote_login_remove_dom_node_classes( class_name ) {
+	var dom_nodes = document.querySelectorAll( '.' + class_name );
+	for ( var i = 0; i < dom_nodes.length; i++ ) {
+		dom_nodes[ i ].parentNode.removeChild( dom_nodes[ i ] );
+	}
+}
+function wpcom_remote_login_final_cleanup() {
+	wpcom_remote_login_remove_dom_node_classes( "wpcom_remote_login_msg" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_validate" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_js" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_iframe" );
+	wpcom_remote_login_remove_dom_node_id( "wpcom_request_access_styles" );
+}
+
+// Watch for messages back from the remote login
+window.addEventListener( "message", function( e ) {
+	if ( e.origin === "https://r-login.wordpress.com/" ) {
+		var data = {};
+		try {
+			data = JSON.parse( e.data );
+		} catch( e ) {
+			wpcom_remote_login_final_cleanup();
+			return;
+		}
+
+		if ( data.msg === 'LOGIN' ) {
+			// Clean up the login check iframe
+			wpcom_remote_login_remove_dom_node_id( "wpcom_remote_login_key" );
+
+			var id_regex = new RegExp( /^[0-9]+$/ );
+			var token_regex = new RegExp( /^.*|.*|.*$/ );
+			if (
+				token_regex.test( data.token )
+				&& id_regex.test( data.wpcomid )
+			) {
+				// We have everything we need to ask for a login
+				var script = document.createElement( "script" );
+				script.setAttribute( "id", "wpcom_remote_login_validate" );
+				script.src = '../../remote-login4f98.html?wpcom_remote_login=validate'
+					+ '&wpcomid=' + data.wpcomid
+					+ '&token=' + encodeURIComponent( data.token )
+					+ '&host=' + window.location.protocol
+					+ '//' + window.location.hostname
+					+ '&postid=1462'
+					+ '&is_singular=';
+				document.body.appendChild( script );
+			}
+
+			return;
+		}
+
+		// Safari ITP, not logged in, so redirect
+		if ( data.msg === 'LOGIN-REDIRECT' ) {
+			window.location = 'https://wordpress.com/log-in?redirect_to=' + window.location.href;
+			return;
+		}
+
+		// Safari ITP, storage access failed, remove the request
+		if ( data.msg === 'LOGIN-REMOVE' ) {
+			var css_zap = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } @media screen and ( max-width: 782px ) { html { margin-top: 0 !important; } * html body { margin-top: 0 !important; } }';
+			var style_zap = document.createElement( 'style' );
+			style_zap.type = 'text/css';
+			style_zap.appendChild( document.createTextNode( css_zap ) );
+			document.body.appendChild( style_zap );
+
+			var e = document.getElementById( 'wpcom_request_access_iframe' );
+			e.parentNode.removeChild( e );
+
+			document.cookie = 'wordpress_com_login_access=denied; path=/; max-age=31536000';
+
+			return;
+		}
+
+		// Safari ITP
+		if ( data.msg === 'REQUEST_ACCESS' ) {
+			console.log( 'request access: safari' );
+
+			// Check ITP iframe enable/disable knob
+			if ( wpcom_remote_login_extra_auth !== 'safari_itp_iframe' ) {
+				return;
+			}
+
+			// If we are in a "private window" there is no ITP.
+			var private_window = false;
+			try {
+				var opendb = window.openDatabase( null, null, null, null );
+			} catch( e ) {
+				private_window = true;
+			}
+
+			if ( private_window ) {
+				console.log( 'private window' );
+				return;
+			}
+
+			var iframe = document.createElement( 'iframe' );
+			iframe.id = 'wpcom_request_access_iframe';
+			iframe.setAttribute( 'scrolling', 'no' );
+			iframe.setAttribute( 'sandbox', 'allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-top-navigation-by-user-activation' );
+			iframe.src = 'https://r-login.wordpress.com/remote-login.php?wpcom_remote_login=request_access&amp;origin=' + encodeURIComponent( data.origin ) + '&wpcomid=' + encodeURIComponent( data.wpcomid );
+
+			var css = 'html { -webkit-transition: margin-top 1s; transition: margin-top 1s; } /* 9001 */ html { margin-top: 46px !important; } * html body { margin-top: 46px !important; } @media screen and ( max-width: 660px ) { html { margin-top: 71px !important; } * html body { margin-top: 71px !important; } #wpcom_request_access_iframe { display: block; height: 71px !important; } } #wpcom_request_access_iframe { border: 0px; height: 46px; position: fixed; top: 0; left: 0; width: 100%; min-width: 100%; z-index: 99999; background: #23282d; } ';
+
+			var style = document.createElement( 'style' );
+			style.type = 'text/css';
+			style.id = 'wpcom_request_access_styles';
+			style.appendChild( document.createTextNode( css ) );
+			document.body.appendChild( style );
+
+			document.body.appendChild( iframe );
+		}
+
+		if ( data.msg === 'DONE' ) {
+			wpcom_remote_login_final_cleanup();
+		}
+	}
+}, false );
+
+// Inject the remote login iframe after the page has had a chance to load
+// more critical resources
+window.addEventListener( "DOMContentLoaded", function( e ) {
+	var iframe = document.createElement( "iframe" );
+	iframe.style.display = "none";
+	iframe.setAttribute( "scrolling", "no" );
+	iframe.setAttribute( "id", "wpcom_remote_login_key" );
+	iframe.src = "https://r-login.wordpress.com/remote-login.php"
+		+ "?wpcom_remote_login=key"
+		+ "&origin=aHR0cHM6Ly90dXR0aXBlcmxpbnV4LmJsb2c%3D"
+		+ "&wpcomid=70283720"
+		+ "&time=1668782349";
+	document.body.appendChild( iframe );
+}, false );
+</script>
+<link rel='dns-prefetch' href='http://s1.wp.com/' />
+<link rel='dns-prefetch' href='http://s2.wp.com/' />
+<link rel='dns-prefetch' href='http://tuttiperlinux.wordpress.com/' />
+<link rel='dns-prefetch' href='http://s0.wp.com/' />
+<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; Feed" href="../../feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; Feed dei commenti" href="../../comments/feed/index.html" />
+<link rel="alternate" type="application/rss+xml" title="Tutti per Linux &raquo; mysql Feed del tag" href="feed/index.html" />
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		function addLoadEvent(func) {
+			var oldonload = window.onload;
+			if (typeof window.onload != 'function') {
+				window.onload = func;
+			} else {
+				window.onload = function () {
+					oldonload();
+					func();
+				}
+			}
+		}
+		/* ]]> */
+	</script>
+	<script type="text/javascript">
+window._wpemojiSettings = {"baseUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/72x72\/","ext":".png","svgUrl":"https:\/\/s0.wp.com\/wp-content\/mu-plugins\/wpcom-smileys\/twemoji\/2\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/s1.wp.com\/wp-includes\/js\/wp-emoji-release.min.js?m=1652185836h&ver=6.1.1-alpha-54812"}};
+/*! This file is auto-generated */
+!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode,e=(p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0),i.toDataURL());return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(p&&p.fillText)switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([129777,127995,8205,129778,127999],[129777,127995,8203,129778,127999])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(e=t.source||{}).concatemoji?c(e.concatemoji):e.wpemoji&&e.twemoji&&(c(e.twemoji),c(e.wpemoji)))}(window,document,window._wpemojiSettings);
+</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 0.07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+	<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-1' href='https://s2.wp.com/_static/??-eJyNUklyAyEM/FBANR7H5Usqb2FAmcgRSyGwPb8P8RbHay6UWqJbLQFskrIxFAwFfFWJ60hBYJNs9Eo8MU4XSFuRF7hNW2FJxn4dMKQcXbWFYgDfIkYBCh8UqKASmyPzEU9XqkfJsTY4YB5bJSOsu7l+1TMYKrGDgWPrxjRkkyeQMjGehChYrq61XAl4dGSQ0e/8noHEZsKsGEdjJ+0pPKe32jn+Q7pvfuf0d0GtbaxFjZnche1/S2RTKIzyhG7jgTbT3VJ3SsgnRpVxrXtwJOV0Q91ZX0uAZSNCVpXPNrPcHPnsF/w8VMv7ZK639YC2ITdi2Tfcx6rg9jFl9zGHIWUUUe30VP3RZeO9+7dusVgu+mXfz1ffUy8Zcw==?cssminify=yes' type='text/css' media='all' />
+<style id='wp-block-library-inline-css'>
+.has-text-align-justify {
+	text-align:justify;
+}
+.wp-block-cover__image-background.has-parallax {
+	background-size: cover;
+}
+</style>
+<style id='global-styles-inline-css'>
+body{--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #ffffff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgba(6,147,227,1) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgba(252,185,0,1) 0%,rgba(255,105,0,1) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgba(255,105,0,1) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--duotone--dark-grayscale: url('#wp-duotone-dark-grayscale');--wp--preset--duotone--grayscale: url('#wp-duotone-grayscale');--wp--preset--duotone--purple-yellow: url('#wp-duotone-purple-yellow');--wp--preset--duotone--blue-red: url('#wp-duotone-blue-red');--wp--preset--duotone--midnight: url('#wp-duotone-midnight');--wp--preset--duotone--magenta-yellow: url('#wp-duotone-magenta-yellow');--wp--preset--duotone--purple-green: url('#wp-duotone-purple-green');--wp--preset--duotone--blue-orange: url('#wp-duotone-blue-orange');--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;}:where(.is-layout-flex){gap: 0.5em;}body .is-layout-flow > .alignleft{float: left;}body .is-layout-flow > .alignright{float: right;}body .is-layout-flow > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignleft{float: left;}body .is-layout-constrained > .alignright{float: right;}body .is-layout-constrained > .aligncenter{margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > :where(:not(.alignleft):not(.alignright):not(.alignfull)){max-width: var(--wp--style--global--content-size);margin-left: auto !important;margin-right: auto !important;}body .is-layout-constrained > .alignwide{max-width: var(--wp--style--global--wide-size);}body .is-layout-flex{display: flex;}body .is-layout-flex{flex-wrap: wrap;align-items: center;}body .is-layout-flex > *{margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+:where(.wp-block-columns.is-layout-flex){gap: 2em;}
+.wp-block-pullquote{font-size: 1.5em;line-height: 1.6;}
+.wp-block-navigation a:where(:not(.wp-element-button)){color: inherit;}
+</style>
+<link rel='stylesheet' id='droid-sans-css' href='https://fonts.googleapis.com/css?family=Droid+Sans%3Aregular%2Cbold&amp;ver=20120821' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-4-1' href='https://s1.wp.com/_static/??-eJyFjtsKwjAQRH/IuFS00AfxW9p0jamb7NLdUPx74+WhoOjbGZg5DCziPGfDbGAXTKggZQAVwjxGBrUb4darbuBPM2b/artFPKePTSpOqISYFSY06f31nUFmHou3yBlSJarmJY4BTcFYnLBW+n5kJQ3Ijtj3T886uDP1cf41nXEgDhUD1NYqPkandGzaQ7vfdV3bTHcmJXJU?cssminify=yes' type='text/css' media='all' />
+<link crossorigin='anonymous' rel='stylesheet' id='print-css-5-1' href='../../../s2.wp.com/wp-content/mu-plugins/global-print/global-printa1cf.css?m=1465851035h&amp;cssminify=yes' type='text/css' media='print' />
+<style id='jetpack-global-styles-frontend-style-inline-css'>
+:root { --font-headings: unset; --font-base: unset; --font-headings-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif; --font-base-default: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;}
+</style>
+<link crossorigin='anonymous' rel='stylesheet' id='all-css-8-1' href='../../../s0.wp.com/wp-content/themes/h4/global21a2.css?m=1420737423h&amp;cssminify=yes' type='text/css' media='all' />
+<script id='wpcom-actionbar-placeholder-js-extra'>
+var actionbardata = {"siteID":"70283720","siteURL":"https:\/\/tuttiperlinux.blog","xhrURL":"https:\/\/tuttiperlinux.blog\/wp-admin\/admin-ajax.php","nonce":"132c2e5565","isLoggedIn":"","statusMessage":"","subsEmailDefault":"instantly","proxyScriptUrl":"https:\/\/s0.wp.com\/wp-content\/js\/wpcom-proxy-request.js?ver=20211021","i18n":{"followedText":"I nuovi articoli da questo sito saranno ora visibili nel tuo <a href=\"https:\/\/wordpress.com\/\">Reader<\/a>","foldBar":"Riduci la barra","unfoldBar":"Espandi questa barra"}};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='https://s2.wp.com/_static/??-eJyFjUsOwjAMRC9EGkpFdoiz9OMWR4kdYkeltyeVqAQrViPNvKexazIjkwKp9WIjDxjAFIHcL7UzSDM3Xk72l8tBTcr82o4NaQxlAtlH/yyQt080EekvZCIuuVf4ho83fUCsSiqDlRSAJuTdnwuNikxS+Xu8tc657nrpzq1/A84tTcc='></script>
+<script type='text/javascript'>
+	window.addEventListener( 'DOMContentLoaded', function() {
+		rltInitialize( {"token":null,"iframeOrigins":["https:\/\/widgets.wp.com"]} );
+	} );
+</script>
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://tuttiperlinux.wordpress.com/xmlrpc.php?rsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://s1.wp.com/wp-includes/wlwmanifest.xml" />
+<meta name="generator" content="WordPress.com" />
+
+<!-- Jetpack Open Graph Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="mysql &#8211; Tutti per Linux" />
+<meta property="og:url" content="https://tuttiperlinux.blog/tag/mysql/" />
+<meta property="og:site_name" content="Tutti per Linux" />
+<meta property="og:image" content="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=200&#038;ts=1668782349" />
+<meta property="og:image:width" content="200" />
+<meta property="og:image:height" content="200" />
+<meta property="og:image:alt" content="" />
+<meta property="og:locale" content="it_IT" />
+<meta name="twitter:creator" content="@tuttiperlinux1" />
+<meta name="twitter:site" content="@tuttiperlinux1" />
+
+<!-- End Jetpack Open Graph Tags -->
+<link rel="shortcut icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=32" sizes="16x16" />
+<link rel="icon" type="image/x-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=32" sizes="16x16" />
+<link rel="apple-touch-icon" href="https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=114" />
+<link rel='openid.server' href='../../indexdd8f.html?openidserver=1' />
+<link rel='openid.delegate' href='../../index.html' />
+<link rel="search" type="application/opensearchdescription+xml" href="../../osd.xml" title="Tutti per Linux" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://s1.wp.com/opensearch.xml" title="WordPress.com" />
+		<style type="text/css">
+			.recentcomments a {
+				display: inline !important;
+				padding: 0 !important;
+				margin: 0 !important;
+			}
+
+			table.recentcommentsavatartop img.avatar, table.recentcommentsavatarend img.avatar {
+				border: 0px;
+				margin: 0;
+			}
+
+			table.recentcommentsavatartop a, table.recentcommentsavatarend a {
+				border: 0px !important;
+				background-color: transparent !important;
+			}
+
+			td.recentcommentsavatarend, td.recentcommentsavatartop {
+				padding: 0px 0px 1px 0px;
+				margin: 0px;
+			}
+
+			td.recentcommentstextend {
+				border: none !important;
+				padding: 0px 0px 2px 10px;
+			}
+
+			.rtl td.recentcommentstextend {
+				padding: 0px 10px 2px 0px;
+			}
+
+			td.recentcommentstexttop {
+				border: none;
+				padding: 0px 0px 0px 10px;
+			}
+
+			.rtl td.recentcommentstexttop {
+				padding: 0px 10px 0px 0px;
+			}
+		</style>
+		<meta name="application-name" content="Tutti per Linux" /><meta name="msapplication-window" content="width=device-width;height=device-height" /><meta name="msapplication-tooltip" content="Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale" /><meta name="msapplication-task" content="name=Iscriviti;action-uri=https://tuttiperlinux.blog/feed/;icon-uri=https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=16" /><meta name="msapplication-task" content="name=Iscriviti per un blog gratis;action-uri=http://wordpress.com/signup/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Supporto WordPress.com;action-uri=http://support.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="msapplication-task" content="name=Forums WordPress.com;action-uri=http://forums.wordpress.com/;icon-uri=https://s1.wp.com/i/favicon.ico" /><meta name="description" content="Post su mysql scritto da Tutti per Linux" />
+<style type="text/css" id="custom-colors-css">	body.custom-background.custom-colors {
+		background-color: #e9e9dc;
+	}
+	.site-navigation li:hover > a,
+	.site-navigation ul ul :hover > a {
+		text-shadow: none;
+	}
+.site-navigation li:hover > a, .site-navigation ul ul :hover > a { color: #333333;}
+.feature-slider a:hover, .feature-slider a.active { color: #4C4C4C;}
+.entry-title a, .entry-title a:visited { color: #557A00;}
+.widget a { color: #4A6B00;}
+a:hover, a:focus, a:active { color: #557A00;}
+#entry-author-info a:hover,#entry-author-info a:focus,#entry-author-info a:active { color: #456600;}
+a { color: #8E6600;}
+a:visited { color: #8E6600;}
+#branding hgroup .site-title a:hover { color: #8E6600;}
+.entry-title a:hover { color: #8E6600;}
+.single .entry-title a:hover { color: #8E6600;}
+.featured-posts .entry-title a { color: #8E6600;}
+.feature-slider a:hover,.feature-slider a.active { background-color: #FABE28;}
+.widget a:hover { color: #845F00;}
+.site-navigation li:hover > a, .site-navigation ul ul :hover > a { background-color: #B78504;}
+#entry-author-info a { color: #7A5700;}
+</style>
+</head>
+
+<body class="archive tag tag-mysql tag-4419 customizer-styles-applied highlander-enabled highlander-light">
+	<div id="wrapper" class="hfeed">
+				<div id="header">
+			<div id="branding">
+				<header id="masthead" role="banner">
+					<hgroup>
+						<h1 class="site-title"><a href="../../index.html" title="Tutti per Linux" rel="home">Tutti per Linux</a></h1>
+						<h2 class="site-description">Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</h2>
+					</hgroup>
+
+					<nav role="navigation" class="site-navigation">
+						<h1 class="assistive-text">Menu principale</h1>
+						<div class="assistive-text skip-link"><a href="#content" title="Vai al contenuto">Vai al contenuto</a></div>
+
+						<div class="menu-header"><ul id="menu-menu-1" class="menu"><li id="menu-item-44" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-44"><a href="https://tuttiperlinux.wordpress.com/">Home</a></li>
+<li id="menu-item-48" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-48"><a href="../../category/backup-disaster-recovery/index.html">Backup &amp; Disaster Recovery</a></li>
+<li id="menu-item-51" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-51"><a href="../../category/networking/index.html">Networking</a>
+<ul class="sub-menu">
+	<li id="menu-item-52" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-52"><a href="../../category/networking/proxy/index.html">Proxy</a></li>
+	<li id="menu-item-50" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-50"><a href="../../category/networking/load-balancing/index.html">Load Balancing</a></li>
+	<li id="menu-item-142" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-142"><a href="../../category/networking/streaming-networking/index.html">Streaming</a></li>
+</ul>
+</li>
+<li id="menu-item-54" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-54"><a href="../../category/sysadmin/index.html">SysAdmin</a>
+<ul class="sub-menu">
+	<li id="menu-item-63" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-63"><a href="../../category/sysadmin/sicurezza/index.html">Sicurezza</a></li>
+	<li id="menu-item-151" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-151"><a href="../../category/sysadmin/tips-tricks/index.html">Tips &amp; Tricks</a></li>
+	<li id="menu-item-530" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-530"><a href="../../category/sysadmin/scripting/index.html">Scripting</a></li>
+</ul>
+</li>
+<li id="menu-item-55" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-55"><a href="../../category/virtualizzazione/index.html">Virtualizzazione</a></li>
+<li id="menu-item-509" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-509"><a href="../../category/db/index.html">DB</a></li>
+<li id="menu-item-57" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-57"><a href="../../category/webserver/index.html">WebServer</a>
+<ul class="sub-menu">
+	<li id="menu-item-49" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-49"><a href="../../category/webserver/cms/index.html">CMS</a></li>
+	<li id="menu-item-261" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-261"><a href="../../category/webserver/cloud-webserver/index.html">Cloud</a></li>
+	<li id="menu-item-190" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-190"><a href="../../category/webserver/systemlog/index.html">SystemLog</a></li>
+</ul>
+</li>
+<li id="menu-item-60" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-60"><a href="../../category/devices/index.html">Devices</a>
+<ul class="sub-menu">
+	<li id="menu-item-1245" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1245"><a href="../../category/devices/android/index.html">Android</a></li>
+	<li id="menu-item-61" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-61"><a href="../../category/devices/arduino/index.html">Arduino</a></li>
+	<li id="menu-item-62" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-62"><a href="../../category/devices/raspberry-pi/index.html">Raspberry PI</a></li>
+	<li id="menu-item-138" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-138"><a href="../../category/devices/varie-devices/index.html">Varie</a></li>
+</ul>
+</li>
+<li id="menu-item-1613" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-1613"><a href="../../category/blockchain/index.html">Blockchain</a>
+<ul class="sub-menu">
+	<li id="menu-item-1614" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1614"><a href="../../category/blockchain/dapp-defi/index.html">Dapp DeFi</a></li>
+	<li id="menu-item-1615" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1615"><a href="../../category/blockchain/mining/index.html">Mining</a></li>
+</ul>
+</li>
+<li id="menu-item-296" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-296"><a href="../../category/eventi/index.html">Eventi</a></li>
+<li id="menu-item-311" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-311"><a href="../../category/news/index.html">News</a></li>
+<li id="menu-item-394" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-394"><a href="../../category/opinioni/index.html">Opinioni</a></li>
+<li id="menu-item-45" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-45"><a href="../../about/index.html">About ME</a></li>
+<li id="menu-item-896" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-896"><a href="../../contatto/index.html">Contatto</a></li>
+</ul></div>					</nav>
+				</header>
+			</div><!-- #branding -->
+
+			<div id="header-auxiliary">
+				<div class="header-search">
+					<form method="get" action="#">
+						<fieldset>
+							<p class="search-title">Cerca</p>
+							<input type="text" value="" name="s" /><button type="submit">Vai</button>
+						 </fieldset>
+					 </form>
+				 </div><!-- .header-search -->
+
+									 <div class="syndicate">
+						  <ul class="fade">
+															<li><a class="rss-link" href="../../feed/index.html" title="RSS"><span>Feed RSS</span></a></li>
+							
+															<li><a class="twitter-link" href="https://twitter.com/tuttiperlinux1" title="Twitter "><span>Twitter </span></a></li>
+							
+															<li><a class="facebook-link" href="https://www.facebook.com/profile.php?id=100004677258234&amp;fref=ts" title="Facebook"><span>Facebook</span></a></li>
+													</ul>
+					 </div><!-- .syndicate -->
+							</div><!-- #header-auxiliary -->
+
+			<div id="header-image" role="banner">
+								<a href="../../index.html">
+											<img src="../../../tuttiperlinux.files.wordpress.com/2014/10/cropped-pcsmallerpiccolo.jpg" width="980" height="215" alt="" />
+									</a>
+							</div><!-- #header-image -->
+		</div><!-- #header -->
+
+		<div id="container">
+		<section id="primary">
+			<div id="content" role="main">
+
+			
+				<header class="page-header">
+					<h1 class="page-title">
+						Archivi tag: <span>mysql</span>					</h1>
+									</header>
+
+				
+								
+					
+<article id="post-1462" class="post-1462 post type-post status-publish format-standard hentry category-uncategorized category-webserver tag-apache tag-chroot tag-fastcgi tag-html tag-lamp tag-maria-db tag-mysql tag-php tag-php-fpm tag-tuttiperlinux tag-web-agency">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2019/01/21/a-tutta-velocita-con-php-fpm/index.html" title="8:32 PM" rel="bookmark"><time class="entry-date" datetime="2019-01-21T20:32:17+00:00" pubdate>gennaio 21, 2019</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2019/01/21/a-tutta-velocita-con-php-fpm/index.html" rel="bookmark">A tutta velocita&#8217; con&nbsp;PHP-FPM</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<div data-shortcode="caption" id="attachment_1463" style="width: 610px" class="wp-caption alignnone"><img loading="lazy" aria-describedby="caption-attachment-1463" data-attachment-id="1463" data-permalink="https://tuttiperlinux.blog/2019/01/21/a-tutta-velocita-con-php-fpm/php-fpm/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png" data-orig-size="960,300" data-comments-opened="0" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="PHP-FPM Very Fast" data-image-description="" data-image-caption="&lt;p&gt;PHP-FPM Very Fast&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=600" class="wp-image-1463 size-large" src="../../../tuttiperlinux.files.wordpress.com/2019/01/php-fpm8044.png?w=600&amp;h=188" alt="" width="600" height="188" srcset="https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=600&amp;h=188 600w, https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=150&amp;h=47 150w, https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=300&amp;h=94 300w, https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png?w=768&amp;h=240 768w, https://tuttiperlinux.files.wordpress.com/2019/01/php-fpm.png 960w" sizes="(max-width: 600px) 100vw, 600px" /><p id="caption-attachment-1463" class="wp-caption-text">PHP-FPM Very Fast</p></div>
+<p>Come sa bene chiunque si occupi di creare e gestire un servizio Web moderno, il primo aspetto che viene ricercato e di cui si chiede la massima affidabilita&#8217;, e&#8217; la velocita&#8217; di risposta, cosi da garantire la presenza online delle imprese supportando il lavoro quotidiano delle Web Agency.</p>
+<p>Nonostante oggi giorno ci siano nuovi linguaggi di sviluppo e di scripting il PHP rimane comunque ancora uno dei piu&#8217; utilizzati e, grazie alle nuove funzionalita&#8217; del <strong>PHP-FPM</strong>, questo linguaggio tornera&#8217; sicuramente ad avere un ruolo di rilievo.</p>
+<p>Ma, facciamo un piccolissimo passo indietro per rivedere come sono state gestite fino a ieri tutte le richieste php fatte dagli utenti ai vostri siti.</p>
+<p>La maggior parte degli amministratori di siti sa che il PHP può essere incorporato nell&#8217; HTML e che funziona con i principali web server. Tuttavia, l’aspetto meno conosciuto è la modalità con cui può essere eseguito il PHP sul web server, e questo può avvenire in diversi modi.</p>
+<p>Aggiungiamo nell&#8217;equazione anche l&#8217;acronimo <strong>LAMP</strong> che, per chi non lo conoscesse, indica una piattaforma software per lo sviluppo di applicazioni web e sta per :</p>
+<ul>
+<li><em><strong>L</strong>inux (il sistema operativo)</em></li>
+<li><em><strong>A</strong>pache (il server web)</em></li>
+<li><em><strong>M</strong>ySQL o <strong>M</strong>ariaDB (il database management system)</em></li>
+<li><em><strong>P</strong>HP (il linguaggio di programmazione)</em></li>
+</ul>
+<p>Come stavamo dicendo, fino a ieri  la modalità con cui si eseguivano le richieste e i processi di php sulla piattaforma LAMP era il <strong>PHP FastCGI</strong>.</p>
+<p>Si tratta di un protocollo generico utilizzato per l’interfacciamento con un server web. Nello specifico è una variante della precedente Common Gateway Interface (<strong>CGI</strong>) che ha come obiettivo quello di ridurre il sovraccarico associato all&#8217; interfacciamento tra web server e programmi CGI, consentendo ad un server di gestire più richieste contemporaneamente.</p>
+<p>Ma con FastCGI è possibile configurare più versioni di PHP, cosa particolarmente utile quando si hanno vecchi siti web creati, ad esempio, in PHP 5.1 che non sono compatibili con l’ultima versione, inoltre, con FastCGI è possibile supportare diversi utenti ognuno con le proprie istanze di PHP. Questa funzione è particolarmente importante per migliorare la sicurezza in un ambiente condiviso, in cui è possibile avere utenti diversi che gestiscono ciascuno i propri siti web.</p>
+<p>Andiamo ancora avanti, quindi grazie al protocollo PHP FastCGI il webserver genera un&#8217; unico processo in fase di inizializzazione che, al termine della fase di start-up, si mette in attesa. Ogni volta che arriva una nuova richiesta in ingresso, il webserver apre una connessione con il processo fast-cgi (in attesa) che a sua volta genera l’output sulla connessione con il client, trasferitagli dal server. Il vantaggio principale di questo protocollo è la creazione dei processi solo in fase di inizializzazione, ottimizzando così il numero dei processi php.</p>
+<p>Bene, quindi cerchiamo di capire adesso che cosa cambia con l&#8217;introduzione di PHP-FPM ?</p>
+<p><strong>PHP-FPM</strong> è una modalità più recente (nato nel 2004 come patch di PHP) di utilizzare PHP con un server web, ed è un’alternativa al precedente PHP FastCGI con l’implementazione di alcune funzionalità aggiuntive molto utili, in particolare ai siti che gestiscono quotidianamente sempre più traffico (dai siti vetrina agli e-commerce). Per queste tipologie di siti web è sempre piu&#8217; necessario avere a disposizione strumenti sempre più performanti, proprio come il PHP-FPM.</p>
+<p>Fino ad oggi una delle grosse mancanze di FastCGI è stata l’impossibilità di avere un numero di CHILD (processi) PHP che cambi in modo dinamico a seconda delle richieste effettive.</p>
+<p>Nel suo insieme, il funzionamento è molto simile al FastCGI e si basa dunque sull&#8217; esecuzione ottimizzata dei processi php che vengono creati solo in fase di inizializzazione e rimangono in attesa di una nuova richiesta. La grossa differenza sta nel fatto che è lo stesso PHP-FPM ad eseguire il processo e non più il web server.</p>
+<p>Il “<strong>Process Manager</strong>” è uno script che gestisce direttamente i processi PHP, nella pratica attende e riceve istruzioni dal server web ed esegue gli script PHP richiesti, permettendo cosi ad un sito web di gestire carichi intensi. Il PHP-FPM mantiene dei “pool” per rispondere alle richieste PHP e i processi che si generano sono direttamente “figli” (CHILD) del Process Manager e possono quindi essere gestiti separatamente dal web server.</p>
+<p>Questa modalità garantisce una maggiore robustezza del servizio, poiché tutte le operazioni come i cambi di configurazione o il restart dei processi, impattano i singoli pool FPM e non più l’intero web server.</p>
+<p>Ecco alcune delle interessanti caratteristiche tecniche:</p>
+<ul>
+<li>Demonizzazione dei processi PHP (file PID, file log, setsid(), setuid(), setgid(), chroot();</li>
+<li>Possibilità di riavviare i processi PHP senza causare alcuna interruzione delle richieste in fase di processamento, si potra&#8217; quindi cambiare qualsiasi parametro nel file di configurazione o addirittura aggiornare PHP senza avere nemmeno 1 secondo di downtime;</li>
+<li>Possibilità di non processare le richieste provenienti da un determinato IP;</li>
+<li>Possibilità di avviare i CHILD sotto differenti UID/GID/CHROOT e con differenti impostazioni di PHP (php.ini) il tutto senza bisogno di safe mode;</li>
+<li>Possibilità di loggare tramite stdout e stderr;</li>
+<li>In caso di corruzione della memoria RAM condivisa utilizzata da un OPCode Cache, PHP-FPM può effettuare un riavvio di emergenza di tutti i CHILD PHP;</li>
+<li>Forza l’arresto dell’esecuzione di uno script nel caso in cui set_time_limit() avesse dei problemi.</li>
+</ul>
+<p>Secondo un recente articolo pubblicato su <a href="https://www.cloudways.com/blog/php-fpm-on-cloud/" target="_blank" rel="noopener"><strong>CloudWays</strong></a>, effettuare uno switch da mod_php a PHP-FPM permetterebbe, tra i tanti vantaggi attesi, di ridurre del 300% i tempi di caricamento delle Web Application a traffico elevato.</p>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../category/uncategorized/index.html" rel="category tag">Uncategorized</a>, <a href="../../category/webserver/index.html" rel="category tag">WebServer</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../apache/index.html" rel="tag">apache</a>, <a href="../chroot/index.html" rel="tag">chroot</a>, <a href="../fastcgi/index.html" rel="tag">fastcgi</a>, <a href="../html/index.html" rel="tag">html</a>, <a href="../lamp/index.html" rel="tag">lamp</a>, <a href="../maria-db/index.html" rel="tag">maria-db</a>, <a href="index.html" rel="tag">mysql</a>, <a href="../php/index.html" rel="tag">php</a>, <a href="../php-fpm/index.html" rel="tag">php-fpm</a>, <a href="../tuttiperlinux/index.html" rel="tag">tuttiperlinux</a>, <a href="../web-agency/index.html" rel="tag">web agency</a></li>
+		
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-1462 -->
+				
+					
+<article id="post-1208" class="post-1208 post type-post status-publish format-standard hentry category-cloud-webserver tag-aws tag-bloomberg tag-canonical tag-cisco tag-cloud tag-compute-service tag-emc tag-google tag-horizon tag-hp tag-huawei tag-hypervisor tag-ibm tag-keystone tag-kvm tag-mysql tag-nasa tag-nebula tag-nova tag-nova-cinder tag-openstack tag-oracle tag-paypal tag-rabbitmq tag-rackspace tag-redhat tag-scheduler tag-vmware tag-wsgi-apache">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2016/02/06/openstack-introduzione/index.html" title="12:47 PM" rel="bookmark"><time class="entry-date" datetime="2016-02-06T12:47:10+00:00" pubdate>febbraio 6, 2016</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2016/02/06/openstack-introduzione/index.html" rel="bookmark">OpenStack &#8211; Introduzione</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<p><img data-attachment-id="1210" data-permalink="https://tuttiperlinux.blog/2016/02/06/openstack-introduzione/openstack-logo/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-logo.png" data-orig-size="172,172" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="OpenStack" data-image-description="&lt;p&gt;OpenStack Cloud Software&lt;/p&gt;
+" data-image-caption="&lt;p&gt;OpenStack Cloud Software&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-logo.png?w=172" data-large-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-logo.png?w=172" class="size-full wp-image-1210" src="../../../tuttiperlinux.files.wordpress.com/2016/02/openstack-logoaf90.png?w=600" alt="OpenStack Cloud Software" srcset="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-logo.png 172w, https://tuttiperlinux.files.wordpress.com/2016/02/openstack-logo.png?w=150 150w" sizes="(max-width: 172px) 100vw, 172px"   /></p>
+<h4>OPENSTACK &#8211; PARTE PRIMA</h4>
+<p>Si parla molto di OpenStack e delle sue applicazioni. Ma che cos’è davvero, perché è stato sviluppato e quali sono i suoi vantaggi?</p>
+<p><strong>Che cos’è?</strong><br />
+OpenStack è un sistema operativo per il cloud computing in grado di controllare componenti di storage, networking e computing. È open source e gratuito, di solito è installato sotto forma di soluzione IaaS. OpenStack fornisce un insieme di strumenti che servono a costruire e gestire piattaforme cloud sia pubbliche sia private. Permette agli utenti di installare macchine virtuali e si può accedere al codice sorgente per modificarlo in qualsiasi modo sia utile per gli scopi specifici del progetto.</p>
+<p><strong>Chi lo ha sviluppato?</strong><br />
+Nel 2010 <a href="https://www.rackspace.com/">Rackspace</a> e la <a href="https://www.nasa.gov/">NASA</a> hanno collaborato a un progetto congiunto che è poi diventato OpenStack. Il codice iniziale è stato usato per Nebula, la piattaforma cloud della NASA, poi il progetto si è dato l’obiettivo più ampio di aiutare le aziende a far girare software cloud su hardware standard.</p>
+<p><strong>Chi lo usa?</strong><br />
+Tra i vendor, alcuni dei nomi più importanti che attualmente supportano e distribuiscono OpenStack sono <strong>Canonical</strong>, <strong>Cisco</strong>, <strong>EMC</strong>, <strong>HP</strong>, <strong>Huawei</strong>, <strong>IBM</strong>, <strong>Oracle</strong>, <strong>Google</strong> e <strong>Red Hat</strong>. Tra gli utenti attuali ci sono Bloomberg, Comcast, PayPal e Wells Fargo. Ci sono incontri internazionali periodici su OpenStack – gli OpenStack Summit – in tutto il mondo, che raccolgono programmatori e utenti della piattaforma.</p>
+<p>E&#8217; quindi ormai innegabile l&#8217;interesse che tutto il mondo IT ha riservato in questi ultimi anni ad OpenStack.</p>
+<p><strong>Qual&#8217;è la ragione di tutto questo?</strong></p>
+<p>L&#8217;ormai tradizionale paradigma client-server, in progetti in cui la scalabilità e le finestre di picchi di carico sono variabili essenziali all&#8217;interno dell&#8217;equazione della produttività, presenta oggi giorno evidenti limiti di gestione dei carichi e della velocita&#8217; di evoluzione dei progetti. Ecco quindi nascere l&#8217;esigenza di uno strumento che fosse flessibile ed allo stesso momento affidabile.</p>
+<p>Questo concetto spiega quindi le motivazioni che possono spingere ad adottare una piattaforma cloud, ma perché fra tutte le piattaforme esistenti si parla sempre di OpenStack?</p>
+<p><strong>OpenStack è un progetto aperto</strong><br />
+La sua natura aperta ha fatto sì che tutti i vendor interessati all&#8217;introduzione di specifiche funzionalità o determinati ambiti potessero contribuire in maniera attiva e funzionale al progetto, innescando un circolo virtuoso in cui ogni miglioramento apportato per favorire se stessi va a beneficio della comunità.</p>
+<p>La sua natura aperta fa sì che chi adotta OpenStack per il proprio ambiente cloud è di fatto esente dal cosiddetto <strong>vendor lock-in</strong>, ossia l&#8217;essere vincolato ad un rivenditore specifico per le proprie tecnologie. Infatti se lo standard OpenStack è garantito, ogni venditore potrà essere valutato in modo paritetico a tutti gli altri, rendendo così il mercato più competitivo e conveniente per il cliente finale.</p>
+<p><strong>I presupposti di un progetto OpenStack</strong></p>
+<p>Bisogna subito tenere presente che &#8220;<strong>non tutti i progetti sono adatti al cloud</strong>&#8220;, nonostante cio che viene erroneamente interpretato leggendo in giro per il web, infatti questo principio sfugge a molti che guardano verso le nuvole vedono unicamente un posto differente da cui erogare i propri servizi. Esistono dei requisiti da tenere presente per capire se un progetto è adatto al cloud.</p>
+<p><strong>Un progetto OpenStack quindi deve essere</strong>:</p>
+<p><strong>** Non persistente</strong>: non deve basarsi sulla persistenza dei dati all&#8217;interno delle macchine coinvolte. Questo aspetto non va confuso con l&#8217;esigenza di avere uno storage solido e sicuro, si tratta invece di non giudicare le istanze che concorrono al progetto come perenni, ma come componenti utili al loro scopo e liberamente sacrificabili;</p>
+<p><strong>** Scalabile</strong>: deve supportare applicazioni che nativamente siano in grado di scalare. L&#8217;applicazione nasce già dallo sviluppo come pensata per il cloud;</p>
+<p><strong>** Dinamico</strong>: a fronte di un innalzamento delle richieste ricevute il progetto deve essere in grado in maniera autonoma di gestire le nuove componenti. Gli interventi manuali successivi all&#8217;implementazione sulle istanze coinvolte devono essere inesistenti;</p>
+<p><strong>** Rapido</strong>: deve essere passibile di provisioning, favorendo la velocità di creazione (e distruzione) di nuove istanze;</p>
+<p>Se il vostro progetto risponde a questi requisiti messi in evidenza qui sopra, allora potete pensare ad integrare OpenStack ed è giunto quindi il momento di capire in cosa consiste.</p>
+<h4>Le componenti di OpenStack</h4>
+<p>La parola stack descrive un insieme di entità che concorrono ad uno scopo comune. OpenStack è composto da numerose elementi che devono comunicare fra loro, lo strato di comunicazione passa attraverso due filoni fondamentali: la memorizzazione delle informazioni e la coda delle azioni da svolgere. Queste due azioni sono coperte ciascuna da un elemento specifico:</p>
+<p><strong>MySQL</strong></p>
+<p>Il database MySQL è necessario per la memorizzazione delle informazioni di configurazione generali del sistema, per la memorizzazione delle informazioni di autenticazione relative a ciascun componente e per il mantenimento dinamico dello stato del sistema.<br />
+Ogni azione eseguita all&#8217;interno dell&#8217;infrastruttura OpenStack è tracciata all&#8217;interno del database. L&#8217;importanza di questa componente è evidentemente capitale.</p>
+<p><strong>RabbitMQ</strong></p>
+<p>RabbitMQ è uno scheduler, un software didicato alla gestione delle code ed all&#8217;organizzazione delle sequenze di operazioni. Tutti i nodi facenti parte dell&#8217;infrastruttura OpenStack comunicano con lo scheduler, ed anche in questo caso è presto spiegato come questa componente ricopra enorme importanza per il regolare funzionamento dell&#8217;ambiente.</p>
+<p>Determinato quindi il sistema di circolazione e reperimento delle informazioni si può focalizzare l&#8217;attenzione sugli elementi peculiari di OpenStack, riassunti in questo diagramma che si trova sul sito ufficiale del progetto:</p>
+<div data-shortcode="caption" id="attachment_1209" style="width: 610px" class="wp-caption aligncenter"><img loading="lazy" aria-describedby="caption-attachment-1209" data-attachment-id="1209" data-permalink="https://tuttiperlinux.blog/2016/02/06/openstack-introduzione/openstack-software-diagram/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png" data-orig-size="650,269" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="openstack-software-diagram" data-image-description="&lt;p&gt;OpenStack Diagramma Software&lt;/p&gt;
+" data-image-caption="&lt;p&gt;OpenStack Diagramma Software&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png?w=600" class="wp-image-1209 size-large" src="../../../tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagramc97b.png?w=600&amp;h=248" alt="OpenStack Diagramma Software" width="600" height="248" srcset="https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png?w=600&amp;h=248 600w, https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png?w=150&amp;h=62 150w, https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png?w=300&amp;h=124 300w, https://tuttiperlinux.files.wordpress.com/2016/02/openstack-software-diagram.png 650w" sizes="(max-width: 600px) 100vw, 600px" /><p id="caption-attachment-1209" class="wp-caption-text">                                                     OpenStack Diagramma Software</p></div>
+<p><strong>Keystone</strong></p>
+<p>Keystone è il software che gestisce il sistema di autenticazione di OpenStack. Il principio su cui si fonda è quello classico degli utenti e dei gruppi, ma di fatto si occupa di gestire le tre tipologie di utenti configurabili in OpenStack:</p>
+<ul>
+<li style="text-align:justify;">Cloud Provider Admins: ossia gli amministratori del sistema OpenStack;</li>
+<li style="text-align:justify;">Tenants: ossia i profili delle compagnie fruitrici dei servizi;</li>
+<li style="text-align:justify;">Users: ossia gli utenti delle compagnie fruitrici dei servizi;</li>
+</ul>
+<p>Il concetto di &#8220;<em>compagnia&#8221;</em> si riferisce ad un sotto-ambiente interno alla stessa installazione di OpenStack. Applicato ad un provider esso potrebbe essere rappresentato dai clienti, mentre all&#8217;interno di un cloud privato potrebbe essere associato ad un dipartimento interno.</p>
+<p><strong>Glance</strong></p>
+<p>Glance si occupa del provisioning (ossia di fornire) delle immagini all&#8217;interno dell&#8217;ambiente. Questa componente fornisce un bacino di istanze gia preconfigurate, disponibili ai fruitori dei servizi, per effettuare il deploy (ossia la messa in produzione) dell&#8217;istanza desiderata all&#8217;interno del proprio ambiente.<br />
+Le immagini sono supportate nei formati KVM qcow, Aws, VMWare purché esista su queste un Master Boot Record.</p>
+<p><strong>Nova</strong></p>
+<p>Nova è il compute service, un servizio che permette di gestire i sistemi virtuali erogati all&#8217;interno dell&#8217;ambiente. All&#8217;interno della macchina definita controller il servizio nova-api guiderà l&#8217;avvio e la terminazione delle istanze comandando la sua controparte nova-compute, attiva su tutte le macchine hypervisor facenti parte della struttura OpenStack.<br />
+Le decisioni su dove e come le istanze dovranno essere avviata saranno gestite dal servizio nova-compute-service (basato su libvirt).</p>
+<p><strong>Horizon</strong></p>
+<p>Horizon è l&#8217;interfaccia web dalla quale è possibile controllare agevolmente le istanze in modalità point-and-click oltre che le immagini gestite da Glance. Il software Horizon è basato sul modulo wsgi del webserver Apache.</p>
+<p>C&#8217;è ancora un&#8217;ultimo aspetto da tenere presente, come è deducibile dallo schema, lo<strong> storage</strong>.<br />
+In un setup base le macchine possono essere erogate direttamente dai dischi degli hypervisor, ma in ambienti di larga scala ciò potrebbe non essere auspicabile. In questi casi fare riferimento ad un gestore dello spazio centralizzato permetterebbe di utilizzare gli hypervisor come semplici erogatori, valorizzando la scalabilità generale del progetto, ed ecco dunque venirci in aiuto questo componente per la gestione dei volumi, Cinder.</p>
+<p><strong><a href="https://wiki.openstack.org/wiki/Cinder">Cinder</a></strong></p>
+<p>In origine parte del progetto Nova (chiamato nova-volume) e dal 2012 progetto a se stante, Cinder è il servizio che fornisce il block storage per le istanze, uno storage gestito e centralizzato che funziona da dispositivo a blocchi per le virtual machines. Le macchine virtuali risiedono quindi su un device dedicato, definito sulla base di quello che è la modalità con cui l&#8217;hypervisor ha accesso allo storage.<br />
+Cinder supporta diverse modalità per essere visto dagli hypervisors: è possibile infatti utilizzare dischi locali o sistemi storage esterni, quali NFS, FibreChannel, DRBD o iSCSI.</p>
+<p><strong>Swift</strong></p>
+<p>A differenza di Cinder, Swift è un servizio di storage online che si occupa di rendere disponibile spazio all&#8217;interno dell&#8217;ambiente OpenStack mediante la modalità object storage. I dati non vengono registrati direttamente su dispositivi a blocchi, ma preventivamente convertiti in oggetti binari, distribuiti all&#8217;interno di più device in modo da garantirne la massima accessibilità oltre che la replica.<br />
+Swift è compatibile con il servizio di storage Amazon S3 e funziona con lo stesso principio: fornire uno storage web accessibile e scalabile.</p>
+<p><strong>Conclusioni</strong></p>
+<p>In questa lunga introduzione sono stati illustrati filosofia, componenti e soprattutto potenzialità di OpenStack, ma sebbene la lettura possa essere apparsa lunga, questa tocca appena la superficie dell&#8217;universo relativo a questo grande progetto.<br />
+Nel prossimo articolo verrà avviato un piccolo studio di fattibilità vero e proprio con lo scopo di mettere su strada tutti i vari software che lo compongono ed iniziare cosi ad adoperare OpenStack.</p>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../category/webserver/cloud-webserver/index.html" rel="category tag">Cloud</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../aws/index.html" rel="tag">aws</a>, <a href="../bloomberg/index.html" rel="tag">bloomberg</a>, <a href="../canonical/index.html" rel="tag">canonical</a>, <a href="../cisco/index.html" rel="tag">cisco</a>, <a href="../cloud/index.html" rel="tag">cloud</a>, <a href="../compute-service/index.html" rel="tag">compute service</a>, <a href="../emc/index.html" rel="tag">emc</a>, <a href="../google/index.html" rel="tag">google</a>, <a href="../horizon/index.html" rel="tag">horizon</a>, <a href="../hp/index.html" rel="tag">hp</a>, <a href="../huawei/index.html" rel="tag">huawei</a>, <a href="../hypervisor/index.html" rel="tag">hypervisor</a>, <a href="../ibm/index.html" rel="tag">ibm</a>, <a href="../keystone/index.html" rel="tag">keystone</a>, <a href="../kvm/index.html" rel="tag">kvm</a>, <a href="index.html" rel="tag">mysql</a>, <a href="../nasa/index.html" rel="tag">nasa</a>, <a href="../nebula/index.html" rel="tag">nebula</a>, <a href="../nova/index.html" rel="tag">nova</a>, <a href="../nova-cinder/index.html" rel="tag">nova-cinder</a>, <a href="../openstack/index.html" rel="tag">openstack</a>, <a href="../oracle/index.html" rel="tag">oracle</a>, <a href="../paypal/index.html" rel="tag">paypal</a>, <a href="../rabbitmq/index.html" rel="tag">rabbitmq</a>, <a href="../rackspace/index.html" rel="tag">rackspace</a>, <a href="../redhat/index.html" rel="tag">redhat</a>, <a href="../scheduler/index.html" rel="tag">scheduler</a>, <a href="../vmware/index.html" rel="tag">vmware</a>, <a href="../wsgi-apache/index.html" rel="tag">wsgi apache</a></li>
+		
+				<li class="comments-link"><a href="../../2016/02/06/openstack-introduzione/index.html#respond">Lascia un commento</a></li>
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-1208 -->
+				
+					
+<article id="post-1137" class="post-1137 post type-post status-publish format-standard hentry category-db category-proxy category-sysadmin tag-architettura-scalabile tag-backend tag-cluster tag-cms-2 tag-filter tag-haproxy tag-linux-blog-in-italiano tag-logging tag-mariadb tag-master-slave tag-maxscale tag-monitor tag-mysql tag-protocollo tag-proxy-server tag-query tag-routing">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2015/06/12/maxscale-db-proxy-scalabile/index.html" title="6:32 PM" rel="bookmark"><time class="entry-date" datetime="2015-06-12T18:32:46+00:00" pubdate>giugno 12, 2015</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2015/06/12/maxscale-db-proxy-scalabile/index.html" rel="bookmark">MaxScale DB Proxy&nbsp;scalabile</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<div class="element element-textarea first">
+<p>&nbsp;</p>
+<div data-shortcode="caption" id="attachment_1138" style="width: 255px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1138" data-attachment-id="1138" data-permalink="https://tuttiperlinux.blog/2015/06/12/maxscale-db-proxy-scalabile/maxscale_mariadb_sceme/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg" data-orig-size="430,252" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;Martin Schindler&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;1421339495&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="MaxScale_MariaDB_Sceme" data-image-description="&lt;p&gt;MaxScale DB Proxy Server&lt;/p&gt;
+" data-image-caption="&lt;p&gt;MaxScale DB Proxy Server&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg?w=430" class=" wp-image-1138" src="../../../tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme205d.jpg?w=245&amp;h=144" alt="MaxScale DB Proxy Server" width="245" height="144" srcset="https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg?w=245&amp;h=144 245w, https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg?w=150&amp;h=88 150w, https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg?w=300&amp;h=176 300w, https://tuttiperlinux.files.wordpress.com/2015/06/maxscale_mariadb_sceme.jpg 430w" sizes="(max-width: 245px) 100vw, 245px" /><p id="caption-attachment-1138" class="wp-caption-text">MaxScale DB Proxy Server</p></div>
+<p>Il suo nome per esteso e&#8217; &#8220;<strong>MariaDB MaxScale</strong>&#8221; ed è il nuovo database proxy server open source sviluppato da MariaDB Corporation Ab.</p>
+<p>In pratica  MaxScale ci permetta di avere database ad alte prestazioni, in grado di consentire la costruzione di architetture flessibili. Ecco nel dettaglio le sue caratteristiche e funzionalità principali.</p>
+<p>&nbsp;</p>
+<p>Innanzitutto ricordiamo a tutti che, un proxy è un server che fa da intermediario in una connessione: riceve le richieste da un client e le reindirizza verso altri server che sono i destinatari delle richieste. In altre parole un proxy è un mezzo per deviare una connessione tra due computer in modo da non collegarli direttamente. Un proxy funziona, nella sua pratica, come un centralinista: riceve la chiamata da chi vuole telefonare e la gira all&#8217;interno desiderato.</p>
+<p><strong><a href="https://mariadb.org/">MaxScale</a></strong> si può inserire in modo trasparente tra l&#8217;applicativo e il server MySQL, esattamente come fa un proxy web tra il nostro browser (es. Chrome) e il sito che stiamo cercando di visitare.</p>
+<p><strong>Grazie ad un proxy è possibile avere</strong>:</p>
+<ul>
+<li><strong>Ridondanza</strong>: usando più di un database dietro al proxy. Un solo server non fornisce l&#8217;affidabilità e l&#8217;alta disponibilità in caso di down di una macchina.</li>
+<li><strong>Diminuizione dei costi di infrastruttura</strong>: perché generalmente due server piccoli sono meno costosi che un unico server molto performante.</li>
+</ul>
+<p>Vedremo ora due tipologie di database proxy server:</p>
+<p>I proxy di livello <strong>trasporto</strong> come HAProxy<br />
+I proxy di livello <strong>applicativo</strong> come MaxScale</p>
+<p><strong>HAProxy</strong>: un proxy efficiente, rapido e funzionale</p>
+<p>Fino ad oggi il proxy più usato in ambito MySQL è l&#8217;<a href="http://www.haproxy.org/">HAProxy</a> che lavora ad un livello più basso (livello 4: trasporto). HAproxy non conosce nulla di MySQL e si occupa solo di bilanciare le connessioni tra più server. E&#8217; molto veloce, leggero ed efficente, tuttavia questo bilanciamento è fatto senza conoscere cosa sta smistando. Questo rende il sistema meno efficente poiché un server può ricevere molte richieste pesanti, mentre altri server possono essere scarichi. Quindi l&#8217;HAProxy non è la scelta vincente in tutti i casi.</p>
+<p><strong>MaxScale</strong>: un proxy che può fare cose incredibili</p>
+<p>MaxScale lavora a livello più alto (livello 7: applicativo), monitorando i server riesce a capire cosa sta succedendo all&#8217;interno dell&#8217;infrastruttura. Conoscendo il protocollo MySQL può intervenire manipolando il traffico tra client e server. Ecco alcune delle sue principali funzionalità:</p>
+<ul>
+<li>Filtro delle query al database</li>
+<li>Gestione del routing: instradamento delle richieste a uno o più database server</li>
+<li>Modifica delle query al volo prima che raggiungano il database</li>
+<li>Possibilità di nascondere la struttura interna dell&#8217;infrastruttura lasciando un singolo punto d&#8217;accesso.</li>
+<li>Alta affidabilità e scalabilità del sistema</li>
+<li>Possibilità di spostare un database dal server locale ad un server esterno senza modificare la configurazione delle applicazioni</li>
+<li>Divide automaticamente le scritture sul server MasterR e le letture su uno o più database Slave.</li>
+</ul>
+<p>MaxScale può fornire un Load Balacing delle connessioni senza bisogno di utilizzare applicazioni o CMS che prevedano questa funzionalità. Questo significa che CMS come WordPress o Joomla possono trarne dei benefici, usando una replicazione Master/Slave per rendere scalabile il proprio sito.</p>
+<p><strong>Caratteristiche di MaxScale</strong></p>
+<p>Il punto di forza di MaxScale è sicuramente la sua modularità che permette una notevole libertà adattandosi a molti casi d&#8217;uso, infatti MaxScale è:</p>
+<ul>
+<li>Modulare: un sistema di moduli ne definisce le funzionalità</li>
+<li>Estendibile: è possibile applicare più filtri anche in cascata</li>
+<li>Flessibile: i moduli e i filtri possono essere aggiunti dinamicamente</li>
+</ul>
+<p><strong>I moduli base di MaxScale</strong></p>
+<p>Quelli elencati qui sotto sono i 5 moduli che costituiscono il cuore di MaxScale:</p>
+<ul>
+<li>Protocol: da la possibilità di utilizzare più protocolli es. MySQL client, http, telnet</li>
+<li>Authentication: il sistema di autenticazione permette ai client di accedere a MaxScale usando le credenziali presenti sui server di Backend</li>
+<li>Monitor: legge la configurazione dello stato del sistema direttamente dai server di backend</li>
+<li>Router: smista le connessioni a uno o più database di backend</li>
+<li>Filter e logging: i filtri permettono di modificare le query oppure di scrivere un file di log con tutte le richieste e le risposte ricevute.</li>
+</ul>
+<p>1. <strong>Protocollo di connessione<br />
+</strong>I client si connettono a MaxScale anziché al database MySQL senza accorgersi della differenza. Possono usare le stesse librerie di connessione utilizzate fino ad ora: es. MySQL client o MariaDB client.</p>
+<p>2. <strong>Autenticazione</strong><br />
+MaxScale non ha un sistema di autenticazione o un database di utenti. Vengono utilizzati gli stessi utenti presenti sui database di backend, caricati all&#8217;avvio dell&#8217;applicazione.</p>
+<p>3. <strong>Monitor</strong><br />
+Viene utilizzato per capire in ogni momento lo stato di tutti i database di backend collegati a MaxScale. In questo modo è possibile sapere qual&#8217;è il server Master e quanti Slave stanno replicando correttamentei dati.</p>
+<p>4. <strong>Router</strong><br />
+Dirige il traffico dal client ai server utilizzando una regola specifica:</p>
+<ul>
+<li>Connection routing: normale router di connessione ad un database</li>
+<li>Read/Write Split router: smista le richieste di scrittura sul Master e le richieste di lettura su uno degli Slave collegati</li>
+</ul>
+<p>5. <strong>Filtri e log delle query<br />
+</strong>Tra i più potenti strumenti messi a disposizione di MaxScale ci sono sicuramente i filtri che permettono di effettuare operazioni avanzate sulle query senza modificare il comportamento dell&#8217;applicazione:</p>
+<ul>
+<li>Processando query SQL e risultati</li>
+<li>Utilizzando una semplice regex</li>
+<li>Analizzando, modificando o rifiutando le query</li>
+<li>Mettendo più filtri in cascata</li>
+</ul>
+<p>Insomma, da questo primo articolo, si deduce che le potenzialita&#8217; sono tutte a favore di MaxScale</p>
+</div>
+<p>&nbsp;</p>
+<p>#MaxscaledbproxyserverMysql</p>
+<div class="element element-itemauthor last"></div>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../category/db/index.html" rel="category tag">DB</a>, <a href="../../category/networking/proxy/index.html" rel="category tag">Proxy</a>, <a href="../../category/sysadmin/index.html" rel="category tag">SysAdmin</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../architettura-scalabile/index.html" rel="tag">architettura scalabile</a>, <a href="../backend/index.html" rel="tag">backend</a>, <a href="../cluster/index.html" rel="tag">cluster</a>, <a href="../cms-2/index.html" rel="tag">cms</a>, <a href="../filter/index.html" rel="tag">filter</a>, <a href="../haproxy/index.html" rel="tag">haproxy</a>, <a href="../linux-blog-in-italiano/index.html" rel="tag">linux blog in italiano</a>, <a href="../logging/index.html" rel="tag">logging</a>, <a href="../mariadb/index.html" rel="tag">mariadb</a>, <a href="../master-slave/index.html" rel="tag">master slave</a>, <a href="../maxscale/index.html" rel="tag">maxscale</a>, <a href="../monitor/index.html" rel="tag">monitor</a>, <a href="index.html" rel="tag">mysql</a>, <a href="../protocollo/index.html" rel="tag">protocollo</a>, <a href="../proxy-server/index.html" rel="tag">proxy server</a>, <a href="../query/index.html" rel="tag">query</a>, <a href="../routing/index.html" rel="tag">routing</a></li>
+		
+				<li class="comments-link"><a href="../../2015/06/12/maxscale-db-proxy-scalabile/index.html#comments">1 Commento</a></li>
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-1137 -->
+				
+					
+<article id="post-1124" class="post-1124 post type-post status-publish format-standard hentry category-news category-sysadmin tag-apache tag-arm tag-cloud tag-debian8 tag-desktop tag-fedora tag-gnome tag-jessie-debian tag-kde tag-kernel tag-linux-blog-in-italiano tag-mainframe tag-mips tag-mysql tag-powerpc tag-redhat tag-server tag-suse tag-systemd tag-sysvinit tag-tomcat tag-ubuntu tag-x86">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2015/06/01/le-novita-di-debian-8/index.html" title="8:39 PM" rel="bookmark"><time class="entry-date" datetime="2015-06-01T20:39:19+00:00" pubdate>giugno 1, 2015</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2015/06/01/le-novita-di-debian-8/index.html" rel="bookmark">Le novita&#8217; di Debian&nbsp;8</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<div data-shortcode="caption" id="attachment_1125" style="width: 301px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-1125" data-attachment-id="1125" data-permalink="https://tuttiperlinux.blog/2015/06/01/le-novita-di-debian-8/debian8_install_s/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg" data-orig-size="600,308" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="debian8_install" data-image-description="&lt;p&gt;Debian 8 Jessie&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Debian 8 Jessie&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=600" class=" wp-image-1125" src="../../../tuttiperlinux.files.wordpress.com/2015/06/debian8_install_se715.jpg?w=291&amp;h=149" alt="Debian 8 Jessie" width="291" height="149" srcset="https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=291&amp;h=149 291w, https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=582&amp;h=298 582w, https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=150&amp;h=77 150w, https://tuttiperlinux.files.wordpress.com/2015/06/debian8_install_s.jpg?w=300&amp;h=154 300w" sizes="(max-width: 291px) 100vw, 291px" /><p id="caption-attachment-1125" class="wp-caption-text">Debian 8 Jessie</p></div>
+<p>Il 25 aprile 2015 è stato annunciato il rilascio di <strong>Debian 8</strong> (alias Jessie), che e&#8217; l’ultima versione di uno dei più noti ed apprezzati sistemi operativi basati su Linux. Questo rilascio, atteso da moltissimi utenti e da altrettante aziende, porta con sè alcune novità significative, frutto di un lavoro di sviluppo durato circa due anni, e culminato in un sistema operativo che sarà supportato fino al 2020.</p>
+<p>In questo articolo vedremo le principali novità introdotte su Debian 8, di cui è possibile effettuare il <a href="https://www.debian.org/distrib/"><strong>download</strong></a> direttamente dal sito ufficiale del progetto.</p>
+<p><strong>Una distribuzione universale</strong><br />
+Debian, ad oggi vanta una vasta gamma di pacchetti software (circa 43 mila), che consentono a chiunque di personalizzarla a proprio piacimento, in base al tipo di applicazione per cui questo sistema sarà utilizzato: dai server alle workstation, passando per il cloud, i mainframe o le board che implentano l’Internet of Things.</p>
+<p>L’idea della distribuzione universale, adatta a tanti contesti, ha spinto negli anni la comunità open source a creare un gran numero di derivate (ed il caso più noto risponde al nome di Ubuntu). Il fatto che molti sistemi Linux si basino su Debian aumenta quindi l’importanza di ogni aggiornamento apportato a questa distribuzione in ogni rilascio, dal momento che ciò si ripercuote su tutte le sue derivate (ufficiali e non).</p>
+<p><strong>Il passaggio a systemd<br />
+</strong>La novità più significativa, che ha creato molti dibattiti accesi, introdotta con Debian 8, riguarda il passaggio definitivo a <strong>systemd</strong> quale sistema di init principale, sebbene sia possibile utilizzare sysvinit come alternativa. Tale scelta trova le sue motivazioni nella riduzione dei tempi di avvio ed arresto del sistema, sebbene non tutti gli utenti sembrano convinti di ciò. Inoltre, systemd non si occupa solo della fase di boot: in quanto gestore di sistema, esso incorpora anche la gestione di diverse altre funzioni (alimentazione, dispositivi, login, eccetera), con conseguenze che potrebbero comportare, ad esempio, la necessità di riavviare il sistema in caso di aggiornamento. Un problema significativo per una distribuzione server, dovuto proprio a systemd. Il problema piu&#8217; grande sorge per via del fatto che oggettivamente, l&#8217;attuale sistema usato, <strong>SysVInit</strong>, è oggettivamente un sistema antiquato, con un elenco di noti difetti, il principale dei quali è sicuramente la grande lentezza derivante dall’approccio seriale all’avvio dei servizi. L’idea di sostituirlo con un prodotto più moderno e meglio ingegnerizzato è, quindi, tutt’altro che sbagliata.</p>
+<p>Il problema reale è che <strong>systemd</strong> sta andando ben oltre questo encomiabile tentativo, ma sta fagocitando al suo interno tutta una serie di servizi che con la gestione dei processi e la creazione dello ‘spazio utente’ poco hanno a che fare. Approccio, questo, che viola radicalmente le logiche della filosofia Unix, che sono alla base non solo dei Linux che usiamo oggi, ma in larga parte di quella che è l’informatica moderna.</p>
+<p>Va detto, però, che il passaggio a systemd era già in atto da tempo, e non soltanto sulle distribuzioni basate su Debian: anche Red Hat, Fedora e SUSE (per citare alcune grandi distribuzioni Linux) sono già passate a questo nuovo gestore.</p>
+<p><strong>Desktop e applicazioni</strong><br />
+Dal punto di vista dell’interfaccia utente, il grande grado di personalizzazione offerto da Debian si traduce nella possibilità di scegliere il proprio desktop environment preferito tra un gran numero di possibilità. L’ultimo rilascio è infatti compatibile con GNOME 3.14, KDE Plasma 4.11.13, Xfce 4.10, MATE 1.8 e Cinnamon 2.2.16.</p>
+<p>Ai sopra citati desktop environment si aggiungono anche diverse applicazioni, tra cui Iceweasel 31.6, GIMP 2.8.14 e LibreOffice 4.3.3 per la sfera desktop, Apache 2.4.10, Tomcat 7.0.56 e 8.0.14, MariaDB 10.0.16 e MySQL 5.5.42 per quella server, nonchè OpenJDK 7u75, PHP 5.6.7 e Python 2.7.9 e 3.4.2 per gli sviluppatori.</p>
+<p><strong>Altre novità</strong><br />
+Per concludere ricordiamo che Debian 8 è basato sul kernel Linux 3.16.7, che garantisce la compatibilità con le più recenti tecnologie disponibili. È altresì interessante notare che, con il nuovo rilascio, viene garantito il supporto a ben dieci architetture diverse, tra cui x86, PowerPC, MIPS, ARM e diverse altre.</p>
+<p>&nbsp;</p>
+<p>#DebianottoJessie</p>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../index29ec.html?taxonomy=nav_menu&amp;term=news" rel="category tag">News</a>, <a href="../../category/sysadmin/index.html" rel="category tag">SysAdmin</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../apache/index.html" rel="tag">apache</a>, <a href="../arm/index.html" rel="tag">arm</a>, <a href="../cloud/index.html" rel="tag">cloud</a>, <a href="../debian8/index.html" rel="tag">debian8</a>, <a href="../desktop/index.html" rel="tag">desktop</a>, <a href="../fedora/index.html" rel="tag">fedora</a>, <a href="../gnome/index.html" rel="tag">gnome</a>, <a href="../jessie-debian/index.html" rel="tag">jessie debian</a>, <a href="../kde/index.html" rel="tag">kde</a>, <a href="../kernel/index.html" rel="tag">kernel</a>, <a href="../linux-blog-in-italiano/index.html" rel="tag">linux blog in italiano</a>, <a href="../mainframe/index.html" rel="tag">mainframe</a>, <a href="../mips/index.html" rel="tag">mips</a>, <a href="index.html" rel="tag">mysql</a>, <a href="../powerpc/index.html" rel="tag">powerpc</a>, <a href="../redhat/index.html" rel="tag">redhat</a>, <a href="../server/index.html" rel="tag">server</a>, <a href="../suse/index.html" rel="tag">suse</a>, <a href="../systemd/index.html" rel="tag">systemd</a>, <a href="../sysvinit/index.html" rel="tag">sysvinit</a>, <a href="../tomcat/index.html" rel="tag">tomcat</a>, <a href="../ubuntu/index.html" rel="tag">ubuntu</a>, <a href="../x86/index.html" rel="tag">x86</a></li>
+		
+				<li class="comments-link"><a href="../../2015/06/01/le-novita-di-debian-8/index.html#respond">Lascia un commento</a></li>
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-1124 -->
+				
+					
+<article id="post-410" class="post-410 post type-post status-publish format-standard hentry category-db category-proxy tag-database tag-euristico tag-grant tag-greensql tag-ids tag-illegale tag-ips tag-learning-mode tag-linux-blog tag-mysql tag-protezione-dati tag-query tag-sicurezza-2 tag-sql-injection">
+	<header class="entry-header">
+					<div class="entry-date">
+				<a href="../../2014/08/20/proteggi-mysql-con-greensql/index.html" title="5:56 am" rel="bookmark"><time class="entry-date" datetime="2014-08-20T05:56:04+00:00" pubdate>agosto 20, 2014</time></a>			</div><!-- .entry-date -->
+							<h1 class="entry-title"><a href="../../2014/08/20/proteggi-mysql-con-greensql/index.html" rel="bookmark">Proteggi Mysql con&nbsp;GreenSQL</a></h1>
+			</header><!-- .entry-header -->
+
+		<div class="entry-content">
+				<div data-shortcode="caption" id="attachment_411" style="width: 310px" class="wp-caption alignleft"><a href="../../../tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg"><img aria-describedby="caption-attachment-411" data-attachment-id="411" data-permalink="https://tuttiperlinux.blog/2014/08/20/proteggi-mysql-con-greensql/sql_injection/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg" data-orig-size="300,225" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="sql_injection" data-image-description="" data-image-caption="&lt;p&gt;SQL Injection&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg?w=300" class="size-full wp-image-411" src="../../../tuttiperlinux.files.wordpress.com/2014/08/sql_injectionaf90.jpg?w=600" alt="SQL Injection" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg 300w, https://tuttiperlinux.files.wordpress.com/2014/08/sql_injection.jpg?w=150 150w" sizes="(max-width: 300px) 100vw, 300px"   /></a><p id="caption-attachment-411" class="wp-caption-text">SQL Injection</p></div>
+<h3><strong>Mysql DB, GreenSQL FW e le SQL injection</strong></h3>
+<p>Nel corso degli anni i Database hanno conosciuto un&#8217;evoluzione repentina, a questa ha fatto seguito, data l&#8217;importanza dei dati contenuti, un&#8217;escalation dei problemi inerenti la sicurezza. Le vulnerabilita&#8217; che colpiscono i DB sono ormai molte e differenziate e gli &#8220;exploit&#8221; di tipo SQL injection sono quasi all&#8217;ordine del giorno, tra i piu&#8217; colpiti c&#8217;e&#8217; proprio <strong>Mysql</strong> che in pochi anni e&#8217; diventato il default DB di moltissime applicazioni web; ecco perche&#8217; bisogna fare molta attenzione e sapere come correre ai ripari.</p>
+<p>Come ben noto ai web master le <b>SQL Injection</b> sono un problema comune di molte applicazioni web li dove le piu&#8217; banali cause possono venire arginate da un sitemista scrupoloso e attento ad un buon <strong>hardening </strong>di sistema, possono sempre insorgere altri &#8220;bachi&#8221; non voluti, negli algoritmi di <em>arginazione</em>.</p>
+<p>Una soluzione efficiente e ben strutturata la propone <a title="GreenSQL il FW per i DB" href="http://tuttiperlinux.com/2014/08/09/greensql-il-fw-per-i-db/"><b>GreenSQL</b></a>, un software <b>Open Source</b> che si presenta sotto l&#8217;aspetto di un proxy/firewall, al quale ci si interfaccia come una comunissima connessione ai database e gestisce le connessione con il database filtrando eventuali codici &#8220;illegali&#8221;.</p>
+<h3><strong>Come funziona<br />
+</strong></h3>
+<p align="justify">In pratica la query inviata alla web application viene esaminata da GreenSQL, che intercetta il traffico diretto al DB, e nel qual caso la query sia ritenuta rischiosa non viene inoltrata al database e il risultato restituito sara&#8217; nullo.<br />
+Viceversa se l&#8217;interrogazione risulta conforme alle specifiche verrà inoltrata al database e il risultato reso disponibile all&#8217;applicazione.</p>
+<p align="justify">Il software può lavorare in tre modalità:</p>
+<ul>
+<li>Simulation Mode (IDS)</li>
+<li>Blocking Suspicious Commands (Database IPS)</li>
+<li>Learning Mode</li>
+<li>Active protection da query sconosciute (DB Firewall)</li>
+</ul>
+<p><strong>Come agiscono<br />
+</strong>Se l’applicazione è impostata in <b>Simulation Mode</b> funziona sostanzialmente come un sistema <b>IDS</b> (Intrusion Detection System). Tutte le query ritenute dannose vengono semplicemente loggate e poi notificate all’amministratore che può consultarle attraverso la console d’amministazione.</p>
+<p>In modalità <b>Blocking Suspicious Commands</b> il sistema invece funziona come un IPS (Intrusion Prevention System). In questa modalità le query che non sono all’interno della <i>white list</i> del programma vengono automaticamente bloccate e, il programma, restituisce un risultato nullo all’applicazione web. Altrimenti, se la query è considerata non maligna, viene eseguita. Durante questa modalità però possono essere generati <b>falsi positivi</b> o <b>falsi negativi</b>.<br />
+Per evitare i problemi dovuti alle due modalità sopra citate è stata sviluppata la modalità <b>Learning mode</b> durante la quale il programma <i>impara</i> tutte le query che l’applicazione web può inviare e le aggiunge alla <i>white list</i>. Una volta finita la modalità d’apprendimento si deve ripassare ad una delle due modalità citate in precedenza, in modo da avere un livello di protezione piu&#8217; adeguato.<br />
+Si può inoltre attivare la protezione dalle query sconosciute, questa opzione permette di bloccare in automatico i <i>comandi sconosciuti</i> che giungono GreenSQL. Per poter calcolare se un comando è <strong><i>illegale</i></strong> o meno si avvale di un motore di <i>pattern matching</i> che lavora in due modalità. La prima controlla che la query inviata non vada ad eseguire comandi amministrativi (ad esempio <strong>GRANT</strong> o <strong>REVOKE</strong>, o comandi che vanno a modificare la struttura del database). L’altra invece calcola il rischio di una query basandosi su dei metodi euristici, se il rischio è sufficientemente alto la query viene bloccata in automatico.</p>
+<p><strong>Calcolare il rischio delle query</strong><br />
+GreenSQL puo&#8217; calcolare il rischio di ogni query ; essenzialmente, questo è un sottosistema di rilevamento delle anomalie. Dopo che il rischio è calcolato, GreenSQL è in grado di bloccare la query o semplicemente creare un messaggio di avviso (questo dipende dalla modalità attivata). Ci sono una serie di operazioni euristiche che GreenSQL utilizza per il calcolo del rischio. Per esempio, il rischio di query è aumentato da:</p>
+<ul>
+<li>L&#8217;accesso alle tabelle sensibili (gli utenti, gli account, le informazioni di credito)</li>
+<li>Commenti all&#8217;interno di comandi SQL</li>
+<li>Una stringa password vuota</li>
+<li>Una &#8216;OR&#8217; all&#8217;interno di una query</li>
+<li>Un&#8217;espressione SQL che restituisce sempre vero</li>
+</ul>
+<p>Per trovare anomalie, GreenSQL usa il proprio <strong>lexer</strong> ( o analizzatore lessicale ) cercando SQL tokens (costituiti da identificatori, costanti e parole chiave).</p>
+<p>Per maggiori chiarimenti e per avere una guida ufficiale non esitate ad andare sul sito ufficiale di <a href="http://www.greensql.com/content/articles">GreenSQL FW</a></p>
+<p>&nbsp;</p>
+			</div><!-- .entry-content -->
+	
+	<ul class="entry-meta fade">
+								<li class="cat-links">
+				Inviato su <a href="../../category/db/index.html" rel="category tag">DB</a>, <a href="../../category/networking/proxy/index.html" rel="category tag">Proxy</a>			</li>
+			
+			<li class="tag-links">Contrassegnato da tag <a href="../database/index.html" rel="tag">database</a>, <a href="../euristico/index.html" rel="tag">euristico</a>, <a href="../grant/index.html" rel="tag">grant</a>, <a href="../greensql/index.html" rel="tag">greensql</a>, <a href="../ids/index.html" rel="tag">ids</a>, <a href="../illegale/index.html" rel="tag">illegale</a>, <a href="../ips/index.html" rel="tag">ips</a>, <a href="../learning-mode/index.html" rel="tag">learning mode</a>, <a href="../linux-blog/index.html" rel="tag">linux blog</a>, <a href="index.html" rel="tag">mysql</a>, <a href="../protezione-dati/index.html" rel="tag">protezione dati</a>, <a href="../query/index.html" rel="tag">query</a>, <a href="../sicurezza-2/index.html" rel="tag">sicurezza</a>, <a href="../sql-injection/index.html" rel="tag">sql injection</a></li>
+		
+				<li class="comments-link"><a href="../../2014/08/20/proteggi-mysql-con-greensql/index.html#respond">Lascia un commento</a></li>
+		
+			</ul><!-- #entry-meta -->
+</article><!-- #post-410 -->
+				
+					<nav id="nav-below" class="site-navigation paging-navigation">
+		<h1 class="assistive-text">Navigazione articolo</h1>
+
+	
+				<div class="nav-previous"><a href="page/2/index.html" ><span class="meta-nav">&larr;</span> Articoli più vecchi</a></div>
+		
+		
+	
+	</nav><!-- #nav-below -->
+	
+			
+			</div><!-- #content -->
+		</section><!-- #primary -->
+
+		<div id="secondary" class="widget-area" role="complementary">
+						<aside id="text-4" class="widget widget_text"><h1 class="widget-title">Consulenza per la Progettazione di Architetture in ambiente LINUX</h1>			<div class="textwidget"><p><img class="alignleft size-thumbnail wp-image-119" src="../../../tuttiperlinux.files.wordpress.com/2018/12/IO27658.jpg?w=150" alt="Lorenzo Disilvestro Senior Linux System Integrator &amp; Architect" width="150" height="150" /><br />
+EFFETTUO :<br />
+- Progettazione di Infrastrutture in ambienti Linux ad alta affidabilità sia virtuali che fisici.<br />
+- Analisi dell'infrastruttura ed ottimizzazione dei punti critici e delle vulnerabilità.<br />
+- Analisi dei processi di backup e disaster recovery e loro eventuale implemetazione.</p>
+<p>Profilo Linkedin :<br />
+https://www.linkedin.com/in/lorenzodisilvestro/</p>
+</div>
+		</aside><aside id="top-posts-2" class="widget widget_top-posts"><h1 class="widget-title">Articoli piu&#8217; letti</h1><ul class='widgets-list-layout no-grav'>
+<li><a href="../../2014/08/05/montare-una-cartella-ftp/index.html" title="Montare una cartella FTP" class="bump-view" data-bump-view="tp"><img width="40" height="40" src="../../../tuttiperlinux.files.wordpress.com/2014/08/curlftpfscb45.jpg?resize=40%2C40" alt="Montare una cartella FTP" data-pin-nopin="true" class="widgets-list-layout-blavatar" /></a><div class="widgets-list-layout-links">
+								<a href="../../2014/08/05/montare-una-cartella-ftp/index.html" title="Montare una cartella FTP" class="bump-view" data-bump-view="tp">Montare una cartella FTP</a>
+							</div>
+							</li><li><a href="../../2014/09/27/ottimizzare-la-connessione-a-internet/index.html" title="Ottimizzare la connessione a Internet " class="bump-view" data-bump-view="tp"><img width="40" height="40" src="../../../tuttiperlinux.files.wordpress.com/2014/09/wondershaper632f.jpg?w=300&amp;resize=40%2C40" alt="Ottimizzare la connessione a Internet " data-pin-nopin="true" class="widgets-list-layout-blavatar" /></a><div class="widgets-list-layout-links">
+								<a href="../../2014/09/27/ottimizzare-la-connessione-a-internet/index.html" title="Ottimizzare la connessione a Internet " class="bump-view" data-bump-view="tp">Ottimizzare la connessione a Internet </a>
+							</div>
+							</li></ul>
+</aside><aside id="categories-7" class="widget widget_categories"><h1 class="widget-title">Cerca per categoria</h1><form action="https://tuttiperlinux.blog/" method="get"><label class="screen-reader-text" for="cat">Cerca per categoria</label><select  name='cat' id='cat' class='postform'>
+	<option value='-1'>Seleziona una categoria</option>
+	<option class="level-0" value="641922">Android</option>
+	<option class="level-0" value="17868400">Backup &amp; Disaster Recovery</option>
+	<option class="level-0" value="64575263">Blockchain</option>
+	<option class="level-0" value="255916294">Cloud</option>
+	<option class="level-0" value="646">CMS</option>
+	<option class="level-0" value="700871191">Dapp DeFi</option>
+	<option class="level-0" value="4667">DB</option>
+	<option class="level-0" value="71599">Devices</option>
+	<option class="level-0" value="3448">Eventi</option>
+	<option class="level-0" value="310703">Load Balancing</option>
+	<option class="level-0" value="54069">Mining</option>
+	<option class="level-0" value="7426">Networking</option>
+	<option class="level-0" value="103">News</option>
+	<option class="level-0" value="6621">Opinioni</option>
+	<option class="level-0" value="9628">Proxy</option>
+	<option class="level-0" value="49695267">Raspberry PI</option>
+	<option class="level-0" value="2929">Scripting</option>
+	<option class="level-0" value="14115">Sicurezza</option>
+	<option class="level-0" value="247107959">Streaming</option>
+	<option class="level-0" value="13505">SysAdmin</option>
+	<option class="level-0" value="3301">Tips &amp; Tricks</option>
+	<option class="level-0" value="1">Uncategorized</option>
+	<option class="level-0" value="247073814">Varie</option>
+	<option class="level-0" value="694405">Virtualizzazione</option>
+	<option class="level-0" value="28027">WebServer</option>
+</select>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "cat" );
+	function onCatChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value > 0 ) {
+			dropdown.parentNode.submit();
+		}
+	}
+	dropdown.onchange = onCatChange;
+})();
+/* ]]> */
+</script>
+
+			</aside><aside id="archives-10" class="widget widget_archive"><h1 class="widget-title">Archivio</h1>		<label class="screen-reader-text" for="archives-dropdown-10">Archivio</label>
+		<select id="archives-dropdown-10" name="archive-dropdown">
+			
+			<option value="">Seleziona mese</option>
+				<option value='https://tuttiperlinux.blog/2022/11/'> novembre 2022 </option>
+	<option value='https://tuttiperlinux.blog/2022/10/'> ottobre 2022 </option>
+	<option value='https://tuttiperlinux.blog/2021/08/'> agosto 2021 </option>
+	<option value='https://tuttiperlinux.blog/2021/01/'> gennaio 2021 </option>
+	<option value='https://tuttiperlinux.blog/2020/11/'> novembre 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/07/'> luglio 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/06/'> giugno 2020 </option>
+	<option value='https://tuttiperlinux.blog/2020/05/'> Maggio 2020 </option>
+	<option value='https://tuttiperlinux.blog/2019/10/'> ottobre 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/06/'> giugno 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/05/'> Maggio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/04/'> aprile 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/03/'> marzo 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/02/'> febbraio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2019/01/'> gennaio 2019 </option>
+	<option value='https://tuttiperlinux.blog/2018/12/'> dicembre 2018 </option>
+	<option value='https://tuttiperlinux.blog/2017/06/'> giugno 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/05/'> Maggio 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/03/'> marzo 2017 </option>
+	<option value='https://tuttiperlinux.blog/2017/01/'> gennaio 2017 </option>
+	<option value='https://tuttiperlinux.blog/2016/10/'> ottobre 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/05/'> Maggio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/04/'> aprile 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/03/'> marzo 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/02/'> febbraio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2016/01/'> gennaio 2016 </option>
+	<option value='https://tuttiperlinux.blog/2015/12/'> dicembre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/11/'> novembre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/10/'> ottobre 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/08/'> agosto 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/06/'> giugno 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/05/'> Maggio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/04/'> aprile 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/03/'> marzo 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/02/'> febbraio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2015/01/'> gennaio 2015 </option>
+	<option value='https://tuttiperlinux.blog/2014/12/'> dicembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/11/'> novembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/10/'> ottobre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/09/'> settembre 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/08/'> agosto 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/07/'> luglio 2014 </option>
+	<option value='https://tuttiperlinux.blog/2014/06/'> giugno 2014 </option>
+
+		</select>
+
+<script type="text/javascript">
+/* <![CDATA[ */
+(function() {
+	var dropdown = document.getElementById( "archives-dropdown-10" );
+	function onSelectChange() {
+		if ( dropdown.options[ dropdown.selectedIndex ].value !== '' ) {
+			document.location.href = this.options[ this.selectedIndex ].value;
+		}
+	}
+	dropdown.onchange = onSelectChange;
+})();
+/* ]]> */
+</script>
+			</aside>
+		<aside id="recent-posts-5" class="widget widget_recent_entries">
+		<h1 class="widget-title">Recenti</h1>
+		<ul>
+											<li>
+					<a href="../../2022/11/16/limportanza-ed-il-valore-del-web3/index.html">L&#8217;importanza ed il valore del&nbsp;Web3</a>
+									</li>
+											<li>
+					<a href="../../2022/10/17/bitcoin-un-anno-di-studio/index.html">Bitcoin un anno di&nbsp;studio</a>
+									</li>
+											<li>
+					<a href="../../2021/08/05/restic-il-backup-funzionale-e-cross-platform/index.html">RESTIC il backup funzionale e cross&nbsp;platform</a>
+									</li>
+											<li>
+					<a href="../../2021/01/05/filesystem-decentralizzato-ipfs/index.html">FileSystem Decentralizzato &#8211;&nbsp;IPFS</a>
+									</li>
+											<li>
+					<a href="../../2020/11/04/le-elezioni-statunitensi-e-bitcoin-in-che-modo-le-elezioni-influenzeranno-il-mercato-delle-criptovalute/index.html">Le elezioni statunitensi e Bitcoin: in che modo le elezioni influenzeranno il mercato delle&nbsp;criptovalute?</a>
+									</li>
+					</ul>
+
+		</aside><aside id="widget_contact_info-5" class="widget widget_contact_info"><h1 class="widget-title">Per info e Contatti</h1><div itemscope itemtype="http://schema.org/LocalBusiness"><iframe width="600"  height="216" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=12359+Berlin&amp;key=AIzaSyCq4vWNv6eCGe2uvhPRGWQlv80IQp8dwTE" title="Integrazione di Google Maps" class="contact-map"></iframe><div class="confit-address" itemscope itemtype="http://schema.org/PostalAddress" itemprop="address"><a href="https://maps.google.com/maps?z=16&amp;q=12359%2Bberlin" target="_blank" rel="noopener noreferrer">12359 Berlin</a></div><div class="confit-hours" itemprop="openingHours">Se vuoi contattarmi:<br/>Mattina: 10:00 - 13:00 <br/>Pomeriggio: 14:00 - 17:00 <br/>e-mail: <br/>tuttiperlinux@gmail.com</div></div></aside><aside id="wp_tag_cloud-3" class="widget wp_widget_tag_cloud"><h1 class="widget-title">Cloud</h1><a href="../amazon/index.html" class="tag-cloud-link tag-link-6602 tag-link-position-1" style="font-size: 11.5pt;" aria-label="amazon (8 elementi)">amazon</a>
+<a href="../android/index.html" class="tag-cloud-link tag-link-641922 tag-link-position-2" style="font-size: 13.74pt;" aria-label="Android (12 elementi)">Android</a>
+<a href="../apache/index.html" class="tag-cloud-link tag-link-3768 tag-link-position-3" style="font-size: 13.32pt;" aria-label="apache (11 elementi)">apache</a>
+<a href="../aws/index.html" class="tag-cloud-link tag-link-144203 tag-link-position-4" style="font-size: 10.1pt;" aria-label="aws (6 elementi)">aws</a>
+<a href="../backup/index.html" class="tag-cloud-link tag-link-5469 tag-link-position-5" style="font-size: 10.1pt;" aria-label="backup (6 elementi)">backup</a>
+<a href="../bash/index.html" class="tag-cloud-link tag-link-2674 tag-link-position-6" style="font-size: 9.12pt;" aria-label="bash (5 elementi)">bash</a>
+<a href="../berlino/index.html" class="tag-cloud-link tag-link-264284 tag-link-position-7" style="font-size: 8pt;" aria-label="berlino (4 elementi)">berlino</a>
+<a href="../cache/index.html" class="tag-cloud-link tag-link-29733 tag-link-position-8" style="font-size: 9.12pt;" aria-label="cache (5 elementi)">cache</a>
+<a href="../centos/index.html" class="tag-cloud-link tag-link-134600 tag-link-position-9" style="font-size: 9.12pt;" aria-label="centos (5 elementi)">centos</a>
+<a href="../cloud/index.html" class="tag-cloud-link tag-link-69816 tag-link-position-10" style="font-size: 16.68pt;" aria-label="cloud (20 elementi)">cloud</a>
+<a href="../cloud-computing/index.html" class="tag-cloud-link tag-link-1715866 tag-link-position-11" style="font-size: 8pt;" aria-label="cloud computing (4 elementi)">cloud computing</a>
+<a href="../cms-2/index.html" class="tag-cloud-link tag-link-35202393 tag-link-position-12" style="font-size: 11.5pt;" aria-label="cms (8 elementi)">cms</a>
+<a href="../coreos/index.html" class="tag-cloud-link tag-link-2570792 tag-link-position-13" style="font-size: 9.12pt;" aria-label="coreos (5 elementi)">coreos</a>
+<a href="../database/index.html" class="tag-cloud-link tag-link-475 tag-link-position-14" style="font-size: 12.76pt;" aria-label="database (10 elementi)">database</a>
+<a href="../ddos/index.html" class="tag-cloud-link tag-link-64500 tag-link-position-15" style="font-size: 8pt;" aria-label="ddos (4 elementi)">ddos</a>
+<a href="../debian/index.html" class="tag-cloud-link tag-link-428 tag-link-position-16" style="font-size: 15.42pt;" aria-label="debian (16 elementi)">debian</a>
+<a href="../dns/index.html" class="tag-cloud-link tag-link-17846 tag-link-position-17" style="font-size: 11.5pt;" aria-label="dns (8 elementi)">dns</a>
+<a href="../docker/index.html" class="tag-cloud-link tag-link-4504191 tag-link-position-18" style="font-size: 12.76pt;" aria-label="docker (10 elementi)">docker</a>
+<a href="../facebook/index.html" class="tag-cloud-link tag-link-81819 tag-link-position-19" style="font-size: 13.74pt;" aria-label="facebook (12 elementi)">facebook</a>
+<a href="../filesystem/index.html" class="tag-cloud-link tag-link-793571 tag-link-position-20" style="font-size: 8pt;" aria-label="filesystem (4 elementi)">filesystem</a>
+<a href="../firewall/index.html" class="tag-cloud-link tag-link-3087 tag-link-position-21" style="font-size: 14.3pt;" aria-label="firewall (13 elementi)">firewall</a>
+<a href="../framework/index.html" class="tag-cloud-link tag-link-7136 tag-link-position-22" style="font-size: 10.1pt;" aria-label="framework (6 elementi)">framework</a>
+<a href="../git/index.html" class="tag-cloud-link tag-link-209196 tag-link-position-23" style="font-size: 9.12pt;" aria-label="git (5 elementi)">git</a>
+<a href="../github/index.html" class="tag-cloud-link tag-link-5603054 tag-link-position-24" style="font-size: 10.1pt;" aria-label="github (6 elementi)">github</a>
+<a href="../gmail/index.html" class="tag-cloud-link tag-link-1110 tag-link-position-25" style="font-size: 9.12pt;" aria-label="gmail (5 elementi)">gmail</a>
+<a href="../google/index.html" class="tag-cloud-link tag-link-81 tag-link-position-26" style="font-size: 15.42pt;" aria-label="google (16 elementi)">google</a>
+<a href="../honeypot/index.html" class="tag-cloud-link tag-link-318562 tag-link-position-27" style="font-size: 8pt;" aria-label="honeypot (4 elementi)">honeypot</a>
+<a href="../html/index.html" class="tag-cloud-link tag-link-647 tag-link-position-28" style="font-size: 8pt;" aria-label="html (4 elementi)">html</a>
+<a href="../http/index.html" class="tag-cloud-link tag-link-10518 tag-link-position-29" style="font-size: 10.8pt;" aria-label="http (7 elementi)">http</a>
+<a href="../internet/index.html" class="tag-cloud-link tag-link-22 tag-link-position-30" style="font-size: 8pt;" aria-label="internet (4 elementi)">internet</a>
+<a href="../internet-of-things/index.html" class="tag-cloud-link tag-link-780658 tag-link-position-31" style="font-size: 9.12pt;" aria-label="internet of things (5 elementi)">internet of things</a>
+<a href="../iot/index.html" class="tag-cloud-link tag-link-2121118 tag-link-position-32" style="font-size: 10.1pt;" aria-label="iot (6 elementi)">iot</a>
+<a href="../iptables/index.html" class="tag-cloud-link tag-link-391491 tag-link-position-33" style="font-size: 12.2pt;" aria-label="iptables (9 elementi)">iptables</a>
+<a href="../kali-linux/index.html" class="tag-cloud-link tag-link-139664097 tag-link-position-34" style="font-size: 8pt;" aria-label="kali linux (4 elementi)">kali linux</a>
+<a href="../kernel/index.html" class="tag-cloud-link tag-link-2428 tag-link-position-35" style="font-size: 12.2pt;" aria-label="kernel (9 elementi)">kernel</a>
+<a href="../kvm/index.html" class="tag-cloud-link tag-link-75342 tag-link-position-36" style="font-size: 9.12pt;" aria-label="kvm (5 elementi)">kvm</a>
+<a href="../linux/index.html" class="tag-cloud-link tag-link-610 tag-link-position-37" style="font-size: 14.72pt;" aria-label="linux (14 elementi)">linux</a>
+<a href="../linux-blog/index.html" class="tag-cloud-link tag-link-346577 tag-link-position-38" style="font-size: 22pt;" aria-label="linux blog (49 elementi)">linux blog</a>
+<a href="../linux-blog-in-italiano/index.html" class="tag-cloud-link tag-link-313719882 tag-link-position-39" style="font-size: 21.44pt;" aria-label="linux blog in italiano (45 elementi)">linux blog in italiano</a>
+<a href="../load-balancing-2/index.html" class="tag-cloud-link tag-link-82197607 tag-link-position-40" style="font-size: 8pt;" aria-label="load balancing (4 elementi)">load balancing</a>
+<a href="../localhost/index.html" class="tag-cloud-link tag-link-78334 tag-link-position-41" style="font-size: 8pt;" aria-label="localhost (4 elementi)">localhost</a>
+<a href="index.html" class="tag-cloud-link tag-link-4419 tag-link-position-42" style="font-size: 11.5pt;" aria-label="mysql (8 elementi)">mysql</a>
+<a href="../nosql/index.html" class="tag-cloud-link tag-link-22319505 tag-link-position-43" style="font-size: 9.12pt;" aria-label="nosql (5 elementi)">nosql</a>
+<a href="../opensource/index.html" class="tag-cloud-link tag-link-44 tag-link-position-44" style="font-size: 8pt;" aria-label="opensource (4 elementi)">opensource</a>
+<a href="../open-source/index.html" class="tag-cloud-link tag-link-25 tag-link-position-45" style="font-size: 10.8pt;" aria-label="open source (7 elementi)">open source</a>
+<a href="../openstack/index.html" class="tag-cloud-link tag-link-13108840 tag-link-position-46" style="font-size: 11.5pt;" aria-label="openstack (8 elementi)">openstack</a>
+<a href="../pdf/index.html" class="tag-cloud-link tag-link-47759 tag-link-position-47" style="font-size: 10.1pt;" aria-label="pdf (6 elementi)">pdf</a>
+<a href="../phishing/index.html" class="tag-cloud-link tag-link-21013 tag-link-position-48" style="font-size: 9.12pt;" aria-label="phishing (5 elementi)">phishing</a>
+<a href="../php/index.html" class="tag-cloud-link tag-link-458 tag-link-position-49" style="font-size: 8pt;" aria-label="php (4 elementi)">php</a>
+<a href="../privacy/index.html" class="tag-cloud-link tag-link-3279 tag-link-position-50" style="font-size: 9.12pt;" aria-label="privacy (5 elementi)">privacy</a>
+<a href="../proxy-2/index.html" class="tag-cloud-link tag-link-10932389 tag-link-position-51" style="font-size: 13.32pt;" aria-label="proxy (11 elementi)">proxy</a>
+<a href="../python/index.html" class="tag-cloud-link tag-link-832 tag-link-position-52" style="font-size: 10.8pt;" aria-label="python (7 elementi)">python</a>
+<a href="../ram/index.html" class="tag-cloud-link tag-link-59756 tag-link-position-53" style="font-size: 10.1pt;" aria-label="ram (6 elementi)">ram</a>
+<a href="../redhat/index.html" class="tag-cloud-link tag-link-72331 tag-link-position-54" style="font-size: 10.8pt;" aria-label="redhat (7 elementi)">redhat</a>
+<a href="../repository/index.html" class="tag-cloud-link tag-link-28139 tag-link-position-55" style="font-size: 8pt;" aria-label="repository (4 elementi)">repository</a>
+<a href="../ruby/index.html" class="tag-cloud-link tag-link-4872 tag-link-position-56" style="font-size: 8pt;" aria-label="ruby (4 elementi)">ruby</a>
+<a href="../sicurezza-2/index.html" class="tag-cloud-link tag-link-35491116 tag-link-position-57" style="font-size: 12.2pt;" aria-label="sicurezza (9 elementi)">sicurezza</a>
+<a href="../smartphone/index.html" class="tag-cloud-link tag-link-24435 tag-link-position-58" style="font-size: 10.1pt;" aria-label="smartphone (6 elementi)">smartphone</a>
+<a href="../sql/index.html" class="tag-cloud-link tag-link-10346 tag-link-position-59" style="font-size: 9.12pt;" aria-label="sql (5 elementi)">sql</a>
+<a href="../ssh/index.html" class="tag-cloud-link tag-link-49320 tag-link-position-60" style="font-size: 10.8pt;" aria-label="ssh (7 elementi)">ssh</a>
+<a href="../storage/index.html" class="tag-cloud-link tag-link-3386 tag-link-position-61" style="font-size: 9.12pt;" aria-label="storage (5 elementi)">storage</a>
+<a href="../tablet/index.html" class="tag-cloud-link tag-link-7939 tag-link-position-62" style="font-size: 8pt;" aria-label="tablet (4 elementi)">tablet</a>
+<a href="../tuttiperlinux/index.html" class="tag-cloud-link tag-link-666888242 tag-link-position-63" style="font-size: 9.12pt;" aria-label="tuttiperlinux (5 elementi)">tuttiperlinux</a>
+<a href="../twitter/index.html" class="tag-cloud-link tag-link-599182 tag-link-position-64" style="font-size: 9.12pt;" aria-label="twitter (5 elementi)">twitter</a>
+<a href="../ubuntu/index.html" class="tag-cloud-link tag-link-255 tag-link-position-65" style="font-size: 19.62pt;" aria-label="ubuntu (33 elementi)">ubuntu</a>
+<a href="../usb/index.html" class="tag-cloud-link tag-link-57231 tag-link-position-66" style="font-size: 8pt;" aria-label="usb (4 elementi)">usb</a>
+<a href="../video/index.html" class="tag-cloud-link tag-link-412 tag-link-position-67" style="font-size: 8pt;" aria-label="video (4 elementi)">video</a>
+<a href="../virtualizzazione-2/index.html" class="tag-cloud-link tag-link-35630667 tag-link-position-68" style="font-size: 13.74pt;" aria-label="virtualizzazione (12 elementi)">virtualizzazione</a>
+<a href="../vmware/index.html" class="tag-cloud-link tag-link-38600 tag-link-position-69" style="font-size: 8pt;" aria-label="vmware (4 elementi)">vmware</a>
+<a href="../vpn/index.html" class="tag-cloud-link tag-link-13847 tag-link-position-70" style="font-size: 9.12pt;" aria-label="vpn (5 elementi)">vpn</a>
+<a href="../webserver-2/index.html" class="tag-cloud-link tag-link-54678872 tag-link-position-71" style="font-size: 11.5pt;" aria-label="webserver (8 elementi)">webserver</a>
+<a href="../whatsapp/index.html" class="tag-cloud-link tag-link-25699058 tag-link-position-72" style="font-size: 9.12pt;" aria-label="whatsapp (5 elementi)">whatsapp</a>
+<a href="../wifi/index.html" class="tag-cloud-link tag-link-4305 tag-link-position-73" style="font-size: 10.1pt;" aria-label="wifi (6 elementi)">wifi</a>
+<a href="../windows/index.html" class="tag-cloud-link tag-link-800 tag-link-position-74" style="font-size: 8pt;" aria-label="windows (4 elementi)">windows</a>
+<a href="../youtube/index.html" class="tag-cloud-link tag-link-6567 tag-link-position-75" style="font-size: 8pt;" aria-label="youtube (4 elementi)">youtube</a></aside>		</div><!-- #secondary .widget-area -->
+		<div class="container-bottom"></div>
+	</div><!-- #container -->
+
+	<footer id="colophon" role="contentinfo">
+
+		
+		<div class="site-info">
+						<a href="https://wordpress.com/?ref=footer_blog" rel="nofollow">Blog su WordPress.com.</a>
+			
+					</div><!-- .site-info -->
+
+	</footer><!-- #colophon -->
+</div><!-- #wrapper -->
+
+		<script type="text/javascript">
+		var infiniteScroll = {"settings":{"id":"content","ajaxurl":"https:\/\/tuttiperlinux.blog\/?infinity=scrolling","type":"click","wrapper":true,"wrapper_class":"infinite-wrap","footer":true,"click_handle":"1","text":"Articoli meno recenti","totop":"Scorri in alto","currentday":"20.08.14","order":"DESC","scripts":[],"styles":[],"google_analytics":false,"offset":1,"history":{"host":"tuttiperlinux.blog","path":"\/tag\/mysql\/page\/%d\/","use_trailing_slashes":true,"parameters":""},"query_args":{"tag":"mysql","error":"","m":"","p":0,"post_parent":"","subpost":"","subpost_id":"","attachment":"","attachment_id":0,"name":"","pagename":"","page_id":0,"second":"","minute":"","hour":"","day":0,"monthnum":0,"year":0,"w":0,"category_name":"","cat":"","tag_id":4419,"author":"","author_name":"","feed":"","tb":"","paged":0,"meta_key":"","meta_value":"","preview":"","s":"","sentence":"","title":"","fields":"","menu_order":"","embed":"","category__in":[],"category__not_in":[],"category__and":[],"post__in":[],"post__not_in":[],"post_name__in":[],"tag__in":[],"tag__not_in":[],"tag__and":[],"tag_slug__in":["mysql"],"tag_slug__and":[],"post_parent__in":[],"post_parent__not_in":[],"author__in":[],"author__not_in":[],"lazy_load_term_meta":false,"posts_per_page":5,"ignore_sticky_posts":false,"suppress_filters":false,"cache_results":true,"update_post_term_cache":true,"update_menu_item_cache":false,"update_post_meta_cache":true,"post_type":"","nopaging":false,"comments_per_page":"50","no_found_rows":false,"order":"DESC"},"query_before":"2022-11-18 14:39:09","last_post_date":"2014-08-20 05:56:04","body_class":"infinite-scroll","loading_text":"Caricamento della nuova pagina","stats":"blog=70283720&v=wpcom&tz=0&user_id=0&subd=tuttiperlinux&x_pagetype=infinite-click"}};
+		</script>
+		<!--  -->
+<script type="text/javascript">
+	window._tkq = window._tkq || [];
+	if ( Math.random() < 0.01 ) {
+		window._tkq.push( [
+			'recordEvent',
+			'wpcom_wordads_noad',
+			{"theme":"pub\/splendio","blog_id":70283720,"reason_noadverts_plugin":1,"reason_upgrade":1,"reason_blog_unsafe":1}
+		] );
+	}
+</script><script src='../../../0.gravatar.com/js/gprofiles87a4.js?ver=202246z' id='grofiles-cards-js'></script>
+<script id='wpgroho-js-extra'>
+var WPGroHo = {"my_hash":""};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='../../../s1.wp.com/wp-content/mu-plugins/gravatar-hovercards/wpgrohodc5c.js?m=1610363240h'></script>
+
+	<script>
+		// Initialize and attach hovercards to all gravatars
+		( function() {
+			function init() {
+				if ( typeof Gravatar === 'undefined' ) {
+					return;
+				}
+
+				if ( typeof Gravatar.init !== 'function' ) {
+					return;
+				}
+
+				Gravatar.profile_cb = function ( hash, id ) {
+					WPGroHo.syncProfileData( hash, id );
+				};
+
+				Gravatar.my_hash = WPGroHo.my_hash;
+				Gravatar.init( 'body', '#wp-admin-bar-my-account' );
+			}
+
+			if ( document.readyState !== 'loading' ) {
+				init();
+			} else {
+				document.addEventListener( 'DOMContentLoaded', init );
+			}
+		} )();
+	</script>
+
+		<div style="display:none">
+	</div>
+	<div id="actionbar" style="display: none;"
+			class="actnbr-pub-splendio actnbr-has-follow">
+		<ul>
+								<li class="actnbr-btn actnbr-hidden">
+								<a class="actnbr-action actnbr-actn-follow " href="#">
+			<svg class="gridicon gridicons-reader-follow" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"/></g></svg><span>Segui</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="#">
+			<svg class="gridicon gridicons-reader-following" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"/></g></svg><span>Siti che segui</span>
+		</a>
+							<div class="actnbr-popover tip tip-top-left actnbr-notice" id="follow-bubble">
+							<div class="tip-arrow"></div>
+							<div class="tip-inner actnbr-follow-bubble">
+															<ul>
+											<li class="actnbr-sitename">
+			<a href="../../index.html">
+				<img alt='' src='../../../secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd254381.png?s=50&amp;d=https%3A%2F%2Fs2.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' />				Tutti per Linux			</a>
+		</li>
+										<form method="post" action="https://subscribe.wordpress.com/" accept-charset="utf-8" style="display: none;">
+																						<div class="actnbr-follow-count">Segui assieme ad altri 28 follower</div>
+																					<div>
+										<input type="email" name="email" placeholder="Inserisci il tuo indirizzo e-mail" class="actnbr-email-field" aria-label="Inserisci il tuo indirizzo e-mail" />
+										</div>
+										<input type="hidden" name="action" value="subscribe" />
+										<input type="hidden" name="blog_id" value="70283720" />
+										<input type="hidden" name="source" value="index.html" />
+										<input type="hidden" name="sub-type" value="actionbar-follow" />
+										<input type="hidden" id="_wpnonce" name="_wpnonce" value="13c4b6aac8" />										<div class="actnbr-button-wrap">
+											<button type="submit" value="Registrami">
+												Registrami											</button>
+										</div>
+									</form>
+									<li class="actnbr-login-nudge">
+										<div>
+											Hai già un account WordPress.com? <a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Ftuttiperlinux.blog%252F2019%252F01%252F21%252Fa-tutta-velocita-con-php-fpm%252F">Accedi ora.</a>										</div>
+									</li>
+								</ul>
+															</div>
+						</div>
+					</li>
+							<li class="actnbr-ellipsis actnbr-hidden">
+				<svg class="gridicon gridicons-ellipsis" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M7 12c0 1.104-.896 2-2 2s-2-.896-2-2 .896-2 2-2 2 .896 2 2zm12-2c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2zm-7 0c-1.104 0-2 .896-2 2s.896 2 2 2 2-.896 2-2-.896-2-2-2z"/></g></svg>				<div class="actnbr-popover tip tip-top-left actnbr-more">
+					<div class="tip-arrow"></div>
+					<div class="tip-inner">
+						<ul>
+									<li class="actnbr-sitename">
+			<a href="../../index.html">
+				<img alt='' src='../../../secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd254381.png?s=50&amp;d=https%3A%2F%2Fs2.wp.com%2Fi%2Flogo%2Fwpcom-gray-white.png' class='avatar avatar-50' height='50' width='50' />				Tutti per Linux			</a>
+		</li>
+								<li class="actnbr-folded-customize">
+								<a href="https://tuttiperlinux.wordpress.com/wp-admin/customize.php?url=https%3A%2F%2Ftuttiperlinux.wordpress.com%2Ftag%2Fmysql%2F">
+									<svg class="gridicon gridicons-customize" height="20" width="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M2 6c0-1.505.78-3.08 2-4 0 .845.69 2 2 2 1.657 0 3 1.343 3 3 0 .386-.08.752-.212 1.09.74.594 1.476 1.19 2.19 1.81L8.9 11.98c-.62-.716-1.214-1.454-1.807-2.192C6.753 9.92 6.387 10 6 10c-2.21 0-4-1.79-4-4zm12.152 6.848l1.34-1.34c.607.304 1.283.492 2.008.492 2.485 0 4.5-2.015 4.5-4.5 0-.725-.188-1.4-.493-2.007L18 9l-2-2 3.507-3.507C18.9 3.188 18.225 3 17.5 3 15.015 3 13 5.015 13 7.5c0 .725.188 1.4.493 2.007L3 20l2 2 6.848-6.848c1.885 1.928 3.874 3.753 5.977 5.45l1.425 1.148 1.5-1.5-1.15-1.425c-1.695-2.103-3.52-4.092-5.448-5.977z"/></g></svg>									<span>Personalizza</span>
+								</a>
+							</li>
+																<li class="actnbr-folded-follow">
+												<a class="actnbr-action actnbr-actn-follow " href="#">
+			<svg class="gridicon gridicons-reader-follow" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 16v2h-3v3h-2v-3h-3v-2h3v-3h2v3h3zM20 2v9h-4v3h-3v4H4c-1.1 0-2-.9-2-2V2h18zM8 13v-1H4v1h4zm3-3H4v1h7v-1zm0-2H4v1h7V8zm7-4H4v2h14V4z"/></g></svg><span>Segui</span>
+		</a>
+		<a class="actnbr-action actnbr-actn-following  no-display" href="#">
+			<svg class="gridicon gridicons-reader-following" height="24" width="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><path d="M23 13.482L15.508 21 12 17.4l1.412-1.388 2.106 2.188 6.094-6.094L23 13.482zm-7.455 1.862L20 10.89V2H2v14c0 1.1.9 2 2 2h4.538l4.913-4.832 2.095 2.176zM8 13H4v-1h4v1zm3-2H4v-1h7v1zm0-2H4V8h7v1zm7-3H4V4h14v2z"/></g></svg><span>Siti che segui</span>
+		</a>
+										</li>
+																	<li class="actnbr-signup"><a href="https://wordpress.com/start/">Registrati</a></li>
+									<li class="actnbr-login"><a href="https://wordpress.com/log-in?redirect_to=https%3A%2F%2Fr-login.wordpress.com%2Fremote-login.php%3Faction%3Dlink%26back%3Dhttps%253A%252F%252Ftuttiperlinux.blog%252F2019%252F01%252F21%252Fa-tutta-velocita-con-php-fpm%252F">Accedi</a></li>
+																	<li class="flb-report"><a href="http://en.wordpress.com/abuse/">Segnala questo contenuto</a></li>
+																	<li class="actnbr-reader">
+										<a href="https://wordpress.com/read/feeds/91525927">
+											Visualizza il sito nel Reader										</a>
+									</li>
+																	<li class="actnbr-subs">
+										<a href="https://subscribe.wordpress.com/">Gestisci gli abbonamenti</a>
+									</li>
+																		<li class="actnbr-fold"><a href="#">Riduci la barra</a></li>
+															</ul>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+	
+<script>
+window.addEventListener( "load", function( event ) {
+	var link = document.createElement( "link" );
+	link.href = "../../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbar2866.css?v=20210915";
+	link.type = "text/css";
+	link.rel = "stylesheet";
+	document.head.appendChild( link );
+
+	var script = document.createElement( "script" );
+	script.src = "../../../s0.wp.com/wp-content/mu-plugins/actionbar/actionbarb516.js?v=20220329";
+	script.defer = true;
+	document.body.appendChild( script );
+} );
+</script>
+
+			<div id="jp-carousel-loading-overlay">
+			<div id="jp-carousel-loading-wrapper">
+				<span id="jp-carousel-library-loading">&nbsp;</span>
+			</div>
+		</div>
+		<div class="jp-carousel-overlay" style="display: none;">
+
+		<div class="jp-carousel-container">
+			<!-- The Carousel Swiper -->
+			<div
+				class="jp-carousel-wrap swiper-container jp-carousel-swiper-container jp-carousel-transitions"
+				itemscope
+				itemtype="https://schema.org/ImageGallery">
+				<div class="jp-carousel swiper-wrapper"></div>
+				<div class="jp-swiper-button-prev swiper-button-prev">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskPrev" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="9" height="12">
+							<path d="M16.2072 16.59L11.6496 12L16.2072 7.41L14.8041 6L8.8335 12L14.8041 18L16.2072 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskPrev)">
+							<rect x="0.579102" width="23.8823" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+				<div class="jp-swiper-button-next swiper-button-next">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskNext" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8" height="12">
+							<path d="M8.59814 16.59L13.1557 12L8.59814 7.41L10.0012 6L15.9718 12L10.0012 18L8.59814 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskNext)">
+							<rect x="0.34375" width="23.8822" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!-- The main close buton -->
+			<div class="jp-carousel-close-hint">
+				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="maskClose" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="15" height="14">
+						<path d="M19.3166 6.41L17.9135 5L12.3509 10.59L6.78834 5L5.38525 6.41L10.9478 12L5.38525 17.59L6.78834 19L12.3509 13.41L17.9135 19L19.3166 17.59L13.754 12L19.3166 6.41Z" fill="white"/>
+					</mask>
+					<g mask="url(#maskClose)">
+						<rect x="0.409668" width="23.8823" height="24" fill="#FFFFFF"/>
+					</g>
+				</svg>
+			</div>
+			<!-- Image info, comments and meta -->
+			<div class="jp-carousel-info">
+				<div class="jp-carousel-info-footer">
+					<div class="jp-carousel-pagination-container">
+						<div class="jp-swiper-pagination swiper-pagination"></div>
+						<div class="jp-carousel-pagination"></div>
+					</div>
+					<div class="jp-carousel-photo-title-container">
+						<h2 class="jp-carousel-photo-caption"></h2>
+					</div>
+					<div class="jp-carousel-photo-icons-container">
+						<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-info" aria-label="Attiva/disattiva visibilità dei metadata delle foto">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskInfo" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.7537 2C7.26076 2 2.80273 6.48 2.80273 12C2.80273 17.52 7.26076 22 12.7537 22C18.2466 22 22.7046 17.52 22.7046 12C22.7046 6.48 18.2466 2 12.7537 2ZM11.7586 7V9H13.7488V7H11.7586ZM11.7586 11V17H13.7488V11H11.7586ZM4.79292 12C4.79292 16.41 8.36531 20 12.7537 20C17.142 20 20.7144 16.41 20.7144 12C20.7144 7.59 17.142 4 12.7537 4C8.36531 4 4.79292 7.59 4.79292 12Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskInfo)">
+										<rect x="0.8125" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+							</span>
+						</a>
+												<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-comments" aria-label="Attiva/disattiva visibilità dei commenti alle foto">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskComments" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.3271 2H20.2486C21.3432 2 22.2388 2.9 22.2388 4V16C22.2388 17.1 21.3432 18 20.2486 18H6.31729L2.33691 22V4C2.33691 2.9 3.2325 2 4.3271 2ZM6.31729 16H20.2486V4H4.3271V18L6.31729 16Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskComments)">
+										<rect x="0.34668" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+
+								<span class="jp-carousel-has-comments-indicator" aria-label="Questa immagine ha dei commenti."></span>
+							</span>
+						</a>
+											</div>
+				</div>
+				<div class="jp-carousel-info-extra">
+					<div class="jp-carousel-info-content-wrapper">
+						<div class="jp-carousel-photo-title-container">
+							<h2 class="jp-carousel-photo-title"></h2>
+						</div>
+						<div class="jp-carousel-comments-wrapper">
+															<div id="jp-carousel-comments-loading">
+									<span>Caricamento commenti...</span>
+								</div>
+								<div class="jp-carousel-comments"></div>
+								<div id="jp-carousel-comment-form-container">
+									<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+									<div id="jp-carousel-comment-post-results"></div>
+																														<form id="jp-carousel-comment-form">
+												<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Scrivi un Commento...</label>
+												<textarea
+													name="comment"
+													class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea"
+													id="jp-carousel-comment-form-comment-field"
+													placeholder="Scrivi un Commento..."
+												></textarea>
+												<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+													<div id="jp-carousel-comment-form-commenting-as">
+																													<fieldset>
+																<label for="jp-carousel-comment-form-email-field">E-mail</label>
+																<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-author-field">Nome</label>
+																<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-url-field">Sito web</label>
+																<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field" />
+															</fieldset>
+																											</div>
+													<input
+														type="submit"
+														name="submit"
+														class="jp-carousel-comment-form-button"
+														id="jp-carousel-comment-form-button-submit"
+														value="Pubblica un commento" />
+												</div>
+											</form>
+																											</div>
+													</div>
+						<div class="jp-carousel-image-meta">
+							<div class="jp-carousel-title-and-caption">
+								<div class="jp-carousel-photo-info">
+									<h3 class="jp-carousel-caption" itemprop="caption description"></h3>
+								</div>
+
+								<div class="jp-carousel-photo-description"></div>
+							</div>
+							<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+							<a class="jp-carousel-image-download" target="_blank" style="display: none;">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="19" height="18">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.84615 5V19H19.7775V12H21.7677V19C21.7677 20.1 20.8721 21 19.7775 21H5.84615C4.74159 21 3.85596 20.1 3.85596 19V5C3.85596 3.9 4.74159 3 5.84615 3H12.8118V5H5.84615ZM14.802 5V3H21.7677V10H19.7775V6.41L9.99569 16.24L8.59261 14.83L18.3744 5H14.802Z" fill="white"/>
+									</mask>
+									<g mask="url(#mask0)">
+										<rect x="0.870605" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+								<span class="jp-carousel-download-text"></span>
+							</a>
+							<div class="jp-carousel-image-map" style="display: none;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		<link crossorigin='anonymous' rel='stylesheet' id='all-css-0-2' href='https://s1.wp.com/_static/??-eJyljcsOAiEMRX9IbMYoySyM34JQCWN5hJYQ/15MnIUbN+zuuWnPhV6UzUkwCcSmCjUfEsOGUox9fhlKza5ZCTlBHImQwZqaGyMB91CwqntLjvBomQ8w7dxP92JO24PzKEM/no0VFdIj/4CKpsxNSCB0yhsirK9/9Jm5xeuiL/p8Wle9bG/MDpMi?cssminify=yes' type='text/css' media='all' />
+<script id='jetpack-carousel-js-extra'>
+var jetpackSwiperLibraryPath = {"url":"https:\/\/s2.wp.com\/wp-content\/mu-plugins\/jetpack-plugin\/production\/_inc\/build\/carousel\/swiper-bundle.min.js"};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"it","ajaxurl":"https:\/\/tuttiperlinux.blog\/wp-admin\/admin-ajax.php","nonce":"7b479549df","display_exif":"1","display_comments":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Commento","post_comment":"Pubblica un commento","write_comment":"Scrivi un Commento...","loading_comments":"Caricamento commenti...","download_original":"Vedi immagine a grandezza originale<span class=\"photo-size\">{0}<span class=\"photo-size-times\">\u00d7<\/span>{1}<\/span>","no_comment_text":"Assicurati di scrivere del testo nel commento.","no_comment_email":"Fornisci un indirizzo e-mail per commentare.","no_comment_author":"Fornisci il tuo nome per commentare.","comment_post_error":"Si \u00e8 verificato un problema durante la pubblicazione del commento. Riprova pi\u00f9 tardi.","comment_approved":"Il tuo commento \u00e8 stato approvato.","comment_unapproved":"Il tuo commento deve venire moderato.","camera":"Fotocamera","aperture":"Apertura","shutter_speed":"Velocit\u00e0 di scatto","focal_length":"Lunghezza focale","copyright":"Copyright","comment_registration":"0","require_name_email":"0","login_url":"https:\/\/tuttiperlinux.wordpress.com\/wp-login.php?redirect_to=https%3A%2F%2Ftuttiperlinux.blog%2F2019%2F01%2F21%2Fa-tutta-velocita-con-php-fpm%2F","blog_id":"70283720","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"],"stats_query_args":"blog=70283720&v=wpcom&tz=0&user_id=0&subd=tuttiperlinux","is_public":"1"};
+</script>
+<script crossorigin='anonymous' type='text/javascript' src='https://s0.wp.com/_static/??-eJyljksOwjAMRC9EaiGgwAJxFJQ6pnLIT/lQenuyoAixaJHY+XnsmYEhCPQuk8ugEyi6M1J4NDqt4EOyRQRTenYJNOUg8fZiCNGrgpm9gws7hK6wUcDuyo4ziYTRGzPx2Fh2M95SVV10MoKVKVOsk8ixpqV/C6GMviQy7+tpsdDoJ/PMhpTopTEUxzlaCJs6iSGgt19Y/872tG7b/e6w3WyP+glJOKce'></script>
+<script type="text/javascript">
+// <![CDATA[
+(function() {
+try{
+  if ( window.external &&'msIsSiteMode' in window.external) {
+    if (window.external.msIsSiteMode()) {
+      var jl = document.createElement('script');
+      jl.type='text/javascript';
+      jl.async=true;
+      jl.src='../../wp-content/plugins/ie-sitemode/custom-jumplist.php';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jl, s);
+    }
+  }
+}catch(e){}
+})();
+// ]]>
+</script>		<script type="text/javascript">
+			(function() {
+				var extend = function(out) {
+					out = out || {};
+
+					for (var i = 1; i < arguments.length; i++) {
+						if (!arguments[i])
+						continue;
+
+						for (var key in arguments[i]) {
+						if (arguments[i].hasOwnProperty(key))
+							out[key] = arguments[i][key];
+						}
+					}
+
+					return out;
+				};
+				extend( window.infiniteScroll.settings.scripts, ["mobile-useragent-info","rlt-proxy","jquery-core","jquery-migrate","jquery","functions-js","wpcom-actionbar-placeholder","grofiles-cards","wpgroho","devicepx","the-neverending-homepage","wpcom-masterbar-tracks-js","jetpack-carousel","tiled-gallery","carousel-wpcom"] );
+				extend( window.infiniteScroll.settings.styles, ["wpcom-smileys","the-neverending-homepage","wp-block-library","mediaelement","wp-mediaelement","jetpack-layout-grid","jetpack-ratings","coblocks-frontend","classic-theme-styles","wpcom-core-compat-playlist-styles","wpcom-text-widget-styles","wpcom-bbpress2-staff-css","splendio","splendio-wpcom","jetpack-top-posts-widget","geo-location-flair","reblogging","a8c-global-print","h4-global","global-styles","droid-sans","jetpack-global-styles-frontend-style","jetpack-carousel-swiper-css","jetpack-carousel","contact-info-map-css","tiled-gallery"] );
+			})();
+		</script>
+				<span id="infinite-aria" aria-live="assertive"></span>
+		<script src="../../../stats.wp.com/w03af.js?63" defer></script> <script type="text/javascript">
+_tkq = window._tkq || [];
+_stq = window._stq || [];
+_tkq.push(['storeContext', {'blog_id':'70283720','blog_tz':'0','user_lang':'it','blog_lang':'it','user_id':'0'}]);
+_stq.push(['view', {'blog':'70283720','v':'wpcom','tz':'0','user_id':'0','subd':'tuttiperlinux'}]);
+_stq.push(['extra', {'crypt':'UE40eW5QN0p8M2Y/RE1mNzc2NTVTamdsd0xoLz9RQkM2K298TXY9bERQMXc2MjhEaVZfb2wwakRoSj0mUkp1THptM1NdbkV1WjZIcU9mVWQmPUIvMlN6Jk8wW3NYVEJ3dWZOWExuWD9rdEhGbW1xOHc4XWJHVkxxW1pocnlJbWZSSC5ZejUrd2x5U1puaEU1dn4zc3FqcTJHRWRsLUw3SU1zSmY1ZXxNK2ZZZlNQNnJ3cV9Qdl96SUpKclZoR1M2X3F6Z0pIUGxael9KV1R+ZFlRaGV1LnglNUZZZFA2cEV1dXNmMlZIMi1tPVIwOHJxZV9MXWd4Nnh5Zkl1TDBEamMva34yYjIvfj10dndUSFFaWkNCTmtEWDdLJmUxbDY1alFLXWo5cXhkdWgxXyZDK35uSWtmSjg5SFpqVmlWP3c='}]);
+_stq.push([ 'clickTrackerInit', '70283720', '0' ]);
+	</script>
+<noscript><img src="../../../pixel.wp.com/b0b80.gif?v=noscript" style="height:1px;width:1px;overflow:hidden;position:absolute;bottom:1px;" alt="" /></noscript>
+<script defer id="bilmur" data-customproperties="{&quot;enq_jquery&quot;:&quot;1&quot;,&quot;logged_in&quot;:&quot;0&quot;,&quot;wptheme&quot;:&quot;pub\/splendio&quot;}" data-provider="wordpress.com" data-service="simple"  src="../../wp-content/js/bilmur.minc814.js?i=6&amp;m=202246"></script><script>
+if ( 'object' === typeof wpcom_mobile_user_agent_info ) {
+
+	wpcom_mobile_user_agent_info.init();
+	var mobileStatsQueryString = "";
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedPlatformName )
+		mobileStatsQueryString += "&x_" + 'mobile_platforms' + '=' + wpcom_mobile_user_agent_info.matchedPlatformName;
+	
+	if( false !== wpcom_mobile_user_agent_info.matchedUserAgentName )
+		mobileStatsQueryString += "&x_" + 'mobile_devices' + '=' + wpcom_mobile_user_agent_info.matchedUserAgentName;
+	
+	if( wpcom_mobile_user_agent_info.isIPad() )
+		mobileStatsQueryString += "&x_" + 'ipad_views' + '=' + 'views';
+
+	if( "" != mobileStatsQueryString ) {
+		new Image().src = document.location.protocol + '//pixel.wp.com/g.gif?v=wpcom-no-pv' + mobileStatsQueryString + '&baba=' + Math.random();
+	}
+	
+}
+</script>
+</body>
+
+<!-- Mirrored from tuttiperlinux.blog/tag/mysql/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 18 Nov 2022 14:53:46 GMT -->
+</html>

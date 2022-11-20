@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>rdbms &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/rdbms/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 20 Nov 2014 16:47:03 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>rdbms &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>CouchDB conosciamolo meglio</title>
+		<link>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/</link>
+					<comments>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2014 12:26:16 +0000</pubDate>
+				<category><![CDATA[DB]]></category>
+		<category><![CDATA[acid]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[cms]]></category>
+		<category><![CDATA[couchdb]]></category>
+		<category><![CDATA[crm]]></category>
+		<category><![CDATA[dbms]]></category>
+		<category><![CDATA[document oriented]]></category>
+		<category><![CDATA[documentale]]></category>
+		<category><![CDATA[erlang]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[locking]]></category>
+		<category><![CDATA[mvcc]]></category>
+		<category><![CDATA[nosql]]></category>
+		<category><![CDATA[rdbms]]></category>
+		<category><![CDATA[replicazione]]></category>
+		<category><![CDATA[rest]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[subversion]]></category>
+		<category><![CDATA[tabelle]]></category>
+		<category><![CDATA[webserver]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=674</guid>
+
+					<description><![CDATA[Questo articolo e&#8217; la continuazione della precedente &#8220;Introduzione a CouchDB&#8221; per cui riprenderemo alcune informazioni di base gia viste per poi allargare alcuni importanti concetti ed aspetti che riguardano questo interessantissimo documentale via HTTP. Apache CouchDB e’ un moderno documentale, document-oriented, richiamabile semplicemente con l’HTTP e che al tempo stesso offre le piu’ avanzate funzionalita’ &#8230; <a href="https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png"><img data-attachment-id="214" data-permalink="https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/couch/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" data-orig-size="160,112" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="couchDB" data-image-description="&lt;p&gt;Performing Web DB&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" class="alignleft size-full wp-image-214" src="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=600" alt="couchDB" srcset="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png 160w, https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=150 150w" sizes="(max-width: 160px) 100vw, 160px"   /></a>Questo articolo e&#8217; la continuazione della precedente &#8220;<a title="Introduzione a CouchDB" href="http://tuttiperlinux.com/2014/07/26/introduzione-a-couchdb/">Introduzione a CouchDB</a>&#8221; per cui riprenderemo alcune informazioni di base gia viste per poi allargare alcuni importanti concetti ed aspetti che riguardano questo interessantissimo documentale via HTTP.</p>
+<p><strong><br />
+Apache CouchDB</strong> e’ un moderno documentale, document-oriented, richiamabile semplicemente con l’HTTP e che al tempo stesso offre le piu’ avanzate funzionalita’ di replicazione dati e di ricerca in parallelo (Map/Reduce).</p>
+<h3><strong>Caratteristiche</strong></h3>
+<p>Scritto in: Erlang<br />
+Punto principale: Consistenza DB consistency, facilità d’uso<br />
+Licenza: Apache<br />
+Protocolli: HTTP/REST<br />
+Replicazione bidirezionale continua o ad-hoc con individuazione dei conflitti, replicazione master-master<br />
+MVCC – le operazioni di scrittura non bloccano le letture<br />
+Sono disponibili le versioni precedenti dei documenti<br />
+Progettazione crash-only (reliable)<br />
+Necessità di compattazioni nel tempo<br />
+Viste: embedded map/reduce<br />
+Viste formattate: lists &amp; shows<br />
+Possibilità di validazione server-side dei documenti<br />
+Possibile autenticazione<br />
+Aggiornamenti real-time attraverso _changes (!)<br />
+Gestione degli allegati e, CouchApps (standalone js apps)<br />
+libreria jQuery inclusa<br />
+Utilizzo ideale: Per accumulazione dei dati con cambi occasionali sui quali vengono eseguite query predefinite. Situazioni in cui la gestione delle versioni è importante.<br />
+Per esempio: CRM, sistemi CMS. Situazioni in cui la replicazione master-master è una caratteristica interessante (ad esempio multisito).</p>
+<p><strong>In CouchDB non esistono tabelle</strong>. Il contenuto informativo è suddiviso in diversi database che fungono da contenitori di documenti con strutture potenzialmente disomogenee tra di loro. Il documento è il fulcro di questo software (e di quelli che come lui condividono l’approccio document-oriented).<br />
+<strong>Un documento è formato da un insieme di coppie chiave-valore.</strong><br />
+A differenza dei database relazionali <strong>CouchDB non possiede il concetto di schema</strong> e quindi ogni documento in ogni database può essere strutturato in modo diverso dagli altri.</p>
+<p><strong>Le uniche due chiavi obbligatorie sono</strong>:<br />
+<strong>_id </strong>serve per identificare univocamente il documento (è comparabile, semanticamente, alla chiave primaria dei database relazionali)<br />
+<strong>_rev </strong>viene utilizzata per la gestione delle revisioni, ad ogni operazione di modifica infatti la chiave &#8220;_rev&#8221; viene aggiornata (questo meccanismo è alla base della prevenzione dei conflitti<br />
+in fase di salvataggio su CouchDB).</p>
+<p>Questo accorgimento permette inoltre di poter interrogare il DBMS su versioni del documento non più attuali in quanto, con un approccio simile a quello di Subversion, <strong>CouchDB mantiene memoria di ogni revisione, da quella iniziale alla più recente</strong>.</p>
+<p>L’altra grande differenza rispetto ai tradizionali RDBMS è il meccanismo di gestione delle query. Nei database relazionali una volta specificate e popolate le tabelle è possibile eseguire query utilizzando un linguaggio conosciuto come SQL (ne esistono vari dialetti ma il concetto non cambia nell’essenza);<br />
+a fronte di una query il RDBMS utilizza indici interni e le proprie relazioni per costruire in tempo reale una tabella di risultato (che può, nelle query più semplici, essere un sottoinsieme della tabella di partenza).</p>
+<p>Questa soluzione riesce ad essere performante in quanto i dati sono strutturati con questo preciso scopo; inoltre il database non deve conoscere a priori le query che verranno eseguite ma può rispondere a qualsiasi interrogazione, purché sia stilata usando SQL valido.</p>
+<h3><strong>Consistenza dei dati e replicazione</strong></h3>
+<p><strong>CouchDB non utilizza alcun meccanismo di locking</strong> ma sfrutta l&#8217;MVCC (Multiversion Concurrency Control): ogni modifica di un oggetto ne crea una nuova versione. Le versioni precedenti non vengono cancellate. Se due modifiche vanno in conflitto poiche&#8217; accedono allo stesso documenti, la seconda riceve un errore in save. L&#8217;applicazione deve riprendere l&#8217;ultima versione del documento e rieseguire l&#8217;UPDATE.<br />
+L&#8217;isolamento e&#8217; mantenuto solo a livello di un singolo documento, questa e&#8217; una notevole semplificazione, rispetto alla complessa logica transazionale di altri database, ma consente l&#8217;ottimizzazione, la parallelizzazione e la distribuzione dei dati in modo semplice. A livello di accesso al file di dati ogni singola modifica ad un documento rispetta le proprieta ACID (Atomic Consistent Isolated Durable) con la serializzazione delle modifiche sui documenti e la scrittura sincrona sul disco.</p>
+<p><strong>Piu&#8217; database CouchDB possono essere collegati tra loro</strong> in modo molto semplice. I database vengono aggiornati tra loro con una replicazione peer-to-peer incrementale implementata nativamente nell&#8217;engine. <strong>CouchDB permette una replicazione bidirezionale asincrona</strong>, utilizza un meccanismo automatico di risoluzione dei conflitti e fornisce una eventual consistency tra i database. Se i database sono ospitati su nodi differenti si ottiene con questo la distribuzione dei dati.<br />
+La replicazione di CouchDB puo&#8217; essere utilizzata sia per sincronizzare database locali che per complesse configurazioni con sharding dei dati.</p>
+<p>Per lavorare su CouchDB esiste anche la possibilita&#8217; di installare <b>CouchApp, </b>in pratica<b> </b>una serie di script che permettono di costruire completi applicazioni stand-alone per il database usando solo HTML e JavaScript. Poiche&#8217; il database stesso risponde in HTTP e&#8217; possibile concentrare su un solo nodo (eventualmente replicabile) la classica pila applicativa web a tre livelli.</p>
+<p>CouchDB si e&#8217; cosi&#8217; rapidamente imposto sul mercato, diventando uno tra i piu&#8217; usati database non relazionali. In pratica i due piu&#8217; diffusi NoSQL documentali sono <b>CouchDB</b> e <b>MongoDB</b>: entrambi sono velocissimi (memorizzano i dati in BSON/JSON), sono scalabili in modo nativo su piu&#8217; nodi e non forniscono un&#8217;interfaccia SQL.</p>
+<p>Per una documentazione piu&#8217; dettagliata si rimanda al sito ufficiale di <a href="http://couchdb.apache.org/" rel="nofollow">Apache CouchDB</a>.</p>
+<p>&nbsp;</p>
+<p>Per ora e&#8217; tutto, alla prossima e, buon divertimento!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" medium="image">
+			<media:title type="html">couchDB</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Not Only SQL</title>
+		<link>https://tuttiperlinux.blog/2014/07/24/not-only-sql/</link>
+					<comments>https://tuttiperlinux.blog/2014/07/24/not-only-sql/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Thu, 24 Jul 2014 21:09:27 +0000</pubDate>
+				<category><![CDATA[DB]]></category>
+		<category><![CDATA[nosql]]></category>
+		<category><![CDATA[orizzontale]]></category>
+		<category><![CDATA[rdbms]]></category>
+		<category><![CDATA[scalare]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[tabelle]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/2014/07/24/not-only-sql/</guid>
+
+					<description><![CDATA[NoSQL è l’acronimo di &#8220;Not only SQL&#8221; e viene usato generalmente per indicare quei database che non usano un modello di dati relazionale e quindi potrebbero non usare SQL come linguaggio di interrogazione. Dunque il concetto è di per se’ stesso più antico dei RDBMS, eppure è tornato in auge quando, per varie motivazioni, i &#8230; <a href="https://tuttiperlinux.blog/2014/07/24/not-only-sql/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_206" style="width: 212px" class="wp-caption alignnone"><a href="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png"><img loading="lazy" aria-describedby="caption-attachment-206" data-attachment-id="206" data-permalink="https://tuttiperlinux.blog/nosql/" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png" data-orig-size="278,256" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="nosql" data-image-description="" data-image-caption="&lt;p&gt;NoSQL Database&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png?w=278" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png?w=278" class=" wp-image-206" src="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png?w=202&#038;h=186" alt="NoSQL Database" width="202" height="186" srcset="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png?w=202&amp;h=186 202w, https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png?w=150&amp;h=138 150w, https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png 278w" sizes="(max-width: 202px) 100vw, 202px" /></a><p id="caption-attachment-206" class="wp-caption-text">NoSQL Database</p></div>
+<p><strong>NoSQL</strong> è l’acronimo di &#8220;Not only SQL&#8221; e viene usato generalmente per indicare quei database che <strong>non usano un modello di dati relazionale</strong> e quindi potrebbero non usare SQL come linguaggio di interrogazione. Dunque il concetto è di per se’ stesso più antico dei RDBMS, eppure è tornato in auge quando, per varie motivazioni, i database <strong>non relazionali</strong> hanno mostrato diversi vantaggi, rispetto ai database SQL tradizionali.</p>
+<p>Una delle principali motivazioni per l’uso di tali database è rappresentata dalla scalabilità. La scalabilità è un requisito sempre più importante per le applicazioni web, e ciò è dovuto a molti fattori: l’esplosione del numero di utenti della rete (letteralmente esponenziale negli ultimi dieci anni secondo i dati del ISC Domain Survey ), la sempre maggiore diffusione di OpenID, quindi la sinergia tra le varie community e tra esse e i fornitori di servizi, ma anche la crescente disponibilità di dispositivi con accesso ad Internet come smartphone, tablet e altri dispositivi portatili.</p>
+<p><strong>La scalabilita&#8217; </strong></p>
+<p>La <strong>scalabilita&#8217; orizzontale</strong> si ha se l’aumento delle risorse si riferisce all’aumento dei nodi nel sistema, cioè il sistema riesce a parallelizzare il carico di lavoro e gestire il</p>
+<ul>
+<li>fault tolerance</li>
+<li>load balancing</li>
+<li>high availability</li>
+</ul>
+<p>Avere piu&#8217; macchine per poter disrtibuire e replicare i dati su piu&#8217; nodi, questo lo rende ideale per ambienti quali</p>
+<ul>
+<li>ambienti distribuiti</li>
+<li>affidabilita&#8217;</li>
+<li>elevate prestazioni</li>
+</ul>
+<p>il tutto in bundle , senza bisogno di software aggiuntivi.</p>
+<h4>Scalabilità verticale</h4>
+<p>La <strong>scalabilità verticale</strong> si ottiene quando, per aumentare le prestazioni dell’intero sistema, si aumentano le risorse di un singolo nodo del sistema, ad esempio utilizzando una CPU con frequenza maggiore o incrementando la memoria disponibile. Il vantaggio di questo tipo di scalabilità è che generalmente non è necessario modificare le applicazioni, ne’ sono richiesti interventi amministrativi. Lo svantaggio consiste innanzitutto nel costo, perche’ l’aggiornamento spinto di una macchina può essere economicamente molto più gravoso dell’acquisto di una ulteriore macchina di pari potenza.</p>
+<p>I principali metodi d’implementazione dei database <strong>NoSQL</strong> sono i seguenti:</p>
+<p><strong>Coloumnfamily</strong>: i dati sono organizzati in righe e colonne, ma le righe possono avere quante colonne si vogliono e non c’è bisogno di definire le colonne come prima cosa.</p>
+<p><strong>Document store</strong>: è l’evoluzione del metodo key/value, rispetto ai normali database relazionali invece che immagazzinare i dati in tabelle con dei campi fissi, questi vengono messi in un documento che può contenere illimitati campi di illimitata lunghezza, così se ad esempio di una persona conosciamo solo nome e cognome, ma magari di un’altra persona anche indirizzo, data di nascita e codice fiscale, si evita che per il primo nominativo ci siano campi inutilizzati che occupano inutilmente spazio.</p>
+<p><strong>Graph</strong>: i dati vengono immagazzinati sotto forma di strutture a grafi, rendendo più performante l’accesso a questi da applicativi orientati agli oggetti.</p>
+<p><strong>Key/Value</strong>: in questo caso i dati vengono immagazzinati in un elemento che contiene una chiave assieme ai dati veri e propri, questo metodo è il più semplice da implementare, ma anche il più inefficiente se la maggior parte delle operazioni riguardano soltanto una parte di un elemento.</p>
+<h3> </h3>
+<h3><strong>Pro e Contro dei database non relazionali</strong></h3>
+<p><strong>Vantaggi</strong></p>
+<ul>
+<li>Dato che un elemento contiene tutte le informazioni necessarie <strong>non serve usare</strong> i <strong>dispendiosi</strong> (in termini di performance) <strong>JOIN</strong> come invece avviene per i database relazionali.</li>
+</ul>
+<ul>
+<li>La <strong>semplicità</strong> di questi database è uno degli elementi fondamentali, è proprio questo che permette di scalare in orizzontale in maniera così efficiente, molti NRDBMS, infatti, permettono di <strong>aggiungere nodi a caldo in maniera impercettibile dall’utente finale</strong>.</li>
+</ul>
+<ul>
+<li>Scegliendo un database adatto alla mappatura più diretta alle object classes del proprio applicativo si possono ridurre di molto i tempi dedicati allo sviluppo del metodo di scambio dati tra il database e l’applicativo stesso (il cosiddetto object-relational mapping che è invece necessario in presenza di database relazionali).</li>
+</ul>
+<p><strong>Svantaggi</strong></p>
+<ul>
+<li>La semplicità di questi database, però, porta anche alla <strong>mancanza dei controlli fondamentali sull’integrità dei dati</strong>, il compito ricade quindi totalmente sull’applicativo che dialoga col database che ovviamente dovrebbe essere testato in modo molto approfondito prima di essere messo in produzione. Per fare un esempio, se avessimo un database dei clienti coi relativi ordini effettuati immagazzinati in elementi diversi, anche se è possibile definire una relazione attraverso le chiavi, in un database non relazionale alla cancellazione di un cliente tutti gli ordini resterebbero comunque nel database, è quindi l’applicativo che una volta impartito il comando di cancellazione dell’utente X deve anche andare a cancellare tutti i relativi ordini, cosa che invece in un database relazionale è gestita direttamente dal database stesso.</li>
+</ul>
+<ul>
+<li>La mancanza di uno standard universale (come può essere l’SQL) è un’altra delle pecche di questi database non relazionali, ogni database ha infatti le proprie API e il suo metodo di storing e di accesso ai dati. Detto questo, risulta palese che se lo sviluppo del database sul quale abbiamo basato il nostro applicativo venisse interrotto, il passaggio ad un altro database non sarebbe sicuramente una cosa immediata, ma richiederebbe alcuni cambi più o meno radicali da apportare all’applicativo, è quindi bene tenere in considerazione la cosa al momento del brainstorming iniziale.</li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/07/24/not-only-sql/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/nosql.png" medium="image">
+			<media:title type="html">NoSQL Database</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

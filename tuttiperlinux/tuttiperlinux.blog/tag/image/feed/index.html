@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>image &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/image/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:23:51 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>image &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Estraiamo i nostri dati</title>
+		<link>https://tuttiperlinux.blog/2014/06/25/estraiamo-i-nostri-dati/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/25/estraiamo-i-nostri-dati/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 25 Jun 2014 10:48:38 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[foremost]]></category>
+		<category><![CDATA[image]]></category>
+		<category><![CDATA[mount]]></category>
+		<category><![CDATA[rescued]]></category>
+		<category><![CDATA[scalpel]]></category>
+		<category><![CDATA[sudo]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=64</guid>
+
+					<description><![CDATA[Ora siamo i felici possessori di una o piu&#8217; immagini su cui abbiamo salvato i nostri preziosi files ma cosa fare adesso per  poterli riutilizzare ??? La prima cosa da fare e&#8217; quella di montare l&#8217;immagine su di un&#8217;altro PC Linux oppure tramite l&#8217;uso della LiveCD rimanere sul PC da cui abbiamo generato il tutto e &#8230; <a href="https://tuttiperlinux.blog/2014/06/25/estraiamo-i-nostri-dati/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p>Ora siamo i felici possessori di una o piu&#8217; immagini su cui abbiamo salvato i nostri preziosi files ma cosa fare adesso per  poterli riutilizzare ???</p>
+<p>La prima cosa da fare e&#8217; quella di montare l&#8217;immagine su di un&#8217;altro PC Linux oppure tramite l&#8217;uso della LiveCD rimanere sul PC da cui abbiamo generato il tutto e montare l&#8217;immagine su di un supporto esterno (disco, chiavetta ecc..) su cui spostare man mano i dati recuperati. Quest&#8217;operazione si puo&#8217; facilmente effettuare tramite il comando :</p>
+<p><strong>sudo mount -o loop /media/drive-di-backup/sdd1.image /media/recovery</strong></p>
+<p>Ora possiamo dare un&#8217;occhiata dentro /media/recovery dentro cui dovreste poter vedere tutti i dati precedentemente salvati ed esportarli/copiarli su di un nuovo supporto o PC. Se invece il comando precedente non dovesse aver dato i suoi frutti bisognera&#8217; passare alle maniere piu&#8217; forti chiamando in causa dei tool piu&#8217; specifici come <strong>Foremost </strong>e <strong>Scalpel.</strong> Entrambi sono delle utility che, e&#8217; il caso di dire, &#8220;vanno a caccia dei files&#8221; utilizzando vari formati di header e footer . Foremost e&#8217; il piu&#8217; semplice dei due da usare ma spesso e&#8217; anche il meno efficiente :</p>
+<p><strong>sudo foremost -t all -i /media/drive-di-backup/sdd1.image -v -o rescued-file</strong></p>
+<p>in pratica le opzioni utilizzate sono le seguenti : <strong>-t </strong>all = vogliamo tutti i tipi di files ( nel caso volessimo recuperare soltanto alcuni formati potremo modificare questa opzione nel seguente modo : <strong>-t </strong>jpg,png,tiff ) ; <strong>-i </strong>&lt;immagine.image&gt; = la nostra immagine di backup ; <strong>-v</strong> = verbose mode (per vedere cosa viene fatto) ; <strong>-o</strong> rescued-file = nome della cartella che foremost creera&#8217; per metterci tutti i files che riuscira&#8217; a recuperare. Sul manuale di foremost dichiarano che in caso di filesystem di tipo ext2 bisognera&#8217; aggiungere l&#8217;opzione <strong>-d</strong>.</p>
+<p>Se foremost non dovesse aver soddisfatto le vostre aspettative possiamo far scendere in campo Scalpel il quale pero&#8217; prima di essere utilizzato ha bisogno di alcune modifiche nel suo file di configurazione [ /etc/scalpel/scalpel.conf ] all&#8217;interno del quale andranno decommentati tutti i formati di file che vogliamo far recuperare. Una volta terminata questa fase preparatoria potremo utilizzare scalpel nel seguente modo :</p>
+<p><strong>sudo scalpel</strong> <strong>/media/drive-di-backup/sdd1.image -o rescued-file</strong></p>
+<p>&nbsp;</p>
+<p>** Leggi anche  ( &#8221; <a title="Copia Bit a Bit" href="https://tuttiperlinux.wordpress.com/2014/06/24/copia-bit-a-bit/">copia bit a bit</a> &#8221; )</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/25/estraiamo-i-nostri-dati/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

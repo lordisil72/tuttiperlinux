@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>replicazione &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/replicazione/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Thu, 20 Nov 2014 16:47:03 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>replicazione &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>CouchDB conosciamolo meglio</title>
+		<link>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/</link>
+					<comments>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Wed, 19 Nov 2014 12:26:16 +0000</pubDate>
+				<category><![CDATA[DB]]></category>
+		<category><![CDATA[acid]]></category>
+		<category><![CDATA[apache]]></category>
+		<category><![CDATA[cms]]></category>
+		<category><![CDATA[couchdb]]></category>
+		<category><![CDATA[crm]]></category>
+		<category><![CDATA[dbms]]></category>
+		<category><![CDATA[document oriented]]></category>
+		<category><![CDATA[documentale]]></category>
+		<category><![CDATA[erlang]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[locking]]></category>
+		<category><![CDATA[mvcc]]></category>
+		<category><![CDATA[nosql]]></category>
+		<category><![CDATA[rdbms]]></category>
+		<category><![CDATA[replicazione]]></category>
+		<category><![CDATA[rest]]></category>
+		<category><![CDATA[sql]]></category>
+		<category><![CDATA[subversion]]></category>
+		<category><![CDATA[tabelle]]></category>
+		<category><![CDATA[webserver]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=674</guid>
+
+					<description><![CDATA[Questo articolo e&#8217; la continuazione della precedente &#8220;Introduzione a CouchDB&#8221; per cui riprenderemo alcune informazioni di base gia viste per poi allargare alcuni importanti concetti ed aspetti che riguardano questo interessantissimo documentale via HTTP. Apache CouchDB e’ un moderno documentale, document-oriented, richiamabile semplicemente con l’HTTP e che al tempo stesso offre le piu’ avanzate funzionalita’ &#8230; <a href="https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><a href="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png"><img data-attachment-id="214" data-permalink="https://tuttiperlinux.blog/2014/07/26/introduzione-a-couchdb/couch/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" data-orig-size="160,112" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;}" data-image-title="couchDB" data-image-description="&lt;p&gt;Performing Web DB&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=160" class="alignleft size-full wp-image-214" src="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=600" alt="couchDB" srcset="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png 160w, https://tuttiperlinux.files.wordpress.com/2014/07/couch.png?w=150 150w" sizes="(max-width: 160px) 100vw, 160px"   /></a>Questo articolo e&#8217; la continuazione della precedente &#8220;<a title="Introduzione a CouchDB" href="http://tuttiperlinux.com/2014/07/26/introduzione-a-couchdb/">Introduzione a CouchDB</a>&#8221; per cui riprenderemo alcune informazioni di base gia viste per poi allargare alcuni importanti concetti ed aspetti che riguardano questo interessantissimo documentale via HTTP.</p>
+<p><strong><br />
+Apache CouchDB</strong> e’ un moderno documentale, document-oriented, richiamabile semplicemente con l’HTTP e che al tempo stesso offre le piu’ avanzate funzionalita’ di replicazione dati e di ricerca in parallelo (Map/Reduce).</p>
+<h3><strong>Caratteristiche</strong></h3>
+<p>Scritto in: Erlang<br />
+Punto principale: Consistenza DB consistency, facilità d’uso<br />
+Licenza: Apache<br />
+Protocolli: HTTP/REST<br />
+Replicazione bidirezionale continua o ad-hoc con individuazione dei conflitti, replicazione master-master<br />
+MVCC – le operazioni di scrittura non bloccano le letture<br />
+Sono disponibili le versioni precedenti dei documenti<br />
+Progettazione crash-only (reliable)<br />
+Necessità di compattazioni nel tempo<br />
+Viste: embedded map/reduce<br />
+Viste formattate: lists &amp; shows<br />
+Possibilità di validazione server-side dei documenti<br />
+Possibile autenticazione<br />
+Aggiornamenti real-time attraverso _changes (!)<br />
+Gestione degli allegati e, CouchApps (standalone js apps)<br />
+libreria jQuery inclusa<br />
+Utilizzo ideale: Per accumulazione dei dati con cambi occasionali sui quali vengono eseguite query predefinite. Situazioni in cui la gestione delle versioni è importante.<br />
+Per esempio: CRM, sistemi CMS. Situazioni in cui la replicazione master-master è una caratteristica interessante (ad esempio multisito).</p>
+<p><strong>In CouchDB non esistono tabelle</strong>. Il contenuto informativo è suddiviso in diversi database che fungono da contenitori di documenti con strutture potenzialmente disomogenee tra di loro. Il documento è il fulcro di questo software (e di quelli che come lui condividono l’approccio document-oriented).<br />
+<strong>Un documento è formato da un insieme di coppie chiave-valore.</strong><br />
+A differenza dei database relazionali <strong>CouchDB non possiede il concetto di schema</strong> e quindi ogni documento in ogni database può essere strutturato in modo diverso dagli altri.</p>
+<p><strong>Le uniche due chiavi obbligatorie sono</strong>:<br />
+<strong>_id </strong>serve per identificare univocamente il documento (è comparabile, semanticamente, alla chiave primaria dei database relazionali)<br />
+<strong>_rev </strong>viene utilizzata per la gestione delle revisioni, ad ogni operazione di modifica infatti la chiave &#8220;_rev&#8221; viene aggiornata (questo meccanismo è alla base della prevenzione dei conflitti<br />
+in fase di salvataggio su CouchDB).</p>
+<p>Questo accorgimento permette inoltre di poter interrogare il DBMS su versioni del documento non più attuali in quanto, con un approccio simile a quello di Subversion, <strong>CouchDB mantiene memoria di ogni revisione, da quella iniziale alla più recente</strong>.</p>
+<p>L’altra grande differenza rispetto ai tradizionali RDBMS è il meccanismo di gestione delle query. Nei database relazionali una volta specificate e popolate le tabelle è possibile eseguire query utilizzando un linguaggio conosciuto come SQL (ne esistono vari dialetti ma il concetto non cambia nell’essenza);<br />
+a fronte di una query il RDBMS utilizza indici interni e le proprie relazioni per costruire in tempo reale una tabella di risultato (che può, nelle query più semplici, essere un sottoinsieme della tabella di partenza).</p>
+<p>Questa soluzione riesce ad essere performante in quanto i dati sono strutturati con questo preciso scopo; inoltre il database non deve conoscere a priori le query che verranno eseguite ma può rispondere a qualsiasi interrogazione, purché sia stilata usando SQL valido.</p>
+<h3><strong>Consistenza dei dati e replicazione</strong></h3>
+<p><strong>CouchDB non utilizza alcun meccanismo di locking</strong> ma sfrutta l&#8217;MVCC (Multiversion Concurrency Control): ogni modifica di un oggetto ne crea una nuova versione. Le versioni precedenti non vengono cancellate. Se due modifiche vanno in conflitto poiche&#8217; accedono allo stesso documenti, la seconda riceve un errore in save. L&#8217;applicazione deve riprendere l&#8217;ultima versione del documento e rieseguire l&#8217;UPDATE.<br />
+L&#8217;isolamento e&#8217; mantenuto solo a livello di un singolo documento, questa e&#8217; una notevole semplificazione, rispetto alla complessa logica transazionale di altri database, ma consente l&#8217;ottimizzazione, la parallelizzazione e la distribuzione dei dati in modo semplice. A livello di accesso al file di dati ogni singola modifica ad un documento rispetta le proprieta ACID (Atomic Consistent Isolated Durable) con la serializzazione delle modifiche sui documenti e la scrittura sincrona sul disco.</p>
+<p><strong>Piu&#8217; database CouchDB possono essere collegati tra loro</strong> in modo molto semplice. I database vengono aggiornati tra loro con una replicazione peer-to-peer incrementale implementata nativamente nell&#8217;engine. <strong>CouchDB permette una replicazione bidirezionale asincrona</strong>, utilizza un meccanismo automatico di risoluzione dei conflitti e fornisce una eventual consistency tra i database. Se i database sono ospitati su nodi differenti si ottiene con questo la distribuzione dei dati.<br />
+La replicazione di CouchDB puo&#8217; essere utilizzata sia per sincronizzare database locali che per complesse configurazioni con sharding dei dati.</p>
+<p>Per lavorare su CouchDB esiste anche la possibilita&#8217; di installare <b>CouchApp, </b>in pratica<b> </b>una serie di script che permettono di costruire completi applicazioni stand-alone per il database usando solo HTML e JavaScript. Poiche&#8217; il database stesso risponde in HTTP e&#8217; possibile concentrare su un solo nodo (eventualmente replicabile) la classica pila applicativa web a tre livelli.</p>
+<p>CouchDB si e&#8217; cosi&#8217; rapidamente imposto sul mercato, diventando uno tra i piu&#8217; usati database non relazionali. In pratica i due piu&#8217; diffusi NoSQL documentali sono <b>CouchDB</b> e <b>MongoDB</b>: entrambi sono velocissimi (memorizzano i dati in BSON/JSON), sono scalabili in modo nativo su piu&#8217; nodi e non forniscono un&#8217;interfaccia SQL.</p>
+<p>Per una documentazione piu&#8217; dettagliata si rimanda al sito ufficiale di <a href="http://couchdb.apache.org/" rel="nofollow">Apache CouchDB</a>.</p>
+<p>&nbsp;</p>
+<p>Per ora e&#8217; tutto, alla prossima e, buon divertimento!</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/11/19/couchdb-conosciamolo-meglio/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/07/couch.png" medium="image">
+			<media:title type="html">couchDB</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>GlusterFS: Storage Scalabile e Distribuito</title>
+		<link>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/</link>
+					<comments>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 08 Aug 2014 21:58:41 +0000</pubDate>
+				<category><![CDATA[SysAdmin]]></category>
+		<category><![CDATA[cifs]]></category>
+		<category><![CDATA[export fs]]></category>
+		<category><![CDATA[filesystem]]></category>
+		<category><![CDATA[glusterfs]]></category>
+		<category><![CDATA[hosts]]></category>
+		<category><![CDATA[linux blog]]></category>
+		<category><![CDATA[nfs]]></category>
+		<category><![CDATA[open source]]></category>
+		<category><![CDATA[peta byte]]></category>
+		<category><![CDATA[rdma]]></category>
+		<category><![CDATA[replicazione]]></category>
+		<category><![CDATA[storage]]></category>
+		<category><![CDATA[volume]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=329</guid>
+
+					<description><![CDATA[Introduzione GlusterFS è un file system open source distribuito e scalabile orizzontalmente, la cui capacità può essere dinamicamente espansa mediante l’aggiunta di nuovi nodi. GlusterFS è in grado di arrivare a gestire fino a diversi Peta Byte, migliaia di client e diverse aree dati (storage) organizzandole in blocchi che rende accessibili su Infiniband RDMA (remote &#8230; <a href="https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<h3><strong><a href="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg"><img data-attachment-id="330" data-permalink="https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/gluster-logo-300x115/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg" data-orig-size="300,115" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="glusterfs" data-image-description="&lt;p&gt;GlusterFS&lt;/p&gt;
+" data-image-caption="" data-medium-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=300" data-large-file="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=300" class="alignleft size-full wp-image-330" src="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=600" alt="glusterfs" srcset="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg 300w, https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg?w=150 150w" sizes="(max-width: 300px) 100vw, 300px"   /></a>Introduzione</strong></h3>
+<p><strong>GlusterFS</strong> è un <strong>file system open source</strong> <em>distribuito e scalabile orizzontalment</em>e, la cui capacità può essere dinamicamente espansa mediante l’aggiunta di nuovi nodi. GlusterFS è in grado di arrivare a gestire fino a diversi Peta Byte, migliaia di client e diverse aree dati (storage) organizzandole in blocchi che rende accessibili su <em>Infiniband RDMA</em> (remote direct memory access, fibra ottica) o connessioni TCP/IP.</p>
+<p>Le risorse {<b>memoria e disco</b>} vengono rese disponibili sotto un unico punto di condivisione e tali risorse possono essere montate dai client mediante tre diversi protocolli: CIFS, NFS oppure tramite il client nativo Gluster.</p>
+<p>Inoltre GlusterFS supporta la replica geografica ossia la replica dei dati di un Volume su un Server dislocato in un area geografica diversa da quella dove sono presenti gli altri nodi.</p>
+<p><strong>Iniziamo a prendere confidenza con alcune terminologie di <a href="http://www.gluster.org/">GlusterFS</a>:</strong></p>
+<ul>
+<li><strong>Volume</strong>: Identifica la condivisione effettiva che viene messa a disposizione</li>
+<li><strong>Brick</strong>: Identifica il file system locale di un server su cui opera GlusterFS</li>
+<li><strong>Translator</strong>: Identifica delle componenti ( librerie ) che estendono le funzionalità del file system</li>
+<li><strong>Server</strong>: Identifica la macchina o le macchine ( reali o virtuali ) dove risiedono i dati</li>
+<li><strong>Client</strong>: Identifica la macchina che monta il volume</li>
+</ul>
+<p>La logica quindi è la seguente:</p>
+<p>Si installa GlusterFS su ogni server che fa parte del pool di storage del cluster, si definiscono i blocchi ( bricks ) da esportare ( directory ) andando cosi a creare la condivisione effettiva chiamata Volume.</p>
+<p>Successivamente su ogni Client interessato installiamo allo stesso modo GlusterFS, e tramite i protocolli citati prima ( NFS, CIFS, GlusterFS Client ) andiamo a montare il cluster rendendo disponibile la condivisione ( Volume ).</p>
+<p>Vediamo adesso le diverse <strong>TIPOLOGIE DI VOLUME</strong> ossia come i dati possono essere organizzati:</p>
+<ul>
+<li><strong>Distributed</strong>: Definisce un {Volume Distribuito} dove i file vengono distribuiti in maniera random tra i vari brick del Volume che compongono il Cluster. Questo comporta maggior scalabilità ma molta meno ridondanza,infatti nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Replicated</strong>: Definisce un Volume Replicato dove i file vengono replicati tra i Brick del Volume che compongono il Cluster. Questo comporta una riduzione dello spazio disponibile per lo Storage ma una maggior ridondanza e tale configurazione è consigliabile per avere un Elevata Affidabilità e un Elevata Disponibilità.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong><em>NON</em></strong> comporterebbe la perdita dei dati visto che ne abbiamo una replica a disposizione. Le repliche dei dati è consigliabile averle in brick separati cioè che non si trovino sulla stessa macchina.</li>
+<li><strong>Striped</strong>: Definisce un Volume Striped dove i file vengono memorizzati in blocchi nei brick del Volume che compongono il Cluster.<br />
+Questo comporta maggiori prestazioni in lettura e scrittura su file di grandi dimensioni e maggior spazio a disposizione ma una minor ridondanza. Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Distribuited Striped</strong>: Definisce un Volume Distribuito e Striped dove il Volume memorizza i file in blocchi tra 2 o più nodi del Cluster. Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) comporta la perdita dei dati in esso contenuti.</li>
+<li><strong>Distribuited Replicated</strong>: Definisce un Volume Distribuito Replicato dove il Volume distribuisce e replica i file tra i Brick del Cluster. Questo comporta la combinazione dei pregi delle singole soluzioni distributedd e Replicated.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong><em>NON</em></strong> comporterebbe la perdita dei dati visto che ne abbiamo una replica a disposizione e il Volume resterebbe sempre accessibile.</li>
+<li><strong>Striped Replicated</strong>: Definisce un Volume Striped Replicato dove il Volume fa lo Stripe dei file e li replica tra i Brick del Cluster.<br />
+Si combinano i pregi dello <strong>Stripe</strong> ossia maggiori prestazioni in lettura e scrittura utile per esempio su file di grandi dimensioni con i pregi della <strong>Replicazione sui Brick</strong> del Cluster per avere cosi prestazioni e ridondanza.<br />
+Nel caso in cui ci fosse un Volume cosi configurato, un guasto del Server ( Brick ) <strong>NON</strong> comporta la perdita dei dati in esso contenuti.</li>
+</ul>
+<p><strong>INSTALLIAMOLO<br />
+</strong>Per procedere all&#8217;installazione e testare il software dovremo avvalerci di almeno due macchine, decidete voi se reali o VM, dopodiche&#8217; inizieremo dividendo il lavoro; partiamo con la macchina che fara&#8217; da Server :</p>
+<p>modifichiamo a dovere il file /etc/hosts, io ho fatto nel seguente modo</p>
+<p># vim /etc/hosts<br />
+192.168.2.138    server1.example.com     server1<br />
+192.168.2.182    client1.example.com     client1</p>
+<pre>aptitude install glusterfs-server</pre>
+<p>&#8230;ora dobbiamo creare le seguenti directory</p>
+<pre>mkdir /data/
+mkdir /data/export
+mkdir /data/export-ns</pre>
+<pre>cp /etc/glusterfs/glusterd.vol /etc/glusterfs/glusterd.vol_orig
+cat /dev/null &gt; /etc/glusterfs/glusterd.vol</pre>
+<pre>vim /etc/glusterfs/glusterd.vol</pre>
+<pre>volume posix
+  type storage/posix
+  option directory /data/export
+end-volume
+
+volume locks
+  type features/locks
+  option mandatory-locks on
+  subvolumes posix
+end-volume
+
+volume brick
+  type performance/io-threads
+  option thread-count 8
+  subvolumes locks
+end-volume
+
+volume server
+  type protocol/server
+  option transport-type tcp
+  option auth.addr.brick.allow 192.168.2.182 # inserire qui l'indirizzo od il nome host del vostro client
+  subvolumes brick
+end-volume</pre>
+<pre>/etc/init.d/glusterfs-server start</pre>
+<p>&#8230;ora passiamo a lavorare sul client</p>
+<pre>aptitude install glusterfs-client glusterfs-server</pre>
+<pre>mkdir /mnt/glusterfs  
+
+cp /etc/glusterfs/glusterd.vol /etc/glusterfs/glusterd.vol_orig
+cat /dev/null &gt; /etc/glusterfs/glusterd.vol</pre>
+<pre>vim /etc/glusterfs/glusterd.vol
+
+</pre>
+<pre>volume remote
+  type protocol/client
+  option transport-type tcp
+  option remote-host server1.example.com # inserite qui l'indirizzo od il nome host del server
+  option remote-subvolume brick
+end-volume
+
+volume writebehind
+  type performance/write-behind
+  option window-size 4MB
+  subvolumes remote
+end-volume
+
+volume cache
+  type performance/io-cache
+  option cache-size 512MB
+  subvolumes writebehind
+end-volume</pre>
+<p>ora dobbiamo lanciare uno di questi due comandi :</p>
+<p class="command">glusterfs -f /etc/glusterfs/glusterd.vol /mnt/glusterfs</p>
+<p>oppure</p>
+<p class="command">mount -t glusterfs /etc/glusterfs/glusterd.vol /mnt/glusterfs</p>
+<p class="command">&#8230;.se non avete avuto errori eseguendo il comando <strong>mount</strong> dovreste vedere qualcosa del genere</p>
+<p class="command"># mount<br />
+/etc/glusterfs/glusterd.vol on /mnt/glusterfs type fuse.glusterfs (rw,default_permissions,allow_other,max_read=131072)</p>
+<p class="command"># [client1] df -h<br />
+/etc/glusterfs/glusterd.vol<br />
+143G   33G  103G  25% /mnt/glusterfs</p>
+<p class="command">che nel mio caso equivale alla partizione /home della macchina server<br />
+# [server1] df -h<br />
+/home/server1/.Private            143G   33G    103G  25% /home/server1/Private</p>
+<p class="command">&#8230;come notate dalle dimensioni dei due filesystems</p>
+<p class="command">a questo punto non ci rimane altro che modificare il file /etc/fstab in modo da rendere immediato il mount al boot del client</p>
+<p class="command"># vim /etc/fstab</p>
+<pre>/etc/glusterfs/glusterfs.vol  /mnt/glusterfs  glusterfs  defaults  0  0</pre>
+<p class="command">Questo era solo un semplice esercizio per imparare a capire il software in questione ovviamente con le dovute aggiunte e modifiche del caso si potranno creare <strong>Volumi</strong> e directory ad hoc della grandezza desiderata in cui salvare tutti i dati per noi importanti.</p>
+<p class="command">Buon divertimento !</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/08/08/glusterfs-storage-scalabile-e-distribuito/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2014/08/gluster-logo-300x115.jpg" medium="image">
+			<media:title type="html">glusterfs</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

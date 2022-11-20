@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>pktstat &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/pktstat/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Mon, 26 Jan 2015 00:52:08 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>pktstat &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Come controllare la rete dalla shell Linux</title>
+		<link>https://tuttiperlinux.blog/2015/01/26/come-controllare-la-rete-dalla-shell-linux/</link>
+					<comments>https://tuttiperlinux.blog/2015/01/26/come-controllare-la-rete-dalla-shell-linux/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 26 Jan 2015 00:52:08 +0000</pubDate>
+				<category><![CDATA[Networking]]></category>
+		<category><![CDATA[Tips & Tricks]]></category>
+		<category><![CDATA[bmon]]></category>
+		<category><![CDATA[cache]]></category>
+		<category><![CDATA[dns]]></category>
+		<category><![CDATA[ftp]]></category>
+		<category><![CDATA[http]]></category>
+		<category><![CDATA[iptraf]]></category>
+		<category><![CDATA[iptstate]]></category>
+		<category><![CDATA[kernel]]></category>
+		<category><![CDATA[linux blog in italiano]]></category>
+		<category><![CDATA[memoria]]></category>
+		<category><![CDATA[nethogs]]></category>
+		<category><![CDATA[nload]]></category>
+		<category><![CDATA[pdnsd]]></category>
+		<category><![CDATA[pktstat]]></category>
+		<category><![CDATA[ram]]></category>
+		<category><![CDATA[speedometer]]></category>
+		<category><![CDATA[sysctl]]></category>
+		<category><![CDATA[tcp/udp]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.com/?p=974</guid>
+
+					<description><![CDATA[PREMESSA Purtroppo rispetto a molte altre nazioni nel mondo e, nella stessa Europa, ci troviamo ad avere ancora delle connessioni ad Internet che, nella maggior parte del paese, sono a dir poco scandalose. In precedenti articoli abbiamo provato a mettere un po&#8217; di pepe al nostro pc lavorando sulla gestione della RAM oppure sulla modifica &#8230; <a href="https://tuttiperlinux.blog/2015/01/26/come-controllare-la-rete-dalla-shell-linux/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<div data-shortcode="caption" id="attachment_975" style="width: 215px" class="wp-caption alignleft"><img loading="lazy" aria-describedby="caption-attachment-975" data-attachment-id="975" data-permalink="https://tuttiperlinux.blog/2015/01/26/come-controllare-la-rete-dalla-shell-linux/net_tool/#main" data-orig-file="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg" data-orig-size="240,210" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="net_tool" data-image-description="&lt;p&gt;Monitoring dal Terminale&lt;/p&gt;
+" data-image-caption="&lt;p&gt;Monitoring dal Terminale&lt;/p&gt;
+" data-medium-file="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=240" data-large-file="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=240" class=" wp-image-975" src="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=205&#038;h=179" alt="Monitoring dal Terminale" width="205" height="179" srcset="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=205&amp;h=179 205w, https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=150&amp;h=131 150w, https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg 240w" sizes="(max-width: 205px) 100vw, 205px" /><p id="caption-attachment-975" class="wp-caption-text">Monitoring dal Terminale</p></div>
+<p><strong>PREMESSA</strong></p>
+<p>Purtroppo rispetto a molte altre nazioni nel mondo e, nella stessa Europa, ci troviamo ad avere ancora delle connessioni ad Internet che, nella maggior parte del paese, sono a dir poco scandalose.</p>
+<p>In precedenti articoli abbiamo provato a mettere un po&#8217; di pepe al nostro pc lavorando sulla gestione della RAM oppure sulla modifica dei parametri del kernel tramite Sysctl, oppure accellerando la risoluzione degli indirizzi DNS tramite la creazione di un meccanismo di Cache usando, ad esempio, PDNSD.</p>
+<p>Oggi vedremo come colmare quella parte di &#8220;monitoring&#8221; sulla velocita&#8217; della nostra rete, presentando questo elenco di utilissimi tool, da riga di comando, che vi permetteranno di avere il polso della situazione in tempo reale. Troverete sicuramente quello che fa al caso vostro.</p>
+<p><strong>P.S.</strong> : I seguenti programmi sono tutti disponibili nei repository principali di Ubuntu, quindi per installarli bastera&#8217; scrivere :</p>
+<pre>apt-get install nome del programma</pre>
+<p><strong>NETWORK TOOL</strong></p>
+<p><strong>IPTState</strong> : un’interfaccia simile a Top collegata alla vostra tabella connection-tracking di netfilter.<br />
+Utilizzando iptstate si può verificare in modo interattivo il traffico che attraversa il tuo firewall netfilter/iptables , ordinato per vari criteri, è possibile limitare la visualizzazione con vari criteri, ed e&#8217; possibile cancellare gli stati dalla tabella.</p>
+<p><strong>Pktstat</strong> : visualizza un elenco in tempo reale delle connessioni attive viste su una interfaccia di rete, e quanta banda viene utilizzata. Parzialmente decodifica i protocolli HTTP e FTP per mostrare il nome del file che viene trasferito. Anche i nomi delle applicazioni X11 sono mostrate.</p>
+<p><strong>NetHogs </strong>: diversamente da altri, invece che “spacchettare” il traffico verso il “basso” per protocollo o per sottorete, come la maggior parte degli strumenti fanno, mostra la banda utilizzata dai vari programmi. NetHogs non si basa su un modulo del kernel speciale da caricare. Se c’è ad un tratto molto traffico di rete, si può lanciare subito NetHogs e vedere immediatamente quale PID è la causa. Questo rende facile individuare i programmi che sono impazziti e stanno improvvisamente prendendo tutta la vostra banda di rete.</p>
+<p><strong>IPTraf</strong> : un programma (storico) che raccoglie statistiche di rete per Linux. Anch&#8217;esso raccoglie una serie di dati come i pacchetti delle connessioni TCP e conteggio dei byte, le statistiche sulle interfaccie e gli indicatori di attività, dati TCP/UDP sul traffico, e traffico per LAN.</p>
+<p><strong>Bmon</strong> : bmon è un monitor di banda, destinato per il debug ed il monitoraggio real-time, in grado di recuperare le statistiche da vari tipi d’ingresso. Fornisce metodi di uscita vari tra cui un’interfaccia basata su librerie curses. L’insieme dei moduli per l’input sono specifici per ogni tipologia di architettura e prevedono un nucleo comune con l’elenco delle interfacce e dei loro contatori.</p>
+<p>Il nucleo memorizza questi contatori e fornisce una stima della velocità ed una storia degli ultimi 60 secondi, minuti, ore e giorni ai moduli di uscita che li mostrano in base alla configurazione, durante l’esecuzione, è possibile selezionare l’interfaccia da controllare e premere il tasto “g” per vedere un grafico attivo come questo:</p>
+<p><strong>Speedometer</strong> : si tratta di un interessante progetto che permette di visualizzare e misurare la velocità dei dati attraverso una rete o dei dati che vengono memorizzati in un file,</p>
+<p>Come potrete vedere, anche se si tratta di un tool basato sulla riga di comando, ha dei bei colori vivaci e altre cose che lo rendono uno strumento piuttosto user-friendly, ha la capacità di monitorare la velocità in tempo reale di download/upload delle connessioni di rete e può essere utilizzato anche per misurare la velocità di scrittura in un file system.</p>
+<p><strong>Nload</strong> : nload è un’applicazione da console che controlla il traffico di rete e l’utilizzo della larghezza di banda in tempo reale. Esso visualizza il traffico in entrata ed in uscita utilizzando due grafici e fornisce informazioni aggiuntive come quantità totale di dati trasferiti e min/max di utilizzo della rete.</p>
+<p>&nbsp;</p>
+<p>La cosa migliore e&#8217; sicuramente quella di testarli tutti, magari su macchine virtuali, per poter meglio decidere quali fanno esattamente al caso vostro.</p>
+<p>&nbsp;</p>
+<p>#ControllalaRetedallaShell</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2015/01/26/come-controllare-la-rete-dalla-shell-linux/feed/</wfw:commentRss>
+			<slash:comments>1</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+
+		<media:content url="https://tuttiperlinux.files.wordpress.com/2015/01/net_tool.jpg?w=150" medium="image">
+			<media:title type="html">Monitoring dal Terminale</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>

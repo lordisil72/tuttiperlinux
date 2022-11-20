@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	xmlns:georss="http://www.georss.org/georss" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:media="http://search.yahoo.com/mrss/"
+	>
+
+<channel>
+	<title>sfdisk &#8211; Tutti per Linux</title>
+	<atom:link href="https://tuttiperlinux.blog/tag/sfdisk/feed/" rel="self" type="application/rss+xml" />
+	<link>https://tuttiperlinux.blog</link>
+	<description>Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</description>
+	<lastBuildDate>Fri, 27 Jun 2014 09:06:44 +0000</lastBuildDate>
+	<language>it-IT</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>http://wordpress.com/</generator>
+<cloud domain='tuttiperlinux.blog' port='80' path='/?rsscloud=notify' registerProcedure='' protocol='http-post' />
+<image>
+		<url>https://secure.gravatar.com/blavatar/fa5c4cf69896031d9ec71ff8d5aafd25?s=96&#038;d=https%3A%2F%2Fs0.wp.com%2Fi%2Fbuttonw-com.png</url>
+		<title>sfdisk &#8211; Tutti per Linux</title>
+		<link>https://tuttiperlinux.blog</link>
+	</image>
+	<atom:link rel="search" type="application/opensearchdescription+xml" href="https://tuttiperlinux.blog/osd.xml" title="Tutti per Linux" />
+	<atom:link rel='hub' href='https://tuttiperlinux.blog/?pushpress=hub'/>
+	<item>
+		<title>Sfdisk salvare le partizioni</title>
+		<link>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/#respond</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Fri, 27 Jun 2014 08:59:02 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[distro]]></category>
+		<category><![CDATA[linux]]></category>
+		<category><![CDATA[mirror]]></category>
+		<category><![CDATA[partizioni]]></category>
+		<category><![CDATA[raid]]></category>
+		<category><![CDATA[sfdisk]]></category>
+		<category><![CDATA[testdisk]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=92</guid>
+
+					<description><![CDATA[Salvare la tabella della partizioni Anche se l&#8217;uso di TestDisk ci aiuta a ripristinare eventuali partizioni perse, ritrovarsi con una tabella della partizioni scombinata puo&#8217; richiedere  parecchio tempo per essere sistemata. Sarebbe molto meglio (come gia suggerito nei precedente articolo ( &#8220;testdisk e le partizioni&#8221;  ) averne gia salvata una in ordine&#8230;, in questi casi &#8230; <a href="https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<p><strong>Salvare la tabella della partizioni</strong></p>
+<p>Anche se l&#8217;uso di TestDisk ci aiuta a ripristinare eventuali partizioni perse, ritrovarsi con una tabella della partizioni scombinata puo&#8217; richiedere  parecchio tempo per essere sistemata. Sarebbe molto meglio (come gia suggerito nei precedente articolo ( &#8220;<a title="TestDisk e le partizioni" href="https://tuttiperlinux.wordpress.com/2014/06/27/testdisk-e-le-partizioni/">testdisk e le partizioni</a>&#8221;  ) averne gia salvata una in ordine&#8230;, in questi casi e&#8217; una buona idea usare <strong>sfdisk</strong> ogni volta che installate o rimuovete una distro, o comunque ogni qual volta facciate delle modifiche alle partizioni.</p>
+<p><strong>Sfdisk</strong> e&#8217; una piccola utility da riga di comando, gia&#8217; inclusa in tutte le recenti distro Linux, in grado di fare il backup ed il ripristino delle tabelle delle partizioni, oltre a poterle modificare a piacimento/necessita&#8217;.</p>
+<pre>Ad esempio il comando: <strong>sudo sfdisk -d /dev/sda &gt; sda_tabella.txt
+</strong></pre>
+<p>effettuera&#8217; una copia di sicurezza della tabella delle partizioni del disco <strong>sda</strong> all&#8217;interno del file di testo che dovrete tenere in un posto ben al sicuro.</p>
+<pre>Al contrario il comando : <strong>sudo sfdisk /dev/sda &lt;</strong> <strong>sda_tabella.txt</strong></pre>
+<p>leggera&#8217; il file di testo e ripristinera&#8217; la tabella dele partizioni all&#8217;interno dell&#8217;<strong>MBR </strong>di &#8220;sda&#8221; . Nel caso in cui abbiate un sistema di gestione dischi in <strong>RAID, </strong>potete comunque fare il mirror di una tabella delle partizioni da un disco all&#8217;altro usando</p>
+<pre><strong>sudo sfdisk -d /dev/sda | /dev/sdb</strong></pre>
+<p>&nbsp;</p>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/27/sfdisk-salvare-le-partizioni/feed/</wfw:commentRss>
+			<slash:comments>0</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+		<item>
+		<title>Linux Rescue File System</title>
+		<link>https://tuttiperlinux.blog/2014/06/23/linux-rescue-file-system/</link>
+					<comments>https://tuttiperlinux.blog/2014/06/23/linux-rescue-file-system/#comments</comments>
+		
+		<dc:creator><![CDATA[Tutti per Linux]]></dc:creator>
+		<pubDate>Mon, 23 Jun 2014 12:43:51 +0000</pubDate>
+				<category><![CDATA[Backup & Disaster Recovery]]></category>
+		<category><![CDATA[ddrescue]]></category>
+		<category><![CDATA[hdrecover]]></category>
+		<category><![CDATA[MBR]]></category>
+		<category><![CDATA[NTFS]]></category>
+		<category><![CDATA[photorec]]></category>
+		<category><![CDATA[sfdisk]]></category>
+		<category><![CDATA[testdisk]]></category>
+		<guid isPermaLink="false">http://tuttiperlinux.wordpress.com/?p=2</guid>
+
+					<description><![CDATA[Nulla si crea, nulla si distrugge&#8230;..tutto si recupera!  Avete mai pensato che ai dischi dei vostri PC possono capitare molte cose spiacevoli:perdita inaspettata di elettricità&#8217;, campi magnetici forti&#8230;. ed i vostri dati si trasformano in ZOMBIE. Come poter uscire da questa spiacevole situazione ?. Può non sembrare, ma la probabilità di perdere dati importanti è &#8230; <a href="https://tuttiperlinux.blog/2014/06/23/linux-rescue-file-system/">Continua a leggere <span class="meta-nav">&#8594;</span></a>]]></description>
+										<content:encoded><![CDATA[<blockquote><p><strong>Nulla si crea, nulla si distrugge&#8230;..tutto si recupera! </strong></p></blockquote>
+<p>Avete mai pensato che ai dischi dei vostri PC possono capitare molte cose spiacevoli:perdita inaspettata di elettricità&#8217;, campi magnetici forti&#8230;. ed i vostri dati si trasformano in ZOMBIE. Come poter uscire da questa spiacevole situazione ?. Può non sembrare, ma la probabilità di perdere dati importanti è molto alta, solo per fare un esempio può verificarsi a seguito di:</p>
+<ul>
+<li>errori umani (es. per sbaglio “facendo pulizia” nel computer si cancella un file di troppo; oppure dopo aver editato un file al posto di scegliere “Salva con nome…” si preme “Salva” ed ecco che la versione originale del file viene persa.);</li>
+<li>guasti (es. si rompe il disco rigido su cui erano memorizzati i dati, si danneggia la chiavetta USB, si riga il CD/DVD ecc.)</li>
+<li>minacce informatiche (es. virus che cancella i dati del computer, virus che cifra i documenti presenti sul computer e chiede il riscatto ecc.)</li>
+<li>furti (es. il ladro ruba i computer dell’ufficio/casa su cui erano memorizzate tutte i nostri dati sensibili&#8230;&#8230;!!!)</li>
+<li>disastri (es. incendi, allagamenti ecc.)</li>
+</ul>
+<p><strong>Importante:</strong> appena scopri di aver accidentalmente cancellato o altrimenti perso dei dati, NON registrare più nulla su quel dispositivo di memoria o hard disk, correresti il rischio di sovrascrivere i dati che invece vorresti recuperare.</p>
+<p>La cosa troppo spesso sottovalutata e che non importa da quanto tempo usate i computer, nonostante la vostra esperienza prima o poi capitera&#8217; a chiunque di perdere dati + o &#8211; importanti; quindi per quanto ci si pensi &#8220;infallibili&#8221; sempre meglio avere una buona schedulazone di BACKUP, che dovrebbero comprendere non solo files (musica, film, foto ecc&#8230;) ma anche importanti files<br />
+di configurazione (gestione dell&#8217;interfaccia grafica, l&#8217;<strong>MBR</strong>, le regole di firewall ecc&#8230;).</p>
+<p>Detto questo ci sono ancora diversi tool che possono venire in aiuto per uscire da una spiacevole situazione. Lascio perdere tool blasonati (ed a pagamento), in quanto gia&#8217; supporati da manuali/call center ed assistenze varie, per lanciarmi nell&#8217;introduzione dei sistemi OpenSource.<br />
+[<strong>Nota:</strong> nessun sistema e&#8217; infallibile e puo&#8217; dare certezze assolute che sia open/free oppure a pagamento, dipende da situazione a situazione, dalle capacita&#8217; personali/esperienza e dal fattore <strong>&#8220;C&#8221;</strong>, proprio quello che muove una parte del mondo e che ci divide tra l&#8217;essere come Gastone oppure essere un Paperino].</p>
+<p><strong>FSCK :</strong> il primo tool da imparare e&#8217; il sempre verde &#8216;fsck&#8217; che si trova su ogni distro Linux esistente, questo tool viene utilizzato dal sistema, ad esempio, tutte quelle volte in cui e&#8217; necessaria una verifica della consistenza del file system a causa di una chiusura non pulita del sistema, oppure per verificare eventuali problemi di &#8220;logorio&#8221; dei dischi, facendolo partire automaticamente (scan disk)<br />
+ogni tot. riavvii del sistema.</p>
+<p><strong>Fsck</strong> <strong>supporta</strong> i più diffusi file system come <strong>ext2 / ext3 / ext4 / fat / fat32 / ntfs</strong> e può essere utilizzato anche per ripristinare hard disk esterni / interni anche con Microsoft Windows installato.<br />
+Da notare inoltre che durate il ripristino di un file system danneggiato può succedere che alcuni file o directory non possano essere ricollocate nella pozione originaria in quanto le informazioni necessarie sono andate distrutte, in questo caso fsck ci consente di collocare i vari file e directory in una cartella dedicata situata nella radice del file system ripristinato in modo tale da poter essere ricollocati manualmente nelle directory originarie o possono essere rimossi definitivamente.</p>
+<p><strong>Per utilizzare fsck</strong> nella correzione di un file system/partizione e&#8217; d&#8217;obbligo non agire sulla suddetta mentre questa e&#8217; montata, sara&#8217; quindi necessario <strong>utilizzare una</strong> <strong>LiveCD</strong> su un qualunque supporto esterno preferiate, se invece il disco / partizione da ripristinare è esterna al sistema operativo potremo operare dalla nostra distribuzione preoccupandoci soltanto di smontare la partizione in questione prima di agire con i comandi.</p>
+<p>La prima cosa da fare è verificare come viene rilevato il disco o partizione da ripristinare dal nostro sistema operativo. Per verificarlo basta digitare da terminale:<br />
+<strong>sudo fdisk -l</strong><br />
+con questo comando averemo l&#8217;elenco dei dischi e partizioni presenti / collegati nel nostro sistema, nell&#8217;esempio la partizione da ripristinare sara&#8217; <strong>/dev/sdb1</strong></p>
+<p>A questo punto avviamo fsck da root seguito dal disco da rilevare /dev/sdb1 digitiamo<br />
+<strong>sudo fsck -A -r -s /dev/sdb1</strong></p>
+<p>&#8230;se volete che la procedura vada avanti in modo automatico e&#8217; possibile aggiungere l&#8217;opzione<strong> -y</strong><br />
+tenendo pero&#8217; presente che l&#8217;intervento automatico di fsck potrebbe rendere irrecuperabili dei dati.</p>
+<p><strong>**Nota:</strong> fsck e&#8217; un tool ricco di funzionalita&#8217; avanzate per cui rimando, per la personalizzazione<br />
+del comando, alla lettura della man page sul sistema oppure alle guide online presenti sui portali<br />
+delle maggiori distribuzioni Linux.</p>
+<p>Uno dei problemi piu&#8217; comuni che potrebbero bloccare la scansione di fsck sono i <strong>superblocchi corrotti </strong>e visto che un filesystem non puo&#8217; essere utilizzato senza un superblocco in salute esistono diverse sue copie di sicurezza disseminate in diverse posizioni del disco. Bastera&#8217; digitare <strong>sudo</strong> <strong>mke2fs -n /dev/sdb1 </strong>per trovare dove sono stati salvati i superblocchi.</p>
+<p><strong>**Nota: attenzione a non dimenticare l&#8217;opzione -n senza la quale spazzereste via la vostra partizione.</strong></p>
+<p>Esempio: $ <strong>sudo mke2fs /dev/sdb1</strong><br />
+Superblocks backups stored on blocks:<br />
+<strong>32768</strong>,98304,163840,229376 ecc&#8230;..</p>
+<p>Ora potremo usare uno di questi blocchi per rimpiazzare quello indicato come corrotto durante lo scan disk con fsck, nel seguente modo :</p>
+<p>es.-&gt; $ <strong>sudo e2fsck -b 32768 /dev/sdb1</strong> (dove 32768 e&#8217; il primo superblocco disponibile indicato sopra)</p>
+<p>Se il filesystem dovesse essere una partizione <strong>NTFS</strong> si puo&#8217; provare ad utilizzare l&#8217;utility <strong>ntfsifx</strong>, sempre assicurandosi che la partizione in questione non sia montata, dopodiche (seguendo il nostro esempio) bastera&#8217; digitare:<br />
+$ <strong>ntfsfix /dev/sdb1</strong></p>
+<p>Terminate le attività&#8217; descritte saremo pronti ad effettuare un nuovo riavvio; nel caso in cui tutto ciò&#8217; non abbia funzionato, le operazioni ed i tool ancora da scoprire e provare sono diversi e verranno trattati nei prossimi articoli in cui verranno analizzati tool quali :</p>
+<ul>
+<li>hdrecover</li>
+<li>photorec</li>
+<li>ddrescue</li>
+<li>foremost / scalpel</li>
+<li>testdisk</li>
+<li>sfdisk</li>
+</ul>
+]]></content:encoded>
+					
+					<wfw:commentRss>https://tuttiperlinux.blog/2014/06/23/linux-rescue-file-system/feed/</wfw:commentRss>
+			<slash:comments>2</slash:comments>
+		
+		
+		
+		<media:content url="https://2.gravatar.com/avatar/855ab7cb725a5b56c356471b79d1cef6?s=96&#38;d=&#38;r=G" medium="image">
+			<media:title type="html">lordisil72lordisil72</media:title>
+		</media:content>
+	</item>
+	</channel>
+</rss>
