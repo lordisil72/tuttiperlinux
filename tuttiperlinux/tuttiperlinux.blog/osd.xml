@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:moz="http://www.mozilla.org/2006/browser/search/">
 	<ShortName>Tutti per Linux</ShortName>
-	<Description>Search Tutti per Linux - Tutto cio&#039; che avresti sempre voluto capire su Linux</Description>
+	<Description>Search Tutti per Linux - Tutto cio&#039; che avresti sempre voluto capire su Linux ed il mondo Digitale</Description>
 	<Contact>help@wordpress.com</Contact>
 	<Url type="application/atom+xml" template="https://tuttiperlinux.blog/?s={searchTerms}&amp;feed=atom" />
 	<Url type="rss+xml" template="https://tuttiperlinux.blog/?s={searchTerms}&amp;feed=rss2" />
